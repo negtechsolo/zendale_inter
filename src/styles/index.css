@@ -75,8 +75,16 @@ body {
 /* --- Image loading shimmer (graceful loading state) ---------------- */
 .img-frame {
   position: relative;
-  background: #16233a;
   overflow: hidden;
+  /* Awaiting-photo surface: ink-to-carbon depth with a fine hatch on the
+     Z-stroke angle, so an unshipped slot still looks composed. */
+  background:
+    repeating-linear-gradient(
+      calc(90deg + var(--z-angle)),
+      rgba(74, 111, 165, 0.14) 0 1px,
+      transparent 1px 14px
+    ),
+    linear-gradient(calc(180deg - var(--z-angle)), #14243f 0%, #0b1b33 70%);
 }
 .img-frame::before {
   content: "";

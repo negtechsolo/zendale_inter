@@ -1,24 +1,44 @@
-import { lazy } from "react";
+import { lazy, type ComponentType } from "react";
 import { Routes, Route } from "react-router-dom";
 import { Layout } from "./components/Layout";
 
-/* Every route is code-split; the three.js stack loads only with the home hero. */
-const Home = lazy(() => import("./pages/Home"));
-const About = lazy(() => import("./pages/About"));
-const Network = lazy(() => import("./pages/Network"));
-const Services = lazy(() => import("./pages/Services"));
-const CorporateHealth = lazy(() => import("./pages/CorporateHealth"));
-const Consulting = lazy(() => import("./pages/Consulting"));
-const MedicalTechnology = lazy(() => import("./pages/MedicalTechnology"));
-const Partnerships = lazy(() => import("./pages/Partnerships"));
-const HowWeWork = lazy(() => import("./pages/HowWeWork"));
-const Resources = lazy(() => import("./pages/Resources"));
-const Downloads = lazy(() => import("./pages/Downloads"));
-const CaseStudies = lazy(() => import("./pages/CaseStudies"));
-const Careers = lazy(() => import("./pages/Careers"));
-const Contact = lazy(() => import("./pages/Contact"));
-const Privacy = lazy(() => import("./pages/Privacy"));
-const NotFound = lazy(() => import("./pages/NotFound"));
+/**
+ * Every route is code-split; the three.js stack loads only with the home hero.
+ * lazyRetry handles the classic SPA failure after a redeploy: the open tab's
+ * index.html references old chunk hashes that no longer exist, the dynamic
+ * import throws, and the page appears not to load until a manual refresh.
+ * Here we refresh once automatically (guarded so it can never loop).
+ */
+function lazyRetry(factory: () => Promise<{ default: ComponentType }>) {
+  return lazy(() =>
+    factory().catch((error) => {
+      const key = "zendale-chunk-reload";
+      if (!sessionStorage.getItem(key)) {
+        sessionStorage.setItem(key, "1");
+        window.location.reload();
+        return new Promise<never>(() => {}); // reloading — never resolves
+      }
+      throw error; // second failure is a real problem; surface it
+    })
+  );
+}
+
+const Home = lazyRetry(() => import("./pages/Home"));
+const About = lazyRetry(() => import("./pages/About"));
+const Network = lazyRetry(() => import("./pages/Network"));
+const Services = lazyRetry(() => import("./pages/Services"));
+const CorporateHealth = lazyRetry(() => import("./pages/CorporateHealth"));
+const Consulting = lazyRetry(() => import("./pages/Consulting"));
+const MedicalTechnology = lazyRetry(() => import("./pages/MedicalTechnology"));
+const Partnerships = lazyRetry(() => import("./pages/Partnerships"));
+const HowWeWork = lazyRetry(() => import("./pages/HowWeWork"));
+const Resources = lazyRetry(() => import("./pages/Resources"));
+const Downloads = lazyRetry(() => import("./pages/Downloads"));
+const CaseStudies = lazyRetry(() => import("./pages/CaseStudies"));
+const Careers = lazyRetry(() => import("./pages/Careers"));
+const Contact = lazyRetry(() => import("./pages/Contact"));
+const Privacy = lazyRetry(() => import("./pages/Privacy"));
+const NotFound = lazyRetry(() => import("./pages/NotFound"));
 
 export default function App() {
   return (
