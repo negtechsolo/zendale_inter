@@ -6,6 +6,9 @@ import react from "@vitejs/plugin-react";
 export default defineConfig({
   plugins: [react()],
   build: {
+    // The three.js chunk (~266 kB gzip) is intentionally large and lazy-loaded
+    // only when the home hero mounts; raise the warning threshold accordingly.
+    chunkSizeWarningLimit: 1024,
     rollupOptions: {
       output: {
         manualChunks: {

@@ -27,8 +27,9 @@ npx vitest run    # smoke test: renders all 16 routes, fails on console errors
    to pre-filled WhatsApp; wire them to your real endpoint/CRM (search the
    codebase for `TODO (backend)` — every hand-off point is marked).
 5. **Privacy page** — have counsel review `/privacy` (marked `TODO (legal review)`).
-6. **SPA hosting** — configure your host to rewrite all paths to `index.html`
-   (e.g. on Vercel this is automatic for Vite SPAs).
+6. **SPA hosting** — `vercel.json` at the project root rewrites all paths to
+   `index.html` so deep routes (`/network`, `/contact`, …) load directly.
+   Do not delete it; on other hosts, replicate the same rewrite rule.
 
 ## Deliberately out of scope (per brief)
 
