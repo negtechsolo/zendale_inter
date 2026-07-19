@@ -44,10 +44,14 @@ export function SmartImage({ src, alt, className = "", imgClassName = "", eager 
         />
       )}
       {missing && (
-        // Awaiting-photo state: mono label on the ink surface, never a fake icon graphic.
-        <span className="absolute inset-0 z-10 flex items-end p-4">
-          <span className="font-mono text-[0.625rem] uppercase tracking-eyebrow text-steel/70">
-            Photo · {src}
+        // Awaiting-photo state: a composed brand frame (outlined Z watermark +
+        // mono caption), so unshipped slots read as designed, never broken.
+        <span className="absolute inset-0 z-10 flex flex-col items-center justify-center p-4">
+          <svg viewBox="0 0 60 60" className="h-14 w-14 opacity-[0.28]" aria-hidden="true">
+            <path d="M12 12 H48 L20 42 H48 M12 12 L12 20 M48 42 V48 H12" fill="none" stroke="#4A6FA5" strokeWidth="2.5" strokeLinecap="square" />
+          </svg>
+          <span className="absolute bottom-3 left-4 font-mono text-[0.625rem] uppercase tracking-eyebrow text-steel/60">
+            Photograph · {src.replace(".jpg", "")}
           </span>
         </span>
       )}

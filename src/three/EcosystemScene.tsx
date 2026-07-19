@@ -155,7 +155,7 @@ function NodeMesh({
           </mesh>
           <mesh>
             <sphereGeometry args={[0.065, 16, 16]} />
-            <meshStandardMaterial color={color} emissive={color} emissiveIntensity={hovered ? 4 : 2.4} />
+            <meshStandardMaterial color={color} emissive={color} emissiveIntensity={hovered ? 2.2 : 1.4} />
           </mesh>
         </>
       )}
@@ -167,8 +167,8 @@ function NodeMesh({
       )}
       {node.motif === "briefcase" && (
         <mesh>
-          <boxGeometry args={[0.36, 0.27, 0.27]} />
-          <meshStandardMaterial color={color} emissive={color} emissiveIntensity={hovered ? 2.2 : 1.1} />
+          <boxGeometry args={[0.3, 0.22, 0.22]} />
+          <meshStandardMaterial color={color} emissive={color} emissiveIntensity={hovered ? 1.1 : 0.5} />
         </mesh>
       )}
       {node.motif === "circuit" && (
@@ -178,26 +178,26 @@ function NodeMesh({
             <meshStandardMaterial color={color} emissive={color} emissiveIntensity={hovered ? 2.6 : 1.3} wireframe />
           </mesh>
           <mesh>
-            <boxGeometry args={[0.13, 0.13, 0.13]} />
-            <meshStandardMaterial color={color} emissive={color} emissiveIntensity={3} />
+            <boxGeometry args={[0.11, 0.11, 0.11]} />
+            <meshStandardMaterial color={color} emissive={color} emissiveIntensity={1.6} />
           </mesh>
         </>
       )}
       {node.motif === "compass" && (
         <mesh>
           <octahedronGeometry args={[0.27, 0]} />
-          <meshStandardMaterial color={color} emissive={color} emissiveIntensity={hovered ? 2.4 : 1.2} flatShading />
+          <meshStandardMaterial color={color} emissive={color} emissiveIntensity={hovered ? 1.2 : 0.6} flatShading />
         </mesh>
       )}
       {node.motif === "rings" && (
         <>
           <mesh rotation={[Math.PI / 2, 0, 0]} position={[-0.08, 0, 0]}>
-            <torusGeometry args={[0.18, 0.03, 12, 32]} />
-            <meshStandardMaterial color={color} emissive={color} emissiveIntensity={hovered ? 2.8 : 1.5} />
+            <torusGeometry args={[0.16, 0.026, 12, 32]} />
+            <meshStandardMaterial color={color} emissive={color} emissiveIntensity={hovered ? 1.4 : 0.8} />
           </mesh>
           <mesh rotation={[0, 0, Math.PI / 2]} position={[0.08, 0, 0]}>
-            <torusGeometry args={[0.18, 0.03, 12, 32]} />
-            <meshStandardMaterial color={color} emissive={color} emissiveIntensity={hovered ? 2.8 : 1.5} />
+            <torusGeometry args={[0.16, 0.026, 12, 32]} />
+            <meshStandardMaterial color={color} emissive={color} emissiveIntensity={hovered ? 1.4 : 0.8} />
           </mesh>
         </>
       )}
@@ -232,7 +232,7 @@ function Filaments({ nodes, links, progressRef }: { nodes: NodeDef[]; links: [nu
   return (
     <lineSegments>
       <bufferGeometry ref={geom} />
-      <lineBasicMaterial color="#4A6FA5" transparent opacity={0.45} />
+      <lineBasicMaterial color="#4A6FA5" transparent opacity={0.6} />
     </lineSegments>
   );
 }
@@ -309,7 +309,7 @@ function SceneContents({
       const t = state.clock.elapsedTime;
       // The Z sways rather than spins — the mark stays readable — and
       // follows the pointer with a restrained parallax.
-      const targetY = Math.sin(t * 0.14) * 0.22 + state.pointer.x * 0.28;
+      const targetY = Math.sin(t * 0.12) * 0.12 + state.pointer.x * 0.18;
       const targetX = 0.16 + state.pointer.y * -0.12;
       world.current.rotation.y += (targetY - world.current.rotation.y) * 0.04;
       world.current.rotation.x += (targetX - world.current.rotation.x) * 0.04;
@@ -336,7 +336,7 @@ function SceneContents({
       <ambientLight intensity={0.45} />
       <pointLight position={[4, 5, 6]} intensity={38} color="#DCE6F2" />
       <pointLight position={[-5, -3, 3]} intensity={20} color="#C89B5A" />
-      <group ref={world} rotation={[0.16, 0, 0]}>
+      <group ref={world} rotation={[0.1, 0, 0]} position={[mobile ? 0 : 1.5, mobile ? 0.9 : 0.35, 0]} scale={mobile ? 0.62 : 0.92}>
         {nodes.map((n) => (
           <NodeMesh
             key={n.id}
@@ -355,7 +355,7 @@ function SceneContents({
           Disabled on mobile to protect framerate; fog still gives depth. */}
       {!mobile && (
         <EffectComposer>
-          <Bloom intensity={0.85} luminanceThreshold={0.25} luminanceSmoothing={0.6} mipmapBlur />
+          <Bloom intensity={0.45} luminanceThreshold={0.5} luminanceSmoothing={0.7} mipmapBlur />
           <Vignette eskil={false} offset={0.18} darkness={0.75} />
         </EffectComposer>
       )}

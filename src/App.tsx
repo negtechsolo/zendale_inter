@@ -1,4 +1,4 @@
-import { lazy, type ComponentType } from "react";
+import { lazy, useEffect, type ComponentType } from "react";
 import { Routes, Route } from "react-router-dom";
 import { Layout } from "./components/Layout";
 
@@ -40,7 +40,31 @@ const Contact = lazyRetry(() => import("./pages/Contact"));
 const Privacy = lazyRetry(() => import("./pages/Privacy"));
 const NotFound = lazyRetry(() => import("./pages/NotFound"));
 
+/** Prefetch all route chunks once the browser is idle: navigation becomes
+ *  instant, and chunks already in memory survive a redeploy mid-session. */
+function usePrefetchRoutes() {
+  useEffect(() => {
+    const prefetch = () => {
+      [
+        () => import("./pages/About"), () => import("./pages/Network"),
+        () => import("./pages/Services"), () => import("./pages/CorporateHealth"),
+        () => import("./pages/Consulting"), () => import("./pages/MedicalTechnology"),
+        () => import("./pages/Partnerships"), () => import("./pages/HowWeWork"),
+        () => import("./pages/Resources"), () => import("./pages/Downloads"),
+        () => import("./pages/CaseStudies"), () => import("./pages/Careers"),
+        () => import("./pages/Contact"), () => import("./pages/Privacy"),
+      ].forEach((f) => f().catch(() => {})); // best-effort; lazyRetry covers failures
+    };
+    if ("requestIdleCallback" in window) {
+      (window as Window & { requestIdleCallback: (cb: () => void) => number }).requestIdleCallback(prefetch);
+    } else {
+      setTimeout(prefetch, 1800);
+    }
+  }, []);
+}
+
 export default function App() {
+  usePrefetchRoutes();
   return (
     <Routes>
       <Route element={<Layout />}>

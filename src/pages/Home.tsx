@@ -314,7 +314,7 @@ function WeSupport() {
       <Reveal>
         <p className="eyebrow px-5 text-steel lg:px-8">We Support</p>
       </Reveal>
-      <div className="mt-6 overflow-hidden" aria-hidden="true">
+      <div className="marquee-viewport mt-6 overflow-hidden" aria-hidden="true">
         <div className="marquee-track flex w-max items-center gap-10 whitespace-nowrap">
           {track.map((name, i) => (
             <span key={`${name}-${i}`} className="flex items-center gap-10 font-mono text-lg uppercase tracking-eyebrow text-carbon/70">
