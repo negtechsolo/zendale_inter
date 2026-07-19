@@ -204,7 +204,7 @@ export default function Partnerships() {
         eyebrow="Partner With Zendale"
         title="Six kinds of partner. Six different conversations."
         lede="This is not a contact form. Tell us who you are, and you'll get the form — and the follow-up — built for organisations like yours."
-        image={{ src: "partnerships-hero.jpg", alt: "Partnership discussion between Zendale leadership and a partner organisation" }}
+        image={{ src: "partnerships-hero.webp", alt: "Partnership discussion between Zendale leadership and a partner organisation" }}
       />
 
       <section className="bg-mist/60 py-16 lg:py-24">
@@ -256,7 +256,7 @@ export default function Partnerships() {
           </Reveal>
           <Reveal variant="sweep" delay={0.1}>
             <SmartImage
-              src="partnerships-network.jpg"
+              src="partnerships-network.webp"
               alt="Coordinated handover between two facilities in the Zendale network"
               className="diag-mask aspect-[16/10] w-full"
             />

@@ -68,7 +68,7 @@ export default function Careers() {
         eyebrow="Careers"
         title="Build a career across a whole healthcare system."
         lede="Zendale hires clinicians, engineers, consultants and operators — people who want their work to connect to something larger than a single facility."
-        image={{ src: "careers-hero.jpg", alt: "Zendale team members during a working day across the network" }}
+        image={{ src: "careers-hero.webp", alt: "Zendale team members during a working day across the network" }}
       />
 
       <section className="bg-porcelain py-20 lg:py-28">
@@ -101,7 +101,7 @@ export default function Careers() {
             </p>
             <div className="mt-8">
               <SmartImage
-                src="careers-team.jpg"
+                src="careers-team.webp"
                 alt="Colleagues from clinical and engineering teams collaborating at a network facility"
                 className="diag-mask aspect-[16/10] w-full"
               />

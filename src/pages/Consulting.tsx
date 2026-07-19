@@ -38,7 +38,7 @@ export default function Consulting() {
         eyebrow="Healthcare Consulting · VHELAR Consulting"
         title="Advice from people who run hospitals, not just study them."
         lede="Zendale's consulting practice advises hospitals, investors and public institutions — backed by a group that operates ICUs, diagnostic centres and specialist facilities every day. Our recommendations have all been tested on ourselves first."
-        image={{ src: "consulting-hero.jpg", alt: "VHELAR consultants reviewing a facility operations plan with hospital leadership" }}
+        image={{ src: "consulting-hero.webp", alt: "VHELAR consultants reviewing a facility operations plan with hospital leadership" }}
       >
         <Button to="/contact" variant="brass">Talk to Our Team</Button>
       </PageHero>
@@ -69,7 +69,7 @@ export default function Consulting() {
         <div className="mx-auto grid max-w-7xl items-center gap-12 px-5 lg:grid-cols-2 lg:px-8">
           <Reveal variant="sweep">
             <SmartImage
-              src="consulting-fieldwork.jpg"
+              src="consulting-fieldwork.webp"
               alt="Consulting fieldwork inside a client hospital during an operational diagnostic"
               className="diag-mask aspect-[4/3] w-full"
             />

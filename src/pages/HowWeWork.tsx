@@ -53,7 +53,7 @@ export default function HowWeWork() {
         eyebrow="How We Work"
         title="The same five stages, whether you're one patient or one government."
         lede="Complexity lives on our side of the relationship. Yours looks like this: one conversation, one plan, one team, one delivery, and support that continues."
-        image={{ src: "how-we-work-hero.jpg", alt: "A Zendale coordinator planning a patient pathway with the clinical team" }}
+        image={{ src: "how-we-work-hero.webp", alt: "A Zendale coordinator planning a patient pathway with the clinical team" }}
       />
 
       <section className="bg-porcelain py-16 lg:py-24">
@@ -89,7 +89,7 @@ export default function HowWeWork() {
         <div className="mx-auto grid max-w-7xl items-center gap-10 px-5 lg:grid-cols-2 lg:px-8">
           <Reveal variant="sweep">
             <SmartImage
-              src="how-we-work-support.jpg"
+              src="how-we-work-support.webp"
               alt="Ongoing equipment maintenance visit at a partner facility"
               className="diag-mask aspect-[16/10] w-full"
             />

@@ -53,7 +53,7 @@ export default function CorporateHealth() {
         eyebrow="Corporate Healthcare"
         title="Workforce health, without HR becoming a clinic administrator."
         lede="One partner runs your entire corporate health programme — medicals, screening, occupational health — across every location, with one standard and one number to call."
-        image={{ src: "corporate-hero.jpg", alt: "Executive health consultation during a corporate medical programme" }}
+        image={{ src: "corporate-hero.webp", alt: "Executive health consultation during a corporate medical programme" }}
       >
         <Button to="/contact" variant="brass">Request a Corporate Proposal</Button>
         {wa && <Button href={wa} variant="light">Chat on WhatsApp</Button>}
@@ -103,7 +103,7 @@ export default function CorporateHealth() {
           </Reveal>
           <Reveal variant="sweep" delay={0.1}>
             <SmartImage
-              src="corporate-wellness.jpg"
+              src="corporate-wellness.webp"
               alt="Corporate wellness session delivered on-site for a client organisation"
               className="diag-mask-reverse aspect-[4/5] w-full"
             />

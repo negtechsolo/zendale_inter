@@ -31,7 +31,7 @@ export const facilities: Facility[] = [
       "Coordinated multi-specialty referrals",
     ],
     url: "https://skyhighmedicalcentre.com/",
-    image: "network-skyhigh.jpg",
+    image: "network-skyhigh.webp",
     imageAlt: "Clinical team at work inside Sky High Medical Centre",
   },
   {
@@ -48,7 +48,7 @@ export const facilities: Facility[] = [
       "Direct escalation from ward to ICU",
     ],
     url: "https://skyhighmedicalcentre.com/sky-high-dialysis/",
-    image: "network-skyhigh-icu.jpg",
+    image: "network-skyhigh-icu.webp",
     imageAlt: "ICU monitoring equipment at the Sky High ICU and Dialysis Centre",
   },
   {
@@ -65,7 +65,7 @@ export const facilities: Facility[] = [
       "Network referrals when cases need escalation",
     ],
     url: "https://finnihmedicalcentre.com/",
-    image: "network-finnih.jpg",
+    image: "network-finnih.webp",
     imageAlt: "Consultation room at Finnih Medical Centre",
   },
   {
@@ -82,7 +82,7 @@ export const facilities: Facility[] = [
       "Onward referral within the network",
     ],
     url: "https://lifecentremedicals.com/",
-    image: "network-lifecentre.jpg",
+    image: "network-lifecentre.webp",
     imageAlt: "Nurse preparing a patient assessment at Lifecentre Medical Services",
   },
   {
@@ -99,7 +99,7 @@ export const facilities: Facility[] = [
       "Ongoing patient support",
     ],
     url: "https://www.ifmkindredpathfertilitycentre.com/",
-    image: "network-kindredpath.jpg",
+    image: "network-kindredpath.webp",
     imageAlt: "Embryology laboratory at Kindred Path Fertility Centre",
   },
   {
@@ -116,7 +116,7 @@ export const facilities: Facility[] = [
       "Structured reporting to referrers",
     ],
     url: "https://zendaleendoscopy.com/",
-    image: "network-endoscopy.jpg",
+    image: "network-endoscopy.webp",
     imageAlt: "Endoscopy suite at the Zendale Endoscopy Centre",
   },
   {
@@ -133,7 +133,7 @@ export const facilities: Facility[] = [
       "Service continuity for network partners",
     ],
     url: "https://www.lifecentermedsupport.com/",
-    image: "network-medsupport.jpg",
+    image: "network-medsupport.webp",
     imageAlt: "Medical supply and logistics operations at Lifecentre Med Support",
   },
   {
@@ -151,7 +151,7 @@ export const facilities: Facility[] = [
     ],
     url: "",
     internal: "/consulting",
-    image: "network-vhelar.jpg",
+    image: "network-vhelar.webp",
     imageAlt: "VHELAR consultants reviewing a hospital operations plan",
   },
 ];

@@ -25,7 +25,7 @@ export const caseStudies: CaseStudy[] = [
       "Zendale's consulting team began with a full operational diagnostic — clinical workflows, staffing, equipment condition and finances — then sequenced the fixes: a maintenance programme delivered by our biomedical engineering team, restructured rotas built around real patient flow, and simple management reporting the owners could actually read.",
     outcome:
       "The hospital moved from firefighting to routine: equipment back in clinical use, rotas planned in advance, and management decisions made on numbers rather than instinct. The owners retained Zendale for ongoing operational support.",
-    image: "case-hospital-transformation.jpg",
+    image: "case-hospital-transformation.webp",
     imageAlt: "Hospital corridor during a Zendale operational review",
   },
   {
@@ -38,7 +38,7 @@ export const caseStudies: CaseStudy[] = [
       "Zendale consolidated the arrangement into a single retainership: annual medicals and pre-employment screening scheduled centrally, delivered through Zendale facilities and vetted partners in each location, with one report format and one accountable contact.",
     outcome:
       "HR now manages one relationship instead of many. Screening happens on hiring timelines, annual medicals run on schedule, and leadership receives a single consolidated picture of workforce health each cycle.",
-    image: "case-corporate-health.jpg",
+    image: "case-corporate-health.webp",
     imageAlt: "Occupational health assessment during a corporate medical programme",
   },
   {
@@ -51,7 +51,7 @@ export const caseStudies: CaseStudy[] = [
       "Zendale's medical technology team planned the installation around the clinical schedule: site preparation and utilities verified in advance, installation phased outside peak hours, and staff trained on the new equipment before handover rather than after.",
     outcome:
       "The equipment entered clinical service on the planned date, with the receiving team already trained and a maintenance schedule agreed from day one — the beginning of a lifecycle relationship, not the end of a delivery.",
-    image: "case-equipment-installation.jpg",
+    image: "case-equipment-installation.webp",
     imageAlt: "Biomedical engineer commissioning clinical equipment",
   },
   {
@@ -64,7 +64,7 @@ export const caseStudies: CaseStudy[] = [
       "Zendale set up a formal referral partnership: agreed pathways into the Endoscopy Centre and specialist facilities, structured reporting back to the referring clinician, and a named coordinator on the Zendale side.",
     outcome:
       "Patients now move between the clinic and the network without repeating their story or their tests. The referring clinician stays informed at every step and remains the owner of the patient relationship.",
-    image: "case-partnership.jpg",
+    image: "case-partnership.webp",
     imageAlt: "Clinicians reviewing a shared patient referral pathway",
   },
   {
@@ -77,7 +77,7 @@ export const caseStudies: CaseStudy[] = [
       "Working with community organisations, Zendale ran outreach screening days staffed by network clinicians: basic health checks, risk screening and clear guidance on where and how to follow up, with follow-up pathways into network facilities for those who needed them.",
     outcome:
       "People who would not have presented to a hospital were screened, informed and — where needed — connected directly into care, with the community organisations as ongoing partners for future outreach.",
-    image: "case-community-outreach.jpg",
+    image: "case-community-outreach.webp",
     imageAlt: "Community health screening session run by network clinicians",
   },
 ];

@@ -36,7 +36,7 @@ export default function About() {
         eyebrow="Who We Are"
         title="Many parts. One system. One promise."
         lede="Zendale exists so that no one dealing with healthcare — patient or institution — has to assemble their own network of providers. We assembled it already."
-        image={{ src: "about-hero.jpg", alt: "Zendale clinicians and consultants working across the group's facilities" }}
+        image={{ src: "about-hero.webp", alt: "Zendale clinicians and consultants working across the group's facilities" }}
       />
 
       {/* The story */}
@@ -44,7 +44,7 @@ export default function About() {
         <div className="mx-auto grid max-w-7xl items-center gap-12 px-5 lg:grid-cols-12 lg:px-8">
           <Reveal className="lg:col-span-5" variant="sweep">
             <SmartImage
-              src="about-story.jpg"
+              src="about-story.webp"
               alt="Inside a Zendale network facility during a working day"
               className="diag-mask-reverse aspect-[3/4] w-full"
             />

@@ -24,7 +24,7 @@ export default function MedicalTechnology() {
         eyebrow="Medical Technology"
         title="Equipment is a lifecycle, not a delivery."
         lede="Most equipment problems are planning problems wearing a lab coat. Zendale's biomedical engineering team manages the whole working life of your equipment — from specification to the day you retire it."
-        image={{ src: "medtech-hero.jpg", alt: "Zendale biomedical engineer servicing clinical equipment" }}
+        image={{ src: "medtech-hero.webp", alt: "Zendale biomedical engineer servicing clinical equipment" }}
       >
         <Button to="/contact" variant="brass">Discuss an Equipment Need</Button>
         <Button to="/downloads" variant="light">Download the Equipment Guide</Button>
@@ -92,7 +92,7 @@ export default function MedicalTechnology() {
           </Reveal>
           <Reveal variant="sweep" delay={0.1}>
             <SmartImage
-              src="medtech-biomedical-engineer.jpg"
+              src="medtech-biomedical-engineer.webp"
               alt="Biomedical engineering team performing planned maintenance in a critical care unit"
               className="diag-mask-reverse aspect-[4/3] w-full"
             />

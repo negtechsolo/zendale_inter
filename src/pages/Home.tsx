@@ -22,7 +22,7 @@ function Hero() {
     <section className="relative overflow-hidden bg-ink text-porcelain">
       {/* Photographic texture layer behind the 3D scene */}
       <SmartImage
-        src="home-hero-texture.jpg"
+        src="home-hero-texture.webp"
         alt=""
         eager
         className="absolute inset-0 opacity-[0.16]"
@@ -109,7 +109,7 @@ function WhoWeAre() {
           </Reveal>
           <Reveal className="lg:col-span-6" variant="sweep" delay={0.15}>
             <SmartImage
-              src="home-who-we-are.jpg"
+              src="home-who-we-are.webp"
               alt="A Zendale clinical team coordinating patient care across the network"
               className="diag-mask aspect-[4/3] w-full"
             />
