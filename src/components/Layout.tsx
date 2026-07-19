@@ -7,14 +7,26 @@ import { Preloader } from "./Preloader";
 
 function ScrollToTop() {
   const { pathname } = useLocation();
-  useEffect(() => window.scrollTo(0, 0), [pathname]);
+
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "auto",
+    });
+  }, [pathname]);
+
   return null;
 }
 
 /** Route-change fallback while a code-split page chunk loads. */
 function RouteFallback() {
   return (
-    <div className="flex min-h-[60vh] items-center justify-center bg-porcelain" role="status" aria-label="Loading page">
+    <div
+      className="flex min-h-[60vh] items-center justify-center bg-porcelain"
+      role="status"
+      aria-label="Loading page"
+    >
       <span className="eyebrow text-steel">Loading…</span>
     </div>
   );
@@ -25,19 +37,24 @@ export function Layout() {
     <>
       <Preloader />
       <ScrollToTop />
+
       <a
         href="#main"
         className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[110] focus:bg-ink focus:px-4 focus:py-2 focus:text-porcelain"
       >
         Skip to main content
       </a>
+
       <Nav />
+
       <main id="main">
         <Suspense fallback={<RouteFallback />}>
           <Outlet />
         </Suspense>
       </main>
+
       <Footer />
+
       <WhatsAppFab />
     </>
   );
