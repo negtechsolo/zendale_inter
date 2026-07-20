@@ -14,50 +14,60 @@ import { industries } from "../data/services";
 import { SITE, whatsappLink } from "../config";
 
 /* ------------------------------------------------------------------ */
-/*  01 · Hero — The Zendale Ecosystem                                  */
+/*  01 · Hero, The Zendale Ecosystem                                  */
 /* ------------------------------------------------------------------ */
 
 function Hero() {
   return (
     <section className="relative overflow-hidden bg-ink text-porcelain">
-      {/* Photographic texture layer behind the 3D scene */}
       <SmartImage
         src="home-hero-texture.webp"
         alt=""
         eager
-        className="absolute inset-0 opacity-[0.16]"
-        imgClassName="object-cover"
+        className="absolute inset-0 opacity-[0.13]"
+        imgClassName="object-cover object-center"
       />
-      <div className="absolute inset-0 bg-gradient-to-b from-ink/60 via-transparent to-ink" aria-hidden="true" />
-      <EcosystemHero />
-      <div className="relative z-10 mx-auto flex min-h-[92vh] max-w-7xl flex-col justify-end px-5 pb-20 pt-40 lg:px-8 lg:pb-28">
-        <div className="max-w-3xl">
+      <div
+        className="absolute inset-0 bg-gradient-to-b from-ink/55 via-ink/25 to-ink"
+        aria-hidden="true"
+      />
+      <div
+        className="absolute inset-0 hidden bg-gradient-to-r from-ink via-ink/72 to-transparent md:block"
+        aria-hidden="true"
+      />
+
+      <div className="relative z-10 mx-auto grid max-w-7xl gap-8 px-5 pb-14 pt-28 md:grid-cols-12 md:items-start md:gap-8 md:pb-16 md:pt-32 lg:gap-12 lg:px-8 lg:pb-20 lg:pt-36">
+        <div className="relative z-20 order-1 md:col-span-6 lg:col-span-5">
           <Reveal>
             <p className="eyebrow text-brass">The Zendale Ecosystem</p>
           </Reveal>
-          <Reveal delay={0.1}>
-            <h1 className="mt-5 font-display text-[2.6rem] font-medium leading-[1.02] sm:text-6xl lg:text-7xl">
+          <Reveal delay={0.08}>
+            <h1 className="mt-5 max-w-2xl font-display text-[2.7rem] font-medium leading-[1.01] sm:text-6xl lg:text-7xl">
               One Partner. Complete Healthcare Solutions.
             </h1>
           </Reveal>
-          <Reveal delay={0.2}>
-            <p className="mt-6 max-w-2xl text-base leading-relaxed text-porcelain/80 sm:text-lg">
-              Zendale unites specialist care, healthcare consulting, medical technology,
-              corporate health and hospital partnerships in one coordinated network.
+          <Reveal delay={0.16}>
+            <p className="mt-6 max-w-xl text-base leading-relaxed text-porcelain/80 sm:text-lg">
+              Zendale brings specialist care, healthcare consulting, medical technology,
+              corporate health and hospital partnerships together in one coordinated network.
             </p>
           </Reveal>
-          <Reveal delay={0.3}>
+          <Reveal delay={0.24}>
             <div className="mt-9 flex flex-wrap gap-4">
               <Button to="/contact" variant="brass">Talk to Our Team</Button>
               <Button to="/network" variant="light">Explore Our Healthcare Network</Button>
             </div>
           </Reveal>
+          <Reveal delay={0.32}>
+            <p className="mt-12 font-mono text-[0.625rem] uppercase tracking-eyebrow text-porcelain/40">
+              8 facilities · 5 capability pillars · one coordinated system
+            </p>
+          </Reveal>
         </div>
-        <Reveal delay={0.45}>
-          <p className="mt-14 font-mono text-[0.625rem] uppercase tracking-eyebrow text-porcelain/40">
-            8 facilities · 5 capability pillars · one system — hover a node to explore it
-          </p>
-        </Reveal>
+
+        <div className="relative order-2 h-[280px] md:col-span-6 md:h-[420px] lg:col-span-7 lg:h-[470px]">
+          <EcosystemHero />
+        </div>
       </div>
     </section>
   );
@@ -98,7 +108,7 @@ function WhoWeAre() {
             <p className="mt-6 text-base leading-relaxed text-carbon/85 sm:text-lg">
               Zendale is an integrated healthcare group. Behind one name sits a coordinated
               network of specialist facilities, a consulting practice, a medical technology
-              division and a corporate health team — built so that a patient, an employer,
+              division and a corporate health team. The group is built so that a patient, an employer,
               a hospital, an HMO or a public institution can each reach the right care,
               expertise or infrastructure through a single partner. When you work with
               Zendale, you are not engaging one clinic; you are engaging an ecosystem.
@@ -134,7 +144,7 @@ function WhoWeAre() {
 }
 
 /* ------------------------------------------------------------------ */
-/*  03 · Healthcare Network preview — connected constellation grid     */
+/*  03 · Healthcare Network preview, connected constellation grid     */
 /* ------------------------------------------------------------------ */
 
 function NetworkPreview() {
@@ -156,8 +166,8 @@ function NetworkPreview() {
             Eight facilities. One referral away from each other.
           </h2>
           <p className="mt-5 text-base leading-relaxed text-porcelain/75">
-            Every facility below is a working part of the same system — which means one
-            phone call to Zendale reaches all of them.
+            Every facility below is a working part of the same system, so one phone call
+            to Zendale reaches all of them.
           </p>
         </Reveal>
         <div className="mt-12 grid gap-px bg-porcelain/10 sm:grid-cols-2 lg:grid-cols-4">
@@ -196,14 +206,14 @@ function NetworkPreview() {
 }
 
 /* ------------------------------------------------------------------ */
-/*  04 · How We Work — a true sequence on a diagonal flowing path      */
+/*  04 · How We Work, a true sequence on a diagonal flowing path      */
 /* ------------------------------------------------------------------ */
 
 const steps = [
-  { n: "01", title: "Understand your need", copy: "A conversation first — patient, HR lead, hospital CEO or agency, we start by hearing the actual problem." },
+  { n: "01", title: "Understand your need", copy: "We begin with a conversation. Whether you are a patient, HR lead, hospital CEO or agency representative, we start by understanding the actual problem." },
   { n: "02", title: "Assess requirements", copy: "We map the need to the network: which facilities, disciplines or teams the work truly requires." },
-  { n: "03", title: "Assign specialist team", copy: "You get named people — clinicians, engineers or consultants — accountable for your outcome." },
-  { n: "04", title: "Deliver solution", copy: "Care delivered, equipment commissioned, programme launched — on the plan we agreed together." },
+  { n: "03", title: "Assign specialist team", copy: "You get named clinicians, engineers or consultants who are accountable for your outcome." },
+  { n: "04", title: "Deliver solution", copy: "Care is delivered, equipment is commissioned and programmes are launched according to the plan we agreed together." },
   { n: "05", title: "Continuous support", copy: "The relationship doesn't end at delivery. Follow-up, maintenance and review are built in." },
 ];
 
@@ -245,7 +255,7 @@ function HowWeWorkStrip() {
 }
 
 /* ------------------------------------------------------------------ */
-/*  05 · Why Zendale — designed comparison panel                       */
+/*  05 · Why Zendale, designed comparison panel                       */
 /* ------------------------------------------------------------------ */
 
 const comparison: { label: string; traditional: boolean }[] = [
@@ -270,7 +280,7 @@ function WhyZendale() {
         </Reveal>
         <Reveal className="mt-12" variant="sweep">
           <div className="grid overflow-hidden lg:grid-cols-2">
-            {/* Traditional provider — mist surface */}
+            {/* Traditional provider, mist surface */}
             <div className="bg-mist p-8 lg:p-12">
               <p className="eyebrow text-carbon/60">A traditional provider</p>
               <p className="mt-3 font-display text-2xl text-ink">One hospital. One location. A fixed menu of services.</p>
@@ -283,7 +293,7 @@ function WhyZendale() {
                 ))}
               </ul>
             </div>
-            {/* Zendale — ink surface */}
+            {/* Zendale, ink surface */}
             <div className="bg-ink p-8 text-porcelain lg:p-12">
               <p className="eyebrow text-brass">Zendale</p>
               <p className="mt-3 font-display text-2xl">An integrated network that answers every part of the question.</p>
@@ -304,7 +314,7 @@ function WhyZendale() {
 }
 
 /* ------------------------------------------------------------------ */
-/*  06 · We Support — industries marquee in the mono face              */
+/*  06 · We Support, industries marquee in the mono face              */
 /* ------------------------------------------------------------------ */
 
 function WeSupport() {
@@ -366,7 +376,7 @@ function PillarsStrip() {
 }
 
 /* ------------------------------------------------------------------ */
-/*  08 · Resource & Downloads teaser — gated lead form                 */
+/*  08 · Resource & Downloads teaser, gated lead form                 */
 /* ------------------------------------------------------------------ */
 
 function ResourceTeaser() {
@@ -401,7 +411,7 @@ function ResourceTeaser() {
                 <p className="eyebrow text-brass">You're set</p>
                 <h3 className="mt-3 font-display text-2xl">The Download Centre is open to you.</h3>
                 <p className="mt-3 text-sm leading-relaxed text-porcelain/75">
-                  Head over and take the guides you need — each one downloads immediately.
+                  Visit the Download Centre and access the guides you need immediately.
                 </p>
                 <div className="mt-6">
                   <Button to="/downloads" variant="brass">Go to the Download Centre</Button>
@@ -437,7 +447,7 @@ function ResourceTeaser() {
 /* ------------------------------------------------------------------ */
 
 function ConsultationBand() {
-  const wa = whatsappLink("Hello Zendale — I'd like to talk to your team.");
+  const wa = whatsappLink("Hello Zendale, I'd like to talk to your team.");
   return (
     <section className="bg-ink py-20 text-porcelain lg:py-24">
       <div className="mx-auto max-w-7xl px-5 lg:px-8">
