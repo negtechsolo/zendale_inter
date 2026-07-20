@@ -420,7 +420,7 @@ function ResponsiveCamera() {
     // Fit the Zendale Z by the canvas height, so it stays large and centred
     // across normal laptop and wide desktop aspect ratios.
     camera.position.set(0, 0.08, 10);
-    camera.zoom = Math.max(88, Math.min(132, size.height / 3.15));
+    camera.zoom = Math.max(72, Math.min(96, size.height / 4.15));
     camera.near = 0.1;
     camera.far = 100;
     camera.updateProjectionMatrix();
@@ -446,7 +446,7 @@ function SceneContents({
   const navigate = useNavigate();
   const worldX = 0;
   const worldY = 0;
-  const worldScale = mobile ? 0.82 : 1.12;
+  const worldScale = mobile ? 0.82 : 1;
 
   useFrame((state) => {
     if (!world.current) return;

@@ -38,13 +38,15 @@ function Hero() {
       />
 
       <div className="relative z-10 mx-auto grid max-w-7xl gap-8 px-5 pb-14 pt-20 md:grid-cols-12 md:items-start md:gap-8 md:pb-16 md:pt-24 lg:gap-12 lg:px-8 lg:pb-20 lg:pt-24">
-        <div className="relative z-20 order-1 md:col-span-6 lg:col-span-5">
+        <div className="relative z-20 order-1 md:col-span-6 lg:col-span-6">
           <Reveal>
             <p className="eyebrow text-brass">The Zendale Ecosystem</p>
           </Reveal>
           <Reveal delay={0.08}>
-            <h1 className="mt-4 max-w-2xl font-display text-[2.65rem] font-medium leading-[1.02] sm:text-6xl lg:text-7xl">
-              One Partner. Complete Healthcare Solutions.
+            <h1 className="mt-4 max-w-[42rem] font-display text-[2.65rem] font-medium leading-[1.02] sm:text-6xl lg:text-[4rem] xl:text-[4.5rem]">
+              <span className="block">One Partner.</span>
+              <span className="block lg:whitespace-nowrap">Complete Healthcare</span>
+              <span className="block">Solutions.</span>
             </h1>
           </Reveal>
           <Reveal delay={0.16}>
@@ -60,13 +62,13 @@ function Hero() {
             </div>
           </Reveal>
           <Reveal delay={0.32}>
-            <p className="mt-8 font-mono text-[0.625rem] uppercase tracking-eyebrow text-porcelain/40 md:mt-10">
+            <p className="mt-8 font-mono text-[0.6rem] uppercase tracking-[0.2em] text-porcelain/40 md:mt-10 lg:whitespace-nowrap">
               8 facilities · 5 capability pillars · one coordinated system
             </p>
           </Reveal>
         </div>
 
-        <div className="relative order-2 h-[250px] w-full md:col-span-6 md:h-[340px] md:pt-2 lg:col-span-7 lg:h-[370px] lg:pt-0">
+        <div className="relative order-2 h-[250px] w-full md:col-span-6 md:h-[340px] md:pt-2 lg:col-span-6 lg:h-[360px] lg:pt-0">
           <EcosystemHero />
         </div>
       </div>
