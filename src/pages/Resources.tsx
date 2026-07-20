@@ -19,7 +19,7 @@ export default function Resources() {
       <PageHero
         eyebrow="Resource Centre"
         title="Written by operators. Read by decision-makers."
-        lede="Everything here comes from running facilities, programmes and equipment — filter by what you need, read in place, and follow each piece to the part of Zendale it came from."
+        lede="Everything here draws on our experience running facilities, programmes and equipment. Filter by what you need, read it here, and follow each piece to the relevant part of Zendale."
       />
 
       <section className="bg-porcelain py-16 lg:py-24">
@@ -59,7 +59,7 @@ export default function Resources() {
             ))}
             {visible.length === 0 && (
               <p className="bg-porcelain p-9 text-sm text-carbon/70" role="status">
-                Nothing in this category yet — new material is added as it's written.
+                Nothing is available in this category yet. New material will be added as it is published.
                 Try another filter, or ask us directly for what you need.
               </p>
             )}

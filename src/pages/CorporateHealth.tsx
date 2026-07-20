@@ -9,7 +9,7 @@ import { whatsappLink } from "../config";
 const offerings = [
   {
     name: "Healthcare Retainership",
-    benefit: "Your organisation gets an ongoing clinical partner — defined cover, agreed response, and a named contact who knows your company.",
+    benefit: "Your organisation gains an ongoing clinical partner with defined cover, an agreed response process and a named contact who understands your company.",
   },
   {
     name: "Executive Medicals",
@@ -17,7 +17,7 @@ const offerings = [
   },
   {
     name: "Annual Staff Medicals",
-    benefit: "Workforce checks run on schedule with one report format — so year-on-year comparison is actually possible.",
+    benefit: "Workforce checks run on schedule using one report format, making year-on-year comparison possible.",
   },
   {
     name: "Pre-employment Screening",
@@ -34,7 +34,7 @@ const offerings = [
 ];
 
 const hrGets = [
-  "One contract and one invoice cycle — however many locations you have",
+  "One contract and one invoice cycle across every location",
   "One consolidated report format across every site and every cycle",
   "Scheduling handled by Zendale, not by your HR team",
   "A named programme contact who answers, escalates and fixes",
@@ -42,17 +42,17 @@ const hrGets = [
 ];
 
 export default function CorporateHealth() {
-  const wa = whatsappLink("Hello Zendale — I'd like to discuss a corporate health programme for my organisation.");
+  const wa = whatsappLink("Hello Zendale. I would like to discuss a corporate health programme for my organisation.");
   return (
     <>
       <Seo
         title="Corporate Healthcare"
-        description="Corporate health programmes from Zendale: retainership, executive medicals, annual staff medicals, pre-employment screening, occupational health and nationwide coverage — under one accountable partner."
+        description="Corporate health programmes from Zendale: retainership, executive medicals, annual staff medicals, pre-employment screening, occupational health and nationwide coverage, under one accountable partner."
       />
       <PageHero
         eyebrow="Corporate Healthcare"
         title="Workforce health, without HR becoming a clinic administrator."
-        lede="One partner runs your entire corporate health programme — medicals, screening, occupational health — across every location, with one standard and one number to call."
+        lede="One partner manages your entire corporate health programme, including medicals, screening and occupational health across every location, with one standard and one point of contact."
         image={{ src: "corporate-hero.webp", alt: "Executive health consultation during a corporate medical programme" }}
       >
         <Button to="/contact" variant="brass">Request a Corporate Proposal</Button>
@@ -117,7 +117,7 @@ export default function CorporateHealth() {
             <p className="eyebrow text-steel">A note on honesty</p>
             <p className="mt-4 font-display text-2xl leading-snug text-ink sm:text-3xl">
               We won't promise your absenteeism numbers will fall by a specific
-              percentage — no honest provider can. We will promise a programme that
+              percentage. No honest provider can. We will promise a programme that
               runs on time, reports clearly, and treats your people well.
             </p>
           </Reveal>

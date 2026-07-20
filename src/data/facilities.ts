@@ -7,13 +7,13 @@ export interface Facility {
   services: string[];
   url: string;        // live external site
   internal?: string;  // internal route override (VHELAR → /consulting)
-  image: string;      // /src/assets/images filename — see IMAGE-MANIFEST.md
+  image: string;      // /src/assets/images filename, see IMAGE-MANIFEST.md
   imageAlt: string;
 }
 
 /**
  * The eight members of the Zendale Healthcare Network.
- * Service lists describe each facility's stated focus area only —
+ * Service lists describe each facility's stated focus area only -
  * no volumes, outcomes or capacity figures are claimed anywhere.
  */
 export const facilities: Facility[] = [
@@ -23,7 +23,7 @@ export const facilities: Facility[] = [
     name: "Sky High Medical Centre",
     focus: "Multi-specialist hospital care",
     description:
-      "A multi-specialist hospital serving patients who need coordinated care across several disciplines in one place — from first consultation through diagnosis, treatment and follow-up.",
+      "A multi-specialist hospital providing coordinated care across several disciplines in one place, from the first consultation through diagnosis, treatment and follow-up.",
     services: [
       "Specialist outpatient consultations",
       "Inpatient and surgical care",
@@ -40,7 +40,7 @@ export const facilities: Facility[] = [
     name: "Sky High ICU / Dialysis Centre",
     focus: "Critical care & dialysis",
     description:
-      "Dedicated critical-care and renal support for patients who need continuous monitoring, intensive intervention or regular dialysis — run alongside Sky High Medical Centre so escalation is immediate.",
+      "Dedicated critical care and renal support for patients who need continuous monitoring, intensive intervention or regular dialysis. Its connection to Sky High Medical Centre supports immediate escalation when required.",
     services: [
       "Intensive care and continuous monitoring",
       "Haemodialysis programmes",
@@ -57,7 +57,7 @@ export const facilities: Facility[] = [
     name: "Finnih Medical Centre",
     focus: "Clinical & specialist services",
     description:
-      "A clinical and specialist centre offering consultant-led care for patients referred within the network or presenting directly — with the wider ecosystem behind every case.",
+      "A clinical and specialist centre offering consultant-led care to patients referred through the network or presenting directly, with access to the wider Zendale ecosystem when required.",
     services: [
       "Consultant-led clinics",
       "Specialist clinical services",
@@ -74,7 +74,7 @@ export const facilities: Facility[] = [
     name: "Lifecentre Medical Services",
     focus: "Medical services",
     description:
-      "General and supporting medical services for individuals and organisations — a first point of care that connects patients to the right specialist facility when deeper intervention is needed.",
+      "General and supporting medical services for individuals and organisations. The centre serves as a first point of care and connects patients to the appropriate specialist facility when further intervention is required.",
     services: [
       "General medical services",
       "Screening and check-ups",
@@ -91,7 +91,7 @@ export const facilities: Facility[] = [
     name: "Kindred Path Fertility Centre",
     focus: "Fertility & reproductive care",
     description:
-      "Fertility and reproductive care delivered with clinical rigour and genuine sensitivity — supporting individuals and couples through assessment, treatment and everything in between.",
+      "Fertility and reproductive care delivered with clinical rigour and sensitivity, supporting individuals and couples through assessment, treatment and ongoing care.",
     services: [
       "Fertility assessment and counselling",
       "Assisted reproductive treatment",
@@ -108,7 +108,7 @@ export const facilities: Facility[] = [
     name: "Zendale Endoscopy Centre",
     focus: "Endoscopy & diagnostics",
     description:
-      "A dedicated endoscopy and diagnostics centre — purpose-equipped for gastrointestinal investigation and procedure-based diagnosis, with reporting that feeds straight back to referring clinicians.",
+      "A dedicated endoscopy and diagnostics centre equipped for gastrointestinal investigation and procedure-based diagnosis, with structured reporting for referring clinicians.",
     services: [
       "Diagnostic and therapeutic endoscopy",
       "Gastrointestinal investigation",
@@ -125,7 +125,7 @@ export const facilities: Facility[] = [
     name: "Lifecentre Med Support",
     focus: "Medical support services",
     description:
-      "The support arm of the network — the services that keep clinical care running: logistics, supply and the practical infrastructure behind every facility.",
+      "The support arm of the network provides logistics, supply and the practical infrastructure that helps clinical care run reliably across facilities.",
     services: [
       "Medical support services",
       "Clinical supply and logistics",
@@ -142,7 +142,7 @@ export const facilities: Facility[] = [
     name: "VHELAR Consulting",
     focus: "Healthcare consulting",
     description:
-      "The consulting practice of the Zendale group — advising hospitals, investors and public institutions on planning, operations and transformation, backed by facilities that actually run.",
+      "The consulting practice of the Zendale group advises hospitals, investors and public institutions on planning, operations and transformation. Its recommendations are grounded in the experience of operating healthcare facilities.",
     services: [
       "Hospital planning and feasibility",
       "Operational improvement",

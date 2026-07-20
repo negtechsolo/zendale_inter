@@ -13,10 +13,10 @@ function lazyRetry(factory: () => Promise<{ default: ComponentType }>) {
   return lazy(() =>
     factory().catch((error) => {
       const key = "zendale-chunk-reload";
-      if (!sessionStorage.getItem(key)) {
+      if (import.meta.env.MODE !== "test" && !sessionStorage.getItem(key)) {
         sessionStorage.setItem(key, "1");
         window.location.reload();
-        return new Promise<never>(() => {}); // reloading — never resolves
+        return new Promise<never>(() => {}); // reloading, never resolves
       }
       throw error; // second failure is a real problem; surface it
     })

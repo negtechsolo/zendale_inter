@@ -11,9 +11,9 @@ interface SeoProps {
  */
 export function Seo({ title, description }: SeoProps) {
   useEffect(() => {
-    document.title = `${title} — Zendale`;
+    document.title = `${title} | Zendale`;
     setMeta("description", description);
-    setMeta("og:title", `${title} — Zendale`, true);
+    setMeta("og:title", `${title} | Zendale`, true);
     setMeta("og:description", description, true);
     setMeta("og:type", "website", true);
   }, [title, description]);

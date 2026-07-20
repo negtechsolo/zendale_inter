@@ -13,7 +13,7 @@ const values = [
   },
   {
     name: "One accountable partner",
-    copy: "Whoever you are — patient, HR lead, CEO or agency — one named contact at Zendale owns your relationship end to end.",
+    copy: "Whether you are a patient, HR lead, CEO or agency representative, one named contact at Zendale manages your relationship from start to finish.",
   },
   {
     name: "Operators, not observers",
@@ -21,7 +21,7 @@ const values = [
   },
   {
     name: "Built for the long term",
-    copy: "Maintenance schedules, follow-up care, continuous support — everything we deliver assumes the relationship continues after handover.",
+    copy: "Maintenance schedules, follow-up care and continuous support are built into every engagement because our responsibility continues after handover.",
   },
 ];
 
@@ -35,7 +35,7 @@ export default function About() {
       <PageHero
         eyebrow="Who We Are"
         title="Many parts. One system. One promise."
-        lede="Zendale exists so that no one dealing with healthcare — patient or institution — has to assemble their own network of providers. We assembled it already."
+        lede="Zendale exists so patients and institutions do not have to assemble their own network of healthcare providers. We have already built it."
         image={{ src: "about-hero.webp", alt: "Zendale clinicians and consultants working across the group's facilities" }}
       />
 
@@ -59,19 +59,19 @@ export default function About() {
                 A patient who needs dialysis, then a specialist opinion, then a procedure,
                 usually has to navigate three unconnected providers. An HR manager building
                 a health programme has to vet a dozen clinics. A hospital that buys equipment
-                from one company must find another to maintain it — and a third to advise on
+                from one company must find another to maintain it and a third to advise on
                 the operations around it.
               </p>
               <p>
                 Zendale was built to remove that burden. The group brings specialist
                 facilities, consulting expertise, biomedical engineering and corporate
-                health delivery under one coordinated management — so the coordination
+                health delivery under one coordinated management. The coordination therefore
                 happens on our side of the relationship, not yours.
               </p>
               <p>
-                Today the Zendale Healthcare Network spans eight facilities — from
-                multi-specialist hospital care at Sky High Medical Centre to dedicated
-                endoscopy, fertility, critical care and medical support services — alongside
+                Today the Zendale Healthcare Network spans eight facilities, including
+                multi-specialist hospital care at Sky High Medical Centre and dedicated
+                endoscopy, fertility, critical care and medical support services. It also includes
                 VHELAR Consulting and our medical technology practice. Different doors,
                 same house.
               </p>
@@ -88,7 +88,7 @@ export default function About() {
               <p className="eyebrow text-brass">Mission</p>
               <p className="mt-4 font-display text-2xl leading-snug sm:text-3xl">
                 To give every patient and every institution a single, dependable partner
-                for complete healthcare — care, expertise and infrastructure, coordinated
+                for complete healthcare by coordinating care, expertise and infrastructure
                 as one.
               </p>
             </div>
@@ -97,8 +97,8 @@ export default function About() {
             <div className="h-full bg-ink p-8 lg:p-12">
               <p className="eyebrow text-brass">Vision</p>
               <p className="mt-4 font-display text-2xl leading-snug sm:text-3xl">
-                A healthcare landscape where integrated networks — not isolated
-                facilities — set the standard for how care is delivered and managed.
+                A healthcare landscape where integrated networks set the standard for
+                how care is delivered and managed.
               </p>
             </div>
           </Reveal>
@@ -157,10 +157,3 @@ export default function About() {
     </>
   );
 }
-
-/*
- * NOTE (per brief): a Leadership section is intentionally absent because no
- * leadership names, roles or photos were supplied. The brief requires
- * "leadership placeholder-free — only what's provided". Add a Leadership
- * section here only when real profiles are available.
- */

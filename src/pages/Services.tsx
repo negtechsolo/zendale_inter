@@ -15,7 +15,7 @@ export default function Services() {
       <PageHero
         eyebrow="Services"
         title="Everything we do, organised the way you'd ask for it."
-        lede="Five capability pillars, each expanding into the concrete services underneath. Open the one that matches your need — or ask us and we'll map it for you."
+        lede="Five capability pillars connect to the services beneath them. Choose the one that matches your need, or ask our team to guide you."
       >
         <Button to="/contact" variant="brass">Talk to Our Team</Button>
       </PageHero>
@@ -52,7 +52,7 @@ export default function Services() {
               Don't see your exact need listed?
             </h2>
             <p className="mt-3 max-w-xl text-base text-carbon/80">
-              The list above is how we organise ourselves — not the limit of what the
+              The list above explains how we organise our services. It does not limit what the
               network can take on. Describe the situation and we'll tell you honestly
               whether and how we can help.
             </p>

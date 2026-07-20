@@ -7,7 +7,7 @@ interface AccordionItemProps {
   defaultOpen?: boolean;
 }
 
-/** Accessible expandable panel — chevron is small utility UI, as permitted. */
+/** Accessible expandable panel, chevron is small utility UI, as permitted. */
 export function AccordionItem({ title, kicker, children, defaultOpen = false }: AccordionItemProps) {
   const [open, setOpen] = useState(defaultOpen);
   const id = useId();

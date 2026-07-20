@@ -4,7 +4,7 @@ export interface DownloadItem {
   id: string;
   title: string;
   description: string;
-  file: string; // served from /downloads-files/ — see IMAGE-MANIFEST.md (Documents section)
+  file: string; // served from /downloads-files/, see IMAGE-MANIFEST.md (Documents section)
   fileType: "PDF";
   audiences: Audience[];
 }
@@ -48,7 +48,7 @@ export const downloadItems: DownloadItem[] = [
     id: "equipment-guide",
     title: "Medical Equipment & Lifecycle Guide",
     description:
-      "Zendale's approach to procurement, installation, maintenance and lifecycle management — for hospitals planning equipment decisions.",
+      "Zendale's approach to procurement, installation, maintenance and lifecycle management, for hospitals planning equipment decisions.",
     file: "zendale-equipment-guide.pdf",
     fileType: "PDF",
     audiences: ["Hospitals", "Healthcare Professionals"],
@@ -57,7 +57,7 @@ export const downloadItems: DownloadItem[] = [
     id: "corporate-guide",
     title: "Corporate Health Programme Guide",
     description:
-      "Retainership, medicals, screening and occupational health — how a Zendale corporate programme is structured and what HR receives.",
+      "Retainership, medicals, screening and occupational health, how a Zendale corporate programme is structured and what HR receives.",
     file: "zendale-corporate-health-guide.pdf",
     fileType: "PDF",
     audiences: ["Corporate Partners", "HMOs"],

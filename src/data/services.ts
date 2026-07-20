@@ -27,7 +27,7 @@ export const serviceGroups: ServiceGroup[] = [
     name: "Corporate Healthcare",
     route: "/corporate-health",
     intro:
-      "Health programmes that keep workforces well and organisations compliant — designed for HR leaders who need one accountable partner, not a directory of clinics.",
+      "Health programmes that support workforce wellbeing and organisational compliance, designed for HR leaders who need one accountable partner rather than a directory of clinics.",
     services: [
       { name: "Healthcare retainership", detail: "An ongoing clinical partner for your organisation, with defined cover and a named point of contact." },
       { name: "Executive medicals", detail: "Comprehensive, discreet health assessments for senior leadership." },
@@ -42,7 +42,7 @@ export const serviceGroups: ServiceGroup[] = [
     name: "Medical Technology",
     route: "/medical-technology",
     intro:
-      "The engineering behind reliable care: sourcing, installing and maintaining the equipment hospitals depend on — across its whole working life.",
+      "The engineering behind reliable care, covering the sourcing, installation and maintenance of the equipment hospitals depend on throughout its working life.",
     services: [
       { name: "Equipment procurement", detail: "Specification, sourcing and supply of medical equipment matched to clinical need and budget." },
       { name: "Installation & commissioning", detail: "Site-ready installation, testing and clinical handover." },
@@ -57,7 +57,7 @@ export const serviceGroups: ServiceGroup[] = [
     name: "Healthcare Consulting",
     route: "/consulting",
     intro:
-      "Advisory grounded in operations. Zendale runs hospitals, ICUs and diagnostic centres — our consultants advise from practice, not theory.",
+      "Advisory grounded in operations. Because Zendale operates hospitals, ICUs and diagnostic centres, our consultants advise from practical experience rather than theory.",
     services: [
       { name: "Hospital planning", detail: "Feasibility, service design and planning for new or expanding facilities." },
       { name: "Operational improvement", detail: "Diagnosing and fixing the workflows, staffing and systems that hold facilities back." },
@@ -71,7 +71,7 @@ export const serviceGroups: ServiceGroup[] = [
     name: "Hospital Partnerships",
     route: "/partnerships",
     intro:
-      "Structured ways to work with the Zendale ecosystem — for hospitals, HMOs, government agencies, investors and international organisations.",
+      "Structured ways for hospitals, HMOs, government agencies, investors and international organisations to work with the Zendale ecosystem.",
     services: [
       { name: "Hospital network partnerships", detail: "Referral, capacity-sharing and service partnerships with hospitals and clinics." },
       { name: "HMO & payer partnerships", detail: "Provider arrangements with health maintenance organisations and insurers." },

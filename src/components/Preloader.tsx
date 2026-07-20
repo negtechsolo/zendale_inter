@@ -36,7 +36,7 @@ export function Preloader() {
       }`}
     >
       <svg viewBox="0 0 120 120" className="h-24 w-24">
-        {/* Two parallel diagonal strokes — the logo's DNA drawing itself */}
+        {/* Two parallel diagonal strokes, the logo's DNA drawing itself */}
         <path className="z-stroke" d="M22 24 H98 L38 96" fill="none" stroke="#4A6FA5" strokeWidth="10" />
         <path className="z-stroke second" d="M38 96 H98" fill="none" stroke="#C89B5A" strokeWidth="10" />
       </svg>

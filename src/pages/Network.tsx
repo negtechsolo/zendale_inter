@@ -8,7 +8,7 @@ import { facilities } from "../data/facilities";
 import { whatsappLink } from "../config";
 
 export default function Network() {
-  const wa = whatsappLink("Hello Zendale — I have a question about one of your facilities.");
+  const wa = whatsappLink("Hello Zendale. I have a question about one of your facilities.");
   return (
     <>
       <Seo
@@ -18,7 +18,7 @@ export default function Network() {
       <PageHero
         eyebrow="The Healthcare Network"
         title="Eight facilities that behave like one."
-        lede="Each facility below runs its own specialist practice — and every one of them is a single referral away from the rest. That is the difference between a directory of providers and a network."
+        lede="Each facility runs its own specialist practice while remaining one referral away from the rest of the network. That is the difference between a directory of providers and a coordinated healthcare system."
       >
         <Button to="/contact" variant="brass">Talk to Our Team</Button>
       </PageHero>

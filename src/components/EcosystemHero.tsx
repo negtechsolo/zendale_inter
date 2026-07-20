@@ -1,96 +1,100 @@
-import { Suspense, lazy, useEffect, useState } from "react";
+import { Suspense, lazy, useEffect, useId, useState } from "react";
 import { supportsWebGL, useIsMobile, usePrefersReducedMotion } from "../lib/hooks";
 
 const EcosystemScene = lazy(() => import("../three/EcosystemScene"));
 
-/**
- * Lightweight fallback shown while the Three.js scene loads or when WebGL
- * is unavailable. It keeps the Zendale Z readable and positioned away from
- * the hero copy instead of filling the whole viewport with scattered nodes.
- */
-function Poster({ mobile }: { mobile: boolean }) {
-  const originX = mobile ? 400 : 790;
-  const originY = mobile ? 330 : 315;
-  const scale = mobile ? 0.72 : 0.92;
+interface NetworkGraphicProps {
+  animated?: boolean;
+}
 
-  const point = (x: number, y: number) => [
-    originX + x * scale,
-    originY + y * scale,
-  ] as const;
+function NetworkGraphic({ animated = false }: NetworkGraphicProps) {
+  const gradientId = useId().replace(/:/g, "");
+  const pathId = useId().replace(/:/g, "");
 
   const facilities = [
-    point(-105, -105),
-    point(35, -105),
-    point(132, -52),
-    point(34, 35),
-    point(-88, 112),
-    point(-12, 112),
-    point(66, 112),
-    point(138, 112),
+    [185, 105],
+    [285, 105],
+    [365, 150],
+    [290, 205],
+    [185, 270],
+    [255, 270],
+    [325, 270],
+    [390, 270],
   ];
 
   const pillars = [
-    point(-185, -105),
-    point(185, -105),
-    point(-185, 112),
-    point(185, 112),
-    point(0, 0),
+    [120, 105],
+    [440, 105],
+    [120, 270],
+    [440, 270],
+    [280, 188],
   ];
 
   return (
     <svg
-      viewBox="0 0 1200 700"
+      viewBox="78 66 404 244"
       className="h-full w-full"
       role="img"
-      aria-label="The Zendale healthcare network assembled into the Zendale Z"
-      preserveAspectRatio="xMidYMid slice"
+      aria-label="The Zendale healthcare network arranged as the Zendale Z"
+      preserveAspectRatio="xMidYMid meet"
     >
       <defs>
-        <radialGradient id="zendale-poster-halo" cx="70%" cy="45%" r="42%">
+        <radialGradient id={gradientId} cx="50%" cy="50%" r="52%">
           <stop offset="0%" stopColor="#4A6FA5" stopOpacity="0.18" />
           <stop offset="100%" stopColor="#0B1B33" stopOpacity="0" />
         </radialGradient>
+        <path id={pathId} d="M120 105 H440 L120 270 H440" />
+        <filter id={`${gradientId}-glow`} x="-50%" y="-50%" width="200%" height="200%">
+          <feGaussianBlur stdDeviation="3" result="blur" />
+          <feMerge>
+            <feMergeNode in="blur" />
+            <feMergeNode in="SourceGraphic" />
+          </feMerge>
+        </filter>
       </defs>
 
-      <rect width="1200" height="700" fill="url(#zendale-poster-halo)" />
+      <ellipse cx="280" cy="188" rx="195" ry="118" fill={`url(#${gradientId})`} />
 
-      <g
-        stroke="#6E93C9"
-        strokeOpacity="0.55"
-        strokeWidth="1.4"
-        fill="none"
-      >
-        <path
-          d={`M ${pillars[0][0]} ${pillars[0][1]} H ${pillars[1][0]} L ${pillars[2][0]} ${pillars[2][1]} H ${pillars[3][0]}`}
-        />
-        <path
-          d={`M ${pillars[4][0]} ${pillars[4][1]} L ${pillars[0][0]} ${pillars[0][1]} M ${pillars[4][0]} ${pillars[4][1]} L ${pillars[1][0]} ${pillars[1][1]} M ${pillars[4][0]} ${pillars[4][1]} L ${pillars[2][0]} ${pillars[2][1]} M ${pillars[4][0]} ${pillars[4][1]} L ${pillars[3][0]} ${pillars[3][1]}`}
-          strokeOpacity="0.24"
-        />
+      <g fill="none" stroke="#6E93C9" strokeWidth="1.5">
+        <path d="M120 105 H440 L120 270 H440" strokeOpacity="0.72" />
+        <path d="M280 188 L120 105 M280 188 L440 105 M280 188 L120 270 M280 188 L440 270" strokeOpacity="0.24" />
       </g>
 
       {facilities.map(([x, y], index) => (
         <g key={`facility-${index}`} transform={`translate(${x} ${y})`}>
-          <circle r="9" fill="none" stroke="#6E93C9" strokeWidth="1.8" />
-          <circle r="3.2" fill="#8FB5EA" />
+          <circle r="10" fill="#0B1B33" stroke="#78A2DC" strokeWidth="2" />
+          <circle r="3.6" fill="#BBD5F7" />
+          {animated && (
+            <circle r="10" fill="none" stroke="#78A2DC" strokeWidth="1.2" opacity="0.42">
+              <animate attributeName="r" values="10;15;10" dur={`${3.2 + index * 0.17}s`} repeatCount="indefinite" />
+              <animate attributeName="opacity" values="0.42;0;0.42" dur={`${3.2 + index * 0.17}s`} repeatCount="indefinite" />
+            </circle>
+          )}
         </g>
       ))}
 
       {pillars.map(([x, y], index) => (
-        <g key={`pillar-${index}`} transform={`translate(${x} ${y})`}>
-          <rect
-            x="-10"
-            y="-10"
-            width="20"
-            height="20"
-            fill="none"
-            stroke="#E0B26E"
-            strokeWidth="1.8"
-            transform="rotate(45)"
-          />
+        <g key={`pillar-${index}`} transform={`translate(${x} ${y})`} filter={`url(#${gradientId}-glow)`}>
+          <rect x="-9" y="-9" width="18" height="18" fill="none" stroke="#E0B26E" strokeWidth="1.8" transform="rotate(45)" />
           <circle r="3.5" fill="#E0B26E" />
         </g>
       ))}
+
+      {animated && (
+        <>
+          <circle r="4" fill="#E0B26E" filter={`url(#${gradientId}-glow)`}>
+            <animateMotion dur="6.8s" repeatCount="indefinite" rotate="auto">
+              <mpath href={`#${pathId}`} />
+            </animateMotion>
+          </circle>
+          <circle r="3" fill="#9BC2F5" filter={`url(#${gradientId}-glow)`}>
+            <animateMotion dur="8.4s" begin="-3.1s" repeatCount="indefinite" rotate="auto">
+              <mpath href={`#${pathId}`} />
+            </animateMotion>
+          </circle>
+        </>
+      )}
+
     </svg>
   );
 }
@@ -105,42 +109,35 @@ export function EcosystemHero() {
     setWebgl(supportsWebGL());
   }, []);
 
-  const mask = mobile
-    ? "linear-gradient(to bottom, rgba(0,0,0,0.96) 0%, rgba(0,0,0,0.72) 64%, transparent 100%)"
-    : "linear-gradient(to right, transparent 0%, rgba(0,0,0,0.12) 30%, rgba(0,0,0,0.88) 52%, #000 72%)";
-
   return (
-    <div className="absolute inset-0 overflow-hidden">
-      <div
-        aria-hidden="true"
-        className="absolute inset-0"
-        style={{
-          WebkitMaskImage: mask,
-          maskImage: mask,
-        }}
-      >
-        {webgl ? (
-          <Suspense fallback={<Poster mobile={mobile} />}>
+    <div className="relative h-full w-full overflow-hidden" aria-label="Interactive Zendale healthcare ecosystem">
+      <div className="absolute inset-0">
+        {mobile ? (
+          <NetworkGraphic animated={!reduced} />
+        ) : webgl ? (
+          <Suspense fallback={<NetworkGraphic animated={!reduced} />}>
             <EcosystemScene
               reduced={reduced}
-              mobile={mobile}
+              mobile={false}
               onHoverLabel={setLabel}
             />
           </Suspense>
         ) : (
-          <Poster mobile={mobile} />
+          <NetworkGraphic animated={!reduced} />
         )}
       </div>
 
-      <div
-        className={`pointer-events-none absolute bottom-7 right-5 z-10 max-w-[16rem] border border-brass/45 bg-ink/88 px-3.5 py-2 font-mono text-[0.6875rem] uppercase tracking-eyebrow text-porcelain backdrop-blur-sm transition-all duration-200 lg:bottom-9 lg:right-8 ${
-          label ? "translate-y-0 opacity-100" : "translate-y-1 opacity-0"
-        }`}
-        role="status"
-        aria-live="polite"
-      >
-        {label ?? ""}
-      </div>
+      {!mobile && (
+        <div
+          className={`pointer-events-none absolute bottom-5 right-5 z-10 max-w-[16rem] border border-brass/45 bg-ink/90 px-3.5 py-2 font-mono text-[0.6875rem] uppercase tracking-eyebrow text-porcelain backdrop-blur-sm transition-all duration-200 ${
+            label ? "translate-y-0 opacity-100" : "translate-y-1 opacity-0"
+          }`}
+          role="status"
+          aria-live="polite"
+        >
+          {label ?? ""}
+        </div>
+      )}
     </div>
   );
 }

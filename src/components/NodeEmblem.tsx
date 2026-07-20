@@ -1,7 +1,7 @@
 import type { Pillar } from "../data/pillars";
 
 /**
- * 2D ecosystem node emblems — the same geometric motifs the 3D scene uses,
+ * 2D ecosystem node emblems, the same geometric motifs the 3D scene uses,
  * drawn as fine line SVGs. These are structural marks, not decorative icons:
  * each motif is the pillar's identity across the site and the hero.
  */

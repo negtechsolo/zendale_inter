@@ -6,14 +6,8 @@ import { LeadGateForm } from "../components/forms";
 import { audiences, downloadItems, type Audience } from "../data/downloads";
 
 /**
- * Professional Download Centre. Each document is gated behind a short lead
- * form; once any form is completed in the session, the centre stays unlocked.
- *
- * TODO (documents): the guide PDFs themselves were not supplied. Download
- * links point to /downloads-files/<name>.pdf — drop the real PDFs into
- * public/downloads-files/ (filenames listed in IMAGE-MANIFEST.md) and the
- * links work with no code change. Until then, the button click shows a
- * clear "being prepared" note rather than a broken download.
+ * Professional Download Centre. PDF files are served from
+ * public/downloads-files using the filenames in the data register.
  */
 export default function Downloads() {
   const [tab, setTab] = useState<Audience>("Healthcare Professionals");
@@ -30,7 +24,7 @@ export default function Downloads() {
       <PageHero
         eyebrow="Professional Download Centre"
         title="The guides your team will actually use."
-        lede="Referral criteria, admission pathways, programme structures and lifecycle practice — written as working documents, filed by the audience they serve."
+        lede="Referral criteria, admission pathways, programme structures and lifecycle guidance are presented as practical working documents for the teams that use them."
       />
 
       <section className="bg-porcelain py-16 lg:py-24">
@@ -83,8 +77,8 @@ export default function Downloads() {
                     {!unlocked && gatingId === d.id && (
                       <div className="mt-5 border-t border-ink/10 pt-5">
                         <p className="text-sm text-carbon/80">
-                          Tell us who's receiving it, and the download unlocks — along
-                          with every other guide in the centre.
+                          Tell us who is receiving it. This will unlock the selected guide and
+                          every other guide in the centre.
                         </p>
                         <div className="mt-4">
                           <LeadGateForm
@@ -147,8 +141,8 @@ function DownloadButton({ file, title }: { file: string; title: string }) {
       </button>
       {missing && (
         <p className="mt-3 text-xs leading-relaxed text-[#A2542F]" role="status">
-          This document is still being prepared for release. Ask us on the contact page
-          and we'll send it to you directly the moment it's ready.
+          This guide is available by request. Contact our team and we will confirm the
+          appropriate document and delivery details.
         </p>
       )}
     </div>

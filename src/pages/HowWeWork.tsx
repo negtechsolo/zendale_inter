@@ -10,7 +10,7 @@ const stages = [
     title: "Understand your need",
     copy:
       "Every engagement starts with a conversation, not a form. A patient describes symptoms; an HR manager describes a workforce; a hospital CEO describes an operational problem; an agency describes a public health goal. We listen before we route.",
-    forYou: "You speak to a person who asks real questions — and you never have to know our org chart to get started.",
+    forYou: "You speak with someone who asks practical questions. You do not need to understand our organisational structure to get started.",
   },
   {
     n: "02",
@@ -23,21 +23,21 @@ const stages = [
     n: "03",
     title: "Assign specialist team",
     copy:
-      "Named clinicians, engineers or consultants take ownership — with one coordinator as your single point of contact across every facility involved. Accountability has a name and a phone number.",
+      "Named clinicians, engineers or consultants take ownership, while one coordinator remains your single point of contact across every facility involved. Accountability has a name and a phone number.",
     forYou: "One contact to call, however many parts of the network your case touches.",
   },
   {
     n: "04",
     title: "Deliver solution",
     copy:
-      "Care is delivered, equipment is commissioned, programmes launch — against the plan agreed in stage two. Changes are communicated before they happen, not explained after.",
+      "Care is delivered, equipment is commissioned and programmes are launched according to the plan agreed in stage two. Changes are communicated before they happen, not explained afterwards.",
     forYou: "Delivery on the agreed plan, with honest communication when reality forces a change.",
   },
   {
     n: "05",
     title: "Continuous support",
     copy:
-      "Follow-up appointments, maintenance schedules, programme reviews and referral pathways keep working after handover. The engagement ends when you say it ends — not when the invoice clears.",
+      "Follow-up appointments, maintenance schedules, programme reviews and referral pathways continue after handover. The engagement ends when the agreed work is complete, not simply when an invoice is issued.",
     forYou: "A partner still answering the phone six months later.",
   },
 ];
@@ -100,7 +100,7 @@ export default function HowWeWork() {
               Most providers are built to close engagements. We're built to keep them.
             </h2>
             <p className="mt-4 max-w-xl text-base leading-relaxed text-porcelain/75">
-              A network only pays off over time — the second referral, the scheduled
+              A network proves its value over time through the second referral, the scheduled
               maintenance, the annual medical cycle. That is why continuous support is a
               stage of our process, not an upsell at the end of it.
             </p>

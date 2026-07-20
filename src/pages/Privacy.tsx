@@ -5,11 +5,11 @@ import { Reveal } from "../components/Reveal";
 const sections = [
   {
     h: "What we collect",
-    p: "When you use this website's forms, we collect what you type: your name, contact details, organisation, and the content of your enquiry. We do not collect medical records through this website — clinical information is handled by the relevant facility, under clinical confidentiality, when you become a patient.",
+    p: "When you use this website's forms, we collect the information you enter, including your name, contact details, organisation and enquiry. We do not collect medical records through this website. Clinical information is handled confidentially by the relevant facility when you become a patient.",
   },
   {
     h: "Why we collect it",
-    p: "To respond to your enquiry, prepare proposals you've requested, deliver documents you've asked to download, and — only if you've subscribed — send occasional insights. We do not sell or rent your details, and we do not add you to marketing lists you didn't join.",
+    p: "We use this information to respond to enquiries, prepare requested proposals, deliver requested documents and, when you have subscribed, send occasional insights. We do not sell or rent your details, and we do not add you to marketing lists you did not join.",
   },
   {
     h: "Patient confidentiality",
@@ -21,7 +21,7 @@ const sections = [
   },
   {
     h: "Your choices",
-    p: "You can ask us at any time what information we hold from your website enquiries, ask us to correct it, or ask us to delete it — use the contact page and we will act on it.",
+    p: "You may ask what information we hold from your website enquiries and request that it be corrected or deleted. Use the contact page to submit your request.",
   },
 ];
 
@@ -47,14 +47,6 @@ export default function Privacy() {
               </div>
             </Reveal>
           ))}
-          <Reveal delay={0.2}>
-            <p className="mt-8 border-l-2 border-brass pl-5 text-sm leading-relaxed text-carbon/70">
-              TODO (legal review): this page states Zendale's working practice in plain
-              language. Before launch, have counsel review it against the data
-              protection obligations that apply in your operating jurisdictions (e.g.
-              the NDPA in Nigeria) and add the formal notices they require.
-            </p>
-          </Reveal>
         </div>
       </section>
     </>

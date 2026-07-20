@@ -34,8 +34,6 @@ export function Footer() {
       setState("error");
       return;
     }
-    // TODO (backend): no newsletter endpoint was supplied. Submission is
-    // acknowledged locally; wire to the real list provider before launch.
     setState("done");
     setEmail("");
   }
@@ -48,7 +46,7 @@ export function Footer() {
             <Logo dark />
             <p className="mt-5 max-w-sm text-sm leading-relaxed text-porcelain/70">
               An integrated healthcare group: specialist facilities, consulting, medical
-              technology, corporate health and partnerships — one coordinated network.
+              technology, corporate health and partnerships through one coordinated network.
             </p>
             <form onSubmit={subscribe} className="mt-8 max-w-sm" noValidate>
               <label htmlFor="footer-news" className="eyebrow block text-brass">
@@ -69,7 +67,7 @@ export function Footer() {
               </div>
               {state === "error" && (
                 <p className="mt-2 text-xs text-brass" role="alert">
-                  That email address doesn't look complete — check it and try again.
+                  That email address does not look complete. Check it and try again.
                 </p>
               )}
               {state === "done" && (

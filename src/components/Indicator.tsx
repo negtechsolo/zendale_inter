@@ -1,5 +1,5 @@
 /**
- * Custom-drawn comparison indicators — the brief bans emoji marks.
+ * Custom-drawn comparison indicators, the brief bans emoji marks.
  * "Yes" is two Z-angled strokes meeting (a check cut on the brand diagonal);
  * "Limited" is a single short diagonal stroke.
  */

@@ -4,16 +4,16 @@ import { SITE, whatsappLink } from "../config";
 
 /** Page-aware pre-filled messages so the conversation starts in context. */
 const messages: Record<string, string> = {
-  "/": "Hello Zendale — I'd like to talk to your team.",
-  "/network": "Hello Zendale — I have a question about one of your facilities.",
-  "/corporate-health": "Hello Zendale — I'd like to discuss a corporate health programme for my organisation.",
-  "/consulting": "Hello Zendale — I'd like to speak with your consulting practice.",
-  "/medical-technology": "Hello Zendale — I have a medical equipment enquiry.",
-  "/partnerships": "Hello Zendale — I'd like to discuss a partnership.",
-  "/downloads": "Hello Zendale — I'd like to request one of your capability guides.",
-  "/case-studies": "Hello Zendale — I'd like to discuss a similar engagement for my organisation.",
-  "/careers": "Hello Zendale — I have a question about careers at Zendale.",
-  "/contact": "Hello Zendale — I'd like to book a consultation.",
+  "/": "Hello Zendale, I'd like to talk to your team.",
+  "/network": "Hello Zendale, I have a question about one of your facilities.",
+  "/corporate-health": "Hello Zendale, I'd like to discuss a corporate health programme for my organisation.",
+  "/consulting": "Hello Zendale, I'd like to speak with your consulting practice.",
+  "/medical-technology": "Hello Zendale, I have a medical equipment enquiry.",
+  "/partnerships": "Hello Zendale, I'd like to discuss a partnership.",
+  "/downloads": "Hello Zendale, I'd like to request one of your capability guides.",
+  "/case-studies": "Hello Zendale, I'd like to discuss a similar engagement for my organisation.",
+  "/careers": "Hello Zendale, I have a question about careers at Zendale.",
+  "/contact": "Hello Zendale, I'd like to book a consultation.",
 };
 
 /**

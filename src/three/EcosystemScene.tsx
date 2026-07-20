@@ -1,4 +1,4 @@
-import { useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import type { MutableRefObject } from "react";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { Bloom, EffectComposer } from "@react-three/postprocessing";
@@ -42,17 +42,8 @@ function depth(index: number) {
  * This preserves the assembly animation without throwing large shapes and
  * filaments across the headline during the first seconds of the page load.
  */
-function gentleStart(target: THREE.Vector3, index: number) {
-  return target
-    .clone()
-    .multiplyScalar(0.62)
-    .add(
-      new THREE.Vector3(
-        (seeded(index, 1) - 0.5) * 0.9,
-        (seeded(index, 2) - 0.5) * 0.7,
-        -1.5 - seeded(index, 3) * 0.65,
-      ),
-    );
+function gentleStart(target: THREE.Vector3) {
+  return target.clone();
 }
 
 function buildNodes(): NodeDef[] {
@@ -99,7 +90,7 @@ function buildNodes(): NodeDef[] {
           ? (item.def as (typeof p)[number]).motif
           : undefined,
       target,
-      start: gentleStart(target, index),
+      start: gentleStart(target),
       action:
         item.kind === "pillar"
           ? {
@@ -419,6 +410,25 @@ function BackgroundParticles({ count }: { count: number }) {
   );
 }
 
+
+function ResponsiveCamera() {
+  const { camera, size } = useThree();
+
+  useEffect(() => {
+    if (!(camera instanceof THREE.OrthographicCamera)) return;
+
+    // Fit the Zendale Z by the canvas height, so it stays large and centred
+    // across normal laptop and wide desktop aspect ratios.
+    camera.position.set(0, 0.08, 10);
+    camera.zoom = Math.max(88, Math.min(132, size.height / 3.15));
+    camera.near = 0.1;
+    camera.far = 100;
+    camera.updateProjectionMatrix();
+  }, [camera, size.height, size.width]);
+
+  return null;
+}
+
 function SceneContents({
   reduced,
   mobile,
@@ -430,22 +440,15 @@ function SceneContents({
 }) {
   const nodes = useMemo(buildNodes, []);
   const links = useMemo(() => buildLinks(nodes), [nodes]);
-  const progressRef = useRef(reduced ? 1 : 0);
+  const progressRef = useRef(1);
   const world = useRef<THREE.Group>(null);
   const [hoveredId, setHoveredId] = useState<string | null>(null);
   const navigate = useNavigate();
-  const viewport = useThree((state) => state.viewport);
+  const worldX = 0;
+  const worldY = 0;
+  const worldScale = mobile ? 0.82 : 1.12;
 
-  const wideDesktop = !mobile && viewport.width >= 10;
-  const worldX = mobile ? 0 : wideDesktop ? 2.05 : 1.45;
-  const worldY = mobile ? 0.82 : 0.52;
-  const worldScale = mobile ? 0.54 : wideDesktop ? 0.78 : 0.68;
-
-  useFrame((state, delta) => {
-    if (!reduced && progressRef.current < 1) {
-      progressRef.current = Math.min(1, progressRef.current + delta / 1.85);
-    }
-
+  useFrame((state) => {
     if (!world.current) return;
 
     world.current.position.x += (worldX - world.current.position.x) * 0.06;
@@ -494,7 +497,7 @@ function SceneContents({
 
       <group
         ref={world}
-        rotation={[0.1, 0, 0]}
+        rotation={[0.06, 0, 0]}
         position={[worldX, worldY, 0]}
         scale={worldScale}
       >
@@ -543,7 +546,7 @@ function SceneContents({
         )}
       </group>
 
-      <BackgroundParticles count={mobile ? 80 : 220} />
+      <BackgroundParticles count={mobile ? 60 : 150} />
 
       {!mobile && (
         <EffectComposer multisampling={0}>
@@ -570,8 +573,9 @@ export default function EcosystemScene({
 }) {
   return (
     <Canvas
+      orthographic
       dpr={mobile ? [1, 1.25] : [1, 1.5]}
-      camera={{ position: [0, 0.35, 8.6], fov: 42 }}
+      camera={{ position: [0, 0.08, 10], zoom: 108, near: 0.1, far: 100 }}
       gl={{
         antialias: !mobile,
         alpha: true,
@@ -581,6 +585,7 @@ export default function EcosystemScene({
       style={{ width: "100%", height: "100%" }}
       aria-hidden="true"
     >
+      <ResponsiveCamera />
       <SceneContents
         reduced={reduced}
         mobile={mobile}

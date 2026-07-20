@@ -29,6 +29,10 @@ export function useIsMobile(breakpoint = 768): boolean {
 
 /** WebGL availability check for the 3D hero poster fallback. */
 export function supportsWebGL(): boolean {
+  if (typeof navigator !== "undefined" && navigator.userAgent.toLowerCase().includes("jsdom")) {
+    return false;
+  }
+
   try {
     const canvas = document.createElement("canvas");
     return !!(canvas.getContext("webgl2") || canvas.getContext("webgl"));

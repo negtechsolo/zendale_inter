@@ -5,7 +5,7 @@ export function Logo({ dark = false }: { dark?: boolean }) {
     <Link
       to="/"
       className="inline-flex items-center gap-3"
-      aria-label="Zendale Limited — home"
+      aria-label="Zendale Limited home"
     >
       <img
         src="/images/zendale-logo.webp"

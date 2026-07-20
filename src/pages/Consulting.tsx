@@ -7,7 +7,7 @@ import { SmartImage } from "../components/SmartImage";
 const practices = [
   {
     name: "Hospital Planning",
-    copy: "Feasibility, service design and planning for new or expanding facilities — grounded in what it actually costs and takes to run one, because we run several.",
+    copy: "Feasibility, service design and planning for new or expanding facilities, grounded in the practical cost and operational requirements of running them.",
   },
   {
     name: "Operational Improvement",
@@ -15,15 +15,15 @@ const practices = [
   },
   {
     name: "Public-Private Partnerships",
-    copy: "Structuring PPP arrangements between government and private providers — scope, incentives and governance designed so the partnership survives contact with reality.",
+    copy: "Structuring public-private partnerships between government and private providers, with clear scope, aligned incentives and workable governance.",
   },
   {
     name: "Quality & Compliance",
-    copy: "Building the standards, audit trails and clinical governance that regulators require and patients deserve — as working systems, not binders.",
+    copy: "Building practical standards, audit trails and clinical governance systems that meet regulatory expectations and support patient care.",
   },
   {
     name: "Healthcare Transformation",
-    copy: "End-to-end change programmes for organisations repositioning how they deliver care — sequenced, staffed and honest about what will be hard.",
+    copy: "End-to-end change programmes for organisations repositioning how they deliver care, with clear sequencing, accountable teams and realistic implementation plans.",
   },
 ];
 
@@ -32,12 +32,12 @@ export default function Consulting() {
     <>
       <Seo
         title="Healthcare Consulting"
-        description="Zendale's consulting practice (VHELAR Consulting): hospital planning, operational improvement, public-private partnerships, quality and compliance, and healthcare transformation — advice from operators, not observers."
+        description="Zendale's consulting practice, VHELAR Consulting, provides hospital planning, operational improvement, public-private partnership, quality, compliance and healthcare transformation services grounded in operating experience."
       />
       <PageHero
         eyebrow="Healthcare Consulting · VHELAR Consulting"
         title="Advice from people who run hospitals, not just study them."
-        lede="Zendale's consulting practice advises hospitals, investors and public institutions — backed by a group that operates ICUs, diagnostic centres and specialist facilities every day. Our recommendations have all been tested on ourselves first."
+        lede="Zendale's consulting practice advises hospitals, investors and public institutions, backed by a group that operates ICUs, diagnostic centres and specialist facilities every day. Our recommendations have all been tested on ourselves first."
         image={{ src: "consulting-hero.webp", alt: "VHELAR consultants reviewing a facility operations plan with hospital leadership" }}
       >
         <Button to="/contact" variant="brass">Talk to Our Team</Button>
@@ -77,7 +77,7 @@ export default function Consulting() {
           <Reveal delay={0.1}>
             <p className="eyebrow text-brass">Why the operating base matters</p>
             <h2 className="mt-4 font-display text-3xl font-medium leading-tight sm:text-4xl">
-              Our consultants can walk you through a working example — because we own it.
+              Our consultants can show you a working example because we operate it.
             </h2>
             <p className="mt-4 max-w-xl text-base leading-relaxed text-porcelain/75">
               When we recommend a maintenance regime, an ICU escalation pathway or a

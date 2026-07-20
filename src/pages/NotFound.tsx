@@ -7,7 +7,7 @@ export default function NotFound() {
       <Seo title="Page not found" description="The page you were looking for doesn't exist on the Zendale website." />
       <section className="flex min-h-[70vh] items-center bg-ink pt-20 text-porcelain">
         <div className="mx-auto max-w-3xl px-5 py-20 lg:px-8">
-          <p className="font-mono text-sm uppercase tracking-eyebrow text-brass">404 — not found</p>
+          <p className="font-mono text-sm uppercase tracking-eyebrow text-brass">404 / Page not found</p>
           <h1 className="mt-4 font-display text-4xl font-medium leading-tight sm:text-5xl">
             This page isn't part of the network.
           </h1>

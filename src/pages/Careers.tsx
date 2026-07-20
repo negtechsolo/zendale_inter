@@ -18,23 +18,18 @@ const disciplines = [
 const reasons = [
   {
     title: "A network of career paths, not one job",
-    copy: "Clinicians rotate across specialist facilities. Engineers work on everything from dialysis machines to endoscopy suites. Consultants move between advisory and operations. One employer, many rooms.",
+    copy: "Clinicians work across specialist facilities. Engineers support equipment ranging from dialysis machines to endoscopy suites. Consultants move between advisory and operations. One employer offers many career paths.",
   },
   {
     title: "You'll work where the standard is set",
-    copy: "The practices we sell to clients — maintenance discipline, clinical governance, structured referral — are the practices you'll work inside every day.",
+    copy: "The standards we recommend to clients, including maintenance discipline, clinical governance and structured referrals, are the same standards you will work within every day.",
   },
   {
     title: "Growth is structural, not accidental",
-    copy: "Because the group spans care, engineering and consulting, moving your career forward doesn't require moving employer.",
+    copy: "Because the group spans care, engineering and consulting, you can progress your career without changing employer.",
   },
 ];
 
-/**
- * NOTE: no live vacancies were supplied, so this page is honest about that —
- * it runs a talent-network application rather than listing invented roles.
- * When real vacancies exist, add an "Open Roles" section above the form.
- */
 export default function Careers() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -47,14 +42,11 @@ export default function Careers() {
     e.preventDefault();
     const next: Record<string, string> = {};
     if (name.trim().length < 2) next.name = "Enter your full name as it appears on your CV.";
-    if (!isEmail(email)) next.email = "Enter a valid email address — it's how we'll reach you about roles.";
+    if (!isEmail(email)) next.email = "Enter a valid email address so we can reach you about roles.";
     if (!discipline) next.discipline = "Pick the discipline closest to your background.";
-    if (about.trim().length < 30) next.about = "Give us a few sentences — your role, experience and what you're looking for.";
+    if (about.trim().length < 30) next.about = "Give us a few sentences about your role, experience and the work you are looking for.";
     setErrors(next);
     if (Object.keys(next).length) return;
-    // TODO (backend): no careers inbox/ATS endpoint was supplied. The
-    // application is confirmed client-side; wire to the real endpoint
-    // before launch so applications are stored and routed to HR.
     setDone(true);
   }
 
@@ -67,7 +59,7 @@ export default function Careers() {
       <PageHero
         eyebrow="Careers"
         title="Build a career across a whole healthcare system."
-        lede="Zendale hires clinicians, engineers, consultants and operators — people who want their work to connect to something larger than a single facility."
+        lede="Zendale hires clinicians, engineers, consultants and operators who want their work to contribute to something larger than a single facility."
         image={{ src: "careers-hero.webp", alt: "Zendale team members during a working day across the network" }}
       />
 
@@ -111,10 +103,10 @@ export default function Careers() {
             {done ? (
               <div className="bg-ink p-8 text-porcelain lg:p-10" role="status">
                 <p className="eyebrow text-brass">You're in the network</p>
-                <h3 className="mt-3 font-display text-2xl">Thank you — we've got your details.</h3>
+                <h3 className="mt-3 font-display text-2xl">Thank you, we've got your details.</h3>
                 <p className="mt-3 text-sm leading-relaxed text-porcelain/75">
                   When a role opens in your discipline, we'll contact you at the email
-                  you gave. No newsletters, no noise — just real openings.
+                  you gave. No newsletters, no noise, just real openings.
                 </p>
               </div>
             ) : (

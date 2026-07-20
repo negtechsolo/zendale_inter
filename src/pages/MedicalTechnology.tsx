@@ -5,11 +5,11 @@ import { Button } from "../components/Button";
 import { SmartImage } from "../components/SmartImage";
 
 const lifecycle = [
-  { n: "01", name: "Procurement", copy: "Specification and sourcing matched to clinical need and budget — not to whatever a vendor wants to move." },
+  { n: "01", name: "Procurement", copy: "Specification and sourcing are matched to clinical need and budget rather than vendor inventory." },
   { n: "02", name: "Installation", copy: "Site preparation, installation and commissioning, phased around the clinical schedule." },
   { n: "03", name: "Training & Handover", copy: "Clinical teams trained before go-live, so equipment enters service already understood." },
   { n: "04", name: "Planned Maintenance", copy: "Preventive schedules that protect uptime, safety and asset value." },
-  { n: "05", name: "Repairs", copy: "Fault diagnosis and repair, prioritised by clinical impact — not by ticket order." },
+  { n: "05", name: "Repairs", copy: "Fault diagnosis and repair are prioritised by clinical impact rather than ticket order." },
   { n: "06", name: "Lifecycle Decisions", copy: "Asset registers and replacement planning, so end-of-life is a decision, never a surprise." },
 ];
 
@@ -23,14 +23,14 @@ export default function MedicalTechnology() {
       <PageHero
         eyebrow="Medical Technology"
         title="Equipment is a lifecycle, not a delivery."
-        lede="Most equipment problems are planning problems wearing a lab coat. Zendale's biomedical engineering team manages the whole working life of your equipment — from specification to the day you retire it."
+        lede="Many equipment problems begin with poor planning. Zendale's biomedical engineering team manages the full working life of your equipment, from specification and installation to maintenance and retirement."
         image={{ src: "medtech-hero.webp", alt: "Zendale biomedical engineer servicing clinical equipment" }}
       >
         <Button to="/contact" variant="brass">Discuss an Equipment Need</Button>
         <Button to="/downloads" variant="light">Download the Equipment Guide</Button>
       </PageHero>
 
-      {/* Equipment lifecycle diagram — rendered in the brand's diagonal language */}
+      {/* Equipment lifecycle diagram, rendered in the brand's diagonal language */}
       <section className="overflow-hidden bg-porcelain py-20 lg:py-28">
         <div className="mx-auto max-w-7xl px-5 lg:px-8">
           <Reveal className="max-w-2xl">
@@ -39,7 +39,7 @@ export default function MedicalTechnology() {
               Six stages, descending the Z-stroke.
             </h2>
             <p className="mt-4 text-base text-carbon/80">
-              Every engagement can enter at any stage — but the value compounds when
+              Every engagement can begin at any stage, but the value increases when
               one team owns all six.
             </p>
           </Reveal>
@@ -58,7 +58,7 @@ export default function MedicalTechnology() {
                   <span className="font-mono text-sm text-brass">{s.n}</span>
                   <h3 className="mt-2 font-display text-xl text-ink">{s.name}</h3>
                   <p className="mt-2 text-sm leading-relaxed text-carbon/75">{s.copy}</p>
-                  {/* Diagonal corner cut — the Z-stroke as structure */}
+                  {/* Diagonal corner cut, the Z-stroke as structure */}
                   <span
                     className="absolute right-0 top-0 h-6 w-6 bg-porcelain"
                     style={{ clipPath: "polygon(100% 0, 0 0, 100% 100%)" }}
@@ -80,7 +80,7 @@ export default function MedicalTechnology() {
             </h2>
             <p className="mt-4 max-w-xl text-base leading-relaxed text-porcelain/75">
               Zendale's biomedical engineers support the facilities of the Zendale
-              Healthcare Network every day — dialysis machines, monitoring systems,
+              Healthcare Network every day, including dialysis machines, monitoring systems,
               endoscopy equipment. That daily operating discipline is what external
               clients hire: engineers whose maintenance schedules are tested where the
               stakes are highest.

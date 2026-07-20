@@ -12,7 +12,7 @@ export interface Resource {
   type: ResourceType;
   title: string;
   summary: string;
-  /** Where the reader goes: an internal route (case studies, downloads) — never a dead link. */
+  /** Where the reader goes: an internal route (case studies, downloads), never a dead link. */
   route: string;
   routeLabel: string;
 }
@@ -38,14 +38,14 @@ export const resources: Resource[] = [
     type: "Article",
     title: "Why healthcare buyers are consolidating to single partners",
     summary:
-      "Organisations that once managed a dozen provider relationships are consolidating to one accountable partner. The reasons are practical: one contract, one standard, one number to call when something goes wrong — and a partner with enough breadth that 'we don't do that' never ends the conversation. This piece explains how an integrated group model changes the buyer's job, and what to ask any provider claiming to be one.",
+      "Organisations that once managed many provider relationships are consolidating them under one accountable partner. The reasons are practical: one contract, one standard and one point of contact when something goes wrong. This piece explains how an integrated group model changes the buyer's role and what to ask any provider that claims to offer one.",
     route: "/partnerships",
     routeLabel: "Explore partnership models",
   },
   {
     id: "equipment-downtime",
     type: "Healthcare Insight",
-    title: "The real cost of equipment downtime — and why it's a planning problem",
+    title: "The real cost of equipment downtime and why planning matters",
     summary:
       "When clinical equipment fails, the visible cost is the repair. The larger cost is everything around it: cancelled procedures, referred-away patients, staff improvising workarounds. Most downtime is not bad luck; it is the absence of planned maintenance and lifecycle thinking. This insight sets out the difference between reactive repair and lifecycle management, and how to move a facility from one to the other.",
     route: "/medical-technology",
@@ -56,7 +56,7 @@ export const resources: Resource[] = [
     type: "Corporate Health Resource",
     title: "What a corporate health programme should actually give HR",
     summary:
-      "A corporate health arrangement is only useful if HR can run it without becoming a healthcare administrator. That means scheduling handled by the provider, one report format across all sites, screening that keeps pace with hiring, and a named contact who answers. This resource lists the concrete deliverables to require from any corporate health partner — and the warning signs of an arrangement that will become your job to manage.",
+      "A corporate health arrangement is useful only when HR can run it without becoming a healthcare administrator. The provider should manage scheduling, use one report format across all sites, keep screening aligned with hiring and provide a named contact. This resource sets out the practical deliverables to require from a corporate health partner and the warning signs of an arrangement that may create more work for HR.",
     route: "/corporate-health",
     routeLabel: "See the corporate programme",
   },
@@ -65,7 +65,7 @@ export const resources: Resource[] = [
     type: "White Paper",
     title: "Making public-private partnership work in healthcare delivery",
     summary:
-      "PPP arrangements fail for predictable reasons: unclear service scope, misaligned incentives, and private partners who have advised on hospitals but never run one. This paper outlines the structural decisions that determine whether a healthcare PPP delivers — scope definition, performance measures, governance — drawn from Zendale's position as both an operator of facilities and an adviser to public institutions.",
+      "Public-private partnerships fail for predictable reasons, including unclear service scope, misaligned incentives and partners without operating experience. This paper examines the structural decisions that shape delivery, including scope definition, performance measures and governance. It draws on Zendale's experience as both a facility operator and an adviser to public institutions.",
     route: "/consulting",
     routeLabel: "Talk to the consulting practice",
   },
@@ -92,7 +92,7 @@ export const resources: Resource[] = [
     type: "Case Study",
     title: "Turning a struggling private hospital into a functioning one",
     summary:
-      "How an operational diagnostic, a maintenance programme and restructured rotas moved one private hospital from firefighting to routine. Read the full challenge–approach–outcome narrative in Success Stories.",
+      "How an operational diagnostic, a maintenance programme and restructured rotas helped one private hospital move from firefighting to routine operations. Read the full challenge, approach and outcome in Success Stories.",
     route: "/case-studies",
     routeLabel: "Read the case study",
   },

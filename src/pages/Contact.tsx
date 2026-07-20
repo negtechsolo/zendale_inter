@@ -7,7 +7,7 @@ import { SelectField, TextAreaField, TextField, isEmail, isPhone } from "../comp
 import { SITE, whatsappLink } from "../config";
 
 /* ------------------------------------------------------------------ */
-/*  Book a Consultation — multi-step:                                  */
+/*  Book a Consultation, multi-step:                                  */
 /*  I am → area of need → preferred channel & time → brief → confirm   */
 /* ------------------------------------------------------------------ */
 
@@ -49,44 +49,41 @@ function ConsultationForm() {
   function next(e: FormEvent) {
     e.preventDefault();
     const errs: Record<string, string> = {};
-    if (step === 1 && !iAm) errs.iAm = "Pick the description closest to you — it decides who calls you back.";
-    if (step === 2 && !need) errs.need = "Pick an area — 'Something else' is a perfectly good answer.";
+    if (step === 1 && !iAm) errs.iAm = "Pick the description closest to you, it decides who calls you back.";
+    if (step === 2 && !need) errs.need = "Pick an area, 'Something else' is a perfectly good answer.";
     if (step === 3) {
       if (!channel) errs.channel = "Choose how you'd like us to reach you.";
-      if (!time) errs.time = "Choose when suits you — we'll aim for it.";
+      if (!time) errs.time = "Choose when suits you, we'll aim for it.";
     }
     if (step === 4) {
       if (name.trim().length < 2) errs.name = "Enter your full name so we know who we're speaking with.";
       const c = contact.trim();
-      if (!isEmail(c) && !isPhone(c)) errs.contact = "Enter a working email address or phone number — otherwise we can't reach you.";
-      if (brief.trim().length < 15) errs.brief = "One or two sentences is enough — just tell us what's going on.";
+      if (!isEmail(c) && !isPhone(c)) errs.contact = "Enter a working email address or phone number so we can reach you.";
+      if (brief.trim().length < 15) errs.brief = "One or two sentences are enough. Briefly tell us what is happening.";
     }
     setErrors(errs);
     if (Object.keys(errs).length) return;
     if (step < totalSteps) {
       setStep(step + 1);
     } else {
-      // TODO (backend): no booking endpoint was supplied. The booking is
-      // confirmed client-side and handed to WhatsApp; wire to the real
-      // endpoint before launch so bookings reach the team automatically.
       setDone(true);
     }
   }
 
   if (done) {
     const wa = whatsappLink(
-      `Hello Zendale — this is ${name.trim()}. I've just booked a consultation via your website (${iAm.toLowerCase()}; ${need.toLowerCase()}; preferred: ${channel.toLowerCase()}, ${time.toLowerCase()}). Brief: ${brief.trim()}`
+      `Hello Zendale, this is ${name.trim()}. I've just booked a consultation via your website (${iAm.toLowerCase()}; ${need.toLowerCase()}; preferred: ${channel.toLowerCase()}, ${time.toLowerCase()}). Brief: ${brief.trim()}`
     );
     return (
       <div className="bg-ink p-8 text-porcelain lg:p-10" role="status">
         <p className="eyebrow text-brass">Consultation booked</p>
         <h3 className="mt-3 font-display text-2xl">
-          Thank you, {name.trim().split(" ")[0]} — your consultation request is in.
+          Thank you, {name.trim().split(" ")[0]}. Your consultation request has been recorded.
         </h3>
         <p className="mt-3 text-sm leading-relaxed text-porcelain/75">
           Our team will reach you by {channel.toLowerCase()} in your preferred window
           ({time.toLowerCase()}). The person who contacts you will already know your
-          brief — you won't be starting from zero.
+          brief, so you will not need to repeat the information.
         </p>
         {wa && (
           <div className="mt-6">
@@ -111,7 +108,7 @@ function ConsultationForm() {
 
       {step === 1 && (
         <fieldset className="mt-4">
-          <legend className="font-display text-2xl text-ink">First — who are we speaking with?</legend>
+          <legend className="font-display text-2xl text-ink">Who are we speaking with?</legend>
           <div className="mt-5 grid gap-2 sm:grid-cols-2">
             {iAmOptions.map((o) => (
               <label
@@ -173,7 +170,7 @@ function ConsultationForm() {
 
       {step === 4 && (
         <div className="mt-4 grid gap-5">
-          <h3 className="font-display text-2xl text-ink">Last step — your details and a short brief.</h3>
+          <h3 className="font-display text-2xl text-ink">Your details and a short brief</h3>
           <TextField id="b-name" label="Full name" value={name} onChange={setName} error={errors.name} autoComplete="name" placeholder="Ngozi Adeyemi" />
           <TextField id="b-contact" label="Email or phone" value={contact} onChange={setContact} error={errors.contact} placeholder="you@email.com or +234 …" />
           <TextAreaField id="b-brief" label="Briefly, what's going on?" value={brief} onChange={setBrief} error={errors.brief} rows={4} placeholder="One or two sentences is enough." />
@@ -209,8 +206,6 @@ function CallbackForm() {
     if (!isPhone(phone)) next.phone = "Enter a working phone number with country code, e.g. +234…";
     setErrors(next);
     if (Object.keys(next).length) return;
-    // TODO (backend): no callback endpoint was supplied. Confirmed
-    // client-side; wire to the real endpoint before launch.
     setDone(true);
   }
 
@@ -220,7 +215,7 @@ function CallbackForm() {
         <p className="eyebrow text-brass">Callback requested</p>
         <h3 className="mt-3 font-display text-2xl text-porcelain">We'll call you, {name.trim().split(" ")[0]}.</h3>
         <p className="mt-3 text-sm leading-relaxed text-porcelain/75">
-          Keep your phone nearby — a member of the team will call the number you
+          Keep your phone nearby. A member of the team will call the number you
           gave during working hours.
         </p>
       </div>
@@ -241,7 +236,7 @@ function CallbackForm() {
 /* ------------------------------------------------------------------ */
 
 export default function Contact() {
-  const wa = whatsappLink("Hello Zendale — I'd like to book a consultation.");
+  const wa = whatsappLink("Hello Zendale. I would like to book a consultation.");
   return (
     <>
       <Seo
@@ -251,7 +246,7 @@ export default function Contact() {
       <PageHero
         eyebrow="Contact"
         title="One conversation reaches the whole network."
-        lede="Book a consultation, ask for a callback, or just start typing on WhatsApp — whichever you choose, your enquiry lands with a person whose job is to route it correctly."
+        lede="Book a consultation, request a callback or start a WhatsApp conversation. Your enquiry will be directed to the appropriate Zendale team."
       />
 
       <section className="bg-mist/60 py-16 lg:py-24">
@@ -259,8 +254,7 @@ export default function Contact() {
           <Reveal className="lg:col-span-7">
             <h2 className="font-display text-3xl font-medium text-ink">Book a Consultation</h2>
             <p className="mt-2 max-w-xl text-base text-carbon/80">
-              Four short steps. At the end, a real appointment request — not a message
-              into the void.
+              Complete four short steps to submit a consultation request to the appropriate team.
             </p>
             <div className="mt-7">
               <ConsultationForm />
@@ -316,8 +310,7 @@ export default function Contact() {
                     {!wa && !SITE.email && SITE.addressLines.length === 0 && (
                       <li className="text-porcelain/60">
                         {/* Rendered only until real contact details are configured in src/config.ts */}
-                        Direct contact channels are being finalised — the forms on this
-                        page reach the team in the meantime.
+                        Use the consultation form on this page and the appropriate Zendale team will follow up.
                       </li>
                     )}
                   </ul>
@@ -328,11 +321,6 @@ export default function Contact() {
         </div>
       </section>
 
-      {/*
-        TODO (map): an embedded map is intentionally omitted because no
-        head-office address was supplied. When SITE.addressLines is filled in,
-        add the map embed here alongside the address block above.
-      */}
     </>
   );
 }

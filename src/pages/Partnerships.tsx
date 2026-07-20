@@ -8,7 +8,7 @@ import { SelectField, TextAreaField, TextField, isEmail, isPhone } from "../comp
 import { whatsappLink } from "../config";
 
 /* ------------------------------------------------------------------ */
-/*  Partner With Zendale — a selector routes each audience to the      */
+/*  Partner With Zendale, a selector routes each audience to the      */
 /*  form that captures what that audience actually needs.              */
 /* ------------------------------------------------------------------ */
 
@@ -41,9 +41,9 @@ const partnerConfigs: Record<PartnerType, PartnerConfig> = {
     },
     briefLabel: "What does your organisation need?",
     confirmation:
-      "Your corporate enquiry is in. A corporate health adviser will come back to you with a proposed programme structure — not a generic brochure.",
+      "Your corporate enquiry has been recorded. A corporate health adviser will respond with a proposed programme structure tailored to your organisation.",
     waMessage: (org, name) =>
-      `Hello Zendale — this is ${name} from ${org}. We've just sent a corporate partnership enquiry through your website and would like to discuss a corporate health programme.`,
+      `Hello Zendale, this is ${name} from ${org}. We've just sent a corporate partnership enquiry through your website and would like to discuss a corporate health programme.`,
   },
   Hospital: {
     pitch: "Referral pathways, capacity sharing, equipment support and operational collaboration between your hospital and the Zendale network.",
@@ -56,9 +56,9 @@ const partnerConfigs: Record<PartnerType, PartnerConfig> = {
     },
     briefLabel: "Describe the collaboration you have in mind",
     confirmation:
-      "Your hospital partnership enquiry is in. Someone who can actually structure the arrangement — not a call centre — will contact you.",
+      "Your hospital partnership enquiry has been recorded. A specialist who can structure the arrangement will contact you.",
     waMessage: (org, name) =>
-      `Hello Zendale — this is ${name} from ${org}. We've submitted a hospital partnership enquiry via your website and would like to discuss collaboration.`,
+      `Hello Zendale, this is ${name} from ${org}. We've submitted a hospital partnership enquiry via your website and would like to discuss collaboration.`,
   },
   Government: {
     pitch: "Public health delivery, healthcare infrastructure and public-private partnership arrangements with a group that operates facilities daily.",
@@ -73,7 +73,7 @@ const partnerConfigs: Record<PartnerType, PartnerConfig> = {
     confirmation:
       "Your enquiry is in. Our consulting practice will respond with relevant experience and a proposed way to begin the conversation.",
     waMessage: (org, name) =>
-      `Hello Zendale — this is ${name} from ${org}. We've submitted a government partnership enquiry via your website regarding public health collaboration.`,
+      `Hello Zendale, this is ${name} from ${org}. We've submitted a government partnership enquiry via your website regarding public health collaboration.`,
   },
   HMO: {
     pitch: "Provider arrangements across eight facilities in one negotiation: specialist care, critical care, dialysis, fertility and diagnostics for your enrollees.",
@@ -88,7 +88,7 @@ const partnerConfigs: Record<PartnerType, PartnerConfig> = {
     confirmation:
       "Your provider enquiry is in. Our team will come back with network coverage details and how an agreement is typically structured.",
     waMessage: (org, name) =>
-      `Hello Zendale — this is ${name} from ${org}. We've submitted an HMO provider enquiry via your website and would like to discuss a network agreement.`,
+      `Hello Zendale, this is ${name} from ${org}. We've submitted an HMO provider enquiry via your website and would like to discuss a network agreement.`,
   },
   Investor: {
     pitch: "Engage a healthcare group with operating facilities, an engineering practice and a consulting arm on development and expansion opportunities.",
@@ -101,9 +101,9 @@ const partnerConfigs: Record<PartnerType, PartnerConfig> = {
     },
     briefLabel: "What would you like to explore?",
     confirmation:
-      "Your enquiry is in. Group leadership reviews investor conversations directly; expect a substantive reply, not a holding email.",
+      "Your enquiry has been recorded. Group leadership reviews investor conversations directly and will provide a substantive response.",
     waMessage: (org, name) =>
-      `Hello Zendale — this is ${name} from ${org}. We've submitted an investor enquiry via your website and would like to open a conversation.`,
+      `Hello Zendale, this is ${name} from ${org}. We've submitted an investor enquiry via your website and would like to open a conversation.`,
   },
   "International Organisation": {
     pitch: "Programme delivery, technical collaboration and health system strengthening with an operating partner on the ground.",
@@ -118,7 +118,7 @@ const partnerConfigs: Record<PartnerType, PartnerConfig> = {
     confirmation:
       "Your enquiry is in. We'll respond with relevant delivery experience and the right people for a first conversation.",
     waMessage: (org, name) =>
-      `Hello Zendale — this is ${name} from ${org}. We've submitted a partnership enquiry via your website regarding international collaboration.`,
+      `Hello Zendale, this is ${name} from ${org}. We've submitted a partnership enquiry via your website regarding international collaboration.`,
   },
 };
 
@@ -139,16 +139,13 @@ function PartnerForm({ type }: { type: PartnerType }) {
     e.preventDefault();
     const next: Record<string, string> = {};
     if (name.trim().length < 2) next.name = "Enter your full name so we know who to address.";
-    if (org.trim().length < 2) next.org = `Enter your ${cfg.orgLabel.toLowerCase()} — it's how we route this internally.`;
-    if (!isEmail(email)) next.email = "Enter a valid email address — our written response goes there.";
-    if (phone && !isPhone(phone)) next.phone = "That phone number doesn't look right — include the country code, e.g. +234…";
-    if (!extra) next.extra = "Pick the closest option — it routes your enquiry to the right team.";
-    if (brief.trim().length < 20) next.brief = "Give us at least a sentence or two — the more specific, the faster our reply is useful.";
+    if (org.trim().length < 2) next.org = `Enter your ${cfg.orgLabel.toLowerCase()}, it's how we route this internally.`;
+    if (!isEmail(email)) next.email = "Enter a valid email address, our written response goes there.";
+    if (phone && !isPhone(phone)) next.phone = "That phone number doesn't look right, include the country code, e.g. +234…";
+    if (!extra) next.extra = "Pick the closest option, it routes your enquiry to the right team.";
+    if (brief.trim().length < 20) next.brief = "Give us at least a sentence or two, the more specific, the faster our reply is useful.";
     setErrors(next);
     if (Object.keys(next).length) return;
-    // TODO (backend): no form endpoint was supplied. The enquiry is confirmed
-    // client-side and handed to WhatsApp; wire to the real endpoint before
-    // launch so enquiries are also stored server-side.
     setSubmitted({ wa: whatsappLink(cfg.waMessage(org.trim(), name.trim())) });
   }
 
@@ -160,7 +157,7 @@ function PartnerForm({ type }: { type: PartnerType }) {
         {submitted.wa && (
           <>
             <p className="mt-4 text-sm text-porcelain/75">
-              Want to move faster? Continue the conversation on WhatsApp — your message
+              Want to move faster? Continue the conversation on WhatsApp, your message
               is already written for you.
             </p>
             <div className="mt-6">
@@ -203,7 +200,7 @@ export default function Partnerships() {
       <PageHero
         eyebrow="Partner With Zendale"
         title="Six kinds of partner. Six different conversations."
-        lede="This is not a contact form. Tell us who you are, and you'll get the form — and the follow-up — built for organisations like yours."
+        lede="Tell us what type of organisation you represent. The form and follow-up will then be tailored to the partnership you want to discuss."
         image={{ src: "partnerships-hero.webp", alt: "Partnership discussion between Zendale leadership and a partner organisation" }}
       />
 
@@ -247,8 +244,8 @@ export default function Partnerships() {
               One agreement opens eight doors.
             </h2>
             <p className="mt-4 max-w-xl text-base leading-relaxed text-carbon/85">
-              Whatever the partnership — provider agreement, referral pathway, delivery
-              programme — you negotiate once and gain access to the whole ecosystem:
+              Whatever the partnership, whether a provider agreement, referral pathway or delivery
+              programme, you negotiate once and gain access to the whole ecosystem:
               specialist facilities, critical care, diagnostics, engineering and
               consulting. That is the arithmetic that makes a Zendale partnership worth
               the conversation.

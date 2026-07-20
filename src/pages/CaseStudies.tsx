@@ -10,7 +10,7 @@ export default function CaseStudies() {
     <>
       <Seo
         title="Success Stories"
-        description="Zendale case studies: hospital transformation, corporate health programmes, equipment installation, healthcare partnerships and community outreach — each told as challenge, approach and outcome."
+        description="Zendale case studies covering hospital transformation, corporate health programmes, equipment installation, healthcare partnerships and community outreach."
       />
       <PageHero
         eyebrow="Success Stories"
@@ -22,14 +22,6 @@ export default function CaseStudies() {
 
       <section className="bg-porcelain py-16 lg:py-24">
         <div className="mx-auto max-w-6xl space-y-16 px-5 lg:space-y-24 lg:px-8">
-          <Reveal>
-            <p className="max-w-3xl border-l-2 border-brass pl-5 text-sm leading-relaxed text-carbon/70">
-              A note on how these are written: client identities are confidential, so
-              engagements are described without names — and we publish figures only when
-              they are verified. Where you see no numbers, it is because we won't invent
-              them.
-            </p>
-          </Reveal>
           {caseStudies.map((cs, i) => (
             <Reveal key={cs.id} variant="sweep">
               <article aria-labelledby={`cs-${cs.id}`}>

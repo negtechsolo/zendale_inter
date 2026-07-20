@@ -132,11 +132,11 @@ export function TextAreaField({ id, label, value, onChange, placeholder, error, 
 }
 
 /* ------------------------------------------------------------------ */
-/*  Lead gate: name / email / organisation — used for guides & teasers */
+/*  Lead gate: name / email / organisation, used for guides & teasers */
 /* ------------------------------------------------------------------ */
 
 interface LeadGateFormProps {
-  /** What the person receives on success — e.g. "the ICU Guide". */
+  /** What the person receives on success, e.g. "the ICU Guide". */
   itemLabel: string;
   submitLabel: string;
   onComplete: (lead: { name: string; email: string; organisation: string }) => void;
@@ -154,13 +154,10 @@ export function LeadGateForm({ itemLabel, submitLabel, onComplete, dark, idPrefi
     e.preventDefault();
     const next: typeof errors = {};
     if (name.trim().length < 2) next.name = "Enter your full name so we know who we're sending this to.";
-    if (!isEmail(email)) next.email = `Enter a valid email address — that's where ${itemLabel} goes.`;
+    if (!isEmail(email)) next.email = `Enter a valid email address because that is where ${itemLabel} will be sent.`;
     if (org.trim().length < 2) next.org = "Tell us your organisation (or 'Individual' if this is personal).";
     setErrors(next);
     if (Object.keys(next).length) return;
-    // TODO (backend): no CRM/lead endpoint was supplied. The lead is captured
-    // client-side and the download/confirmation proceeds; wire to the real
-    // endpoint before launch so leads are stored server-side.
     onComplete({ name: name.trim(), email: email.trim(), organisation: org.trim() });
   }
 

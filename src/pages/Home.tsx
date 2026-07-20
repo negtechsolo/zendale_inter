@@ -20,52 +20,53 @@ import { SITE, whatsappLink } from "../config";
 function Hero() {
   return (
     <section className="relative overflow-hidden bg-ink text-porcelain">
-      <SmartImage
-        src="home-hero-texture.webp"
+      <img
+        src="/images/home-hero-texture.webp"
         alt=""
-        eager
-        className="absolute inset-0 opacity-[0.13]"
-        imgClassName="object-cover object-center"
+        aria-hidden="true"
+        loading="eager"
+        decoding="async"
+        className="pointer-events-none absolute inset-0 h-full w-full object-cover object-center opacity-[0.1]"
       />
       <div
-        className="absolute inset-0 bg-gradient-to-b from-ink/55 via-ink/25 to-ink"
+        className="absolute inset-0 bg-gradient-to-b from-ink/75 via-ink/55 to-ink"
         aria-hidden="true"
       />
       <div
-        className="absolute inset-0 hidden bg-gradient-to-r from-ink via-ink/72 to-transparent md:block"
+        className="absolute inset-0 hidden bg-gradient-to-r from-ink via-ink/80 to-ink/20 md:block"
         aria-hidden="true"
       />
 
-      <div className="relative z-10 mx-auto grid max-w-7xl gap-8 px-5 pb-14 pt-28 md:grid-cols-12 md:items-start md:gap-8 md:pb-16 md:pt-32 lg:gap-12 lg:px-8 lg:pb-20 lg:pt-36">
+      <div className="relative z-10 mx-auto grid max-w-7xl gap-8 px-5 pb-14 pt-20 md:grid-cols-12 md:items-start md:gap-8 md:pb-16 md:pt-24 lg:gap-12 lg:px-8 lg:pb-20 lg:pt-24">
         <div className="relative z-20 order-1 md:col-span-6 lg:col-span-5">
           <Reveal>
             <p className="eyebrow text-brass">The Zendale Ecosystem</p>
           </Reveal>
           <Reveal delay={0.08}>
-            <h1 className="mt-5 max-w-2xl font-display text-[2.7rem] font-medium leading-[1.01] sm:text-6xl lg:text-7xl">
+            <h1 className="mt-4 max-w-2xl font-display text-[2.65rem] font-medium leading-[1.02] sm:text-6xl lg:text-7xl">
               One Partner. Complete Healthcare Solutions.
             </h1>
           </Reveal>
           <Reveal delay={0.16}>
-            <p className="mt-6 max-w-xl text-base leading-relaxed text-porcelain/80 sm:text-lg">
+            <p className="mt-5 max-w-xl text-base leading-relaxed text-porcelain/80 sm:text-lg">
               Zendale brings specialist care, healthcare consulting, medical technology,
               corporate health and hospital partnerships together in one coordinated network.
             </p>
           </Reveal>
           <Reveal delay={0.24}>
-            <div className="mt-9 flex flex-wrap gap-4">
+            <div className="mt-7 flex flex-wrap gap-3 sm:gap-4">
               <Button to="/contact" variant="brass">Talk to Our Team</Button>
               <Button to="/network" variant="light">Explore Our Healthcare Network</Button>
             </div>
           </Reveal>
           <Reveal delay={0.32}>
-            <p className="mt-12 font-mono text-[0.625rem] uppercase tracking-eyebrow text-porcelain/40">
+            <p className="mt-8 font-mono text-[0.625rem] uppercase tracking-eyebrow text-porcelain/40 md:mt-10">
               8 facilities · 5 capability pillars · one coordinated system
             </p>
           </Reveal>
         </div>
 
-        <div className="relative order-2 h-[280px] md:col-span-6 md:h-[420px] lg:col-span-7 lg:h-[470px]">
+        <div className="relative order-2 h-[250px] w-full md:col-span-6 md:h-[340px] md:pt-2 lg:col-span-7 lg:h-[370px] lg:pt-0">
           <EcosystemHero />
         </div>
       </div>
@@ -396,7 +397,7 @@ function ResourceTeaser() {
           </p>
           <ul className="mt-7 space-y-3 text-sm text-carbon/80">
             <li className="flex gap-3"><MarkYes /> Endoscopy, ICU, Fertility, Equipment & Corporate Health guides</li>
-            <li className="flex gap-3"><MarkYes /> Case studies in challenge–approach–outcome format</li>
+            <li className="flex gap-3"><MarkYes /> Case studies presented through the challenge, approach and outcome</li>
             <li className="flex gap-3"><MarkYes /> Insights and white papers from operating experience</li>
           </ul>
           <div className="mt-8 flex flex-wrap gap-4">
