@@ -1,0 +1,4 @@
+# Zendale Limited does not sell programmatic advertising inventory.
+# This file exists so crawlers receive a valid text/plain response
+# instead of an HTML error page.
+# contact=https://www.zendalelimited.com/contact
