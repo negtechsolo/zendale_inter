@@ -61,7 +61,7 @@ export default function HowWeWork() {
           <ol>
             {stages.map((s, i) => (
               <Reveal key={s.n} delay={i * 0.05}>
-                <li className="relative grid gap-6 border-l border-steel/30 pb-14 pl-8 last:pb-0 sm:grid-cols-12 sm:gap-10 sm:pl-12">
+                <li className="relative grid gap-6 border-l border-steel/30 pb-20 pl-8 last:pb-0 sm:grid-cols-12 sm:gap-10 sm:pl-12 lg:pb-24">
                   <span
                     className="absolute -left-[1.35rem] top-0 flex h-11 w-11 items-center justify-center border border-steel bg-porcelain font-mono text-sm text-steel"
                     aria-hidden="true"

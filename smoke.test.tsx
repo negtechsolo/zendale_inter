@@ -11,7 +11,9 @@ import App from "./src/App";
 const routes = [
   "/", "/about", "/network", "/services", "/corporate-health", "/consulting",
   "/medical-technology", "/partnerships", "/how-we-work", "/resources",
-  "/downloads", "/case-studies", "/careers", "/contact", "/privacy", "/nonexistent-route",
+  "/downloads", "/case-studies", "/careers", "/contact", "/privacy",
+  "/network/lifecentre", "/network/lifecentre-support",
+  "/resources/building-stronger-healthcare-institutions-nigeria", "/nonexistent-route",
 ];
 
 beforeAll(() => {

@@ -50,10 +50,10 @@ function buildNodes(): NodeDef[] {
   const f = facilities;
   const p = pillars;
 
-  const facilityAction = (facility: (typeof f)[number]): NodeDef["action"] =>
-    facility.internal
-      ? { type: "route", to: facility.internal }
-      : { type: "external", url: facility.url };
+  const facilityAction = (facility: (typeof f)[number]): NodeDef["action"] => ({
+    type: "route",
+    to: `/network/${facility.id}`,
+  });
 
   const placed: Array<{
     def: (typeof f)[number] | (typeof p)[number];
