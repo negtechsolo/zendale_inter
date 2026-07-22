@@ -6,22 +6,31 @@ import { Button } from "../components/Button";
 import { NodeEmblem } from "../components/NodeEmblem";
 import { pillars } from "../data/pillars";
 
-const values = [
+const coreValues = [
   {
-    name: "Clinical integrity",
-    copy: "Care decisions are made by clinicians on clinical grounds. We never promise outcomes medicine cannot promise, and we say so plainly.",
+    name: "Compassion",
+    copy:
+      "We place people at the center of everything we do by fostering empathy, dignity, respect, and meaningful impact across the healthcare ecosystem.",
   },
   {
-    name: "One accountable partner",
-    copy: "Whether you are a patient, HR lead, CEO or agency representative, one named contact at Zendale manages your relationship from start to finish.",
+    name: "Excellence",
+    copy:
+      "We are committed to excellence in healthcare leadership, governance, operations, and service delivery, aligned with international standards and global best practices through accountability and continuous improvement.",
   },
   {
-    name: "Operators, not observers",
-    copy: "Our advice comes from facilities we actually run. When we recommend something, it's because we've made it work ourselves.",
+    name: "Integrity",
+    copy:
+      "We uphold ethical practice, professionalism, transparency, and trust in every aspect of our work and partnerships.",
   },
   {
-    name: "Built for the long term",
-    copy: "Maintenance schedules, follow-up care and continuous support are built into every engagement because our responsibility continues after handover.",
+    name: "Collaboration",
+    copy:
+      "We believe stronger healthcare systems are built through collaboration, integration, teamwork, and shared purpose.",
+  },
+  {
+    name: "Growth with Purpose",
+    copy:
+      "We pursue intentional growth and innovation that strengthen healthcare institutions, improve access to quality healthcare, and create lasting impact.",
   },
 ];
 
@@ -30,16 +39,15 @@ export default function About() {
     <>
       <Seo
         title="Who We Are"
-        description="Zendale is an integrated healthcare group: eight specialist facilities, a consulting practice, a medical technology division and a corporate health team operating as one coordinated network."
+        description="Zendale builds and connects strong healthcare institutions within one integrated ecosystem, grounded in compassionate care, ethical practice and operational excellence."
       />
       <PageHero
         eyebrow="Who We Are"
         title="Many parts. One system. One promise."
-        lede="Zendale exists so patients and institutions do not have to assemble their own network of healthcare providers. We have already built it."
+        lede="Zendale builds and connects strong healthcare institutions so patients, organisations and communities can reach quality care, expertise and infrastructure through one trusted ecosystem."
         image={{ src: "about-hero.webp", alt: "Zendale clinicians and consultants working across the group's facilities" }}
       />
 
-      {/* The story */}
       <section className="bg-porcelain py-20 lg:py-28">
         <div className="mx-auto grid max-w-7xl items-center gap-12 px-5 lg:grid-cols-12 lg:px-8">
           <Reveal className="lg:col-span-5" variant="sweep">
@@ -52,83 +60,131 @@ export default function About() {
           <Reveal className="lg:col-span-7" delay={0.1}>
             <p className="eyebrow text-steel">The Story</p>
             <h2 className="mt-4 font-display text-3xl font-medium leading-tight text-ink sm:text-4xl">
-              Healthcare's hardest problem isn't medicine. It's coordination.
+              Healthcare's hardest problem is often coordination.
             </h2>
             <div className="mt-6 space-y-5 text-base leading-relaxed text-carbon/85">
               <p>
-                A patient who needs dialysis, then a specialist opinion, then a procedure,
-                usually has to navigate three unconnected providers. An HR manager building
-                a health programme has to vet a dozen clinics. A hospital that buys equipment
-                from one company must find another to maintain it and a third to advise on
-                the operations around it.
+                A patient who needs dialysis, a specialist opinion and a procedure may have to navigate several unconnected providers. An HR manager building a health programme may need to vet many clinics. A hospital may buy equipment from one company, find another to maintain it and engage a third adviser for the operations around it.
               </p>
               <p>
-                Zendale was built to remove that burden. The group brings specialist
-                facilities, consulting expertise, biomedical engineering and corporate
-                health delivery under one coordinated management. The coordination therefore
-                happens on our side of the relationship, not yours.
+                Zendale was built to remove that burden. The group brings specialist facilities, healthcare consulting, biomedical engineering, corporate health delivery and institutional partnerships under one coordinated ecosystem. The coordination happens on our side of the relationship, not yours.
               </p>
               <p>
-                Today the Zendale Healthcare Network spans eight facilities, including
-                multi-specialist hospital care at Sky High Medical Centre and dedicated
-                endoscopy, fertility, critical care and medical support services. It also includes
-                VHELAR Consulting and our medical technology practice. Different doors,
-                same house.
+                Today the Zendale Healthcare Network connects a growing group of institutions across multi-specialist care, critical care, dialysis, fertility, endoscopy, diagnostics, biomedical support and healthcare consulting. Different doors, one connected system, with room for the ecosystem to expand.
               </p>
             </div>
           </Reveal>
         </div>
       </section>
 
-      {/* Mission & vision */}
-      <section className="bg-ink py-20 text-porcelain lg:py-24">
-        <div className="mx-auto grid max-w-7xl gap-px bg-porcelain/10 px-5 lg:grid-cols-2 lg:px-8">
-          <Reveal>
-            <div className="h-full bg-ink p-8 lg:p-12">
-              <p className="eyebrow text-brass">Mission</p>
-              <p className="mt-4 font-display text-2xl leading-snug sm:text-3xl">
-                To give every patient and every institution a single, dependable partner
-                for complete healthcare by coordinating care, expertise and infrastructure
-                as one.
-              </p>
-            </div>
-          </Reveal>
-          <Reveal delay={0.1}>
-            <div className="h-full bg-ink p-8 lg:p-12">
-              <p className="eyebrow text-brass">Vision</p>
-              <p className="mt-4 font-display text-2xl leading-snug sm:text-3xl">
-                A healthcare landscape where integrated networks set the standard for
-                how care is delivered and managed.
-              </p>
-            </div>
-          </Reveal>
+      <section className="relative overflow-hidden bg-ink py-20 text-porcelain lg:py-28">
+        <div className="pointer-events-none absolute inset-0 opacity-25" aria-hidden="true">
+          <svg viewBox="0 0 1200 520" className="h-full w-full" preserveAspectRatio="none">
+            <path d="M40 100 H920 L280 420 H1160" fill="none" stroke="#4A6FA5" strokeWidth="1" />
+            <path d="M600 260 40 100 M600 260 920 100 M600 260 280 420 M600 260 1160 420" fill="none" stroke="#C89B5A" strokeWidth="0.8" strokeOpacity="0.6" />
+            {[40, 280, 600, 920, 1160].map((x, index) => (
+              <rect key={x} x={x - 7} y={(index === 0 || index === 3) ? 93 : index === 4 ? 413 : index === 1 ? 413 : 253} width="14" height="14" transform={`rotate(45 ${x} ${(index === 0 || index === 3) ? 100 : index === 4 ? 420 : index === 1 ? 420 : 260})`} fill="none" stroke="#C89B5A" strokeWidth="1" />
+            ))}
+          </svg>
         </div>
-      </section>
-
-      {/* Values */}
-      <section className="bg-porcelain py-20 lg:py-28">
-        <div className="mx-auto max-w-7xl px-5 lg:px-8">
-          <Reveal className="max-w-2xl">
-            <p className="eyebrow text-steel">What We Hold To</p>
-            <h2 className="mt-4 font-display text-3xl font-medium leading-tight text-ink sm:text-4xl">
-              The standards behind the structure.
+        <div className="relative mx-auto max-w-7xl px-5 lg:px-8">
+          <Reveal className="max-w-3xl">
+            <p className="eyebrow text-brass">Our Philosophy</p>
+            <h2 className="mt-5 font-display text-3xl font-medium leading-tight sm:text-4xl lg:text-5xl">
+              Strong institutions. Shared purpose. Sustainable healthcare impact.
             </h2>
           </Reveal>
-          <div className="mt-12 grid gap-px bg-ink/10 sm:grid-cols-2">
-            {values.map((v, i) => (
-              <Reveal key={v.name} delay={i * 0.08}>
-                <div className="z-sweep h-full bg-porcelain p-8 lg:p-10">
-                  <span className="eyebrow text-brass">0{i + 1}</span>
-                  <h3 className="mt-3 font-display text-2xl text-ink">{v.name}</h3>
-                  <p className="mt-3 text-sm leading-relaxed text-carbon/80">{v.copy}</p>
-                </div>
-              </Reveal>
-            ))}
+          <div className="mt-10 grid gap-10 lg:grid-cols-12">
+            <Reveal className="lg:col-span-7" delay={0.06}>
+              <div className="border-l border-brass pl-6 text-base leading-relaxed text-porcelain/80 sm:text-lg">
+                <p>
+                  At Zendale, we believe healthcare transformation is achieved by building and connecting strong healthcare institutions within one integrated ecosystem.
+                </p>
+                <p className="mt-5">
+                  Through collaboration, partnerships, shared expertise, and operational support across the group, we strengthen existing healthcare institutions while building and establishing new ones grounded in compassionate care, ethical practice, and operational excellence.
+                </p>
+                <p className="mt-5">
+                  We believe sustainable healthcare impact comes from institutions that work together with shared purpose, strong leadership, accountability, and a long-term commitment to improving access to quality healthcare across communities.
+                </p>
+              </div>
+            </Reveal>
+            <Reveal className="lg:col-span-5" delay={0.12}>
+              <div className="grid gap-px bg-porcelain/10">
+                {[
+                  ["Build", "Establish healthcare institutions with strong leadership and operating foundations."],
+                  ["Strengthen", "Improve existing institutions through expertise, governance and operational support."],
+                  ["Connect", "Create an integrated ecosystem where institutions work together with shared purpose."],
+                ].map(([title, copy], index) => (
+                  <div key={title} className="bg-ink p-6">
+                    <p className="font-mono text-[0.625rem] uppercase tracking-eyebrow text-brass">0{index + 1}</p>
+                    <h3 className="mt-2 font-display text-2xl">{title}</h3>
+                    <p className="mt-2 text-sm leading-relaxed text-porcelain/65">{copy}</p>
+                  </div>
+                ))}
+              </div>
+            </Reveal>
           </div>
         </div>
       </section>
 
-      {/* The ecosystem at a glance */}
+      <section className="bg-mist/60 py-20 lg:py-28">
+        <div className="mx-auto max-w-7xl px-5 lg:px-8">
+          <Reveal className="max-w-2xl">
+            <p className="eyebrow text-steel">Our Direction</p>
+            <h2 className="mt-4 font-display text-3xl font-medium leading-tight text-ink sm:text-4xl">
+              A clear vision supported by a practical mission.
+            </h2>
+          </Reveal>
+          <div className="relative mt-12 grid gap-5 lg:grid-cols-2">
+            <Reveal>
+              <article className="relative h-full overflow-hidden bg-ink p-8 text-porcelain lg:p-12">
+                <span className="absolute right-8 top-6 font-display text-8xl text-porcelain/[0.04]" aria-hidden="true">V</span>
+                <p className="eyebrow text-brass">Vision</p>
+                <p className="mt-5 max-w-xl font-display text-2xl leading-snug sm:text-3xl">
+                  To transform healthcare delivery in Nigeria through a trusted and integrated healthcare ecosystem that delivers accessible, reliable, and quality healthcare for everyone.
+                </p>
+              </article>
+            </Reveal>
+            <Reveal delay={0.08}>
+              <article className="relative h-full overflow-hidden border border-steel/20 bg-porcelain p-8 lg:p-12">
+                <span className="absolute right-8 top-6 font-display text-8xl text-steel/[0.06]" aria-hidden="true">M</span>
+                <p className="eyebrow text-steel">Mission</p>
+                <p className="mt-5 max-w-xl font-display text-2xl leading-snug text-ink sm:text-3xl">
+                  To build and strengthen healthcare institutions grounded in compassionate care, ethical practice, and operational excellence, while improving access to quality healthcare across communities.
+                </p>
+              </article>
+            </Reveal>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-porcelain py-20 lg:py-28">
+        <div className="mx-auto max-w-7xl px-5 lg:px-8">
+          <Reveal className="max-w-3xl">
+            <p className="eyebrow text-steel">Core Values</p>
+            <h2 className="mt-4 font-display text-3xl font-medium leading-tight text-ink sm:text-4xl lg:text-5xl">
+              The principles that shape how we lead, operate and partner.
+            </h2>
+          </Reveal>
+          <div className="mt-12 grid gap-px bg-ink/10 sm:grid-cols-2 lg:grid-cols-10">
+            {coreValues.map((value, index) => (
+              <Reveal key={value.name} className={index < 3 ? "lg:col-span-3" : "lg:col-span-5"} delay={index * 0.06}>
+                <article className="group relative h-full overflow-hidden bg-porcelain p-8 transition-colors hover:bg-mist/50 lg:p-10">
+                  <div className="absolute left-0 top-0 h-1 w-16 bg-brass transition-all duration-300 group-hover:w-full" aria-hidden="true" />
+                  <p className="font-mono text-xs uppercase tracking-eyebrow text-brass">0{index + 1}</p>
+                  <h3 className="mt-4 font-display text-2xl text-ink">{value.name}</h3>
+                  <p className="mt-4 text-sm leading-relaxed text-carbon/80">{value.copy}</p>
+                </article>
+              </Reveal>
+            ))}
+          </div>
+          <Reveal className="mt-10 flex flex-wrap gap-4">
+            <Button to="/partnerships">Explore Partnership Opportunities</Button>
+            <Button to="/contact" variant="outline">Talk to Our Team</Button>
+          </Reveal>
+        </div>
+      </section>
+
       <section className="bg-mist/60 py-20 lg:py-28">
         <div className="mx-auto max-w-7xl px-5 lg:px-8">
           <Reveal className="max-w-2xl">
@@ -138,12 +194,12 @@ export default function About() {
             </h2>
           </Reveal>
           <div className="mt-12 grid gap-px bg-ink/10 sm:grid-cols-2 lg:grid-cols-5">
-            {pillars.map((p, i) => (
-              <Reveal key={p.id} delay={i * 0.06}>
+            {pillars.map((pillar, index) => (
+              <Reveal key={pillar.id} delay={index * 0.06}>
                 <div className="h-full bg-porcelain p-7">
-                  <NodeEmblem motif={p.motif} className="h-9 w-9 text-steel" />
-                  <h3 className="mt-4 font-display text-lg leading-snug text-ink">{p.name}</h3>
-                  <p className="mt-2 text-sm text-carbon/70">{p.summary}</p>
+                  <NodeEmblem motif={pillar.motif} className="h-9 w-9 text-steel" />
+                  <h3 className="mt-4 font-display text-lg leading-snug text-ink">{pillar.name}</h3>
+                  <p className="mt-2 text-sm text-carbon/70">{pillar.summary}</p>
                 </div>
               </Reveal>
             ))}

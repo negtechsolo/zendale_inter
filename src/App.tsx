@@ -26,6 +26,7 @@ function lazyRetry(factory: () => Promise<{ default: ComponentType }>) {
 const Home = lazyRetry(() => import("./pages/Home"));
 const About = lazyRetry(() => import("./pages/About"));
 const Network = lazyRetry(() => import("./pages/Network"));
+const FacilityProfile = lazyRetry(() => import("./pages/FacilityProfile"));
 const Services = lazyRetry(() => import("./pages/Services"));
 const CorporateHealth = lazyRetry(() => import("./pages/CorporateHealth"));
 const Consulting = lazyRetry(() => import("./pages/Consulting"));
@@ -33,6 +34,7 @@ const MedicalTechnology = lazyRetry(() => import("./pages/MedicalTechnology"));
 const Partnerships = lazyRetry(() => import("./pages/Partnerships"));
 const HowWeWork = lazyRetry(() => import("./pages/HowWeWork"));
 const Resources = lazyRetry(() => import("./pages/Resources"));
+const ArticlePage = lazyRetry(() => import("./pages/ArticlePage"));
 const Downloads = lazyRetry(() => import("./pages/Downloads"));
 const CaseStudies = lazyRetry(() => import("./pages/CaseStudies"));
 const Careers = lazyRetry(() => import("./pages/Careers"));
@@ -47,10 +49,11 @@ function usePrefetchRoutes() {
     const prefetch = () => {
       [
         () => import("./pages/About"), () => import("./pages/Network"),
+        () => import("./pages/FacilityProfile"),
         () => import("./pages/Services"), () => import("./pages/CorporateHealth"),
         () => import("./pages/Consulting"), () => import("./pages/MedicalTechnology"),
         () => import("./pages/Partnerships"), () => import("./pages/HowWeWork"),
-        () => import("./pages/Resources"), () => import("./pages/Downloads"),
+        () => import("./pages/Resources"), () => import("./pages/ArticlePage"), () => import("./pages/Downloads"),
         () => import("./pages/CaseStudies"), () => import("./pages/Careers"),
         () => import("./pages/Contact"), () => import("./pages/Privacy"),
       ].forEach((f) => f().catch(() => {})); // best-effort; lazyRetry covers failures
@@ -71,6 +74,7 @@ export default function App() {
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/network" element={<Network />} />
+        <Route path="/network/:facilityId" element={<FacilityProfile />} />
         <Route path="/services" element={<Services />} />
         <Route path="/corporate-health" element={<CorporateHealth />} />
         <Route path="/consulting" element={<Consulting />} />
@@ -78,6 +82,7 @@ export default function App() {
         <Route path="/partnerships" element={<Partnerships />} />
         <Route path="/how-we-work" element={<HowWeWork />} />
         <Route path="/resources" element={<Resources />} />
+        <Route path="/resources/:articleSlug" element={<ArticlePage />} />
         <Route path="/downloads" element={<Downloads />} />
         <Route path="/case-studies" element={<CaseStudies />} />
         <Route path="/careers" element={<Careers />} />

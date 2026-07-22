@@ -8,7 +8,7 @@ import { EcosystemHero } from "../components/EcosystemHero";
 import { NodeEmblem } from "../components/NodeEmblem";
 import { MarkLimited, MarkYes } from "../components/Indicator";
 import { LeadGateForm } from "../components/forms";
-import { facilities } from "../data/facilities";
+import { facilities, facilityProfilePath } from "../data/facilities";
 import { pillars } from "../data/pillars";
 import { industries } from "../data/services";
 import { SITE, whatsappLink } from "../config";
@@ -43,7 +43,7 @@ function Hero() {
             <p className="eyebrow text-brass">The Zendale Ecosystem</p>
           </Reveal>
           <Reveal delay={0.08}>
-            <h1 className="mt-4 max-w-[42rem] font-display text-[2.65rem] font-medium leading-[1.02] sm:text-6xl lg:text-[4rem] xl:text-[4.5rem]">
+            <h1 className="mt-4 max-w-[42rem] font-display text-[2.65rem] font-medium leading-[1.02] sm:text-6xl lg:text-[3.7rem] xl:text-[4rem]">
               <span className="block">One Partner.</span>
               <span className="block lg:whitespace-nowrap">Complete Healthcare</span>
               <span className="block">Solutions.</span>
@@ -57,13 +57,13 @@ function Hero() {
           </Reveal>
           <Reveal delay={0.24}>
             <div className="mt-7 flex flex-wrap gap-3 sm:gap-4">
-              <Button to="/contact" variant="brass">Talk to Our Team</Button>
+              <Button to="/partnerships" variant="brass">Partner With Zendale</Button>
               <Button to="/network" variant="light">Explore Our Healthcare Network</Button>
             </div>
           </Reveal>
           <Reveal delay={0.32}>
-            <p className="mt-8 font-mono text-[0.6rem] uppercase tracking-[0.2em] text-porcelain/40 md:mt-10 lg:whitespace-nowrap">
-              8 facilities · 5 capability pillars · one coordinated system
+            <p className="mt-8 font-mono text-[0.58rem] uppercase tracking-[0.16em] text-porcelain/40 md:mt-10 lg:whitespace-nowrap">
+              {`Current network: ${facilities.length} institutions · 5 capability pillars · one coordinated system`}
             </p>
           </Reveal>
         </div>
@@ -146,6 +146,105 @@ function WhoWeAre() {
   );
 }
 
+const partnershipPathways = [
+  "Corporate Organisation",
+  "Hospital/Clinic",
+  "Government or Non Government Agency",
+  "HMO",
+  "Healthcare Investor",
+  "International Organisation",
+];
+
+function PartnershipGateway() {
+  return (
+    <section className="relative overflow-hidden bg-ink py-20 text-porcelain lg:py-28">
+      <div className="pointer-events-none absolute inset-0 opacity-25" aria-hidden="true">
+        <svg viewBox="0 0 1200 620" className="h-full w-full" preserveAspectRatio="none">
+          <path d="M80 120 H1040 L260 500 H1140" fill="none" stroke="#4A6FA5" strokeWidth="1" />
+          <path d="M600 310 80 120 M600 310 1040 120 M600 310 260 500 M600 310 1140 500" fill="none" stroke="#C89B5A" strokeOpacity="0.55" strokeWidth="0.8" />
+          <circle cx="600" cy="310" r="11" fill="#C89B5A" />
+        </svg>
+      </div>
+      <div className="relative mx-auto grid max-w-7xl items-center gap-12 px-5 lg:grid-cols-12 lg:px-8">
+        <Reveal className="lg:col-span-5">
+          <p className="eyebrow text-brass">Partnership Opportunities</p>
+          <h2 className="mt-4 font-display text-3xl font-medium leading-tight sm:text-4xl lg:text-5xl">
+            Six pathways for organisations building better healthcare.
+          </h2>
+          <p className="mt-5 text-base leading-relaxed text-porcelain/75">
+            From workforce programmes and referral relationships to public health delivery, facility transformation, investment and international collaboration, Zendale structures each conversation around the institution and the result it needs.
+          </p>
+          <div className="mt-8">
+            <Button to="/partnerships" variant="brass">Explore Partnership Pathways</Button>
+          </div>
+        </Reveal>
+        <div className="lg:col-span-7">
+          <div className="grid gap-px bg-porcelain/10 sm:grid-cols-2">
+            {partnershipPathways.map((pathway, index) => (
+              <Reveal key={pathway} delay={index * 0.05}>
+                <Link
+                  to="/partnerships"
+                  className="group flex h-full items-start gap-4 bg-ink p-6 transition-colors hover:bg-[#102746]"
+                >
+                  <span className="font-mono text-xs tracking-eyebrow text-brass">0{index + 1}</span>
+                  <span>
+                    <span className="font-display text-xl leading-tight">{pathway}</span>
+                    <span className="mt-3 block text-xs font-medium uppercase tracking-[0.18em] text-steel transition-transform group-hover:translate-x-1">Start the conversation →</span>
+                  </span>
+                </Link>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function PurposeSnapshot() {
+  const purpose = [
+    {
+      label: "Vision",
+      copy: "To transform healthcare delivery in Nigeria through a trusted and integrated healthcare ecosystem that delivers accessible, reliable, and quality healthcare for everyone.",
+    },
+    {
+      label: "Mission",
+      copy: "To build and strengthen healthcare institutions grounded in compassionate care, ethical practice, and operational excellence, while improving access to quality healthcare across communities.",
+    },
+    {
+      label: "Philosophy",
+      copy: "Healthcare transformation comes from building and connecting strong institutions that work together with shared purpose, accountability and a long-term commitment to quality care.",
+    },
+  ];
+
+  return (
+    <section className="bg-porcelain py-20 lg:py-24">
+      <div className="mx-auto max-w-7xl px-5 lg:px-8">
+        <Reveal className="max-w-3xl">
+          <p className="eyebrow text-steel">Our Purpose</p>
+          <h2 className="mt-4 font-display text-3xl font-medium leading-tight text-ink sm:text-4xl">
+            Growth is meaningful when it strengthens healthcare institutions and improves access.
+          </h2>
+        </Reveal>
+        <div className="mt-12 grid gap-px bg-ink/10 lg:grid-cols-3">
+          {purpose.map((item, index) => (
+            <Reveal key={item.label} delay={index * 0.08}>
+              <article className={`relative h-full overflow-hidden p-8 lg:p-10 ${index === 1 ? "bg-mist" : "bg-porcelain"}`}>
+                <span className="absolute right-5 top-2 font-display text-8xl text-steel/[0.05]" aria-hidden="true">0{index + 1}</span>
+                <p className="eyebrow text-brass">{item.label}</p>
+                <p className="relative mt-5 font-display text-xl leading-snug text-ink sm:text-2xl">{item.copy}</p>
+              </article>
+            </Reveal>
+          ))}
+        </div>
+        <Reveal className="mt-8">
+          <Button to="/about" variant="outline">Read Our Philosophy and Core Values</Button>
+        </Reveal>
+      </div>
+    </section>
+  );
+}
+
 /* ------------------------------------------------------------------ */
 /*  03 · Healthcare Network preview, connected constellation grid     */
 /* ------------------------------------------------------------------ */
@@ -166,11 +265,10 @@ function NetworkPreview() {
         <Reveal className="max-w-2xl">
           <p className="eyebrow text-brass">The Healthcare Network</p>
           <h2 className="mt-4 font-display text-3xl font-medium leading-tight sm:text-4xl lg:text-5xl">
-            Eight facilities. One referral away from each other.
+            A growing network. One coordinated system.
           </h2>
           <p className="mt-5 text-base leading-relaxed text-porcelain/75">
-            Every facility below is a working part of the same system, so one phone call
-            to Zendale reaches all of them.
+            The institutions below make up the current Zendale network. The structure is designed to connect today's specialist capabilities while making room for new facilities and partnerships as the ecosystem grows.
           </p>
         </Reveal>
         <div className="mt-12 grid gap-px bg-porcelain/10 sm:grid-cols-2 lg:grid-cols-4">
@@ -182,20 +280,20 @@ function NetworkPreview() {
                   <h3 className="mt-2 font-display text-lg leading-snug">{f.name}</h3>
                   <p className="mt-2 text-sm text-porcelain/65">{f.focus}</p>
                 </div>
-                {f.internal ? (
-                  <Link to={f.internal} className="mt-6 inline-block text-sm font-medium text-steel transition-colors hover:text-brass">
-                    Visit Facility →
+                <div className="mt-6 flex flex-wrap gap-x-4 gap-y-2">
+                  <Link to={facilityProfilePath(f.id)} className="inline-block text-sm font-medium text-steel transition-colors hover:text-brass">
+                    Learn More →
                   </Link>
-                ) : (
-                  <a
-                    href={f.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="mt-6 inline-block text-sm font-medium text-steel transition-colors hover:text-brass"
-                  >
-                    Visit Facility →
-                  </a>
-                )}
+                  {f.url ? (
+                    <a href={f.url} target="_blank" rel="noopener noreferrer" className="inline-block text-sm font-medium text-porcelain/60 transition-colors hover:text-brass">
+                      Visit Facility ↗
+                    </a>
+                  ) : f.internal ? (
+                    <Link to={f.internal} className="inline-block text-sm font-medium text-porcelain/60 transition-colors hover:text-brass">
+                      Visit Practice →
+                    </Link>
+                  ) : null}
+                </div>
               </div>
             </Reveal>
           ))}
@@ -480,10 +578,12 @@ export default function Home() {
     <>
       <Seo
         title={SITE.tagline}
-        description="Zendale is an integrated healthcare group uniting specialist care, healthcare consulting, medical technology, corporate health and hospital partnerships in one coordinated network."
+        description="Zendale Limited is an integrated healthcare group connecting specialist care, healthcare consulting, medical technology, corporate health and institutional partnerships through a growing network."
       />
       <Hero />
       <WhoWeAre />
+      <PartnershipGateway />
+      <PurposeSnapshot />
       <NetworkPreview />
       <HowWeWorkStrip />
       <WhyZendale />

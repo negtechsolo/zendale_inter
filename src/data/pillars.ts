@@ -15,7 +15,7 @@ export const pillars: Pillar[] = [
     code: "ZP-01",
     name: "Clinical & Specialist Care",
     route: "/network",
-    summary: "Specialist treatment delivered through eight coordinated facilities.",
+    summary: "Specialist care delivered through a growing network of coordinated institutions.",
     motif: "lattice",
   },
   {
@@ -45,9 +45,9 @@ export const pillars: Pillar[] = [
   {
     id: "partnerships",
     code: "ZP-05",
-    name: "Hospital Partnerships",
+    name: "Healthcare Partnerships",
     route: "/partnerships",
-    summary: "Structured collaboration with hospitals, HMOs, government and investors.",
+    summary: "Structured collaboration with organisations building stronger healthcare systems.",
     motif: "rings",
   },
 ];

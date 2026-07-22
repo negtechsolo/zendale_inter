@@ -5,7 +5,10 @@
  * Empty values hide the corresponding interface elements cleanly.
  */
 export const SITE = {
-  name: "Zendale",
+  name: "Zendale Limited",
+  shortName: "Zendale",
+  url: "https://zendale.vercel.app",
+  socialImage: "/images/zendale-social-card.png",
   tagline: "One Partner. Complete Healthcare Solutions.",
   /** International format, digits only, e.g. "234XXXXXXXXXX". Empty = WhatsApp UI hidden. */
   whatsappNumber: "", // Add the approved Zendale WhatsApp business number before final launch

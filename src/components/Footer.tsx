@@ -1,6 +1,6 @@
 import { FormEvent, useState } from "react";
 import { Link } from "react-router-dom";
-import { facilities } from "../data/facilities";
+import { facilities, facilityProfilePath } from "../data/facilities";
 import { SITE } from "../config";
 import { Logo } from "./Logo";
 
@@ -45,8 +45,7 @@ export function Footer() {
           <div className="lg:col-span-4">
             <Logo dark />
             <p className="mt-5 max-w-sm text-sm leading-relaxed text-porcelain/70">
-              An integrated healthcare group: specialist facilities, consulting, medical
-              technology, corporate health and partnerships through one coordinated network.
+              Zendale Limited is an integrated healthcare group connecting specialist care, consulting, medical technology, corporate health and partnerships through a growing network.
             </p>
             <form onSubmit={subscribe} className="mt-8 max-w-sm" noValidate>
               <label htmlFor="footer-news" className="eyebrow block text-brass">
@@ -107,26 +106,16 @@ export function Footer() {
           <nav className="lg:col-span-3" aria-label="Healthcare network">
             <h2 className="eyebrow text-porcelain/50">The Network</h2>
             <ul className="mt-4 space-y-2.5">
-              {facilities.map((f) =>
-                f.internal ? (
-                  <li key={f.id}>
-                    <Link to={f.internal} className="text-sm text-porcelain/80 transition-colors hover:text-brass">
-                      {f.name}
-                    </Link>
-                  </li>
-                ) : (
-                  <li key={f.id}>
-                    <a
-                      href={f.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-sm text-porcelain/80 transition-colors hover:text-brass"
-                    >
-                      {f.name}
-                    </a>
-                  </li>
-                )
-              )}
+              {facilities.map((facility) => (
+                <li key={facility.id}>
+                  <Link
+                    to={facilityProfilePath(facility.id)}
+                    className="text-sm text-porcelain/80 transition-colors hover:text-brass"
+                  >
+                    {facility.name}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </nav>
         </div>
@@ -134,7 +123,7 @@ export function Footer() {
         <div className="brass-rule mt-14" />
         <div className="mt-6 flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-center">
           <p className="font-mono text-[0.6875rem] uppercase tracking-eyebrow text-porcelain/40">
-            © {new Date().getFullYear()} Zendale · One Partner. Complete Healthcare Solutions.
+            © {new Date().getFullYear()} Zendale Limited · One Partner. Complete Healthcare Solutions.
           </p>
           {SITE.socials.length > 0 && (
             <ul className="flex gap-5">

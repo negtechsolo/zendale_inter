@@ -3,23 +3,41 @@ export interface ServiceGroup {
   name: string;
   intro: string;
   services: { name: string; detail: string }[];
-  route: string; // deep-dive page
+  route: string;
 }
 
+/** Partnership is listed first because institutional collaboration is a
+ * primary commercial pathway for Zendale Limited. The remaining capability
+ * pillars retain their existing content and routes. */
 export const serviceGroups: ServiceGroup[] = [
+  {
+    id: "partnerships",
+    name: "Healthcare Partnerships",
+    route: "/partnerships",
+    intro:
+      "Structured pathways for corporate organisations, hospitals and clinics, government and non-government agencies, HMOs, healthcare investors and international organisations to work with Zendale Limited.",
+    services: [
+      { name: "Corporate health partnerships", detail: "Retainership, medicals, screening, occupational health and coordinated referral arrangements for organisations." },
+      { name: "Hospital and clinic partnerships", detail: "Referral, capacity-sharing, specialist support and institutional collaboration with healthcare providers." },
+      { name: "Government and agency partnerships", detail: "Programme delivery, public-private partnerships, institutional development and health-system strengthening." },
+      { name: "HMO partnerships", detail: "Provider arrangements and coordinated access to specialist services across the network." },
+      { name: "Healthcare investment", detail: "Facility development, operational partnerships, expansion and institution-building opportunities." },
+      { name: "International collaboration", detail: "Programme delivery, technical collaboration and institutional support for international organisations." },
+    ],
+  },
   {
     id: "clinical",
     name: "Clinical & Specialist Care",
     route: "/network",
     intro:
-      "Direct patient care, delivered through the eight facilities of the Zendale Healthcare Network. One referral reaches every specialty in the group.",
+      "Direct patient care delivered through the current institutions in the growing Zendale Healthcare Network, with coordinated access to specialist capabilities across the ecosystem.",
     services: [
-      { name: "Multi-specialist hospital care", detail: "Consultant-led outpatient, inpatient and surgical care at Sky High and Finnih Medical Centres." },
-      { name: "Critical care & dialysis", detail: "Intensive care and haemodialysis programmes at the Sky High ICU / Dialysis Centre." },
-      { name: "Fertility & reproductive care", detail: "Assessment, counselling and assisted reproductive treatment at Kindred Path Fertility Centre." },
-      { name: "Endoscopy & diagnostics", detail: "Procedure-based diagnosis and gastrointestinal investigation at the Zendale Endoscopy Centre." },
-      { name: "General medical services", detail: "First-line care and screening through Lifecentre Medical Services, with onward network referral." },
-      { name: "Medical support services", detail: "Clinical supply, logistics and facility support through Lifecentre Med Support." },
+      { name: "Multi-specialist hospital care", detail: "Consultant-led clinical care through Sky High Medical Centre and Finnih Medical Centre." },
+      { name: "Critical care and dialysis", detail: "Intensive care and dialysis services through the Sky High ICU / Dialysis Centre." },
+      { name: "Fertility and reproductive care", detail: "Assessment, assisted reproduction and patient support through Kindred Path Fertility Centre." },
+      { name: "Endoscopy and gastroenterology", detail: "Diagnostic and therapeutic endoscopy through Zendale Endoscopy Centre." },
+      { name: "Diagnostics and occupational health", detail: "Pathology, wellness, radiology and occupational health through LifeCentre Medical Services." },
+      { name: "Biomedical equipment support", detail: "Procurement, repair, maintenance and technical support through LifeCentre Med Support." },
     ],
   },
   {
@@ -34,7 +52,7 @@ export const serviceGroups: ServiceGroup[] = [
       { name: "Annual staff medicals", detail: "Scheduled workforce health checks with clear, actionable reporting." },
       { name: "Pre-employment screening", detail: "Fitness-for-role screening delivered on hiring timelines." },
       { name: "Occupational health", detail: "Workplace health risk assessment and ongoing occupational health support." },
-      { name: "Nationwide coverage", detail: "Delivery through Zendale facilities and vetted partner providers across locations." },
+      { name: "Multi-location delivery", detail: "Programmes coordinated through Zendale institutions and approved delivery partners across locations." },
     ],
   },
   {
@@ -42,14 +60,14 @@ export const serviceGroups: ServiceGroup[] = [
     name: "Medical Technology",
     route: "/medical-technology",
     intro:
-      "The engineering behind reliable care, covering the sourcing, installation and maintenance of the equipment hospitals depend on throughout its working life.",
+      "The engineering behind reliable care, covering the sourcing, installation and maintenance of the equipment healthcare institutions depend on throughout its working life.",
     services: [
       { name: "Equipment procurement", detail: "Specification, sourcing and supply of medical equipment matched to clinical need and budget." },
-      { name: "Installation & commissioning", detail: "Site-ready installation, testing and clinical handover." },
+      { name: "Installation and commissioning", detail: "Site-ready installation, testing and clinical handover." },
       { name: "Planned maintenance", detail: "Scheduled preventive maintenance that protects uptime and asset value." },
-      { name: "Biomedical engineering", detail: "In-house biomedical engineers supporting facilities across the network and beyond." },
-      { name: "Repairs & fault response", detail: "Diagnosis and repair when equipment fails, prioritised by clinical impact." },
-      { name: "Lifecycle management", detail: "Asset registers, replacement planning and end-of-life decisions made on evidence." },
+      { name: "Biomedical engineering", detail: "Biomedical engineering support for facilities within and beyond the Zendale network." },
+      { name: "Repairs and fault response", detail: "Diagnosis and repair when equipment fails, prioritised by clinical impact." },
+      { name: "Lifecycle management", detail: "Asset registers, replacement planning and evidence-led end-of-life decisions." },
     ],
   },
   {
@@ -57,27 +75,13 @@ export const serviceGroups: ServiceGroup[] = [
     name: "Healthcare Consulting",
     route: "/consulting",
     intro:
-      "Advisory grounded in operations. Because Zendale operates hospitals, ICUs and diagnostic centres, our consultants advise from practical experience rather than theory.",
+      "Advisory grounded in operations. Zendale's consulting work draws on practical healthcare delivery, institutional management and transformation experience.",
     services: [
       { name: "Hospital planning", detail: "Feasibility, service design and planning for new or expanding facilities." },
-      { name: "Operational improvement", detail: "Diagnosing and fixing the workflows, staffing and systems that hold facilities back." },
-      { name: "Public-private partnerships", detail: "Structuring and supporting PPP arrangements between government and private providers." },
-      { name: "Quality & compliance", detail: "Building the standards, audit and governance that regulators and patients expect." },
-      { name: "Healthcare transformation", detail: "End-to-end change programmes for organisations repositioning how they deliver care." },
-    ],
-  },
-  {
-    id: "partnerships",
-    name: "Hospital Partnerships",
-    route: "/partnerships",
-    intro:
-      "Structured ways for hospitals, HMOs, government agencies, investors and international organisations to work with the Zendale ecosystem.",
-    services: [
-      { name: "Hospital network partnerships", detail: "Referral, capacity-sharing and service partnerships with hospitals and clinics." },
-      { name: "HMO & payer partnerships", detail: "Provider arrangements with health maintenance organisations and insurers." },
-      { name: "Government & public health", detail: "Working with agencies on public health delivery and infrastructure." },
-      { name: "Investor collaboration", detail: "Engaging healthcare investors on facility development and expansion." },
-      { name: "International partnerships", detail: "Collaboration with development partners and international organisations." },
+      { name: "Operational improvement", detail: "Diagnosing and improving workflows, staffing and systems that limit performance." },
+      { name: "Public-private partnerships", detail: "Structuring and supporting arrangements between government and private healthcare providers." },
+      { name: "Quality and compliance", detail: "Building standards, audit processes and governance for safer, more accountable delivery." },
+      { name: "Healthcare transformation", detail: "End-to-end change programmes for institutions repositioning how they deliver care." },
     ],
   },
 ];
@@ -88,7 +92,7 @@ export const industries = [
   "Clinics",
   "HMOs",
   "Government",
-  "NGOs",
+  "Non-Government Agencies",
   "Healthcare Investors",
   "Development Partners",
   "Manufacturers",

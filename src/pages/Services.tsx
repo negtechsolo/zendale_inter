@@ -10,15 +10,13 @@ export default function Services() {
     <>
       <Seo
         title="Services"
-        description="Zendale's services, organised by capability pillar: clinical and specialist care, corporate healthcare, medical technology, healthcare consulting and hospital partnerships."
+        description="Explore Zendale Limited services across institutional partnerships, specialist care, corporate healthcare, medical technology and healthcare consulting."
       />
       <PageHero
         eyebrow="Services"
-        title="Everything we do, organised the way you'd ask for it."
-        lede="Five capability pillars connect to the services beneath them. Choose the one that matches your need, or ask our team to guide you."
-      >
-        <Button to="/contact" variant="brass">Talk to Our Team</Button>
-      </PageHero>
+        title="Complete healthcare capabilities. One coordinated system."
+        lede="Zendale brings together specialist care, corporate healthcare, medical technology, healthcare consulting and institutional partnerships around each organisation's needs."
+      />
 
       <section className="bg-porcelain py-16 lg:py-24">
         <div className="mx-auto max-w-5xl px-5 lg:px-8">
@@ -27,16 +25,20 @@ export default function Services() {
               <AccordionItem kicker={`Pillar 0${i + 1}`} title={group.name} defaultOpen={i === 0}>
                 <p className="max-w-2xl text-base leading-relaxed text-carbon/85">{group.intro}</p>
                 <dl className="mt-8 grid gap-px bg-ink/10 sm:grid-cols-2">
-                  {group.services.map((s) => (
-                    <div key={s.name} className="bg-porcelain py-5 pr-6 sm:px-6">
-                      <dt className="font-medium text-ink">{s.name}</dt>
-                      <dd className="mt-1.5 text-sm leading-relaxed text-carbon/75">{s.detail}</dd>
+                  {group.services.map((service) => (
+                    <div key={service.name} className="bg-porcelain py-5 pr-6 sm:px-6">
+                      <dt className="font-medium text-ink">{service.name}</dt>
+                      <dd className="mt-1.5 text-sm leading-relaxed text-carbon/75">{service.detail}</dd>
                     </div>
                   ))}
                 </dl>
                 <div className="mt-8">
                   <Button to={group.route} variant="outline">
-                    {group.id === "clinical" ? "Explore the network" : `Explore ${group.name}`}
+                    {group.id === "clinical"
+                      ? "Explore the network"
+                      : group.id === "partnerships"
+                        ? "Explore partnership pathways"
+                        : `Explore ${group.name}`}
                   </Button>
                 </div>
               </AccordionItem>

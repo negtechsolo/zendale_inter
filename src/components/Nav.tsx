@@ -2,7 +2,12 @@ import { useEffect, useState } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import { Logo } from "./Logo";
 
-const primary = [
+/**
+ * Desktop navigation keeps the main corporate journey balanced.
+ * Partnerships remains available through the homepage calls to action,
+ * the Services page, the footer and the complete mobile menu.
+ */
+const desktopPrimary = [
   { to: "/about", label: "Who We Are" },
   { to: "/network", label: "Healthcare Network" },
   { to: "/services", label: "Services" },
@@ -11,13 +16,20 @@ const primary = [
   { to: "/resources", label: "Resources" },
 ];
 
-const secondary = [
+const mobileItems = [
+  { to: "/about", label: "Who We Are" },
+  { to: "/network", label: "Healthcare Network" },
+  { to: "/services", label: "Services" },
+  { to: "/how-we-work", label: "How We Work" },
+  { to: "/partnerships", label: "Partnerships" },
+  { to: "/case-studies", label: "Success Stories" },
+  { to: "/resources", label: "Resources" },
   { to: "/corporate-health", label: "Corporate Healthcare" },
   { to: "/consulting", label: "Healthcare Consulting" },
   { to: "/medical-technology", label: "Medical Technology" },
-  { to: "/partnerships", label: "Partner With Zendale" },
   { to: "/downloads", label: "Download Centre" },
   { to: "/careers", label: "Careers" },
+  { to: "/contact", label: "Contact" },
 ];
 
 export function Nav() {
@@ -67,10 +79,10 @@ export function Nav() {
         <Logo dark={!solidHeader} />
 
         <nav
-          className="hidden items-center gap-7 xl:flex"
+          className="hidden items-center gap-6 xl:flex"
           aria-label="Primary"
         >
-          {primary.map((item) => (
+          {desktopPrimary.map((item) => (
             <NavLink
               key={item.to}
               to={item.to}
@@ -141,11 +153,7 @@ export function Nav() {
           </p>
 
           <nav className="grid gap-1" aria-label="Site">
-            {[
-              ...primary,
-              ...secondary,
-              { to: "/contact", label: "Contact" },
-            ].map((item) => (
+            {mobileItems.map((item) => (
               <NavLink
                 key={item.to}
                 to={item.to}
