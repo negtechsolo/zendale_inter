@@ -111,18 +111,18 @@ function WhoWeAre() {
           <Reveal className="lg:col-span-6">
             <p className="eyebrow text-steel">Who We Are</p>
             <h2 className="mt-4 font-display text-3xl font-medium leading-tight text-ink sm:text-4xl lg:text-5xl">
-              Not a hospital. A healthcare system you can call.
+              One healthcare ecosystem. One trusted partner.
             </h2>
-            <p className="mt-6 text-base leading-relaxed text-carbon/85 sm:text-lg">
-              Zendale is an integrated healthcare group. Behind one name sits a coordinated
-              network of specialist facilities, a consulting practice, a medical technology
-              division and a corporate health team. The group is built so that a patient, an employer,
-              a hospital, an HMO or a public institution can each reach the right care,
-              expertise or infrastructure through a single partner. When you work with
-              Zendale, you are not engaging one clinic; you are engaging an ecosystem.
-            </p>
+            <div className="mt-6 space-y-4 text-base leading-relaxed text-carbon/85 sm:text-lg">
+              <p>
+                Zendale is an integrated healthcare group bringing together hospitals, diagnostics, specialist care, fertility services, biomedical engineering, healthcare consulting and strategic procurement within one coordinated ecosystem.
+              </p>
+              <p>
+                We make it easier for individuals, organisations, healthcare institutions and government partners to access quality care, expertise, technology and operational support through one trusted partner.
+              </p>
+            </div>
             <div className="mt-8">
-              <Button to="/about" variant="outline">Read the full story</Button>
+              <Button to="/about" variant="outline">Read more about Zendale</Button>
             </div>
           </Reveal>
           <Reveal className="lg:col-span-6" variant="sweep" delay={0.15}>
