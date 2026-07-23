@@ -56,8 +56,8 @@ function Hero() {
           </Reveal>
           <Reveal delay={0.16}>
             <p className="mt-5 max-w-xl text-base leading-relaxed text-porcelain/80 sm:text-lg">
-              Zendale brings specialist care, healthcare consulting, medical technology,
-              corporate health and hospital partnerships together in one coordinated network.
+              Zendale brings together hospitals, diagnostics, specialist care, fertility services and
+              healthcare support within one integrated healthcare ecosystem. One trusted partner for every healthcare need.
             </p>
           </Reveal>
           <Reveal delay={0.24}>
@@ -385,7 +385,7 @@ function WhyZendale() {
         <Reveal className="max-w-2xl">
           <p className="eyebrow text-steel">Why Zendale</p>
           <h2 className="mt-4 font-display text-3xl font-medium leading-tight text-ink sm:text-4xl lg:text-5xl">
-            One hospital solves one problem. A network solves yours.
+            One hospital delivers one part of care. Zendale connects the entire healthcare journey.
           </h2>
         </Reveal>
         <Reveal className="mt-12" variant="sweep">
