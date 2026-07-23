@@ -32,7 +32,7 @@ export default function Consulting() {
     <>
       <Seo
         title="Healthcare Consulting"
-        description="Zendale Consulting, delivered through VHELAR Consulting, provides hospital planning, operational improvement, public-private partnership, quality, compliance and healthcare transformation services grounded in operating experience."
+        description="Zendale Consulting, through VHELAR: hospital planning, operational improvement, partnerships, quality and compliance, from people who run facilities."
       />
       <PageHero
         eyebrow="Healthcare Consulting · VHELAR Consulting"

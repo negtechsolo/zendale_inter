@@ -587,7 +587,7 @@ export default function Home() {
     <>
       <Seo
         title={SITE.tagline}
-        description="An integrated healthcare group in Lagos connecting specialist care, consulting, medical technology and corporate health through one coordinated network."
+        description="Zendale Limited is an integrated healthcare group connecting specialist care, healthcare consulting, medical technology, corporate health and institutional partnerships through a growing network."
       />
       <Hero />
       <WhoWeAre />

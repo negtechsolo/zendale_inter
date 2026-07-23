@@ -18,7 +18,7 @@ export default function MedicalTechnology() {
     <>
       <Seo
         title="Medical Technology"
-        description="Zendale medical technology: equipment procurement, installation, planned maintenance, repairs and biomedical engineering for healthcare facilities."
+        description="Zendale medical technology: equipment procurement, installation and commissioning, planned maintenance, biomedical engineering, repairs and full lifecycle management for healthcare facilities."
       />
       <PageHero
         eyebrow="Medical Technology"

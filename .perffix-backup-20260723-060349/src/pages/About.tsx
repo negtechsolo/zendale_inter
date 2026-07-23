@@ -39,7 +39,7 @@ export default function About() {
     <>
       <Seo
         title="Who We Are"
-        description="Zendale builds and connects strong healthcare institutions in one integrated ecosystem, grounded in compassionate care and operational excellence."
+        description="Zendale builds and connects strong healthcare institutions within one integrated ecosystem, grounded in compassionate care, ethical practice and operational excellence."
       />
       <PageHero
         eyebrow="Who We Are"

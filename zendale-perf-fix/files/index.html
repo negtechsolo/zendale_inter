@@ -181,7 +181,15 @@
           window.__zReveal = schedule;
 
           function start() {
-            scan();
+            /*
+             * Two frames before the first scan. The browser needs to paint the
+             * hidden state once for the transition to have somewhere to start
+             * from; scanning immediately meant anything already on screen —
+             * the whole hero — snapped in with no animation at all.
+             */
+            requestAnimationFrame(function () {
+              requestAnimationFrame(scan);
+            });
             // Content can also appear from filters and lazy chunks.
             new MutationObserver(schedule).observe(document.body, {
               childList: true,

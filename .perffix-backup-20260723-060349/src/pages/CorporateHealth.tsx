@@ -47,7 +47,7 @@ export default function CorporateHealth() {
     <>
       <Seo
         title="Corporate Healthcare"
-        description="Corporate health from Zendale: retainership, executive and staff medicals, pre-employment screening and occupational health, under one partner."
+        description="Corporate health programmes from Zendale: retainership, executive medicals, annual staff medicals, pre-employment screening, occupational health and nationwide coverage, under one accountable partner."
       />
       <PageHero
         eyebrow="Corporate Healthcare"

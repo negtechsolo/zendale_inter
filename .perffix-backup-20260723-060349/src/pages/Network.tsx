@@ -15,7 +15,7 @@ export default function Network() {
     <>
       <Seo
         title="Healthcare Network"
-        description="The Zendale healthcare network: specialist and critical care, dialysis, fertility, diagnostics, biomedical support and consulting in one system."
+        description="Explore the growing Zendale Limited healthcare network, connecting specialist care, critical care, dialysis, fertility, diagnostics, biomedical support and healthcare consulting."
         canonicalPath="/network"
       />
       <PageHero

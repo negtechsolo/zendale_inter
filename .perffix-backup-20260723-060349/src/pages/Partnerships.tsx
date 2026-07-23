@@ -493,7 +493,7 @@ export default function Partnerships() {
     <>
       <Seo
         title="Partner With Zendale"
-        description="Partnership pathways with Zendale for corporate organisations, hospitals, agencies, HMOs, investors and international organisations."
+        description="Explore tailored partnership pathways with Zendale Limited for corporate organisations, hospitals, agencies, HMOs, healthcare investors and international organisations."
         canonicalPath="/partnerships"
       />
       <PageHero
