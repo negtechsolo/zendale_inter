@@ -37,7 +37,7 @@ export const serviceGroups: ServiceGroup[] = [
       { name: "Fertility and reproductive care", detail: "Assessment, assisted reproduction and patient support through Kindred Path Fertility Centre." },
       { name: "Endoscopy and gastroenterology", detail: "Diagnostic and therapeutic endoscopy through Zendale Endoscopy Centre." },
       { name: "Diagnostics and occupational health", detail: "Pathology, wellness, radiology and occupational health through LifeCentre Medical Services." },
-      { name: "Biomedical equipment support", detail: "Procurement, repair, maintenance and technical support through LifeCentre Med Support." },
+      { name: "Healthcare Procurement & Technical Support", detail: "Procurement of medical equipment, laboratory reagents and consumables, supported by installation, maintenance, repair and technical expertise through LifeCentre Med Support." },
     ],
   },
   {
