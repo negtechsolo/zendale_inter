@@ -27,6 +27,7 @@ const mobileItems = [
   { to: "/corporate-health", label: "Corporate Healthcare" },
   { to: "/consulting", label: "Healthcare Consulting" },
   { to: "/medical-technology", label: "Medical Technology" },
+  { to: "/procurement-supply-chain", label: "Procurement & Supply Chain" },
   { to: "/downloads", label: "Download Centre" },
   { to: "/careers", label: "Careers" },
   { to: "/contact", label: "Contact" },

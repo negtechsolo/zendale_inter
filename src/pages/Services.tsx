@@ -47,6 +47,50 @@ export default function Services() {
         </div>
       </section>
 
+      <section className="bg-ink py-16 text-porcelain lg:py-24">
+        <div className="mx-auto max-w-7xl px-5 lg:px-8">
+          <Reveal>
+            <p className="eyebrow text-brass">Who We Support</p>
+            <div className="mt-4 grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
+              <div>
+                <h2 className="font-display text-3xl font-medium leading-tight sm:text-4xl">
+                  Solutions for organisations across the public, private and development sectors.
+                </h2>
+              </div>
+              <p className="max-w-2xl text-base leading-relaxed text-porcelain/75">
+                Zendale partners with organisations across the public and private sectors to deliver healthcare, operational and procurement solutions.
+              </p>
+            </div>
+          </Reveal>
+
+          <div className="mt-10 grid gap-px bg-porcelain/15 sm:grid-cols-2 lg:grid-cols-3">
+            {[
+              "Federal Ministries, Departments and Agencies (MDAs)",
+              "State Governments",
+              "Local Government Authorities",
+              "Healthcare Institutions",
+              "Teaching Hospitals",
+              "Corporate Organisations",
+              "Development Partners",
+              "International NGOs",
+              "Educational Institutions",
+              "Manufacturing Companies",
+              "Financial Institutions",
+              "Faith-Based Organisations",
+            ].map((organisation, index) => (
+              <Reveal key={organisation} delay={(index % 3) * 0.04}>
+                <div className="h-full bg-ink px-5 py-5 sm:px-6">
+                  <p className="font-mono text-[0.625rem] uppercase tracking-eyebrow text-brass">
+                    {String(index + 1).padStart(2, "0")}
+                  </p>
+                  <p className="mt-2 text-sm leading-relaxed text-porcelain/85">{organisation}</p>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section className="bg-mist/60 py-16 lg:py-20">
         <div className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-8 px-5 lg:flex-row lg:items-center lg:px-8">
           <Reveal>

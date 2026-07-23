@@ -31,6 +31,7 @@ const Services = lazyRetry(() => import("./pages/Services"));
 const CorporateHealth = lazyRetry(() => import("./pages/CorporateHealth"));
 const Consulting = lazyRetry(() => import("./pages/Consulting"));
 const MedicalTechnology = lazyRetry(() => import("./pages/MedicalTechnology"));
+const ProcurementSupplyChain = lazyRetry(() => import("./pages/ProcurementSupplyChain"));
 const Partnerships = lazyRetry(() => import("./pages/Partnerships"));
 const HowWeWork = lazyRetry(() => import("./pages/HowWeWork"));
 const Resources = lazyRetry(() => import("./pages/Resources"));
@@ -58,6 +59,7 @@ const routeLoaders: Record<string, () => Promise<unknown>> = {
   "/corporate-health": () => import("./pages/CorporateHealth"),
   "/consulting": () => import("./pages/Consulting"),
   "/medical-technology": () => import("./pages/MedicalTechnology"),
+  "/procurement-supply-chain": () => import("./pages/ProcurementSupplyChain"),
   "/partnerships": () => import("./pages/Partnerships"),
   "/how-we-work": () => import("./pages/HowWeWork"),
   "/resources": () => import("./pages/Resources"),
@@ -182,6 +184,7 @@ export default function App() {
         <Route path="/corporate-health" element={<CorporateHealth />} />
         <Route path="/consulting" element={<Consulting />} />
         <Route path="/medical-technology" element={<MedicalTechnology />} />
+        <Route path="/procurement-supply-chain" element={<ProcurementSupplyChain />} />
         <Route path="/partnerships" element={<Partnerships />} />
         <Route path="/how-we-work" element={<HowWeWork />} />
         <Route path="/resources" element={<Resources />} />

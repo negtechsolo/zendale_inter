@@ -71,6 +71,21 @@ export const serviceGroups: ServiceGroup[] = [
     ],
   },
   {
+    id: "procurement",
+    name: "Procurement & Supply Chain Management",
+    route: "/procurement-supply-chain",
+    intro:
+      "End-to-end procurement and supply chain management for public institutions, healthcare organisations, development partners, NGOs and private-sector clients, delivered with transparency, compliance and accountability.",
+    services: [
+      { name: "Strategic sourcing", detail: "Procurement planning, market assessment and supplier identification aligned with scope, budget and delivery requirements." },
+      { name: "Vendor selection and management", detail: "Supplier evaluation, due diligence, onboarding, performance monitoring and relationship management." },
+      { name: "Contract administration", detail: "Structured coordination of purchase terms, documentation, fulfilment milestones and supplier obligations." },
+      { name: "Logistics and nationwide delivery", detail: "Transport, warehousing, distribution and delivery coordination across Nigeria." },
+      { name: "Inventory and operational support", detail: "Stock planning, inventory support and supply continuity for recurring operational needs." },
+      { name: "Procurement outsourcing", detail: "An accountable external procurement function for organisations that need specialist capacity and control." },
+    ],
+  },
+  {
     id: "consulting",
     name: "Healthcare Consulting",
     route: "/consulting",
