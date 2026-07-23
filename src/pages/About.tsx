@@ -64,24 +64,33 @@ export default function About() {
             </h2>
             <div className="mt-6 space-y-5 text-base leading-relaxed text-carbon/85">
               <p>
-                Access to quality healthcare should be simple. Instead, many patients and organisations find themselves navigating a fragmented system, moving between hospitals, laboratories, specialists and service providers, with little connection between them.
+                Access to quality healthcare should be simple.
               </p>
               <p>
-                At Zendale, we believe healthcare works best when it is connected.
+                Zendale brings together hospitals, diagnostics, specialist care, fertility services, biomedical engineering, healthcare consulting and strategic procurement into one coordinated healthcare ecosystem, making quality healthcare more accessible to individuals, organisations and institutions through one trusted partner.
               </p>
+              <div>
+                <h3 className="font-display text-xl font-medium text-ink">For Individuals</h3>
+                <p className="mt-2">
+                  Seamless access to quality healthcare, advanced diagnostics, specialist procedures, fertility services, and long-term clinical support across our network of healthcare providers.
+                </p>
+              </div>
+              <div>
+                <h3 className="font-display text-xl font-medium text-ink">For Organisations</h3>
+                <p className="mt-2">
+                  Comprehensive occupational health, corporate wellness, medical screening, healthcare management, and procurement solutions that support employee wellbeing while improving operational efficiency.
+                </p>
+              </div>
+              <div>
+                <h3 className="font-display text-xl font-medium text-ink">For Government, Healthcare Institutions &amp; Development Partners</h3>
+                <p className="mt-2">
+                  Integrated support through healthcare consulting, third party procurement, medical equipment sourcing, laboratory supplies, biomedical engineering, project implementation, and supply chain coordination delivered with transparency, regulatory compliance, and accountability.
+                </p>
+              </div>
               <p>
-                We have built an integrated healthcare network that brings together hospitals, specialist care, diagnostics, fertility services and other essential healthcare services within one coordinated ecosystem. Whether you need routine medical care, advanced diagnostics, specialist procedures or long-term clinical support, our network is designed to deliver seamless, high-quality healthcare through one trusted partner.
+                By connecting healthcare expertise, trusted suppliers, technology and operational excellence, Zendale transforms the way healthcare is delivered, strengthening institutions, expanding access and creating sustainable healthcare impact.
               </p>
-              <p>
-                For organisations, this means comprehensive healthcare solutions that support the health and wellbeing of your workforce. For healthcare institutions, it means partnering with a team that understands every aspect of delivering quality healthcare. For government and development partners, it means working with an experienced organisation capable of supporting healthcare initiatives from planning and implementation to long-term sustainability.
-              </p>
-              <p>
-                Beyond patient care, we strengthen healthcare delivery through medical equipment procurement, biomedical engineering, healthcare consulting and operational support, ensuring that the facilities delivering care have the expertise, technology and infrastructure they need to perform at their best.
-              </p>
-              <p>
-                Because healthcare is more than treating illness. It is about connecting the right people, the right expertise and the right infrastructure to deliver better outcomes. When every part of the healthcare journey works together, patients receive better care, organisations gain a trusted healthcare partner and institutions are empowered to deliver their very best.
-              </p>
-              <p>
+              <p className="font-medium text-ink">
                 When healthcare is connected, everyone benefits. That is the healthcare ecosystem we are building at Zendale.
               </p>
             </div>
