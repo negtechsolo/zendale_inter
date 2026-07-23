@@ -44,14 +44,10 @@ export const SITE = {
    * brand is real. Every URL here must resolve to a live profile.
    */
   socials: [
-    { label: "LinkedIn", icon: "linkedin", href: "https://www.linkedin.com/company/zendale-limited" },
-    // Add the others back only once the profile actually exists and the URL
-    // opens. These are published as `sameAs` in the organisation schema, and a
-    // sameAs pointing at a dead page is a negative trust signal, not a neutral
-    // one. Supported icon values: linkedin, facebook, x, instagram.
-    // { label: "Facebook", icon: "facebook", href: "https://www.facebook.com/<real-handle>" },
-    // { label: "X", icon: "x", href: "https://x.com/<real-handle>" },
-    // { label: "Instagram", icon: "instagram", href: "https://www.instagram.com/<real-handle>" },
+    { label: "LinkedIn", icon: "linkedin", href: "https://www.linkedin.com/company/zendalelimited" },
+    { label: "Facebook", icon: "facebook", href: "https://www.facebook.com/zendalelimited" },
+    { label: "X", icon: "x", href: "https://x.com/zendalelimited" },
+    { label: "Instagram", icon: "instagram", href: "https://www.instagram.com/zendalelimited" },
   ] as { label: string; icon: string; href: string }[],
 
   /**

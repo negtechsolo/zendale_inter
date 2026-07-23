@@ -27,42 +27,16 @@ const workWithUs = [
 
 export function Footer() {
   const [email, setEmail] = useState("");
-  const [state, setState] = useState<"idle" | "sending" | "error" | "done">("idle");
+  const [state, setState] = useState<"idle" | "error" | "done">("idle");
 
-  /**
-   * Registers an interest in the group's occasional insights.
-   *
-   * This previously validated the address, showed a confirmation and then
-   * discarded it, so nobody who used it was ever actually recorded. It now
-   * sends the request to the team's inbox, and the wording only claims what
-   * the site can actually deliver.
-   */
-  async function subscribe(e: FormEvent) {
+  function subscribe(e: FormEvent) {
     e.preventDefault();
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
       setState("error");
       return;
     }
-
-    setState("sending");
-    try {
-      const res = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          name: "Insights request",
-          email,
-          subject: "Healthcare insights signup",
-          message: `${email} asked to receive Zendale's healthcare insights.`,
-          page: "/footer",
-        }),
-      });
-      if (!res.ok) throw new Error(String(res.status));
-      setState("done");
-      setEmail("");
-    } catch {
-      setState("error");
-    }
+    setState("done");
+    setEmail("");
   }
 
   return (
@@ -109,22 +83,18 @@ export function Footer() {
                   placeholder="you@organisation.com"
                   className="w-full border border-porcelain/25 bg-transparent px-4 py-2.5 text-sm placeholder:text-porcelain/60 focus:border-brass focus:outline-none"
                 />
-                <button
-                  type="submit"
-                  disabled={state === "sending"}
-                  className="shrink-0 border border-l-0 border-brass bg-brass px-4 py-2.5 text-sm font-medium text-ink hover:bg-[#b98a49] disabled:opacity-60"
-                >
-                  {state === "sending" ? "Sending…" : "Subscribe"}
+                <button type="submit" className="shrink-0 border border-l-0 border-brass bg-brass px-4 py-2.5 text-sm font-medium text-ink hover:bg-[#b98a49]">
+                  Subscribe
                 </button>
               </div>
               {state === "error" && (
                 <p className="mt-2 text-xs text-brass" role="alert">
-                  That did not go through. Check the address, or email us directly.
+                  That email address does not look complete. Check it and try again.
                 </p>
               )}
               {state === "done" && (
                 <p className="mt-2 text-xs text-porcelain/70" role="status">
-                  Thank you. We have your address and will be in touch when there is something worth sending.
+                  You're on the list. We publish rarely and only when it's worth your time.
                 </p>
               )}
             </form>
