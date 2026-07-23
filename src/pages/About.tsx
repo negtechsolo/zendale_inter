@@ -58,19 +58,31 @@ export default function About() {
             />
           </Reveal>
           <Reveal className="lg:col-span-7" delay={0.1}>
-            <p className="eyebrow text-steel">The Story</p>
+            <p className="eyebrow text-steel">Why Zendale</p>
             <h2 className="mt-4 font-display text-3xl font-medium leading-tight text-ink sm:text-4xl">
-              Healthcare's hardest problem is often coordination.
+              Healthcare is strongest when it is connected
             </h2>
             <div className="mt-6 space-y-5 text-base leading-relaxed text-carbon/85">
               <p>
-                A patient who needs dialysis, a specialist opinion and a procedure may have to navigate several unconnected providers. An HR manager building a health programme may need to vet many clinics. A hospital may buy equipment from one company, find another to maintain it and engage a third adviser for the operations around it.
+                Access to quality healthcare should be simple. Instead, many patients and organisations find themselves navigating a fragmented system, moving between hospitals, laboratories, specialists and service providers, with little connection between them.
               </p>
               <p>
-                Zendale was built to remove that burden. The group brings specialist facilities, healthcare consulting, biomedical engineering, corporate health delivery and institutional partnerships under one coordinated ecosystem. The coordination happens on our side of the relationship, not yours.
+                At Zendale, we believe healthcare works best when it is connected.
               </p>
               <p>
-                Today the Zendale Healthcare Network connects a growing group of institutions across multi-specialist care, critical care, dialysis, fertility, endoscopy, diagnostics, biomedical support and healthcare consulting. Different doors, one connected system, with room for the ecosystem to expand.
+                We have built an integrated healthcare network that brings together hospitals, specialist care, diagnostics, fertility services and other essential healthcare services within one coordinated ecosystem. Whether you need routine medical care, advanced diagnostics, specialist procedures or long-term clinical support, our network is designed to deliver seamless, high-quality healthcare through one trusted partner.
+              </p>
+              <p>
+                For organisations, this means comprehensive healthcare solutions that support the health and wellbeing of your workforce. For healthcare institutions, it means partnering with a team that understands every aspect of delivering quality healthcare. For government and development partners, it means working with an experienced organisation capable of supporting healthcare initiatives from planning and implementation to long-term sustainability.
+              </p>
+              <p>
+                Beyond patient care, we strengthen healthcare delivery through medical equipment procurement, biomedical engineering, healthcare consulting and operational support, ensuring that the facilities delivering care have the expertise, technology and infrastructure they need to perform at their best.
+              </p>
+              <p>
+                Because healthcare is more than treating illness. It is about connecting the right people, the right expertise and the right infrastructure to deliver better outcomes. When every part of the healthcare journey works together, patients receive better care, organisations gain a trusted healthcare partner and institutions are empowered to deliver their very best.
+              </p>
+              <p>
+                When healthcare is connected, everyone benefits. That is the healthcare ecosystem we are building at Zendale.
               </p>
             </div>
           </Reveal>
@@ -98,22 +110,28 @@ export default function About() {
             <Reveal className="lg:col-span-7" delay={0.06}>
               <div className="border-l border-brass pl-6 text-base leading-relaxed text-porcelain/80 sm:text-lg">
                 <p>
-                  At Zendale, we believe healthcare transformation is achieved by building and connecting strong healthcare institutions within one integrated ecosystem.
+                  At Zendale, we believe that lasting improvements in healthcare are never achieved by one person, one facility or one organisation alone. They are built through strong institutions, meaningful partnerships and a shared commitment to improving lives.
                 </p>
                 <p className="mt-5">
-                  Through collaboration, partnerships, shared expertise, and operational support across the group, we strengthen existing healthcare institutions while building and establishing new ones grounded in compassionate care, ethical practice, and operational excellence.
+                  Our purpose is to deliver exceptional healthcare while strengthening the systems that make quality care possible. We are committed to ensuring that patients receive quality care, organisations have a trusted healthcare partner, and healthcare institutions have the expertise, resources and infrastructure needed to thrive.
                 </p>
                 <p className="mt-5">
-                  We believe sustainable healthcare impact comes from institutions that work together with shared purpose, strong leadership, accountability, and a long-term commitment to improving access to quality healthcare across communities.
+                  This philosophy shapes everything we do. Through our hospitals, diagnostic centres, specialist services and healthcare support solutions, we combine clinical excellence, innovation and operational expertise to make healthcare more accessible, more coordinated and more effective for the people and organisations we serve.
+                </p>
+                <p className="mt-5">
+                  By partnering with individuals, organisations, healthcare institutions and government, we help expand access to quality healthcare, strengthen healthcare delivery and create lasting impact within the communities we serve.
+                </p>
+                <p className="mt-5">
+                  Because sustainable healthcare is not built by individual organisations. It is built by strong institutions working together with a shared purpose.
                 </p>
               </div>
             </Reveal>
             <Reveal className="lg:col-span-5" delay={0.12}>
               <div className="grid gap-px bg-porcelain/10">
                 {[
-                  ["Build", "Establish healthcare institutions with strong leadership and operating foundations."],
-                  ["Strengthen", "Improve existing institutions through expertise, governance and operational support."],
-                  ["Connect", "Create an integrated ecosystem where institutions work together with shared purpose."],
+                  ["Strong Institutions", "Building and strengthening healthcare facilities that deliver safe, accessible and high-quality care."],
+                  ["Shared Purpose", "Working alongside patients, organisations, healthcare providers and government to improve health outcomes through trusted partnerships."],
+                  ["Sustainable Impact", "Creating lasting healthcare solutions by combining clinical excellence, innovation and operational expertise within one integrated ecosystem."],
                 ].map(([title, copy], index) => (
                   <div key={title} className="bg-ink p-6">
                     <p className="font-mono text-[0.625rem] uppercase tracking-eyebrow text-brass">0{index + 1}</p>
