@@ -59,7 +59,7 @@ export default function About() {
           </Reveal>
           <Reveal className="lg:col-span-7" delay={0.1}>
             <p className="eyebrow text-steel">Why Zendale</p>
-            <h2 className="mt-4 font-display text-3xl font-medium leading-tight text-ink sm:text-4xl">
+            <h2 className="mt-4 font-display text-3xl font-semibold leading-tight text-ink sm:text-4xl">
               Healthcare is strongest when it is connected
             </h2>
             <div className="mt-6 space-y-5 text-base leading-relaxed text-carbon/85">
@@ -67,31 +67,34 @@ export default function About() {
                 Access to quality healthcare should be simple.
               </p>
               <p>
-                Zendale brings together hospitals, diagnostics, specialist care, fertility services, biomedical engineering, healthcare consulting and strategic procurement into one coordinated healthcare ecosystem, making quality healthcare more accessible to individuals, organisations and institutions through one trusted partner.
+                Zendale <strong className="font-semibold text-ink">brings together</strong> hospitals, diagnostics, specialist care, fertility services, biomedical engineering, healthcare consulting and strategic procurement into <strong className="font-semibold text-ink">one integrated healthcare network</strong>, making quality healthcare more accessible for <strong className="font-semibold text-ink">individuals, organisations and institutions</strong> through <strong className="font-semibold text-ink">one trusted partner</strong>.
               </p>
               <div>
-                <h3 className="font-display text-xl font-medium text-ink">For Individuals</h3>
+                <h3 className="font-display text-xl font-semibold text-ink">For Individuals</h3>
                 <p className="mt-2">
-                  Seamless access to quality healthcare, advanced diagnostics, specialist procedures, fertility services, and long-term clinical support across our network of healthcare providers.
+                  Seamless access to quality healthcare, <strong className="font-semibold text-ink">advanced diagnostics, specialist procedures and long-term clinical support</strong> across our network.
                 </p>
               </div>
               <div>
-                <h3 className="font-display text-xl font-medium text-ink">For Organisations</h3>
+                <h3 className="font-display text-xl font-semibold text-ink">For Organisations</h3>
                 <p className="mt-2">
-                  Comprehensive occupational health, corporate wellness, medical screening, healthcare management, and procurement solutions that support employee wellbeing while improving operational efficiency.
+                  Comprehensive healthcare solutions that support the <strong className="font-semibold text-ink">health and wellbeing of employees</strong>, while providing organisations with <strong className="font-semibold text-ink">one trusted healthcare partner</strong>.
                 </p>
               </div>
               <div>
-                <h3 className="font-display text-xl font-medium text-ink">For Government, Healthcare Institutions &amp; Development Partners</h3>
+                <h3 className="font-display text-xl font-semibold text-ink">For Healthcare Institutions &amp; Partners</h3>
                 <p className="mt-2">
-                  Integrated support through healthcare consulting, third party procurement, medical equipment sourcing, laboratory supplies, biomedical engineering, project implementation, and supply chain coordination delivered with transparency, regulatory compliance, and accountability.
+                  Clinical expertise, medical equipment procurement, biomedical engineering, healthcare consulting and operational support, supporting healthcare projects from <strong className="font-semibold text-ink">planning and implementation to long-term sustainability.</strong>
                 </p>
               </div>
               <p>
-                By connecting healthcare expertise, trusted suppliers, technology and operational excellence, Zendale transforms the way healthcare is delivered, strengthening institutions, expanding access and creating sustainable healthcare impact.
+                By connecting <strong className="font-semibold text-ink">healthcare expertise, trusted suppliers, technology and operational excellence,</strong> Zendale transforms the way healthcare is delivered, <strong className="font-semibold text-ink">strengthening institutions, expanding access and creating sustainable healthcare impact.</strong>
               </p>
-              <p className="font-medium text-ink">
-                When healthcare is connected, everyone benefits. That is the healthcare ecosystem we are building at Zendale.
+              <p className="font-semibold text-ink">
+                When healthcare is connected, everyone benefits.
+              </p>
+              <p className="font-semibold text-ink">
+                That is the healthcare ecosystem we are building at Zendale.
               </p>
             </div>
           </Reveal>
@@ -119,19 +122,20 @@ export default function About() {
             <Reveal className="lg:col-span-7" delay={0.06}>
               <div className="border-l border-brass pl-6 text-base leading-relaxed text-porcelain/80 sm:text-lg">
                 <p>
-                  At Zendale, we believe that lasting improvements in healthcare are never achieved by one person, one facility or one organisation alone. They are built through strong institutions, meaningful partnerships and a shared commitment to improving lives.
+                  <strong className="font-semibold text-porcelain">At Zendale,</strong> we believe that lasting improvements in healthcare are never achieved by one person, one facility or one organisation alone. They are built through strong institutions, meaningful partnerships and a shared commitment to improving lives.
                 </p>
                 <p className="mt-5">
-                  Our purpose is to deliver exceptional healthcare while strengthening the systems that make quality care possible. We are committed to ensuring that patients receive quality care, organisations have a trusted healthcare partner, and healthcare institutions have the expertise, resources and infrastructure needed to thrive.
+                  <strong className="font-semibold text-porcelain">Our purpose</strong> is to deliver exceptional healthcare while strengthening the systems that make quality care possible. We are committed to ensuring that patients receive quality care, organisations have a trusted healthcare partner, and healthcare institutions have the expertise, resources and infrastructure needed to thrive.
                 </p>
                 <p className="mt-5">
-                  This philosophy shapes everything we do. Through our hospitals, diagnostic centres, specialist services and healthcare support solutions, we combine clinical excellence, innovation and operational expertise to make healthcare more accessible, more coordinated and more effective for the people and organisations we serve.
+                  <strong className="font-semibold text-porcelain">This philosophy</strong> shapes everything we do. Through our hospitals, diagnostic centres, specialist services and healthcare support solutions, we combine clinical excellence, innovation and operational expertise to make healthcare more accessible, more coordinated and more effective for the people and organisations we serve.
                 </p>
                 <p className="mt-5">
-                  By partnering with individuals, organisations, healthcare institutions and government, we help expand access to quality healthcare, strengthen healthcare delivery and create lasting impact within the communities we serve.
+                  <strong className="font-semibold text-porcelain">By partnering</strong> with individuals, organisations, healthcare institutions and government, we help expand access to quality healthcare, strengthen healthcare delivery and create lasting impact within the communities we serve.
                 </p>
-                <p className="mt-5">
-                  Because sustainable healthcare is not built by individual organisations. It is built by strong institutions working together with a shared purpose.
+                <p className="mt-5 font-semibold text-porcelain">
+                  Because sustainable healthcare is not built by individual organisations.
+                  <span className="mt-2 block">It is built by strong institutions working together with a shared purpose.</span>
                 </p>
               </div>
             </Reveal>
@@ -217,10 +221,10 @@ export default function About() {
           <Reveal className="max-w-2xl">
             <p className="eyebrow text-steel">The Ecosystem</p>
             <h2 className="mt-4 font-display text-3xl font-medium leading-tight text-ink sm:text-4xl">
-              Five pillars carry everything we do.
+              Six pillars carry everything we do.
             </h2>
           </Reveal>
-          <div className="mt-12 grid gap-px bg-ink/10 sm:grid-cols-2 lg:grid-cols-5">
+          <div className="mt-12 grid gap-px bg-ink/10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6">
             {pillars.map((pillar, index) => (
               <Reveal key={pillar.id} delay={index * 0.06}>
                 <div className="h-full bg-porcelain p-7">

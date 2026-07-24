@@ -5,10 +5,10 @@ export interface Pillar {
   route: string;
   summary: string;
   /** Geometry motif used for the ecosystem node emblem (2D + 3D). */
-  motif: "lattice" | "briefcase" | "circuit" | "compass" | "rings";
+  motif: "lattice" | "briefcase" | "circuit" | "compass" | "rings" | "chain";
 }
 
-/** The five capability pillars of the Zendale ecosystem. */
+/** The six capability pillars of the Zendale healthcare network. */
 export const pillars: Pillar[] = [
   {
     id: "clinical",
@@ -49,5 +49,13 @@ export const pillars: Pillar[] = [
     route: "/partnerships",
     summary: "Structured collaboration with organisations building stronger healthcare systems.",
     motif: "rings",
+  },
+  {
+    id: "procurement",
+    code: "ZP-06",
+    name: "Procurement & Supply Chain Management",
+    route: "/procurement-supply-chain",
+    summary: "Strategic sourcing, vendor management, logistics and accountable delivery.",
+    motif: "chain",
   },
 ];

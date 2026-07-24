@@ -51,7 +51,7 @@ export default function HowWeWork() {
       />
       <PageHero
         eyebrow="How We Work"
-        title="The same five stages, whether you're one patient or one government."
+        title="The same five stages, whether you're one patient or a healthcare institution."
         lede="Complexity lives on our side of the relationship. Yours looks like this: one conversation, one plan, one team, one delivery, and support that continues."
         image={{ src: "how-we-work-hero.webp", alt: "A Zendale coordinator planning a patient pathway with the clinical team" }}
       />

@@ -40,6 +40,13 @@ export function NodeEmblem({ motif, className = "h-9 w-9" }: { motif: Pillar["mo
           <circle cx="25" cy="20" r="9.5" />
         </g>
       )}
+      {motif === "chain" && (
+        <g {...stroke}>
+          <rect x="5.5" y="12" width="16" height="9" rx="4.5" transform="rotate(-35 13.5 16.5)" />
+          <rect x="18.5" y="19" width="16" height="9" rx="4.5" transform="rotate(-35 26.5 23.5)" />
+          <path d="M15 23 25 17" />
+        </g>
+      )}
     </svg>
   );
 }

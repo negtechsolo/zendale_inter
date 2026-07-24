@@ -65,7 +65,8 @@ function buildNodes(): NodeDef[] {
     { def: f[1], kind: "facility", pos: lerp3(A, B, 0.67) },
     { def: p[1], kind: "pillar", pos: B.clone() },
     { def: f[2], kind: "facility", pos: lerp3(B, C, 0.25) },
-    { def: p[4], kind: "pillar", pos: lerp3(B, C, 0.5).setZ(0.36) },
+    { def: p[4], kind: "pillar", pos: lerp3(B, C, 0.43).setZ(0.36) },
+    { def: p[5], kind: "pillar", pos: lerp3(B, C, 0.57).setZ(0.36) },
     { def: f[3], kind: "facility", pos: lerp3(B, C, 0.75) },
     { def: p[2], kind: "pillar", pos: C.clone() },
     { def: f[4], kind: "facility", pos: lerp3(C, D, 0.22) },
@@ -110,7 +111,7 @@ function buildLinks(nodes: NodeDef[]): Array<[number, number]> {
   }
 
   const centre = 5;
-  [0, 3, 7, 12].forEach((corner) => links.push([centre, corner]));
+  [0, 3, 8, 13].forEach((corner) => links.push([centre, corner]));
 
   return links;
 }
@@ -270,6 +271,27 @@ function NodeMesh({
               color={color}
               emissive={color}
               emissiveIntensity={hovered ? 1.8 : 0.92}
+            />
+          </mesh>
+        </>
+      )}
+
+      {node.motif === "chain" && (
+        <>
+          <mesh rotation={[Math.PI / 2, 0, Math.PI / 4]} position={[-0.08, 0.045, 0]}>
+            <torusGeometry args={[0.12, 0.022, 12, 30]} />
+            <meshStandardMaterial
+              color={color}
+              emissive={color}
+              emissiveIntensity={hovered ? 2 : 1}
+            />
+          </mesh>
+          <mesh rotation={[Math.PI / 2, 0, Math.PI / 4]} position={[0.08, -0.045, 0]}>
+            <torusGeometry args={[0.12, 0.022, 12, 30]} />
+            <meshStandardMaterial
+              color={color}
+              emissive={color}
+              emissiveIntensity={hovered ? 2 : 1}
             />
           </mesh>
         </>

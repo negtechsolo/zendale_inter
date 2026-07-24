@@ -27,7 +27,8 @@ function NetworkGraphic({ animated = false }: NetworkGraphicProps) {
     [440, 105],
     [120, 270],
     [440, 270],
-    [280, 188],
+    [240, 188],
+    [320, 188],
   ];
 
   return (

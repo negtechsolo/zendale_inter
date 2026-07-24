@@ -68,7 +68,7 @@ function Hero() {
           </Reveal>
           <Reveal delay={0.32}>
             <p className="mt-8 font-mono text-[0.58rem] uppercase tracking-[0.16em] text-porcelain/60 md:mt-10 lg:whitespace-nowrap">
-              {`Current network: ${facilities.length} institutions · 5 capability pillars · one coordinated system`}
+              {`Current network: ${facilities.length} institutions · 6 capability pillars · one coordinated system`}
             </p>
           </Reveal>
         </div>
@@ -118,7 +118,7 @@ function WhoWeAre() {
                 The challenge in healthcare isn’t finding one service. It’s bringing the right services together. That’s why Zendale was built.
               </p>
               <p>
-                Behind one name is a coordinated network of hospitals, diagnostics, specialist care, fertility services and healthcare support, giving individuals, organisations, healthcare institutions and government partners access to complete healthcare solutions through one trusted partner.
+                Behind one name is a <strong className="font-semibold text-ink">coordinated network</strong> of hospitals, diagnostics, specialist care, fertility services and healthcare support, <strong className="font-semibold text-ink">providing complete healthcare solutions</strong> for individuals, organisations, healthcare institutions and development partners through <strong className="font-semibold text-ink">one trusted partner</strong>.
               </p>
             </div>
             <div className="mt-8">
@@ -465,10 +465,10 @@ function PillarsStrip() {
         <Reveal className="max-w-2xl">
           <p className="eyebrow text-steel">Capability Pillars</p>
           <h2 className="mt-4 font-display text-3xl font-medium leading-tight text-ink sm:text-4xl">
-            Five ways into one ecosystem.
+            Six ways into one ecosystem.
           </h2>
         </Reveal>
-        <div className="mt-12 grid gap-px bg-ink/10 sm:grid-cols-2 lg:grid-cols-5">
+        <div className="mt-12 grid gap-px bg-ink/10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6">
           {pillars.map((p, i) => (
             <Reveal key={p.id} delay={i * 0.07}>
               <Link to={p.route} className="z-sweep block h-full bg-porcelain p-7 text-ink transition-colors hover:bg-mist/60">
