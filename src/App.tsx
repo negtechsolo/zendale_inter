@@ -38,6 +38,7 @@ const Resources = lazyRetry(() => import("./pages/Resources"));
 const ArticlePage = lazyRetry(() => import("./pages/ArticlePage"));
 const Downloads = lazyRetry(() => import("./pages/Downloads"));
 const CaseStudies = lazyRetry(() => import("./pages/CaseStudies"));
+const KetuPhcCaseStudy = lazyRetry(() => import("./pages/KetuPhcCaseStudy"));
 const Careers = lazyRetry(() => import("./pages/Careers"));
 const Contact = lazyRetry(() => import("./pages/Contact"));
 const Privacy = lazyRetry(() => import("./pages/Privacy"));
@@ -65,6 +66,7 @@ const routeLoaders: Record<string, () => Promise<unknown>> = {
   "/resources": () => import("./pages/Resources"),
   "/downloads": () => import("./pages/Downloads"),
   "/case-studies": () => import("./pages/CaseStudies"),
+  "/case-studies/ketu-phc-primary-healthcare-partnership": () => import("./pages/KetuPhcCaseStudy"),
   "/careers": () => import("./pages/Careers"),
   "/contact": () => import("./pages/Contact"),
   "/privacy": () => import("./pages/Privacy"),
@@ -74,6 +76,7 @@ function loaderFor(path: string): (() => Promise<unknown>) | undefined {
   if (routeLoaders[path]) return routeLoaders[path];
   if (path.startsWith("/network/")) return () => import("./pages/FacilityProfile");
   if (path.startsWith("/resources/")) return () => import("./pages/ArticlePage");
+  if (path.startsWith("/case-studies/")) return () => import("./pages/KetuPhcCaseStudy");
   return undefined;
 }
 
@@ -191,6 +194,7 @@ export default function App() {
         <Route path="/resources/:articleSlug" element={<ArticlePage />} />
         <Route path="/downloads" element={<Downloads />} />
         <Route path="/case-studies" element={<CaseStudies />} />
+        <Route path="/case-studies/ketu-phc-primary-healthcare-partnership" element={<KetuPhcCaseStudy />} />
         <Route path="/careers" element={<Careers />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/privacy" element={<Privacy />} />

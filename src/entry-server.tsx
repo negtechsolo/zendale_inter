@@ -36,6 +36,7 @@ const staticRoutes = [
   "/partnerships",
   "/how-we-work",
   "/case-studies",
+  "/case-studies/ketu-phc-primary-healthcare-partnership",
   "/resources",
   "/downloads",
   "/careers",
@@ -64,6 +65,7 @@ export function routeModule(route: string): string {
   if (route === "/") return "src/pages/Home.tsx";
   if (route.startsWith("/network/")) return "src/pages/FacilityProfile.tsx";
   if (route.startsWith("/resources/")) return "src/pages/ArticlePage.tsx";
+  if (route.startsWith("/case-studies/")) return "src/pages/KetuPhcCaseStudy.tsx";
   const map: Record<string, string> = {
     "/about": "src/pages/About.tsx",
     "/network": "src/pages/Network.tsx",

@@ -4,6 +4,7 @@ import { Reveal } from "../components/Reveal";
 import { Button } from "../components/Button";
 import { SmartImage } from "../components/SmartImage";
 import { caseStudies } from "../data/caseStudies";
+import { ketuPhcCaseStudy } from "../data/ketuPhc";
 
 export default function CaseStudies() {
   return (
@@ -15,10 +16,51 @@ export default function CaseStudies() {
       <PageHero
         eyebrow="Success Stories"
         title="What the ecosystem looks like when it's working."
-        lede="Five engagements, each told the same way: the challenge as it arrived, the approach we took, and the outcome that followed."
+        lede="A featured healthcare partnership and five anonymised capability narratives, each presented through the challenge, approach and intended or observed outcome."
       >
         <Button to="/contact" variant="brass">Discuss a Similar Engagement</Button>
       </PageHero>
+
+
+      <section className="bg-mist/60 py-16 lg:py-24">
+        <div className="mx-auto grid max-w-6xl items-center gap-10 px-5 lg:grid-cols-12 lg:px-8">
+          <Reveal className="lg:col-span-7">
+            <p className="eyebrow text-steel">{ketuPhcCaseStudy.category}</p>
+            <h2 className="mt-4 font-display text-3xl font-medium leading-tight text-ink sm:text-4xl">
+              {ketuPhcCaseStudy.title}
+            </h2>
+            <p className="mt-5 text-base leading-relaxed text-carbon/80">
+              {ketuPhcCaseStudy.summary}
+            </p>
+            <div className="mt-7">
+              <Button to={ketuPhcCaseStudy.path} variant="primary">Read the Ketu PHC Case Study</Button>
+            </div>
+          </Reveal>
+          <Reveal className="lg:col-span-5" delay={0.1}>
+            <div className="bg-ink p-8 text-porcelain">
+              <p className="eyebrow text-brass">At a Glance</p>
+              <dl className="mt-6 space-y-4 text-sm">
+                <div>
+                  <dt className="text-porcelain/50">Facility</dt>
+                  <dd className="mt-1 text-porcelain">{ketuPhcCaseStudy.facility}</dd>
+                </div>
+                <div>
+                  <dt className="text-porcelain/50">Model</dt>
+                  <dd className="mt-1 text-porcelain">{ketuPhcCaseStudy.model}</dd>
+                </div>
+                <div>
+                  <dt className="text-porcelain/50">Focus</dt>
+                  <dd className="mt-1 text-porcelain">Diagnostics, operations and sustainable service delivery</dd>
+                </div>
+                <div>
+                  <dt className="text-porcelain/50">Status</dt>
+                  <dd className="mt-1 text-brass">{ketuPhcCaseStudy.status}</dd>
+                </div>
+              </dl>
+            </div>
+          </Reveal>
+        </div>
+      </section>
 
       <section className="bg-porcelain py-16 lg:py-24">
         <div className="mx-auto max-w-6xl space-y-16 px-5 lg:space-y-24 lg:px-8">

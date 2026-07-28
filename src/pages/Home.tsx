@@ -12,6 +12,7 @@ import { facilities, facilityProfilePath } from "../data/facilities";
 import { pillars } from "../data/pillars";
 import { industries } from "../data/services";
 import { SITE, whatsappLink } from "../config";
+import { ketuPhcCaseStudy } from "../data/ketuPhc";
 
 /* ------------------------------------------------------------------ */
 /*  01 · Hero, The Zendale Ecosystem                                  */
@@ -146,6 +147,57 @@ function WhoWeAre() {
             </Reveal>
           ))}
         </div>
+      </div>
+    </section>
+  );
+}
+
+function FeaturedHealthcareImpact() {
+  return (
+    <section className="bg-mist/60 py-20 lg:py-28">
+      <div className="mx-auto grid max-w-7xl gap-10 px-5 lg:grid-cols-12 lg:items-center lg:px-8">
+        <Reveal className="lg:col-span-7">
+          <p className="eyebrow text-steel">{ketuPhcCaseStudy.category}</p>
+          <h2 className="mt-4 max-w-4xl font-display text-3xl font-medium leading-tight text-ink sm:text-4xl lg:text-5xl">
+            {ketuPhcCaseStudy.title}
+          </h2>
+          <p className="mt-5 max-w-3xl text-base leading-relaxed text-carbon/80 sm:text-lg">
+            {ketuPhcCaseStudy.homepageSummary}
+          </p>
+          <div className="mt-8 flex flex-wrap gap-4">
+            <Button to={ketuPhcCaseStudy.path} variant="primary">Read the Case Study</Button>
+            <Button to="/contact" variant="outline">Discuss a Similar Partnership</Button>
+          </div>
+        </Reveal>
+
+        <Reveal className="lg:col-span-5" delay={0.1}>
+          <Link
+            to={ketuPhcCaseStudy.path}
+            className="group relative block overflow-hidden bg-ink"
+            aria-label={`Read the ${ketuPhcCaseStudy.facility} case study`}
+          >
+            <img
+              src={ketuPhcCaseStudy.image}
+              width="1448"
+              height="1086"
+              alt={ketuPhcCaseStudy.imageAlt}
+              loading="lazy"
+              decoding="async"
+              className="aspect-[4/3] w-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/25 to-transparent" aria-hidden="true" />
+            <div className="absolute inset-x-0 bottom-0 p-6 text-porcelain sm:p-8">
+              <p className="eyebrow text-brass">Partnership Snapshot</p>
+              <p className="mt-3 font-display text-2xl leading-tight">{ketuPhcCaseStudy.facility}</p>
+              <p className="mt-2 text-sm text-porcelain/75">
+                {ketuPhcCaseStudy.model} · {ketuPhcCaseStudy.partner}
+              </p>
+              <p className="mt-3 text-xs font-medium uppercase tracking-[0.12em] text-brass">
+                {ketuPhcCaseStudy.status}
+              </p>
+            </div>
+          </Link>
+        </Reveal>
       </div>
     </section>
   );
@@ -591,6 +643,7 @@ export default function Home() {
       />
       <Hero />
       <WhoWeAre />
+      <FeaturedHealthcareImpact />
       <PartnershipGateway />
       <PurposeSnapshot />
       <NetworkPreview />
