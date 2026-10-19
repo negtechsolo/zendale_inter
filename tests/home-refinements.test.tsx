@@ -5,19 +5,32 @@ import { beforeAll, expect, it } from "vitest";
 import { news } from "../src/data/updates";
 import { leadership } from "../src/data/leadership";
 import { LeadershipPreview } from "../src/components/LeadershipPreview";
+import { LeadershipGroup } from "../src/components/LeadershipGroup";
 import { NetworkCard } from "../src/components/NetworkCard";
 import { facilities } from "../src/data/facilities";
 beforeAll(() => { (globalThis as any).IS_REACT_ACT_ENVIRONMENT = true; });
 it("uses the exact newest-first event order supplied by Zendale", () => {
   expect(news.map(story => story.slug)).toEqual(["business-of-health-conference-2026","hfn-private-sector-town-hall","world-patient-safety-day-2026","eko-health-convention-2026","lagos-state-blood-transfusion-partnership"]);
 });
-it("keeps Bukola’s qualification separate from her displayed name", () => {
-  const host=document.createElement('div');const root=createRoot(host);
+it("keeps home leadership concise, with HR immediately after the CEO and an inline qualification", () => {
+  const host = document.createElement('div');
+  const root = createRoot(host);
   act(() => root.render(<MemoryRouter><LeadershipPreview /></MemoryRouter>));
-  expect(Array.from(host.querySelectorAll('h3')).map(h=>h.textContent)).toEqual(leadership.map(person=>person.name));
-  expect(host.querySelectorAll('h3')[3].textContent).toBe('Bukola Oladipupo');
-  expect(host.querySelectorAll('h3')[3].textContent).not.toContain('SPHRi');
-  expect(host.textContent).toContain('SPHRi Certified');
+  const names = Array.from(host.querySelectorAll('h3 > span:first-child')).map(h => h.textContent);
+  expect(names).toEqual(['Dr. Rita Irurhe', 'Bukola Oladipupo', 'Everester Oguh', 'Tunde Adribigbe']);
+  expect(host.querySelectorAll('h3')[1].querySelector('span:last-child')?.textContent).toBe('SPHRi');
+  expect(host.querySelector('a[href*="linkedin.com"]')).toBeNull();
+  expect(host.textContent).not.toContain(leadership[0].biography[0]);
+  expect(host.querySelectorAll('a[href^="/leadership#"]')).toHaveLength(4);
+  act(() => root.unmount());
+});
+it("publishes supplied LinkedIn links only within the full leadership profiles", () => {
+  const host = document.createElement('div');
+  const root = createRoot(host);
+  act(() => root.render(<LeadershipGroup />));
+  expect(Array.from(host.querySelectorAll('a')).map(a => a.href)).toEqual(leadership.filter(p => p.linkedin).map(p => p.linkedin));
+  expect(host.querySelector('#tunde-adribigbe a')).toBeNull();
+  leadership.forEach(person => expect(host.querySelector(`#${person.id}`)?.textContent).toContain(person.biography[0]));
   act(() => root.unmount());
 });
 it("provides a photograph and its official logo for all ten network cards", () => {

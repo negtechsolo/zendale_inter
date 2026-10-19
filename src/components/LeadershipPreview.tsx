@@ -1,4 +1,6 @@
-import { LeadershipGroup } from "./LeadershipGroup";
+import { Link } from "react-router-dom";
+import { leadership } from "../data/leadership";
+import { LeadershipCard } from "./LeadershipCard";
 import { Button } from "./Button";
 export function LeadershipPreview() {
   return (
@@ -15,7 +17,13 @@ export function LeadershipPreview() {
             Meet Our Leadership
           </Button>
         </div>
-        <LeadershipGroup />
+        <div className="grid items-stretch gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {leadership.map(person => (
+            <Link key={person.id} to={`/leadership#${person.id}`} aria-label={`Read about ${person.name}`} className="block h-full transition-shadow hover:shadow-lg focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-steel">
+              <LeadershipCard person={person} />
+            </Link>
+          ))}
+        </div>
       </div>
     </section>
   );

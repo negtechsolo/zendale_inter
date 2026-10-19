@@ -1,9 +1,17 @@
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import { Seo } from "../lib/seo";
 import { PageHero } from "../components/PageHero";
 import { LeadershipGroup } from "../components/LeadershipGroup";
 import { Button } from "../components/Button";
 
 export default function Leadership() {
+  const { hash } = useLocation();
+  useEffect(() => {
+    if (!hash) return;
+    document.getElementById(hash.slice(1))?.scrollIntoView({ block: "start" });
+  }, [hash]);
+
   return (
     <>
       <Seo

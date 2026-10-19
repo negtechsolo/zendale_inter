@@ -11,10 +11,11 @@ export function StoryCards({ stories }: { stories: UpdateStory[] }) {
         >
           <Link to={story.path} aria-label={story.title}>
             <SmartImage
-                fill
+              fill
               src={story.image}
               alt={story.imageAlt}
-              className="aspect-[4/3] w-full"
+              className={`aspect-[4/3] w-full ${story.imageFit === "contain" ? "story-photo" : ""}`}
+              imgClassName={story.imageFit === "contain" ? "!object-contain" : undefined}
             />
           </Link>
           <div className="flex flex-1 flex-col p-6">
@@ -22,7 +23,7 @@ export function StoryCards({ stories }: { stories: UpdateStory[] }) {
             <h3 className="mt-3 font-display text-2xl text-ink">
               <Link to={story.path}>{story.title}</Link>
             </h3>
-            <p className="my-4 text-sm leading-relaxed text-carbon/75">
+            <p className="my-4 text-base leading-relaxed text-carbon/75">
               {story.summary}
             </p>
             <Link
