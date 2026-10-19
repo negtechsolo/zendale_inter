@@ -78,3 +78,8 @@ GitHub write access was confirmed after the account owner updated the app access
 - Aligned leadership profile title areas, biography dividers and bottom link bands on desktop. The CFO retains an empty matching band rather than an invented social link.
 - Added the four company social URLs supplied by the user to shared site configuration: LinkedIn, Facebook, Instagram and X. Footer icons appear throughout the site, have accessible names, keyboard focus states and 44px targets. The same URLs also populate organisation structured data.
 - The user approved the landscape news covers and requested publication to the main website after these minor adjustments. News text and photographs are preserved.
+
+
+### Business of Health event details confirmed by Zendale
+- Added convener Dr. Funmi Adeniyi and the full theme supplied by the user: “Reversing Medical Tourism: Building the Infrastructure That Brings the World to Nigeria for Care.”
+- Updated the shared news summary and opening article section, including the relevance to both local and international patients. Remaining article sections and the approved landscape photograph are preserved.

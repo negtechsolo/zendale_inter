@@ -136,11 +136,11 @@ const eventStories: UpdateStory[] = [
     "image": "real/news-business-health.webp",
     "imageAlt": "Panel discussion at the Business of Health Conference 2026",
     "imageFit": "cover",
-    "summary": "At the Business of Health Conference 2026, we joined the conversation about building healthcare institutions that people can trust and continue to use. The programme’s focus on reversing medical tourism connects with a practical question: what makes care closer to home a dependable choice?",
+    "summary": "We participated in the Business of Health Conference 2026, convened by Dr. Funmi Adeniyi under the theme “Reversing Medical Tourism: Building the Infrastructure That Brings the World to Nigeria for Care.” The conference connects with our focus on stronger healthcare institutions and more coordinated services.",
     "sections": [
       {
-        "heading": "A conversation about care closer to home",
-        "text": "We participated in the Business of Health Conference 2026, where the programme placed the reversal of medical tourism in view. Our photograph captures a panel discussion at the conference, bringing the conversation back to the people and institutions shaping healthcare delivery.\n\nFor us, this is a question about confidence as much as capability. Patients need to understand which services are available, how to access them and what support they can expect throughout their care. Strengthening local healthcare means paying attention to each of those experiences."
+        "heading": "Reversing medical tourism",
+        "text": "We participated in the Business of Health Conference 2026, convened by Dr. Funmi Adeniyi under the theme “Reversing Medical Tourism: Building the Infrastructure That Brings the World to Nigeria for Care.” Our photograph captures a panel discussion at the conference, placing the institutions and infrastructure behind healthcare delivery in view.\n\nFor us, this is a question about confidence as much as capability. Making Nigeria a destination for care means strengthening the experience available to both local and international patients: understanding which services are available, how to reach them and what support to expect throughout the care journey. Reliable institutions and clear connections between services are central to that ambition."
       },
       {
         "heading": "The institution behind the clinical service",
