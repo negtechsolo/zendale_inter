@@ -8,8 +8,8 @@ export const ketuPhcCaseStudy = {
   partner: "LifeCentre Medical Diagnostics",
   model: "Public–Private Partnership",
   status: "Ongoing implementation",
-  image: "/images/ph-ketu-phc.webp",
-  imageAlt: "Healthcare professionals outside Ikosi Ketu Primary Healthcare Centre in Lagos",
+  image: "/images/real/ketu-2-1.webp",
+  imageAlt: "Exterior of Ikosi Ketu Primary Healthcare Centre in Lagos",
   summary:
     "LifeCentre Medical Diagnostics is working with Ikosi Ketu Primary Healthcare Centre through a Public–Private Partnership to strengthen diagnostic services, coordinate operations and support sustainable healthcare delivery for the surrounding community.",
   homepageSummary:

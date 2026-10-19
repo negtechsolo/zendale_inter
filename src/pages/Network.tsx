@@ -2,8 +2,8 @@ import { Link } from "react-router-dom";
 import { Seo } from "../lib/seo";
 import { PageHero } from "../components/PageHero";
 import { Reveal } from "../components/Reveal";
-import { SmartImage } from "../components/SmartImage";
-import { FacilityLogo } from "../components/FacilityLogo";
+import { FacilityVisual } from "../components/FacilityVisual";
+import { FacilityBadge } from "../components/FacilityBadge";
 import { Button } from "../components/Button";
 import { facilities, facilityProfilePath } from "../data/facilities";
 import { whatsappLink } from "../config";
@@ -50,27 +50,18 @@ export default function Network() {
                 >
                   <div className={`lg:col-span-6 ${index % 2 === 1 ? "lg:order-2" : ""}`}>
                     <div className="relative">
-                      <SmartImage
-                        src={facility.image}
-                        alt={facility.imageAlt}
-                        className={`${index % 2 === 1 ? "diag-mask-reverse" : "diag-mask"} aspect-[16/10] w-full`}
+                      <FacilityVisual
+                        fill
+                        facility={facility}
+                        className="aspect-[16/10] w-full"
                       />
-                      {facility.logo && (
-                        <div className="absolute bottom-4 left-4 flex min-h-16 max-w-[55%] items-center bg-white/95 px-4 py-3 shadow-[0_12px_30px_rgba(11,27,51,0.16)] backdrop-blur">
-                          <FacilityLogo
-                            src={facility.logo}
-                            alt={facility.logoAlt ?? `${facility.name} logo`}
-                            sizes="220px"
-                            className="max-h-11 max-w-full object-contain"
-                          />
-                        </div>
-                      )}
+                      <FacilityBadge facility={facility} />
                     </div>
                   </div>
 
                   <div className={`lg:col-span-6 ${index % 2 === 1 ? "lg:order-1" : ""}`}>
                     <p className="font-mono text-[0.6875rem] uppercase tracking-eyebrow text-brass">
-                      {facility.code} · {facility.focus}
+                      {facility.focus}
                     </p>
                     <h2
                       id={`facility-${facility.id}`}
@@ -102,7 +93,7 @@ export default function Network() {
                       {facility.url ? (
                         <Button href={facility.url} variant="outline">Visit Facility</Button>
                       ) : facility.internal ? (
-                        <Button to={facility.internal} variant="outline">Visit Practice</Button>
+                        <Button to={facility.internal} variant="outline">{facility.id === "zendale-central-store" ? "Request a Supply Quote" : "Visit Practice"}</Button>
                       ) : null}
                     </div>
                   </div>

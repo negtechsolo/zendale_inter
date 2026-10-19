@@ -1,3 +1,4 @@
+import { projects, news } from "./data/updates";
 import { StaticRouter } from "react-router-dom/server";
 import App from "./App";
 import { beginSsr, endSsr, type ResolvedSeo } from "./lib/seo";
@@ -27,6 +28,10 @@ export function createApp(url: string) {
 const staticRoutes = [
   "/",
   "/about",
+  "/leadership",
+  "/supply-quote",
+  "/impact",
+  "/news",
   "/network",
   "/services",
   "/corporate-health",
@@ -55,6 +60,8 @@ const staticRoutes = [
 export function getRoutes(): string[] {
   return [
     ...staticRoutes,
+    ...projects.map(story => story.path),
+    ...news.map(story => story.path),
     ...facilities.map((facility) => facilityProfilePath(facility.id)),
     ...publishedArticles().map((article) => articlePath(article.slug)),
   ];
@@ -62,6 +69,10 @@ export function getRoutes(): string[] {
 
 /** Maps a route to the page module that renders it, for module preloading. */
 export function routeModule(route: string): string {
+  if (route === "/leadership") return "src/pages/Leadership.tsx";
+  if (route === "/supply-quote") return "src/pages/SupplyQuote.tsx";
+  if (route === "/news" || route === "/impact") return "src/pages/Updates.tsx";
+  if (route.startsWith("/news/") || route.startsWith("/impact/")) return "src/pages/UpdateStory.tsx";
   if (route === "/") return "src/pages/Home.tsx";
   if (route.startsWith("/network/")) return "src/pages/FacilityProfile.tsx";
   if (route.startsWith("/resources/")) return "src/pages/ArticlePage.tsx";

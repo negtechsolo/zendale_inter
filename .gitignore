@@ -3,3 +3,9 @@ dist/
 dist-ssr/
 *.tsbuildinfo
 .DS_Store
+
+# Responsive variants are regenerated during every build.
+public/images/**/*-96.webp
+public/images/**/*-400.webp
+public/images/**/*-800.webp
+public/images/**/*-1200.webp

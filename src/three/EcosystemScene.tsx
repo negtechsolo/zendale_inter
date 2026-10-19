@@ -496,7 +496,7 @@ function SceneContents({
   function setHovered(id: string | null) {
     setHoveredId(id);
     const node = nodes.find((candidate) => candidate.id === id);
-    onHoverLabel(node ? `${node.code} · ${node.label}` : null);
+    onHoverLabel(node ? node.label : null);
   }
 
   function activate(node: NodeDef) {

@@ -536,7 +536,6 @@ export default function Partnerships() {
                       <PartnerGlyph type={partnerType} />
                     </span>
                     <span>
-                      <span className={`font-mono text-[0.625rem] uppercase tracking-eyebrow ${selected ? "text-brass" : "text-carbon/70"}`}>{item.code}</span>
                       <span className="mt-1 block font-display text-xl leading-tight">{partnerType}</span>
                       <span className={`mt-2 block text-xs leading-relaxed ${selected ? "text-porcelain/65" : "text-carbon/65"}`}>{item.headline}</span>
                     </span>
@@ -551,7 +550,7 @@ export default function Partnerships() {
             <Reveal className="lg:col-span-4">
               <aside className="relative h-full overflow-hidden bg-ink p-7 text-porcelain lg:p-9">
                 <div className="absolute -right-16 -top-16 h-40 w-40 rotate-45 border border-brass/20" aria-hidden="true" />
-                <p className="eyebrow text-brass">{cfg.code} · Partnership focus</p>
+                <p className="eyebrow text-brass">Partnership focus</p>
                 <h2 className="mt-4 font-display text-3xl leading-tight">{cfg.headline}</h2>
                 <p className="mt-5 text-sm leading-relaxed text-porcelain/70">{cfg.pitch}</p>
                 <div className="mt-8 space-y-4">

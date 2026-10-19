@@ -1,8 +1,9 @@
+import { ImageGallery } from "../components/ImageGallery";
 import { Link, Navigate, useParams } from "react-router-dom";
 import { Seo } from "../lib/seo";
 import { Reveal } from "../components/Reveal";
-import { SmartImage } from "../components/SmartImage";
-import { FacilityLogo } from "../components/FacilityLogo";
+import { FacilityVisual } from "../components/FacilityVisual";
+import { FacilityBadge } from "../components/FacilityBadge";
 import { Button } from "../components/Button";
 import { facilities, facilityProfilePath } from "../data/facilities";
 
@@ -14,9 +15,13 @@ export default function FacilityProfile() {
     return <Navigate to="/network" replace />;
   }
 
+  const isStore = facility.id === "zendale-central-store";
+  const isConsulting = facility.id === "zendale-consulting";
   const related = facilities.filter((item) => item.id !== facility.id).slice(0, 3);
-  const primaryAction = facility.url ? (
-    <Button href={facility.url} variant="brass">Visit Official Facility Website</Button>
+  const primaryAction = facility.id === "zendale-central-store" ? (
+    <Button to="/supply-quote" variant="brass">Request a Supply Quote</Button>
+  ) : facility.url ? (
+    <Button href={facility.url} variant="brass">{isConsulting ? "Visit Zendale Consulting" : "Visit Official Facility Website"}</Button>
   ) : facility.internal ? (
     <Button to={facility.internal} variant="brass">Explore the Consulting Practice</Button>
   ) : null;
@@ -40,7 +45,7 @@ export default function FacilityProfile() {
         <div className="relative mx-auto grid max-w-7xl items-center gap-12 px-5 lg:grid-cols-12 lg:px-8">
           <Reveal className="lg:col-span-6">
             <Link to="/network" className="eyebrow text-brass transition-colors hover:text-porcelain">
-              Healthcare Network / {facility.code}
+              Healthcare Network
             </Link>
             <h1 className="mt-5 font-display text-4xl font-medium leading-[1.04] sm:text-5xl lg:text-6xl">
               {facility.name}
@@ -62,23 +67,13 @@ export default function FacilityProfile() {
 
           <Reveal className="lg:col-span-6" delay={0.1} variant="sweep">
             <div className="relative">
-              <SmartImage
-                src={facility.image}
-                alt={facility.imageAlt}
+              <FacilityVisual
+                fill
+                facility={facility}
                 eager
-                className="diag-mask aspect-[16/10] w-full"
+                className="aspect-[16/10] w-full"
               />
-              {facility.logo && (
-                <div className="absolute -bottom-6 left-5 flex min-h-24 w-[min(20rem,80%)] items-center justify-center border border-ink/10 bg-white p-5 shadow-[0_20px_45px_rgba(11,27,51,0.18)] sm:left-8">
-                  <FacilityLogo
-                    src={facility.logo}
-                    alt={facility.logoAlt ?? `${facility.name} logo`}
-                    sizes="320px"
-                    eager
-                    className="max-h-20 max-w-full object-contain"
-                  />
-                </div>
-              )}
+              <FacilityBadge facility={facility} eager />
             </div>
           </Reveal>
         </div>
@@ -89,18 +84,17 @@ export default function FacilityProfile() {
           <Reveal className="lg:col-span-5">
             <p className="eyebrow text-steel">Facility Profile</p>
             <h2 className="mt-4 font-display text-3xl font-medium leading-tight text-ink sm:text-4xl">
-              A specialist institution connected to a wider healthcare ecosystem.
+              {isStore ? "Bulk pharmaceutical supply for pharmacies and hospitals." : isConsulting ? "Healthcare consulting and institutional development." : "A specialist institution connected to a wider healthcare ecosystem."}
             </h2>
             <p className="mt-5 text-base leading-relaxed text-carbon/80">
-              Each institution keeps its own specialist focus while remaining connected to Zendale Limited for referrals, operational support, clinical coordination and partnership opportunities.
+              {isStore ? "Discuss your purchasing list with our team for competitive pricing, product availability and delivery coordination. We will contact you to confirm the details of your request." : isConsulting ? "Zendale Consulting brings healthcare strategy, hospital planning, operational management, medical technology and procurement expertise together to support stronger healthcare institutions." : "Each institution keeps its own specialist focus while remaining connected to Zendale Limited for referrals, operational support, clinical coordination and partnership opportunities."}
             </p>
           </Reveal>
 
           <Reveal className="lg:col-span-7" delay={0.08}>
             <div className="grid gap-px bg-ink/10 sm:grid-cols-2">
-              {facility.services.map((service, index) => (
+              {facility.services.map((service) => (
                 <div key={service} className="relative min-h-36 bg-white p-7">
-                  <span className="font-mono text-[0.625rem] uppercase tracking-eyebrow text-brass">0{index + 1}</span>
                   <p className="mt-4 font-display text-xl leading-snug text-ink">{service}</p>
                 </div>
               ))}
@@ -108,6 +102,8 @@ export default function FacilityProfile() {
           </Reveal>
         </div>
       </section>
+
+      {facility.gallery && <ImageGallery images={facility.gallery} />}
 
       <section className="bg-mist/60 py-16 lg:py-24">
         <div className="mx-auto max-w-7xl px-5 lg:px-8">
@@ -122,7 +118,6 @@ export default function FacilityProfile() {
             {related.map((item, index) => (
               <Reveal key={item.id} delay={index * 0.06}>
                 <Link to={facilityProfilePath(item.id)} className="group block h-full bg-porcelain p-7 transition-colors hover:bg-white">
-                  <p className="font-mono text-[0.625rem] uppercase tracking-eyebrow text-brass">{item.code}</p>
                   <h3 className="mt-3 font-display text-2xl leading-tight text-ink">{item.name}</h3>
                   <p className="mt-3 text-sm leading-relaxed text-carbon/70">{item.focus}</p>
                   <span className="mt-6 inline-block text-sm font-medium text-steel transition-transform group-hover:translate-x-1">Learn More →</span>
@@ -138,7 +133,7 @@ export default function FacilityProfile() {
           <Reveal>
             <p className="eyebrow text-brass">Access and Partnerships</p>
             <h2 className="mt-4 max-w-2xl font-display text-3xl leading-tight sm:text-4xl">
-              Need care, a referral pathway or an institutional conversation?
+              {isStore ? "Planning your next pharmaceutical purchase?" : "Need care, a referral pathway or an institutional conversation?"}
             </h2>
           </Reveal>
           <Reveal className="flex flex-wrap gap-4" delay={0.08}>

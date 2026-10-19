@@ -353,6 +353,718 @@ export const imageMeta: Record<string, ImageMeta> = {
       1200
     ]
   },
+  "ph-ketu-phc.webp": {
+    "w": 1448,
+    "h": 1086,
+    "v": [
+      96,
+      400,
+      800,
+      1200
+    ]
+  },
+  "real/bukola-oladipupo.webp": {
+    "w": 800,
+    "h": 1000,
+    "v": [
+      96,
+      400
+    ]
+  },
+  "real/dr-rita-irurhe.webp": {
+    "w": 800,
+    "h": 1000,
+    "v": [
+      96,
+      400
+    ]
+  },
+  "real/endoscopy-1.webp": {
+    "w": 1600,
+    "h": 1280,
+    "v": [
+      96,
+      400,
+      800,
+      1200
+    ]
+  },
+  "real/endoscopy-2.webp": {
+    "w": 1600,
+    "h": 1067,
+    "v": [
+      96,
+      400,
+      800,
+      1200
+    ]
+  },
+  "real/endoscopy-3.webp": {
+    "w": 1600,
+    "h": 1067,
+    "v": [
+      96,
+      400,
+      800,
+      1200
+    ]
+  },
+  "real/endoscopy-4.webp": {
+    "w": 1600,
+    "h": 1067,
+    "v": [
+      96,
+      400,
+      800,
+      1200
+    ]
+  },
+  "real/endoscopy-5.webp": {
+    "w": 1600,
+    "h": 1067,
+    "v": [
+      96,
+      400,
+      800,
+      1200
+    ]
+  },
+  "real/endoscopy-6.webp": {
+    "w": 1600,
+    "h": 1067,
+    "v": [
+      96,
+      400,
+      800,
+      1200
+    ]
+  },
+  "real/event-1.webp": {
+    "w": 758,
+    "h": 1080,
+    "v": [
+      96,
+      400
+    ]
+  },
+  "real/event-2.webp": {
+    "w": 1080,
+    "h": 720,
+    "v": [
+      96,
+      400,
+      800
+    ]
+  },
+  "real/event-3.webp": {
+    "w": 810,
+    "h": 1080,
+    "v": [
+      96,
+      400,
+      800
+    ]
+  },
+  "real/event-4.webp": {
+    "w": 563,
+    "h": 1000,
+    "v": [
+      96,
+      400
+    ]
+  },
+  "real/event-5.webp": {
+    "w": 810,
+    "h": 1080,
+    "v": [
+      96,
+      400,
+      800
+    ]
+  },
+  "real/everester-oguh.webp": {
+    "w": 800,
+    "h": 1000,
+    "v": [
+      96,
+      400
+    ]
+  },
+  "real/finnih-medical-centre-exterior-1.webp": {
+    "w": 1448,
+    "h": 1086,
+    "v": [
+      96,
+      400,
+      800,
+      1200
+    ]
+  },
+  "real/finnnih-medical-centre-staff-portrait-1.webp": {
+    "w": 1448,
+    "h": 1086,
+    "v": [
+      96,
+      400,
+      800,
+      1200
+    ]
+  },
+  "real/ketu-1-1.webp": {
+    "w": 1280,
+    "h": 960,
+    "v": [
+      96,
+      400,
+      800,
+      1200
+    ]
+  },
+  "real/ketu-2-1.webp": {
+    "w": 1280,
+    "h": 960,
+    "v": [
+      96,
+      400,
+      800,
+      1200
+    ]
+  },
+  "real/ketu-3-1.webp": {
+    "w": 1280,
+    "h": 960,
+    "v": [
+      96,
+      400,
+      800,
+      1200
+    ]
+  },
+  "real/ketu-4-1.webp": {
+    "w": 1280,
+    "h": 960,
+    "v": [
+      96,
+      400,
+      800,
+      1200
+    ]
+  },
+  "real/kindred-path-1.webp": {
+    "w": 1600,
+    "h": 1280,
+    "v": [
+      96,
+      400,
+      800,
+      1200
+    ]
+  },
+  "real/kindred-path-2.webp": {
+    "w": 1600,
+    "h": 1067,
+    "v": [
+      96,
+      400,
+      800,
+      1200
+    ]
+  },
+  "real/kindred-path-3.webp": {
+    "w": 1600,
+    "h": 1067,
+    "v": [
+      96,
+      400,
+      800,
+      1200
+    ]
+  },
+  "real/kindred-path-4.webp": {
+    "w": 1600,
+    "h": 1067,
+    "v": [
+      96,
+      400,
+      800,
+      1200
+    ]
+  },
+  "real/lab-machine-closeup-1.webp": {
+    "w": 1600,
+    "h": 1067,
+    "v": [
+      96,
+      400,
+      800,
+      1200
+    ]
+  },
+  "real/lab-machine-closeup-2.webp": {
+    "w": 1600,
+    "h": 1067,
+    "v": [
+      96,
+      400,
+      800,
+      1200
+    ]
+  },
+  "real/laboratory-room-view.webp": {
+    "w": 1600,
+    "h": 1067,
+    "v": [
+      96,
+      400,
+      800,
+      1200
+    ]
+  },
+  "real/life-centre-medicals-1.webp": {
+    "w": 1600,
+    "h": 1067,
+    "v": [
+      96,
+      400,
+      800,
+      1200
+    ]
+  },
+  "real/life-centre-medicals-2.webp": {
+    "w": 1600,
+    "h": 1067,
+    "v": [
+      96,
+      400,
+      800,
+      1200
+    ]
+  },
+  "real/life-centre-medicals-3.webp": {
+    "w": 1600,
+    "h": 1067,
+    "v": [
+      96,
+      400,
+      800,
+      1200
+    ]
+  },
+  "real/life-centre-medicals-4.webp": {
+    "w": 1600,
+    "h": 1067,
+    "v": [
+      96,
+      400,
+      800,
+      1200
+    ]
+  },
+  "real/life-centre-medicals-5.webp": {
+    "w": 1067,
+    "h": 1600,
+    "v": [
+      96,
+      400,
+      800
+    ]
+  },
+  "real/life-centre-medicals-6.webp": {
+    "w": 1600,
+    "h": 1067,
+    "v": [
+      96,
+      400,
+      800,
+      1200
+    ]
+  },
+  "real/logo-dialysis-and-icu-centre-original-colour.webp": {
+    "w": 1000,
+    "h": 236,
+    "v": [
+      96,
+      400,
+      800
+    ]
+  },
+  "real/logo-finnih-medical-centre-true-transparent.webp": {
+    "w": 1000,
+    "h": 882,
+    "v": [
+      96,
+      400,
+      800
+    ]
+  },
+  "real/logo-kindredpath-logo.webp": {
+    "w": 1000,
+    "h": 649,
+    "v": [
+      96,
+      400,
+      800
+    ]
+  },
+  "real/logo-life-centre-medical-logo.webp": {
+    "w": 1000,
+    "h": 752,
+    "v": [
+      96,
+      400,
+      800
+    ]
+  },
+  "real/logo-life-centre-medicals.webp": {
+    "w": 397,
+    "h": 377,
+    "v": [
+      96
+    ]
+  },
+  "real/logo-skyhigh-medical-centre.webp": {
+    "w": 1000,
+    "h": 640,
+    "v": [
+      96,
+      400,
+      800
+    ]
+  },
+  "real/logo-vhelar-consulting-corporate-logo.webp": {
+    "w": 1000,
+    "h": 815,
+    "v": [
+      96,
+      400,
+      800
+    ]
+  },
+  "real/logo-zendale-central-store.webp": {
+    "w": 1000,
+    "h": 317,
+    "v": [
+      96,
+      400,
+      800
+    ]
+  },
+  "real/logo-zendale-consulting.webp": {
+    "w": 1000,
+    "h": 346,
+    "v": [
+      96,
+      400,
+      800
+    ]
+  },
+  "real/logo-zendale-endoscopy-lasuth.webp": {
+    "w": 619,
+    "h": 564,
+    "v": [
+      96,
+      400
+    ]
+  },
+  "real/news-blood-partnership.webp": {
+    "w": 1200,
+    "h": 675,
+    "v": [
+      96,
+      400,
+      800
+    ]
+  },
+  "real/news-business-health.webp": {
+    "w": 1200,
+    "h": 675,
+    "v": [
+      96,
+      400,
+      800
+    ]
+  },
+  "real/news-eko-convention.webp": {
+    "w": 1200,
+    "h": 675,
+    "v": [
+      96,
+      400,
+      800
+    ]
+  },
+  "real/news-hfn-town-hall.webp": {
+    "w": 1200,
+    "h": 675,
+    "v": [
+      96,
+      400,
+      800
+    ]
+  },
+  "real/news-patient-safety.webp": {
+    "w": 1200,
+    "h": 675,
+    "v": [
+      96,
+      400,
+      800
+    ]
+  },
+  "real/project-1.webp": {
+    "w": 960,
+    "h": 1280,
+    "v": [
+      96,
+      400,
+      800
+    ]
+  },
+  "real/project-2.webp": {
+    "w": 1200,
+    "h": 1600,
+    "v": [
+      96,
+      400,
+      800
+    ]
+  },
+  "real/project-3.webp": {
+    "w": 960,
+    "h": 1280,
+    "v": [
+      96,
+      400,
+      800
+    ]
+  },
+  "real/project-4.webp": {
+    "w": 1600,
+    "h": 1200,
+    "v": [
+      96,
+      400,
+      800,
+      1200
+    ]
+  },
+  "real/project-5.webp": {
+    "w": 1016,
+    "h": 762,
+    "v": [
+      96,
+      400,
+      800
+    ]
+  },
+  "real/skyhigh-icu-and-dialysis-centre-1.webp": {
+    "w": 1600,
+    "h": 1067,
+    "v": [
+      96,
+      400,
+      800,
+      1200
+    ]
+  },
+  "real/skyhigh-icu-and-dialysis-centre-2.webp": {
+    "w": 1600,
+    "h": 1067,
+    "v": [
+      96,
+      400,
+      800,
+      1200
+    ]
+  },
+  "real/skyhigh-icu-and-dialysis-centre-3.webp": {
+    "w": 1600,
+    "h": 1067,
+    "v": [
+      96,
+      400,
+      800,
+      1200
+    ]
+  },
+  "real/skyhigh-icu-and-dialysis-centre-4.webp": {
+    "w": 1600,
+    "h": 1067,
+    "v": [
+      96,
+      400,
+      800,
+      1200
+    ]
+  },
+  "real/skyhigh-icu-and-dialysis-centre-5.webp": {
+    "w": 1600,
+    "h": 1067,
+    "v": [
+      96,
+      400,
+      800,
+      1200
+    ]
+  },
+  "real/skyhigh-icu-and-dialysis-centre-6.webp": {
+    "w": 1600,
+    "h": 1067,
+    "v": [
+      96,
+      400,
+      800,
+      1200
+    ]
+  },
+  "real/skyhigh-icu-and-dialysis-centre-7.webp": {
+    "w": 1600,
+    "h": 1067,
+    "v": [
+      96,
+      400,
+      800,
+      1200
+    ]
+  },
+  "real/skyhigh-icu-and-dialysis-centre-8.webp": {
+    "w": 1600,
+    "h": 1067,
+    "v": [
+      96,
+      400,
+      800,
+      1200
+    ]
+  },
+  "real/skyhigh-icu-and-dialysis-centre-9.webp": {
+    "w": 1600,
+    "h": 1067,
+    "v": [
+      96,
+      400,
+      800,
+      1200
+    ]
+  },
+  "real/skyhigh-medical-centre-1.webp": {
+    "w": 1600,
+    "h": 1067,
+    "v": [
+      96,
+      400,
+      800,
+      1200
+    ]
+  },
+  "real/skyhigh-medical-centre-10.webp": {
+    "w": 1600,
+    "h": 1067,
+    "v": [
+      96,
+      400,
+      800,
+      1200
+    ]
+  },
+  "real/skyhigh-medical-centre-2.webp": {
+    "w": 1600,
+    "h": 1067,
+    "v": [
+      96,
+      400,
+      800,
+      1200
+    ]
+  },
+  "real/skyhigh-medical-centre-3.webp": {
+    "w": 1600,
+    "h": 1067,
+    "v": [
+      96,
+      400,
+      800,
+      1200
+    ]
+  },
+  "real/skyhigh-medical-centre-4.webp": {
+    "w": 1600,
+    "h": 1067,
+    "v": [
+      96,
+      400,
+      800,
+      1200
+    ]
+  },
+  "real/skyhigh-medical-centre-5.webp": {
+    "w": 1600,
+    "h": 1067,
+    "v": [
+      96,
+      400,
+      800,
+      1200
+    ]
+  },
+  "real/skyhigh-medical-centre-6.webp": {
+    "w": 1600,
+    "h": 1067,
+    "v": [
+      96,
+      400,
+      800,
+      1200
+    ]
+  },
+  "real/skyhigh-medical-centre-7.webp": {
+    "w": 1600,
+    "h": 1067,
+    "v": [
+      96,
+      400,
+      800,
+      1200
+    ]
+  },
+  "real/skyhigh-medical-centre-8.webp": {
+    "w": 1600,
+    "h": 1067,
+    "v": [
+      96,
+      400,
+      800,
+      1200
+    ]
+  },
+  "real/skyhigh-medical-centre-9.webp": {
+    "w": 1600,
+    "h": 1067,
+    "v": [
+      96,
+      400,
+      800,
+      1200
+    ]
+  },
+  "real/tunde-adribigbe.webp": {
+    "w": 800,
+    "h": 1000,
+    "v": [
+      96,
+      400
+    ]
+  },
+  "service-central-store.webp": {
+    "w": 1400,
+    "h": 1050,
+    "v": [
+      96,
+      400,
+      800,
+      1200
+    ]
+  },
   "zendale-logo.webp": {
     "w": 535,
     "h": 559,

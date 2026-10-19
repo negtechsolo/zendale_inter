@@ -13,6 +13,8 @@ export interface Facility {
   logoAlt?: string;
   location?: string;
   profileNote?: string;
+  logoOnly?: boolean;
+  gallery?: { src: string; alt: string }[];
 }
 
 /**
@@ -20,7 +22,7 @@ export interface Facility {
  * The data structure is deliberately scalable: new institutions can be added
  * without changing the Network page, facility profile template or footer.
  */
-export const facilities: Facility[] = [
+const existingFacilities: Facility[] = [
   {
     id: "sky-high",
     code: "ZN-01",
@@ -185,3 +187,248 @@ export const facilities: Facility[] = [
 export function facilityProfilePath(id: string): string {
   return `/network/${id}`;
 }
+
+// Approved real photography and official transparent logos supplied for the October update.
+const visualUpdates: Record<string, Partial<Facility>> = {
+  "sky-high": {
+    "image": "real/skyhigh-medical-centre-1.webp",
+    "imageAlt": "Exterior of Sky High Medical Centre",
+    "logo": "/images/real/logo-skyhigh-medical-centre.webp",
+    "gallery": [
+      {
+        "src": "real/skyhigh-medical-centre-10.webp",
+        "alt": "Skyhigh Medical Centre \u2014 facility view 10"
+      },
+      {
+        "src": "real/skyhigh-medical-centre-9.webp",
+        "alt": "Skyhigh Medical Centre \u2014 facility view 9"
+      },
+      {
+        "src": "real/skyhigh-medical-centre-8.webp",
+        "alt": "Skyhigh Medical Centre \u2014 facility view 8"
+      },
+      {
+        "src": "real/skyhigh-medical-centre-7.webp",
+        "alt": "Skyhigh Medical Centre \u2014 facility view 7"
+      },
+      {
+        "src": "real/skyhigh-medical-centre-6.webp",
+        "alt": "Skyhigh Medical Centre \u2014 facility view 6"
+      },
+      {
+        "src": "real/skyhigh-medical-centre-5.webp",
+        "alt": "Skyhigh Medical Centre \u2014 facility view 5"
+      },
+      {
+        "src": "real/skyhigh-medical-centre-4.webp",
+        "alt": "Skyhigh Medical Centre \u2014 facility view 4"
+      },
+      {
+        "src": "real/skyhigh-medical-centre-3.webp",
+        "alt": "Skyhigh Medical Centre \u2014 facility view 3"
+      },
+      {
+        "src": "real/skyhigh-medical-centre-2.webp",
+        "alt": "Skyhigh Medical Centre \u2014 facility view 2"
+      },
+      {
+        "src": "real/skyhigh-medical-centre-1.webp",
+        "alt": "Skyhigh Medical Centre \u2014 facility view 1"
+      }
+    ]
+  },
+  "sky-high-icu": {
+    "image": "real/skyhigh-icu-and-dialysis-centre-5.webp",
+    "imageAlt": "Dialysis machines and treatment chairs at Sky High ICU and Dialysis Centre",
+    "logo": "/images/real/logo-dialysis-and-icu-centre-original-colour.webp",
+    "gallery": [
+      {
+        "src": "real/skyhigh-icu-and-dialysis-centre-9.webp",
+        "alt": "SkyHigh ICU and Dialysis Centre \u2014 facility view 9"
+      },
+      {
+        "src": "real/skyhigh-icu-and-dialysis-centre-8.webp",
+        "alt": "SkyHigh ICU and Dialysis Centre \u2014 facility view 8"
+      },
+      {
+        "src": "real/skyhigh-icu-and-dialysis-centre-7.webp",
+        "alt": "SkyHigh ICU and Dialysis Centre \u2014 facility view 7"
+      },
+      {
+        "src": "real/skyhigh-icu-and-dialysis-centre-5.webp",
+        "alt": "SkyHigh ICU and Dialysis Centre \u2014 facility view 5"
+      },
+      {
+        "src": "real/skyhigh-icu-and-dialysis-centre-6.webp",
+        "alt": "SkyHigh ICU and Dialysis Centre \u2014 facility view 6"
+      },
+      {
+        "src": "real/skyhigh-icu-and-dialysis-centre-4.webp",
+        "alt": "SkyHigh ICU and Dialysis Centre \u2014 facility view 4"
+      },
+      {
+        "src": "real/skyhigh-icu-and-dialysis-centre-3.webp",
+        "alt": "SkyHigh ICU and Dialysis Centre \u2014 facility view 3"
+      },
+      {
+        "src": "real/skyhigh-icu-and-dialysis-centre-2.webp",
+        "alt": "SkyHigh ICU and Dialysis Centre \u2014 facility view 2"
+      },
+      {
+        "src": "real/skyhigh-icu-and-dialysis-centre-1.webp",
+        "alt": "SkyHigh ICU and Dialysis Centre \u2014 facility view 1"
+      }
+    ]
+  },
+  "lifecentre": {
+    "image": "real/life-centre-medicals-1.webp",
+    "imageAlt": "Exterior of Life Centre Medicals",
+    "logo": "/images/real/logo-life-centre-medicals.webp",
+    "gallery": [
+      {
+        "src": "real/life-centre-medicals-6.webp",
+        "alt": "Life Centre Medicals \u2014 facility view 6"
+      },
+      {
+        "src": "real/life-centre-medicals-5.webp",
+        "alt": "Life Centre Medicals \u2014 facility view 5"
+      },
+      {
+        "src": "real/life-centre-medicals-4.webp",
+        "alt": "Life Centre Medicals \u2014 facility view 4"
+      },
+      {
+        "src": "real/life-centre-medicals-3.webp",
+        "alt": "Life Centre Medicals \u2014 facility view 3"
+      },
+      {
+        "src": "real/life-centre-medicals-2.webp",
+        "alt": "Life Centre Medicals \u2014 facility view 2"
+      },
+      {
+        "src": "real/life-centre-medicals-1.webp",
+        "alt": "Life Centre Medicals \u2014 facility view 1"
+      }
+    ]
+  },
+  "kindred-path": {
+    "image": "real/kindred-path-1.webp",
+    "imageAlt": "Kindred Path Fertility Centre team",
+    "logo": "/images/real/logo-kindredpath-logo.webp",
+    "gallery": [
+      {
+        "src": "real/kindred-path-1.webp",
+        "alt": "Kindred Path \u2014 team photograph"
+      },
+      {
+        "src": "real/kindred-path-2.webp",
+        "alt": "Kindred Path \u2014 facility view 2"
+      },
+      {
+        "src": "real/kindred-path-3.webp",
+        "alt": "Kindred Path \u2014 facility view 3"
+      },
+      {
+        "src": "real/kindred-path-4.webp",
+        "alt": "Kindred Path \u2014 facility view 4"
+      }
+    ]
+  },
+  "zendale-endoscopy": {
+    "image": "real/endoscopy-2.webp",
+    "imageAlt": "Procedure room at Zendale Endoscopy Centre",
+    "logo": "/images/real/logo-zendale-endoscopy-lasuth.webp",
+    "gallery": [
+      {
+        "src": "real/endoscopy-3.webp",
+        "alt": "endoscopy \u2014 facility view 3"
+      },
+      {
+        "src": "real/endoscopy-5.webp",
+        "alt": "endoscopy \u2014 facility view 5"
+      },
+      {
+        "src": "real/endoscopy-6.webp",
+        "alt": "endoscopy \u2014 facility view 6"
+      },
+      {
+        "src": "real/endoscopy-1.webp",
+        "alt": "endoscopy \u2014 facility view 1"
+      },
+      {
+        "src": "real/endoscopy-2.webp",
+        "alt": "endoscopy \u2014 facility view 2"
+      },
+      {
+        "src": "real/endoscopy-4.webp",
+        "alt": "endoscopy \u2014 facility view 4"
+      }
+    ]
+  },
+  "finnih": {
+    "image": "real/finnih-medical-centre-exterior-1.webp",
+    "imageAlt": "Exterior of Finnih Medical Centre",
+    "logo": "/images/real/logo-finnih-medical-centre-true-transparent.webp",
+    "gallery": [
+      {
+        "src": "real/finnnih-medical-centre-staff-portrait-1.webp",
+        "alt": "Finnih Medical Centre team outside the facility"
+      }
+    ]
+  },
+  "lifecentre-support": {
+    "image": "medtech-hero.webp",
+    "imageAlt": "Representative biomedical equipment maintenance",
+    "logo": "/images/real/logo-life-centre-medical-logo.webp",
+    "logoOnly": false
+  },
+  "vhelar": {
+    "image": "network-vhelar.webp",
+    "imageAlt": "Representative healthcare advisory discussion",
+    "logo": "/images/real/logo-vhelar-consulting-corporate-logo.webp",
+    "logoOnly": false
+  }
+};
+
+export const facilities: Facility[] = [
+  ...existingFacilities.map(facility => ({ ...facility, ...visualUpdates[facility.id] })),
+  ...[
+  {
+    "id": "zendale-consulting",
+    "code": "ZN-09",
+    "name": "Zendale Consulting",
+    "focus": "Healthcare consulting and institutional development",
+    "description": "The healthcare consulting and institutional-development arm of Zendale Limited, helping healthcare organisations plan, build, optimise and transform the systems, facilities and operations required to deliver sustainable quality care.",
+    "services": [
+      "Healthcare strategy and hospital planning",
+      "Hospital operations and performance improvement",
+      "Medical technology and procurement advisory",
+      "Acquisition, turnaround and public\u2013private partnership advisory"
+    ],
+    "url": "https://www.zendaleconsulting.com/",
+    "image": "consulting-hero.webp",
+    "imageAlt": "Representative healthcare consulting presentation",
+    "logo": "/images/real/logo-zendale-consulting.webp",
+    "logoOnly": false
+  },
+  {
+    "id": "zendale-central-store",
+    "code": "ZN-10",
+    "name": "Zendale Central Store",
+    "focus": "Bulk pharmaceutical supply",
+    "description": "Zendale Central Store supplies competitively priced medicines in bulk to pharmacies and hospitals, supporting pharmaceutical purchasing and stock replenishment. Contact our team to confirm product availability, pricing and delivery arrangements.",
+    "services": [
+      "Bulk medicine supply for pharmacies",
+      "Pharmaceutical supply for hospitals",
+      "Purchasing-list and stock-replenishment enquiries",
+      "Supply quotations and delivery coordination"
+    ],
+    "url": "",
+    "internal": "/supply-quote",
+    "image": "service-central-store.webp",
+    "imageAlt": "Representative bulk pharmaceutical supply illustration",
+    "logo": "/images/real/logo-zendale-central-store.webp",
+    "logoOnly": false
+  }
+]
+];

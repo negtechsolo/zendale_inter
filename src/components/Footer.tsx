@@ -6,7 +6,10 @@ import { Logo } from "./Logo";
 import { SocialIcon } from "./SocialIcon";
 
 const explore = [
+  { to: "/impact", label: "Impact in Action" },
+  { to: "/news", label: "News & Sector Engagement" },
   { to: "/about", label: "Who We Are" },
+  { to: "/leadership", label: "Leadership" },
   { to: "/network", label: "Healthcare Network" },
   { to: "/services", label: "Services" },
   { to: "/how-we-work", label: "How We Work" },
@@ -188,7 +191,7 @@ export function Footer() {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={`Zendale Limited on ${s.label}`}
-                    className="flex h-9 w-9 items-center justify-center border border-porcelain/20 text-porcelain/70 transition-colors hover:border-brass hover:text-brass"
+                    className="flex h-11 w-11 items-center justify-center border border-porcelain/20 text-porcelain/70 transition-colors hover:border-brass hover:text-brass focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brass"
                   >
                     <SocialIcon name={s.icon} className="h-4 w-4" />
                   </a>

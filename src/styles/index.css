@@ -240,3 +240,8 @@ body {
     transition: none;
   }
 }
+
+/* Full event photographs stay visible inside consistent, quiet frames. */
+.img-frame.story-photo {
+  background: #e8edf1;
+}

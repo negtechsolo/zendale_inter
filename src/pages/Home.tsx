@@ -5,14 +5,18 @@ import { Reveal } from "../components/Reveal";
 import { Button } from "../components/Button";
 import { SmartImage } from "../components/SmartImage";
 import { EcosystemHero } from "../components/EcosystemHero";
+import { NetworkCard } from "../components/NetworkCard";
+import { ImpactSlider } from "../components/ImpactSlider";
+import { LeadershipPreview } from "../components/LeadershipPreview";
+import { StoryCards } from "../components/StoryCards";
+import { news } from "../data/updates";
 import { NodeEmblem } from "../components/NodeEmblem";
 import { MarkLimited, MarkYes } from "../components/Indicator";
 import { LeadGateForm } from "../components/forms";
-import { facilities, facilityProfilePath } from "../data/facilities";
+import { facilities } from "../data/facilities";
 import { pillars } from "../data/pillars";
 import { industries } from "../data/services";
 import { SITE, whatsappLink } from "../config";
-import { ketuPhcCaseStudy } from "../data/ketuPhc";
 
 /* ------------------------------------------------------------------ */
 /*  01 · Hero, The Zendale Ecosystem                                  */
@@ -152,57 +156,6 @@ function WhoWeAre() {
   );
 }
 
-function FeaturedHealthcareImpact() {
-  return (
-    <section className="bg-mist/60 py-20 lg:py-28">
-      <div className="mx-auto grid max-w-7xl gap-10 px-5 lg:grid-cols-12 lg:items-center lg:px-8">
-        <Reveal className="lg:col-span-7">
-          <p className="eyebrow text-steel">{ketuPhcCaseStudy.category}</p>
-          <h2 className="mt-4 max-w-4xl font-display text-3xl font-medium leading-tight text-ink sm:text-4xl lg:text-5xl">
-            {ketuPhcCaseStudy.title}
-          </h2>
-          <p className="mt-5 max-w-3xl text-base leading-relaxed text-carbon/80 sm:text-lg">
-            {ketuPhcCaseStudy.homepageSummary}
-          </p>
-          <div className="mt-8 flex flex-wrap gap-4">
-            <Button to={ketuPhcCaseStudy.path} variant="primary">Read the Case Study</Button>
-            <Button to="/contact" variant="outline">Discuss a Similar Partnership</Button>
-          </div>
-        </Reveal>
-
-        <Reveal className="lg:col-span-5" delay={0.1}>
-          <Link
-            to={ketuPhcCaseStudy.path}
-            className="group relative block overflow-hidden bg-ink"
-            aria-label={`Read the ${ketuPhcCaseStudy.facility} case study`}
-          >
-            <img
-              src={ketuPhcCaseStudy.image}
-              width="1448"
-              height="1086"
-              alt={ketuPhcCaseStudy.imageAlt}
-              loading="lazy"
-              decoding="async"
-              className="aspect-[4/3] w-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/25 to-transparent" aria-hidden="true" />
-            <div className="absolute inset-x-0 bottom-0 p-6 text-porcelain sm:p-8">
-              <p className="eyebrow text-brass">Partnership Snapshot</p>
-              <p className="mt-3 font-display text-2xl leading-tight">{ketuPhcCaseStudy.facility}</p>
-              <p className="mt-2 text-sm text-porcelain/75">
-                {ketuPhcCaseStudy.model} · {ketuPhcCaseStudy.partner}
-              </p>
-              <p className="mt-3 text-xs font-medium uppercase tracking-[0.12em] text-brass">
-                {ketuPhcCaseStudy.status}
-              </p>
-            </div>
-          </Link>
-        </Reveal>
-      </div>
-    </section>
-  );
-}
-
 const partnershipPathways = [
   "Corporate Organisation",
   "Hospital/Clinic",
@@ -328,32 +281,8 @@ function NetworkPreview() {
             The institutions below make up the current Zendale network. The structure is designed to connect today's specialist capabilities while making room for new facilities and partnerships as the ecosystem grows.
           </p>
         </Reveal>
-        <div className="mt-12 grid gap-px bg-porcelain/10 sm:grid-cols-2 lg:grid-cols-4">
-          {facilities.map((f, i) => (
-            <Reveal key={f.id} delay={(i % 4) * 0.08}>
-              <div className="z-sweep flex h-full flex-col justify-between bg-ink p-6 transition-colors hover:bg-[#0f2340]">
-                <div>
-                  <p className="font-mono text-[0.625rem] uppercase tracking-eyebrow text-brass">{f.code}</p>
-                  <h3 className="mt-2 font-display text-lg leading-snug">{f.name}</h3>
-                  <p className="mt-2 text-sm text-porcelain/65">{f.focus}</p>
-                </div>
-                <div className="mt-6 flex flex-wrap gap-x-4 gap-y-2">
-                  <Link to={facilityProfilePath(f.id)} className="inline-block text-sm font-medium text-steel transition-colors hover:text-brass">
-                    Learn More →
-                  </Link>
-                  {f.url ? (
-                    <a href={f.url} target="_blank" rel="noopener noreferrer" className="inline-block text-sm font-medium text-porcelain/60 transition-colors hover:text-brass">
-                      Visit Facility ↗
-                    </a>
-                  ) : f.internal ? (
-                    <Link to={f.internal} className="inline-block text-sm font-medium text-porcelain/60 transition-colors hover:text-brass">
-                      Visit Practice →
-                    </Link>
-                  ) : null}
-                </div>
-              </div>
-            </Reveal>
-          ))}
+        <div className="mt-12 grid items-stretch gap-8 lg:grid-cols-2">
+          {facilities.map((facility) => <NetworkCard key={facility.id} facility={facility} />)}
         </div>
         <Reveal className="mt-10">
           <Button to="/network" variant="light">See the full network</Button>
@@ -525,8 +454,7 @@ function PillarsStrip() {
             <Reveal key={p.id} delay={i * 0.07}>
               <Link to={p.route} className="z-sweep block h-full bg-porcelain p-7 text-ink transition-colors hover:bg-mist/60">
                 <NodeEmblem motif={p.motif} className="h-10 w-10 text-steel" />
-                <p className="mt-5 font-mono text-[0.625rem] uppercase tracking-eyebrow text-brass">{p.code}</p>
-                <h3 className="mt-2 font-display text-lg leading-snug">{p.name}</h3>
+                <h3 className="mt-5 font-display text-lg leading-snug">{p.name}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-carbon/70">{p.summary}</p>
               </Link>
             </Reveal>
@@ -643,14 +571,16 @@ export default function Home() {
       />
       <Hero />
       <WhoWeAre />
-      <FeaturedHealthcareImpact />
-      <PartnershipGateway />
+      <ImpactSlider />
+      <PillarsStrip />
       <PurposeSnapshot />
       <NetworkPreview />
       <HowWeWorkStrip />
       <WhyZendale />
       <WeSupport />
-      <PillarsStrip />
+      <LeadershipPreview />
+      <section className="bg-mist/40 px-5 py-20 lg:px-8"><div className="mx-auto max-w-7xl"><div className="mb-10 flex flex-wrap items-end justify-between gap-6"><div><p className="eyebrow text-steel">News &amp; Sector Engagement</p><h2 className="mt-4 font-display text-4xl text-ink">Across the healthcare sector.</h2><p className="mt-5 max-w-2xl text-base leading-relaxed text-carbon/75">From patient safety and institutional partnerships to conversations about the future of care, these updates share our participation in the wider healthcare community.</p></div><Button to="/news" variant="outline">All Updates</Button></div><StoryCards stories={news} /></div></section>
+      <PartnershipGateway />
       <ResourceTeaser />
       <ConsultationBand />
     </>
