@@ -1,3 +1,4 @@
+import { ImageGallery } from "../components/ImageGallery";
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Seo, addJsonLd } from "../lib/seo";
@@ -341,6 +342,7 @@ export default function KetuPhcCaseStudy() {
           </Reveal>
         </div>
       </section>
+      <ImageGallery images={[{"src": "real/ketu-4-1.webp", "alt": "Entrance to Ikosi Ketu Primary Healthcare Centre"}, {"src": "real/laboratory-room-view.webp", "alt": "Laboratory room supplied for the Ikosi Ketu partnership"}, {"src": "real/lab-machine-closeup-1.webp", "alt": "Laboratory equipment supplied for the Ikosi Ketu partnership"}, {"src": "real/lab-machine-closeup-2.webp", "alt": "Close view of laboratory equipment"}]} title="Ikosi Ketu partnership in pictures" />
     </>
   );
 }

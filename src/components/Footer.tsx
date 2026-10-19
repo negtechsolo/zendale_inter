@@ -6,7 +6,10 @@ import { Logo } from "./Logo";
 import { SocialIcon } from "./SocialIcon";
 
 const explore = [
+  { to: "/impact", label: "Impact in Action" },
+  { to: "/news", label: "News & Sector Engagement" },
   { to: "/about", label: "Who We Are" },
+  { to: "/leadership", label: "Leadership" },
   { to: "/network", label: "Healthcare Network" },
   { to: "/services", label: "Services" },
   { to: "/how-we-work", label: "How We Work" },

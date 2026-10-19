@@ -19,6 +19,7 @@ export default function CaseStudies() {
         lede="A featured healthcare partnership and five anonymised capability narratives, each presented through the challenge, approach and intended or observed outcome."
       >
         <Button to="/contact" variant="brass">Discuss a Similar Engagement</Button>
+        <Button to="/impact" variant="light">Explore Programmes &amp; Outreach</Button>
       </PageHero>
 
 
@@ -112,6 +113,7 @@ export default function CaseStudies() {
           </Reveal>
           <Reveal delay={0.1}>
             <Button to="/contact" variant="brass">Discuss a Similar Engagement</Button>
+        <Button to="/impact" variant="light">Explore Programmes &amp; Outreach</Button>
           </Reveal>
         </div>
       </section>

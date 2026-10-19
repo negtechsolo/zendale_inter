@@ -53,9 +53,10 @@ export default function CorporateHealth() {
         eyebrow="Corporate Healthcare"
         title="Workforce health, without HR becoming a clinic administrator."
         lede="One partner manages your entire corporate health programme, including medicals, screening and occupational health across every location, with one standard and one point of contact."
-        image={{ src: "corporate-hero.webp", alt: "Executive health consultation during a corporate medical programme" }}
+        image={{ src: "real/project-1.webp", alt: "Health education session during the BUA corporate health programme" }}
       >
         <Button to="/contact" variant="brass">Request a Corporate Proposal</Button>
+        <Button to="/impact/bua-corporate-health" variant="light">View the BUA Programme</Button>
         {wa && <Button href={wa} variant="light">Chat on WhatsApp</Button>}
       </PageHero>
 
@@ -98,13 +99,14 @@ export default function CorporateHealth() {
             </ul>
             <div className="mt-9 flex flex-wrap gap-4">
               <Button to="/contact" variant="brass">Request a Corporate Proposal</Button>
+        <Button to="/impact/bua-corporate-health" variant="light">View the BUA Programme</Button>
               <Button to="/downloads" variant="light">Download the Corporate Health Guide</Button>
             </div>
           </Reveal>
           <Reveal variant="sweep" delay={0.1}>
             <SmartImage
-              src="corporate-wellness.webp"
-              alt="Corporate wellness session delivered on-site for a client organisation"
+              src="real/project-1.webp"
+              alt="Health education during the BUA corporate health programme"
               className="diag-mask-reverse aspect-[4/5] w-full"
             />
           </Reveal>

@@ -1,7 +1,8 @@
+import { ImageGallery } from "../components/ImageGallery";
 import { Link, Navigate, useParams } from "react-router-dom";
 import { Seo } from "../lib/seo";
 import { Reveal } from "../components/Reveal";
-import { SmartImage } from "../components/SmartImage";
+import { FacilityVisual } from "../components/FacilityVisual";
 import { FacilityLogo } from "../components/FacilityLogo";
 import { Button } from "../components/Button";
 import { facilities, facilityProfilePath } from "../data/facilities";
@@ -14,9 +15,13 @@ export default function FacilityProfile() {
     return <Navigate to="/network" replace />;
   }
 
+  const isStore = facility.id === "zendale-central-store";
+  const isConsulting = facility.id === "zendale-consulting";
   const related = facilities.filter((item) => item.id !== facility.id).slice(0, 3);
-  const primaryAction = facility.url ? (
-    <Button href={facility.url} variant="brass">Visit Official Facility Website</Button>
+  const primaryAction = facility.id === "zendale-central-store" ? (
+    <Button to="/supply-quote" variant="brass">Request a Supply Quote</Button>
+  ) : facility.url ? (
+    <Button href={facility.url} variant="brass">{isConsulting ? "Visit Zendale Consulting" : "Visit Official Facility Website"}</Button>
   ) : facility.internal ? (
     <Button to={facility.internal} variant="brass">Explore the Consulting Practice</Button>
   ) : null;
@@ -62,13 +67,12 @@ export default function FacilityProfile() {
 
           <Reveal className="lg:col-span-6" delay={0.1} variant="sweep">
             <div className="relative">
-              <SmartImage
-                src={facility.image}
-                alt={facility.imageAlt}
+              <FacilityVisual
+                facility={facility}
                 eager
                 className="diag-mask aspect-[16/10] w-full"
               />
-              {facility.logo && (
+              {facility.logo && !facility.logoOnly && (
                 <div className="absolute -bottom-6 left-5 flex min-h-24 w-[min(20rem,80%)] items-center justify-center border border-ink/10 bg-white p-5 shadow-[0_20px_45px_rgba(11,27,51,0.18)] sm:left-8">
                   <FacilityLogo
                     src={facility.logo}
@@ -89,10 +93,10 @@ export default function FacilityProfile() {
           <Reveal className="lg:col-span-5">
             <p className="eyebrow text-steel">Facility Profile</p>
             <h2 className="mt-4 font-display text-3xl font-medium leading-tight text-ink sm:text-4xl">
-              A specialist institution connected to a wider healthcare ecosystem.
+              {isStore ? "Bulk pharmaceutical supply for pharmacies and hospitals." : isConsulting ? "Healthcare consulting and institutional development." : "A specialist institution connected to a wider healthcare ecosystem."}
             </h2>
             <p className="mt-5 text-base leading-relaxed text-carbon/80">
-              Each institution keeps its own specialist focus while remaining connected to Zendale Limited for referrals, operational support, clinical coordination and partnership opportunities.
+              {isStore ? "Discuss your purchasing list with our team for competitive pricing, product availability and delivery coordination. We will contact you to confirm the details of your request." : isConsulting ? "Zendale Consulting brings healthcare strategy, hospital planning, operational management, medical technology and procurement expertise together to support stronger healthcare institutions." : "Each institution keeps its own specialist focus while remaining connected to Zendale Limited for referrals, operational support, clinical coordination and partnership opportunities."}
             </p>
           </Reveal>
 
@@ -108,6 +112,8 @@ export default function FacilityProfile() {
           </Reveal>
         </div>
       </section>
+
+      {facility.gallery && <ImageGallery images={facility.gallery} />}
 
       <section className="bg-mist/60 py-16 lg:py-24">
         <div className="mx-auto max-w-7xl px-5 lg:px-8">
@@ -138,7 +144,7 @@ export default function FacilityProfile() {
           <Reveal>
             <p className="eyebrow text-brass">Access and Partnerships</p>
             <h2 className="mt-4 max-w-2xl font-display text-3xl leading-tight sm:text-4xl">
-              Need care, a referral pathway or an institutional conversation?
+              {isStore ? "Planning your next pharmaceutical purchase?" : "Need care, a referral pathway or an institutional conversation?"}
             </h2>
           </Reveal>
           <Reveal className="flex flex-wrap gap-4" delay={0.08}>

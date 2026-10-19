@@ -4,7 +4,12 @@ import { Seo } from "../lib/seo";
 import { Reveal } from "../components/Reveal";
 import { Button } from "../components/Button";
 import { SmartImage } from "../components/SmartImage";
-import { EcosystemHero } from "../components/EcosystemHero";
+import { ImpactSlider } from "../components/ImpactSlider";
+import { FacilityVisual } from "../components/FacilityVisual";
+import { FacilityLogo } from "../components/FacilityLogo";
+import { LeadershipPreview } from "../components/LeadershipPreview";
+import { StoryCards } from "../components/StoryCards";
+import { news } from "../data/updates";
 import { NodeEmblem } from "../components/NodeEmblem";
 import { MarkLimited, MarkYes } from "../components/Indicator";
 import { LeadGateForm } from "../components/forms";
@@ -12,7 +17,6 @@ import { facilities, facilityProfilePath } from "../data/facilities";
 import { pillars } from "../data/pillars";
 import { industries } from "../data/services";
 import { SITE, whatsappLink } from "../config";
-import { ketuPhcCaseStudy } from "../data/ketuPhc";
 
 /* ------------------------------------------------------------------ */
 /*  01 · Hero, The Zendale Ecosystem                                  */
@@ -21,19 +25,6 @@ import { ketuPhcCaseStudy } from "../data/ketuPhc";
 function Hero() {
   return (
     <section className="relative overflow-hidden bg-ink text-porcelain">
-      <img
-        src="/images/home-hero-texture.webp"
-        srcSet="/images/home-hero-texture-400.webp 400w, /images/home-hero-texture-800.webp 800w, /images/home-hero-texture-1200.webp 1200w, /images/home-hero-texture.webp 1536w"
-        sizes="100vw"
-        width="1536"
-        height="1024"
-        alt=""
-        aria-hidden="true"
-        loading="eager"
-        {...{ fetchpriority: "high" }}
-        decoding="async"
-        className="pointer-events-none absolute inset-0 h-full w-full object-cover object-center opacity-[0.1]"
-      />
       <div
         className="absolute inset-0 bg-gradient-to-b from-ink/75 via-ink/55 to-ink"
         aria-hidden="true"
@@ -51,7 +42,7 @@ function Hero() {
           <Reveal delay={0.08}>
             <h1 className="mt-4 max-w-[42rem] font-display text-[2.65rem] font-medium leading-[1.02] sm:text-6xl lg:text-[3.7rem] xl:text-[4rem]">
               <span className="block">One Partner.</span>
-              <span className="block lg:whitespace-nowrap">Complete Healthcare</span>
+              <span className="block">Complete Healthcare</span>
               <span className="block">Solutions.</span>
             </h1>
           </Reveal>
@@ -75,7 +66,7 @@ function Hero() {
         </div>
 
         <div className="relative order-2 h-[250px] w-full md:col-span-6 md:h-[340px] md:pt-2 lg:col-span-6 lg:h-[360px] lg:pt-0">
-          <EcosystemHero />
+          <SmartImage src="real/skyhigh-medical-centre-10.webp" alt="Sky High Medical Centre team outside the facility" eager className="h-full w-full border border-porcelain/20" />
         </div>
       </div>
     </section>
@@ -128,8 +119,8 @@ function WhoWeAre() {
           </Reveal>
           <Reveal className="lg:col-span-6" variant="sweep" delay={0.15}>
             <SmartImage
-              src="home-who-we-are.webp"
-              alt="A Zendale clinical team coordinating patient care across the network"
+              src="real/endoscopy-1.webp"
+              alt="The Zendale Endoscopy Centre team"
               className="diag-mask aspect-[4/3] w-full"
             />
           </Reveal>
@@ -147,57 +138,6 @@ function WhoWeAre() {
             </Reveal>
           ))}
         </div>
-      </div>
-    </section>
-  );
-}
-
-function FeaturedHealthcareImpact() {
-  return (
-    <section className="bg-mist/60 py-20 lg:py-28">
-      <div className="mx-auto grid max-w-7xl gap-10 px-5 lg:grid-cols-12 lg:items-center lg:px-8">
-        <Reveal className="lg:col-span-7">
-          <p className="eyebrow text-steel">{ketuPhcCaseStudy.category}</p>
-          <h2 className="mt-4 max-w-4xl font-display text-3xl font-medium leading-tight text-ink sm:text-4xl lg:text-5xl">
-            {ketuPhcCaseStudy.title}
-          </h2>
-          <p className="mt-5 max-w-3xl text-base leading-relaxed text-carbon/80 sm:text-lg">
-            {ketuPhcCaseStudy.homepageSummary}
-          </p>
-          <div className="mt-8 flex flex-wrap gap-4">
-            <Button to={ketuPhcCaseStudy.path} variant="primary">Read the Case Study</Button>
-            <Button to="/contact" variant="outline">Discuss a Similar Partnership</Button>
-          </div>
-        </Reveal>
-
-        <Reveal className="lg:col-span-5" delay={0.1}>
-          <Link
-            to={ketuPhcCaseStudy.path}
-            className="group relative block overflow-hidden bg-ink"
-            aria-label={`Read the ${ketuPhcCaseStudy.facility} case study`}
-          >
-            <img
-              src={ketuPhcCaseStudy.image}
-              width="1448"
-              height="1086"
-              alt={ketuPhcCaseStudy.imageAlt}
-              loading="lazy"
-              decoding="async"
-              className="aspect-[4/3] w-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/25 to-transparent" aria-hidden="true" />
-            <div className="absolute inset-x-0 bottom-0 p-6 text-porcelain sm:p-8">
-              <p className="eyebrow text-brass">Partnership Snapshot</p>
-              <p className="mt-3 font-display text-2xl leading-tight">{ketuPhcCaseStudy.facility}</p>
-              <p className="mt-2 text-sm text-porcelain/75">
-                {ketuPhcCaseStudy.model} · {ketuPhcCaseStudy.partner}
-              </p>
-              <p className="mt-3 text-xs font-medium uppercase tracking-[0.12em] text-brass">
-                {ketuPhcCaseStudy.status}
-              </p>
-            </div>
-          </Link>
-        </Reveal>
       </div>
     </section>
   );
@@ -332,6 +272,8 @@ function NetworkPreview() {
           {facilities.map((f, i) => (
             <Reveal key={f.id} delay={(i % 4) * 0.08}>
               <div className="z-sweep flex h-full flex-col justify-between bg-ink p-6 transition-colors hover:bg-[#0f2340]">
+                <Link to={facilityProfilePath(f.id)} aria-label={`Explore ${f.name}`} className="mb-5 block"><FacilityVisual facility={f} className="aspect-[4/3] w-full" /></Link>
+                {f.logo && !f.logoOnly && <div className="mb-5 flex h-20 items-center justify-center bg-white px-4 py-3"><FacilityLogo src={f.logo} alt={f.logoAlt ?? `${f.name} logo`} sizes="250px" className="max-h-14 max-w-full object-contain" /></div>}
                 <div>
                   <p className="font-mono text-[0.625rem] uppercase tracking-eyebrow text-brass">{f.code}</p>
                   <h3 className="mt-2 font-display text-lg leading-snug">{f.name}</h3>
@@ -347,7 +289,7 @@ function NetworkPreview() {
                     </a>
                   ) : f.internal ? (
                     <Link to={f.internal} className="inline-block text-sm font-medium text-porcelain/60 transition-colors hover:text-brass">
-                      Visit Practice →
+                      {f.id === "zendale-central-store" ? "Request a Supply Quote →" : "Visit Practice →"}
                     </Link>
                   ) : null}
                 </div>
@@ -643,14 +585,16 @@ export default function Home() {
       />
       <Hero />
       <WhoWeAre />
-      <FeaturedHealthcareImpact />
-      <PartnershipGateway />
+      <ImpactSlider />
+      <PillarsStrip />
       <PurposeSnapshot />
       <NetworkPreview />
       <HowWeWorkStrip />
       <WhyZendale />
       <WeSupport />
-      <PillarsStrip />
+      <LeadershipPreview />
+      <section className="bg-mist/40 px-5 py-20 lg:px-8"><div className="mx-auto max-w-7xl"><div className="mb-10 flex flex-wrap items-end justify-between gap-6"><div><p className="eyebrow text-steel">News &amp; Sector Engagement</p><h2 className="mt-4 font-display text-4xl text-ink">Across the healthcare sector.</h2></div><Button to="/news" variant="outline">All Updates</Button></div><StoryCards stories={news.slice(0,3)} /></div></section>
+      <PartnershipGateway />
       <ResourceTeaser />
       <ConsultationBand />
     </>

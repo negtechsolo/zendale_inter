@@ -45,14 +45,16 @@ export default function About() {
         eyebrow="Who We Are"
         title="Many parts. One system. One promise."
         lede="Zendale builds and connects strong healthcare institutions so patients, organisations and communities can reach quality care, expertise and infrastructure through one trusted ecosystem."
-        image={{ src: "about-hero.webp", alt: "Zendale clinicians and consultants working across the group's facilities" }}
-      />
+        image={{ src: "real/skyhigh-medical-centre-10.webp", alt: "Sky High Medical Centre team outside the facility" }}
+      >
+        <Button to="/leadership" variant="brass">Meet Our Leadership</Button>
+      </PageHero>
 
       <section className="bg-porcelain py-20 lg:py-28">
         <div className="mx-auto grid max-w-7xl items-center gap-12 px-5 lg:grid-cols-12 lg:px-8">
           <Reveal className="lg:col-span-5" variant="sweep">
             <SmartImage
-              src="about-story.webp"
+              src="real/life-centre-medicals-4.webp"
               alt="Inside a Zendale network facility during a working day"
               className="diag-mask-reverse aspect-[3/4] w-full"
             />

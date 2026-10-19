@@ -9,6 +9,8 @@ import { MemoryRouter } from "react-router-dom";
 import App from "./src/App";
 
 const routes = [
+  "/leadership", "/supply-quote", "/network/zendale-central-store", "/network/zendale-consulting",
+  "/impact", "/news", "/impact/bua-corporate-health", "/news/hfn-private-sector-town-hall",
   "/", "/about", "/network", "/services", "/corporate-health", "/consulting",
   "/medical-technology", "/partnerships", "/how-we-work", "/resources",
   "/downloads", "/case-studies", "/careers", "/contact", "/privacy",

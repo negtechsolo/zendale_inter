@@ -23,6 +23,10 @@ function lazyRetry(factory: () => Promise<{ default: ComponentType }>) {
   );
 }
 
+const Leadership = lazyRetry(() => import("./pages/Leadership"));
+const SupplyQuote = lazyRetry(() => import("./pages/SupplyQuote"));
+const Updates = lazyRetry(() => import("./pages/Updates"));
+const UpdateStory = lazyRetry(() => import("./pages/UpdateStory"));
 const Home = lazyRetry(() => import("./pages/Home"));
 const About = lazyRetry(() => import("./pages/About"));
 const Network = lazyRetry(() => import("./pages/Network"));
@@ -74,6 +78,10 @@ const routeLoaders: Record<string, () => Promise<unknown>> = {
 
 function loaderFor(path: string): (() => Promise<unknown>) | undefined {
   if (routeLoaders[path]) return routeLoaders[path];
+  if (path === "/leadership") return () => import("./pages/Leadership");
+  if (path === "/supply-quote") return () => import("./pages/SupplyQuote");
+  if (path === "/impact" || path === "/news") return () => import("./pages/Updates");
+  if (path.startsWith("/impact/") || path.startsWith("/news/")) return () => import("./pages/UpdateStory");
   if (path.startsWith("/network/")) return () => import("./pages/FacilityProfile");
   if (path.startsWith("/resources/")) return () => import("./pages/ArticlePage");
   if (path.startsWith("/case-studies/")) return () => import("./pages/KetuPhcCaseStudy");
@@ -180,6 +188,12 @@ export default function App() {
     <Routes>
       <Route element={<Layout />}>
         <Route path="/" element={<Home />} />
+        <Route path="/leadership" element={<Leadership />} />
+        <Route path="/supply-quote" element={<SupplyQuote />} />
+        <Route path="/impact" element={<Updates />} />
+        <Route path="/news" element={<Updates />} />
+        <Route path="/impact/:slug" element={<UpdateStory />} />
+        <Route path="/news/:slug" element={<UpdateStory />} />
         <Route path="/about" element={<About />} />
         <Route path="/network" element={<Network />} />
         <Route path="/network/:facilityId" element={<FacilityProfile />} />

@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { Seo } from "../lib/seo";
 import { PageHero } from "../components/PageHero";
 import { Reveal } from "../components/Reveal";
-import { SmartImage } from "../components/SmartImage";
+import { FacilityVisual } from "../components/FacilityVisual";
 import { FacilityLogo } from "../components/FacilityLogo";
 import { Button } from "../components/Button";
 import { facilities, facilityProfilePath } from "../data/facilities";
@@ -50,12 +50,11 @@ export default function Network() {
                 >
                   <div className={`lg:col-span-6 ${index % 2 === 1 ? "lg:order-2" : ""}`}>
                     <div className="relative">
-                      <SmartImage
-                        src={facility.image}
-                        alt={facility.imageAlt}
+                      <FacilityVisual
+                        facility={facility}
                         className={`${index % 2 === 1 ? "diag-mask-reverse" : "diag-mask"} aspect-[16/10] w-full`}
                       />
-                      {facility.logo && (
+                      {facility.logo && !facility.logoOnly && (
                         <div className="absolute bottom-4 left-4 flex min-h-16 max-w-[55%] items-center bg-white/95 px-4 py-3 shadow-[0_12px_30px_rgba(11,27,51,0.16)] backdrop-blur">
                           <FacilityLogo
                             src={facility.logo}
@@ -102,7 +101,7 @@ export default function Network() {
                       {facility.url ? (
                         <Button href={facility.url} variant="outline">Visit Facility</Button>
                       ) : facility.internal ? (
-                        <Button to={facility.internal} variant="outline">Visit Practice</Button>
+                        <Button to={facility.internal} variant="outline">{facility.id === "zendale-central-store" ? "Request a Supply Quote" : "Visit Practice"}</Button>
                       ) : null}
                     </div>
                   </div>

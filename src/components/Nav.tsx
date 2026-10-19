@@ -17,6 +17,10 @@ const desktopPrimary = [
 ];
 
 const mobileItems = [
+  { to: "/leadership", label: "Our Leadership" },
+  { to: "/impact", label: "Impact in Action" },
+  { to: "/news", label: "News & Sector Engagement" },
+  { to: "/supply-quote", label: "Request a Supply Quote" },
   { to: "/about", label: "Who We Are" },
   { to: "/network", label: "Healthcare Network" },
   { to: "/services", label: "Services" },
