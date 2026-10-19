@@ -133,9 +133,9 @@ const eventStories: UpdateStory[] = [
     "path": "/news/business-of-health-conference-2026",
     "category": "Sector Engagement",
     "title": "Business of Health Conference 2026",
-    "image": "real/event-3.webp",
+    "image": "real/news-business-health.webp",
     "imageAlt": "Panel discussion at the Business of Health Conference 2026",
-    "imageFit": "contain",
+    "imageFit": "cover",
     "summary": "At the Business of Health Conference 2026, we joined the conversation about building healthcare institutions that people can trust and continue to use. The programme’s focus on reversing medical tourism connects with a practical question: what makes care closer to home a dependable choice?",
     "sections": [
       {
@@ -161,9 +161,9 @@ const eventStories: UpdateStory[] = [
     "path": "/news/hfn-private-sector-town-hall",
     "category": "Sector Engagement",
     "title": "HFN Private Sector Town Hall",
-    "image": "real/event-5.webp",
+    "image": "real/news-hfn-town-hall.webp",
     "imageAlt": "Healthcare leaders at the Healthcare Federation of Nigeria Private Sector Town Hall",
-    "imageFit": "contain",
+    "imageFit": "cover",
     "summary": "Dr. Rita Irurhe represented our group at the Healthcare Federation of Nigeria Private Sector Town Hall. The gathering created a setting for healthcare leaders to engage on private-sector participation, institutional capacity and the relationships needed to strengthen healthcare delivery.",
     "sections": [
       {
@@ -189,9 +189,9 @@ const eventStories: UpdateStory[] = [
     "path": "/news/world-patient-safety-day-2026",
     "category": "Patient Safety",
     "title": "World Patient Safety Day 2026",
-    "image": "real/event-1.webp",
-    "imageAlt": "Dr. Rita Irurhe at the HEFAAMA World Patient Safety Day programme",
-    "imageFit": "contain",
+    "image": "real/news-patient-safety.webp",
+    "imageAlt": "Group photograph of healthcare leaders at the HEFAAMA World Patient Safety Day programme",
+    "imageFit": "cover",
     "summary": "“Safe Care for Life” was the theme of the HEFAAMA World Patient Safety Day 2026 programme attended by Dr. Rita Irurhe. For our group, the occasion reinforced the importance of quality, coordination and reliable everyday systems in the delivery of care.",
     "sections": [
       {
@@ -217,9 +217,9 @@ const eventStories: UpdateStory[] = [
     "path": "/news/eko-health-convention-2026",
     "category": "Sector Engagement",
     "title": "Eko Health Convention 2026",
-    "image": "real/event-4.webp",
+    "image": "real/news-eko-convention.webp",
     "imageAlt": "Zendale representation at Eko Health Convention 2026 in Lagos",
-    "imageFit": "contain",
+    "imageFit": "cover",
     "summary": "We participated in Eko Health Convention 2026 in Lagos as part of our engagement with the wider healthcare community. The occasion offered a setting to connect sector perspectives with our work in clinical services, diagnostics, specialist care and institutional support.",
     "sections": [
       {
@@ -245,9 +245,9 @@ const eventStories: UpdateStory[] = [
     "path": "/news/lagos-state-blood-transfusion-partnership",
     "category": "Partnerships",
     "title": "Lagos State Blood Transfusion Partnership",
-    "image": "real/event-2.webp",
+    "image": "real/news-blood-partnership.webp",
     "imageAlt": "Representatives marking the partnership with the Lagos State Blood Transfusion Committee",
-    "imageFit": "contain",
+    "imageFit": "cover",
     "summary": "Our official partnership with the Lagos State Blood Transfusion Committee reflects the importance of institutional collaboration in healthcare. Representatives gathered to mark a relationship connected to a vital part of the wider care system: blood access and coordination.",
     "sections": [
       {

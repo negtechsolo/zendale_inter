@@ -766,6 +766,51 @@ export const imageMeta: Record<string, ImageMeta> = {
       400
     ]
   },
+  "real/news-blood-partnership.webp": {
+    "w": 1200,
+    "h": 675,
+    "v": [
+      96,
+      400,
+      800
+    ]
+  },
+  "real/news-business-health.webp": {
+    "w": 1200,
+    "h": 675,
+    "v": [
+      96,
+      400,
+      800
+    ]
+  },
+  "real/news-eko-convention.webp": {
+    "w": 1200,
+    "h": 675,
+    "v": [
+      96,
+      400,
+      800
+    ]
+  },
+  "real/news-hfn-town-hall.webp": {
+    "w": 1200,
+    "h": 675,
+    "v": [
+      96,
+      400,
+      800
+    ]
+  },
+  "real/news-patient-safety.webp": {
+    "w": 1200,
+    "h": 675,
+    "v": [
+      96,
+      400,
+      800
+    ]
+  },
   "real/project-1.webp": {
     "w": 960,
     "h": 1280,

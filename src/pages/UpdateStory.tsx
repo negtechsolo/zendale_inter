@@ -40,8 +40,8 @@ export default function UpdateStory() {
               src={story.image}
               alt={story.imageAlt}
               eager
-              className="story-photo h-80 w-full sm:h-[36rem]"
-              imgClassName="!object-contain"
+              className={isNews ? "aspect-video w-full" : "story-photo h-80 w-full sm:h-[36rem]"}
+              imgClassName={isNews ? undefined : "!object-contain"}
               sizes="(min-width: 1024px) 896px, 100vw"
             />
             <figcaption className="mt-4 border-b border-ink/10 pb-5 text-sm leading-relaxed text-carbon/70">

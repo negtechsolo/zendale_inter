@@ -26,12 +26,12 @@ export const leadership: Leader[] = [
     id: "bukola-oladipupo",
     name: "Bukola Oladipupo",
     postnominal: "SPHRi",
-    title: "Group Human Resources / People & Culture Strategist",
+    title: "Group Human Resources",
     image: "real/bukola-oladipupo.webp",
     linkedin: "https://www.linkedin.com/in/bukola-oladipupo-sphri-833853ab/",
     biography: [
       "Bukola Oladipupo is a strategic human resources professional with more than a decade of experience. A Senior Professional in Human Resources – International (SPHRi), she brings expertise in strategic HR business partnership, people and culture, human resources management, and compensation and benefits analysis.",
-      "Her work connects people priorities with organisational direction, recognising that effective healthcare institutions depend on the professionals behind them. Her perspective on leadership also extends to mentoring entrepreneurs and supporting their development. She combines a business-focused approach to HR with an interest in helping people build the capability and confidence to contribute."
+      "She leads human resources across the group’s subsidiaries, connecting people priorities with organisational direction and recognising that effective healthcare institutions depend on the professionals behind them. Her perspective on leadership also extends to mentoring entrepreneurs and supporting their development. She combines a business-focused approach to HR with an interest in helping people build the capability and confidence to contribute."
     ],
   },
   {
@@ -48,7 +48,7 @@ export const leadership: Leader[] = [
   {
     id: "tunde-adribigbe",
     name: "Tunde Adribigbe",
-    title: "Chief Financial Officer (CFO)",
+    title: "Chief Financial Officer",
     image: "real/tunde-adribigbe.webp",
     biography: [
       "Tunde Adribigbe serves as Chief Financial Officer, representing the finance function within the group’s leadership team. His role brings a financial perspective to the decisions that support the organisation and its healthcare network.",

@@ -3,7 +3,7 @@ import { Seo } from "../lib/seo";
 import { PageHero } from "../components/PageHero";
 import { Reveal } from "../components/Reveal";
 import { FacilityVisual } from "../components/FacilityVisual";
-import { FacilityLogo } from "../components/FacilityLogo";
+import { FacilityBadge } from "../components/FacilityBadge";
 import { Button } from "../components/Button";
 import { facilities, facilityProfilePath } from "../data/facilities";
 import { whatsappLink } from "../config";
@@ -53,23 +53,13 @@ export default function Network() {
                       <FacilityVisual
                         fill
                         facility={facility}
-                        className={`${index % 2 === 1 ? "diag-mask-reverse" : "diag-mask"} aspect-[16/10] w-full`}
+                        className="aspect-[16/10] w-full"
                       />
-
+                      <FacilityBadge facility={facility} />
                     </div>
                   </div>
 
                   <div className={`lg:col-span-6 ${index % 2 === 1 ? "lg:order-1" : ""}`}>
-                      {facility.logo && !facility.logoOnly && (
-                        <div className="mb-5 flex h-16 w-36 items-center justify-center bg-white px-3 py-2 ">
-                          <FacilityLogo
-                            src={facility.logo}
-                            alt={facility.logoAlt ?? `${facility.name} logo`}
-                            sizes="220px"
-                            className="max-h-11 max-w-full object-contain"
-                          />
-                        </div>
-                      )}
                     <p className="font-mono text-[0.6875rem] uppercase tracking-eyebrow text-brass">
                       {facility.focus}
                     </p>

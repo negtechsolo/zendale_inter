@@ -14,7 +14,7 @@ export function StoryCards({ stories }: { stories: UpdateStory[] }) {
               fill
               src={story.image}
               alt={story.imageAlt}
-              className={`aspect-[4/3] w-full ${story.imageFit === "contain" ? "story-photo" : ""}`}
+              className={`${story.path.startsWith("/news/") ? "aspect-video" : "aspect-[4/3]"} w-full ${story.imageFit === "contain" ? "story-photo" : ""}`}
               imgClassName={story.imageFit === "contain" ? "!object-contain" : undefined}
             />
           </Link>

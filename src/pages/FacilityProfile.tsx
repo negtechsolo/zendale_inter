@@ -3,7 +3,7 @@ import { Link, Navigate, useParams } from "react-router-dom";
 import { Seo } from "../lib/seo";
 import { Reveal } from "../components/Reveal";
 import { FacilityVisual } from "../components/FacilityVisual";
-import { FacilityLogo } from "../components/FacilityLogo";
+import { FacilityBadge } from "../components/FacilityBadge";
 import { Button } from "../components/Button";
 import { facilities, facilityProfilePath } from "../data/facilities";
 
@@ -44,17 +44,6 @@ export default function FacilityProfile() {
         </div>
         <div className="relative mx-auto grid max-w-7xl items-center gap-12 px-5 lg:grid-cols-12 lg:px-8">
           <Reveal className="lg:col-span-6">
-              {facility.logo && !facility.logoOnly && (
-                <div className="mb-7 flex h-20 w-44 items-center justify-center border border-ink/10 bg-white p-3 ">
-                  <FacilityLogo
-                    src={facility.logo}
-                    alt={facility.logoAlt ?? `${facility.name} logo`}
-                    sizes="320px"
-                    eager
-                    className="max-h-14 max-w-full object-contain"
-                  />
-                </div>
-              )}
             <Link to="/network" className="eyebrow text-brass transition-colors hover:text-porcelain">
               Healthcare Network
             </Link>
@@ -82,9 +71,9 @@ export default function FacilityProfile() {
                 fill
                 facility={facility}
                 eager
-                className="diag-mask aspect-[16/10] w-full"
+                className="aspect-[16/10] w-full"
               />
-
+              <FacilityBadge facility={facility} eager />
             </div>
           </Reveal>
         </div>
