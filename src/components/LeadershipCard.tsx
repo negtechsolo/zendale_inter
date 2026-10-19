@@ -16,13 +16,15 @@ export function LeadershipCard({ person, detailed = false }: { person: Leader; d
       />
       <div className="flex flex-1 flex-col p-6">
         <h3 className={`font-display leading-snug text-ink ${detailed ? "text-2xl" : "text-xl"}`}><LeaderName person={person} /></h3>
-        <p className="mt-3 text-sm leading-relaxed text-carbon/85">{person.title}</p>
+        <p className={`mt-3 text-sm leading-relaxed text-carbon/85 ${detailed ? "lg:min-h-[3em]" : ""}`}>{person.title}</p>
         {detailed && (
           <>
-            <div className="mt-6 space-y-4 border-t border-ink/10 pt-6 text-base leading-relaxed text-carbon/85">
+            <div className="mb-6 mt-6 space-y-4 border-t border-ink/10 pt-6 text-base leading-relaxed text-carbon/85">
               {person.biography.map(paragraph => <p key={paragraph}>{paragraph}</p>)}
             </div>
-            {person.linkedin && <div className="mt-auto pt-5"><LinkedInLink href={person.linkedin} name={person.name} /></div>}
+            <div className={`mt-auto min-h-16 border-t border-ink/10 pt-4 ${person.linkedin ? "" : "hidden lg:block"}`} aria-hidden={person.linkedin ? undefined : true}>
+              {person.linkedin && <LinkedInLink href={person.linkedin} name={person.name} />}
+            </div>
           </>
         )}
       </div>

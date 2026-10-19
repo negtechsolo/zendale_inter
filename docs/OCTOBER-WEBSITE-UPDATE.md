@@ -71,3 +71,10 @@ GitHub write access was confirmed after the account owner updated the app access
 - News cover files are approximately 64–128 KB before smaller responsive variants. Source files and selected crop coordinates are recorded in docs/IMAGE-SOURCES.md.
 - Bukola’s displayed title is exactly “Group Human Resources”; her biography now explicitly reflects leadership across the subsidiaries, as confirmed by the user. Tunde’s title is “Chief Financial Officer”, with no abbreviation.
 - Restored Endoscopy’s procedure-room cover (`real/endoscopy-2.webp`). All facility photo badges now use a shared component inset at the top-right of the photograph, on homepage cards, the Network page and facility profiles. Rectangular photo frames keep the badge visibly inside the image bounds.
+
+
+### Final release adjustments
+- Moved shared subsidiary photo badges to the bottom-left, inset from the edge, to keep them away from faces. Applies to home cards, the network listing and facility profiles.
+- Aligned leadership profile title areas, biography dividers and bottom link bands on desktop. The CFO retains an empty matching band rather than an invented social link.
+- Added the four company social URLs supplied by the user to shared site configuration: LinkedIn, Facebook, Instagram and X. Footer icons appear throughout the site, have accessible names, keyboard focus states and 44px targets. The same URLs also populate organisation structured data.
+- The user approved the landscape news covers and requested publication to the main website after these minor adjustments. News text and photographs are preserved.
