@@ -79,10 +79,11 @@ export function ImpactSlider() {
             key={current.image}
             src={current.image}
             alt={current.imageAlt}
-            className="aspect-[4/3] w-full lg:aspect-auto lg:min-h-[28rem]"
+            fill
+            className="h-64 w-full sm:h-80 lg:h-[30rem]"
           />
           <div
-            className="flex flex-col justify-center p-7 sm:p-10 lg:p-12"
+            className="flex min-w-0 flex-col justify-center p-7 sm:p-10 lg:h-[30rem] lg:p-10"
             aria-live={paused || interacting || reduced ? "polite" : "off"}
             aria-atomic="true"
             role="group"

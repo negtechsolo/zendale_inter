@@ -21,7 +21,7 @@ export const leadership = [
     bio: "Chief Financial Officer at Zendale Limited.",
   },
   {
-    name: "Bukola Oladipupo, SPHRi",
+    name: "Bukola Oladipupo",
     title: "Group Human Resources / People & Culture Strategist",
     image: "real/bukola-oladipupo.webp",
     credential: "SPHRi Certified",

@@ -68,18 +68,19 @@ export default function FacilityProfile() {
           <Reveal className="lg:col-span-6" delay={0.1} variant="sweep">
             <div className="relative">
               <FacilityVisual
+                fill
                 facility={facility}
                 eager
                 className="diag-mask aspect-[16/10] w-full"
               />
               {facility.logo && !facility.logoOnly && (
-                <div className="absolute -bottom-6 left-5 flex min-h-24 w-[min(20rem,80%)] items-center justify-center border border-ink/10 bg-white p-5 shadow-[0_20px_45px_rgba(11,27,51,0.18)] sm:left-8">
+                <div className="absolute bottom-4 right-4 flex h-20 w-44 items-center justify-center border border-ink/10 bg-white/95 p-3 shadow-[0_20px_45px_rgba(11,27,51,0.18)]">
                   <FacilityLogo
                     src={facility.logo}
                     alt={facility.logoAlt ?? `${facility.name} logo`}
                     sizes="320px"
                     eager
-                    className="max-h-20 max-w-full object-contain"
+                    className="max-h-14 max-w-full object-contain"
                   />
                 </div>
               )}

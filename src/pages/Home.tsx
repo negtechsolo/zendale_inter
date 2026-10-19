@@ -4,16 +4,16 @@ import { Seo } from "../lib/seo";
 import { Reveal } from "../components/Reveal";
 import { Button } from "../components/Button";
 import { SmartImage } from "../components/SmartImage";
+import { EcosystemHero } from "../components/EcosystemHero";
+import { NetworkCard } from "../components/NetworkCard";
 import { ImpactSlider } from "../components/ImpactSlider";
-import { FacilityVisual } from "../components/FacilityVisual";
-import { FacilityLogo } from "../components/FacilityLogo";
 import { LeadershipPreview } from "../components/LeadershipPreview";
 import { StoryCards } from "../components/StoryCards";
 import { news } from "../data/updates";
 import { NodeEmblem } from "../components/NodeEmblem";
 import { MarkLimited, MarkYes } from "../components/Indicator";
 import { LeadGateForm } from "../components/forms";
-import { facilities, facilityProfilePath } from "../data/facilities";
+import { facilities } from "../data/facilities";
 import { pillars } from "../data/pillars";
 import { industries } from "../data/services";
 import { SITE, whatsappLink } from "../config";
@@ -25,6 +25,19 @@ import { SITE, whatsappLink } from "../config";
 function Hero() {
   return (
     <section className="relative overflow-hidden bg-ink text-porcelain">
+      <img
+        src="/images/home-hero-texture.webp"
+        srcSet="/images/home-hero-texture-400.webp 400w, /images/home-hero-texture-800.webp 800w, /images/home-hero-texture-1200.webp 1200w, /images/home-hero-texture.webp 1536w"
+        sizes="100vw"
+        width="1536"
+        height="1024"
+        alt=""
+        aria-hidden="true"
+        loading="eager"
+        {...{ fetchpriority: "high" }}
+        decoding="async"
+        className="pointer-events-none absolute inset-0 h-full w-full object-cover object-center opacity-[0.1]"
+      />
       <div
         className="absolute inset-0 bg-gradient-to-b from-ink/75 via-ink/55 to-ink"
         aria-hidden="true"
@@ -42,7 +55,7 @@ function Hero() {
           <Reveal delay={0.08}>
             <h1 className="mt-4 max-w-[42rem] font-display text-[2.65rem] font-medium leading-[1.02] sm:text-6xl lg:text-[3.7rem] xl:text-[4rem]">
               <span className="block">One Partner.</span>
-              <span className="block">Complete Healthcare</span>
+              <span className="block lg:whitespace-nowrap">Complete Healthcare</span>
               <span className="block">Solutions.</span>
             </h1>
           </Reveal>
@@ -66,7 +79,7 @@ function Hero() {
         </div>
 
         <div className="relative order-2 h-[250px] w-full md:col-span-6 md:h-[340px] md:pt-2 lg:col-span-6 lg:h-[360px] lg:pt-0">
-          <SmartImage src="real/skyhigh-medical-centre-10.webp" alt="Sky High Medical Centre team outside the facility" eager className="h-full w-full border border-porcelain/20" />
+          <EcosystemHero />
         </div>
       </div>
     </section>
@@ -119,8 +132,8 @@ function WhoWeAre() {
           </Reveal>
           <Reveal className="lg:col-span-6" variant="sweep" delay={0.15}>
             <SmartImage
-              src="real/endoscopy-1.webp"
-              alt="The Zendale Endoscopy Centre team"
+              src="home-who-we-are.webp"
+              alt="A Zendale clinical team coordinating patient care across the network"
               className="diag-mask aspect-[4/3] w-full"
             />
           </Reveal>
@@ -268,34 +281,8 @@ function NetworkPreview() {
             The institutions below make up the current Zendale network. The structure is designed to connect today's specialist capabilities while making room for new facilities and partnerships as the ecosystem grows.
           </p>
         </Reveal>
-        <div className="mt-12 grid gap-px bg-porcelain/10 sm:grid-cols-2 lg:grid-cols-4">
-          {facilities.map((f, i) => (
-            <Reveal key={f.id} delay={(i % 4) * 0.08}>
-              <div className="z-sweep flex h-full flex-col justify-between bg-ink p-6 transition-colors hover:bg-[#0f2340]">
-                <Link to={facilityProfilePath(f.id)} aria-label={`Explore ${f.name}`} className="mb-5 block"><FacilityVisual facility={f} className="aspect-[4/3] w-full" /></Link>
-                {f.logo && !f.logoOnly && <div className="mb-5 flex h-20 items-center justify-center bg-white px-4 py-3"><FacilityLogo src={f.logo} alt={f.logoAlt ?? `${f.name} logo`} sizes="250px" className="max-h-14 max-w-full object-contain" /></div>}
-                <div>
-                  <p className="font-mono text-[0.625rem] uppercase tracking-eyebrow text-brass">{f.code}</p>
-                  <h3 className="mt-2 font-display text-lg leading-snug">{f.name}</h3>
-                  <p className="mt-2 text-sm text-porcelain/65">{f.focus}</p>
-                </div>
-                <div className="mt-6 flex flex-wrap gap-x-4 gap-y-2">
-                  <Link to={facilityProfilePath(f.id)} className="inline-block text-sm font-medium text-steel transition-colors hover:text-brass">
-                    Learn More →
-                  </Link>
-                  {f.url ? (
-                    <a href={f.url} target="_blank" rel="noopener noreferrer" className="inline-block text-sm font-medium text-porcelain/60 transition-colors hover:text-brass">
-                      Visit Facility ↗
-                    </a>
-                  ) : f.internal ? (
-                    <Link to={f.internal} className="inline-block text-sm font-medium text-porcelain/60 transition-colors hover:text-brass">
-                      {f.id === "zendale-central-store" ? "Request a Supply Quote →" : "Visit Practice →"}
-                    </Link>
-                  ) : null}
-                </div>
-              </div>
-            </Reveal>
-          ))}
+        <div className="mt-12 grid items-stretch gap-5 sm:grid-cols-2 lg:grid-cols-5">
+          {facilities.map((facility) => <NetworkCard key={facility.id} facility={facility} />)}
         </div>
         <Reveal className="mt-10">
           <Button to="/network" variant="light">See the full network</Button>

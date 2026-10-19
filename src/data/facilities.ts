@@ -377,12 +377,16 @@ const visualUpdates: Record<string, Partial<Facility>> = {
     ]
   },
   "lifecentre-support": {
+    "image": "medtech-hero.webp",
+    "imageAlt": "Representative biomedical equipment maintenance",
     "logo": "/images/real/logo-life-centre-medical-logo.webp",
-    "logoOnly": true
+    "logoOnly": false
   },
   "vhelar": {
+    "image": "network-vhelar.webp",
+    "imageAlt": "Representative healthcare advisory discussion",
     "logo": "/images/real/logo-vhelar-consulting-corporate-logo.webp",
-    "logoOnly": true
+    "logoOnly": false
   }
 };
 
@@ -402,10 +406,10 @@ export const facilities: Facility[] = [
       "Acquisition, turnaround and public\u2013private partnership advisory"
     ],
     "url": "https://www.zendaleconsulting.com/",
-    "image": "",
-    "imageAlt": "Zendale Consulting logo",
+    "image": "consulting-hero.webp",
+    "imageAlt": "Representative healthcare consulting presentation",
     "logo": "/images/real/logo-zendale-consulting.webp",
-    "logoOnly": true
+    "logoOnly": false
   },
   {
     "id": "zendale-central-store",
@@ -421,10 +425,10 @@ export const facilities: Facility[] = [
     ],
     "url": "",
     "internal": "/supply-quote",
-    "image": "",
-    "imageAlt": "Zendale Central Store logo",
+    "image": "service-central-store.webp",
+    "imageAlt": "Representative bulk pharmaceutical supply illustration",
     "logo": "/images/real/logo-zendale-central-store.webp",
-    "logoOnly": true
+    "logoOnly": false
   }
 ]
 ];

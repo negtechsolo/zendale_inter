@@ -1010,6 +1010,16 @@ export const imageMeta: Record<string, ImageMeta> = {
       400
     ]
   },
+  "service-central-store.webp": {
+    "w": 1400,
+    "h": 1050,
+    "v": [
+      96,
+      400,
+      800,
+      1200
+    ]
+  },
   "zendale-logo.webp": {
     "w": 535,
     "h": 559,

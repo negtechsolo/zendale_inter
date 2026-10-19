@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { leadership } from "../data/leadership";
-import { SmartImage } from "./SmartImage";
+import { LeadershipCard } from "./LeadershipCard";
 import { Button } from "./Button";
 export function LeadershipPreview() {
   return (
@@ -19,20 +19,12 @@ export function LeadershipPreview() {
         </div>
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {leadership.map((person) => (
-            <Link key={person.name} to="/leadership" className="group bg-white">
-              <SmartImage
-                src={person.image}
-                alt={person.name}
-                className="aspect-[4/5] w-full"
-                imgClassName="object-top"
-                sizes="(min-width: 1024px) 300px, 50vw"
-              />
-              <div className="p-5">
-                <h3 className="font-display text-2xl text-ink group-hover:text-steel">
-                  {person.name}
-                </h3>
-                <p className="mt-2 text-sm text-carbon/75">{person.title}</p>
-              </div>
+            <Link
+              key={person.name}
+              to="/leadership"
+              className="block h-full transition-shadow hover:shadow-lg focus-visible:outline focus-visible:outline-2 focus-visible:outline-steel"
+            >
+              <LeadershipCard person={person} />
             </Link>
           ))}
         </div>

@@ -126,7 +126,7 @@ export const projects: UpdateStory[] = [
     ],
   },
 ];
-export const news: UpdateStory[] = [
+const eventStories: UpdateStory[] = [
   {
     slug: "lagos-state-blood-transfusion-partnership",
     path: "/news/lagos-state-blood-transfusion-partnership",
@@ -222,3 +222,15 @@ export const news: UpdateStory[] = [
     ],
   },
 ];
+
+// Explicit order supplied by Zendale; no event dates are inferred.
+const newsOrder = [
+  "business-of-health-conference-2026",
+  "hfn-private-sector-town-hall",
+  "world-patient-safety-day-2026",
+  "eko-health-convention-2026",
+  "lagos-state-blood-transfusion-partnership",
+];
+export const news: UpdateStory[] = newsOrder.map(
+  (slug) => eventStories.find((story) => story.slug === slug)!,
+);

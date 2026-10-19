@@ -51,11 +51,12 @@ export default function Network() {
                   <div className={`lg:col-span-6 ${index % 2 === 1 ? "lg:order-2" : ""}`}>
                     <div className="relative">
                       <FacilityVisual
+                        fill
                         facility={facility}
                         className={`${index % 2 === 1 ? "diag-mask-reverse" : "diag-mask"} aspect-[16/10] w-full`}
                       />
                       {facility.logo && !facility.logoOnly && (
-                        <div className="absolute bottom-4 left-4 flex min-h-16 max-w-[55%] items-center bg-white/95 px-4 py-3 shadow-[0_12px_30px_rgba(11,27,51,0.16)] backdrop-blur">
+                        <div className="absolute bottom-4 right-4 flex h-16 w-36 items-center justify-center bg-white/95 px-3 py-2 shadow-[0_12px_30px_rgba(11,27,51,0.16)]">
                           <FacilityLogo
                             src={facility.logo}
                             alt={facility.logoAlt ?? `${facility.name} logo`}

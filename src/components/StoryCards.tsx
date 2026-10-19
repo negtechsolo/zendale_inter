@@ -11,6 +11,7 @@ export function StoryCards({ stories }: { stories: UpdateStory[] }) {
         >
           <Link to={story.path} aria-label={story.title}>
             <SmartImage
+                fill
               src={story.image}
               alt={story.imageAlt}
               className="aspect-[4/3] w-full"

@@ -11,6 +11,8 @@ interface SmartImageProps {
   className?: string;
   imgClassName?: string;
   eager?: boolean;
+  /** Use inside a frame with an explicit height or aspect ratio. */
+  fill?: boolean;
   /**
    * Rendered width hint for the browser's srcset picker. The default covers
    * the site's dominant pattern: full width on phones, half a 1280px container
@@ -19,7 +21,8 @@ interface SmartImageProps {
   sizes?: string;
 }
 
-const DEFAULT_SIZES = "(min-width: 1024px) 620px, (min-width: 640px) 50vw, 100vw";
+const DEFAULT_SIZES =
+  "(min-width: 1024px) 620px, (min-width: 640px) 50vw, 100vw";
 
 export function SmartImage({
   src,
@@ -27,6 +30,7 @@ export function SmartImage({
   className = "",
   imgClassName = "",
   eager = false,
+  fill = false,
   sizes = DEFAULT_SIZES,
 }: SmartImageProps) {
   const [loaded, setLoaded] = useState(false);
@@ -62,7 +66,7 @@ export function SmartImage({
           decoding="async"
           onLoad={() => setLoaded(true)}
           onError={() => setErrored(true)}
-          className={`h-full w-full object-cover ${
+          className={`${fill ? "!absolute inset-0" : ""} h-full w-full object-cover ${
             loaded ? "is-loaded" : ""
           } ${imgClassName}`}
         />

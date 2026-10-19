@@ -27,6 +27,7 @@ export function ImageGallery({
                 className="block overflow-hidden bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-steel"
               >
                 <SmartImage
+                fill
                   src={image.src}
                   alt={image.alt}
                   className="aspect-[4/3] w-full"
