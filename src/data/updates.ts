@@ -136,15 +136,15 @@ const eventStories: UpdateStory[] = [
     imageAlt:
       "Representatives at the Lagos State Blood Transfusion Committee partnership gathering",
     summary:
-      "An institutional partnership with the Lagos State Blood Transfusion Committee.",
+      "Zendale entered into an official partnership with the Lagos State Blood Transfusion Committee. The collaboration reflects the importance of institutional relationships in supporting a more connected healthcare system.",
     sections: [
       {
         heading: "Institutional collaboration",
-        text: "Zendale entered into an official partnership with the Lagos State Blood Transfusion Committee. Representatives gathered to mark the partnership.",
+        text: "Zendale entered into an official partnership with the Lagos State Blood Transfusion Committee, bringing the group into a formal institutional collaboration. Representatives from both organisations gathered to mark the partnership.",
       },
       {
         heading: "Partnership enquiries",
-        text: "Contact our team to discuss Zendale’s healthcare partnership capabilities and institutional collaborations.",
+        text: "Access to safe blood is an important part of healthcare delivery. This partnership sits within our wider commitment to building relationships between healthcare institutions. Contact our team to discuss institutional collaboration and the appropriate pathway for your enquiry.",
       },
     ],
   },
@@ -157,15 +157,15 @@ const eventStories: UpdateStory[] = [
     imageAlt:
       "Participants at the Healthcare Federation of Nigeria Private Sector Town Hall",
     summary:
-      "Zendale’s participation in the Healthcare Federation of Nigeria Private Sector Town Hall Meeting.",
+      "Dr. Rita Irurhe represented Zendale at the Healthcare Federation of Nigeria Private Sector Town Hall. Discussions explored stronger private-sector engagement, institutional capacity and collaboration across healthcare.",
     sections: [
       {
         heading: "Healthcare-sector dialogue",
-        text: "Zendale participated in the Healthcare Federation of Nigeria Private Sector Town Hall Meeting. The gathering provided a setting for engagement with healthcare stakeholders.",
+        text: "Dr. Rita Irurhe represented Zendale at the Healthcare Federation of Nigeria Private Sector Town Hall Meeting. The gathering brought healthcare leaders together to discuss opportunities for stronger private-sector participation in healthcare delivery.",
       },
       {
         heading: "Connected healthcare institutions",
-        text: "Sector participation complements Zendale’s focus on institutional collaboration and stronger healthcare delivery.",
+        text: "Conversations included engagement with Mrs. Clare Omatseye of JNC International Limited and Mr. Wale Olajubu of the Health Business Academy for Africa. Institutional capacity, operational resourcing and strategic partnerships remain central to our approach to strengthening healthcare organisations.",
       },
     ],
   },
@@ -178,15 +178,15 @@ const eventStories: UpdateStory[] = [
     imageAlt:
       "Zendale representation at the HEFAAMA World Patient Safety Day programme",
     summary:
-      "Participation in the HEFAAMA programme themed “Safe Care for Life.”",
+      "Zendale joined the HEFAAMA World Patient Safety Day programme, themed “Safe Care for Life.” The event focused attention on quality, safety and the everyday systems that support better care.",
     sections: [
       {
         heading: "Safe Care for Life",
-        text: "Zendale was represented at the 2026 World Patient Safety Day programme organised by HEFAAMA, themed “Safe Care for Life.”",
+        text: "Dr. Rita Irurhe represented Zendale at the 2026 World Patient Safety Day programme organised by HEFAAMA, themed “Safe Care for Life.” The programme brought healthcare leaders together around the shared responsibility of making care safer.",
       },
       {
         heading: "Healthcare engagement",
-        text: "The programme forms part of Zendale’s participation in conversations about quality and safety in healthcare.",
+        text: "Patient safety depends on how care is organised and delivered every day. Our participation reflects a focus on quality, coordination and continuous improvement across healthcare institutions. These conversations connect directly with the need for reliable systems and clear pathways between providers.",
       },
     ],
   },
@@ -198,11 +198,15 @@ const eventStories: UpdateStory[] = [
     image: "real/event-4.webp",
     imageAlt: "Zendale representation at Eko Health Convention 2026 in Lagos",
     summary:
-      "Healthcare-sector engagement at Eko Health Convention 2026 in Lagos.",
+      "Zendale participated in Eko Health Convention 2026 in Lagos, joining the wider healthcare community. The convention offered a setting to engage with sector perspectives and reflect on opportunities for more connected healthcare delivery.",
     sections: [
       {
         heading: "Convention participation",
-        text: "Zendale participated at Eko Health Convention 2026 in Lagos, connecting the group with the wider healthcare-sector conversation.",
+        text: "Zendale participated in Eko Health Convention 2026 in Lagos as part of our engagement with the wider healthcare community. Bringing institutions into the same conversation creates space to consider the challenges and opportunities facing healthcare delivery.",
+      },
+      {
+        heading: "A connected perspective",
+        text: "For our group, engagement across the sector sits alongside the practical work of connecting specialist care, diagnostics and institutional support. We welcome conversations with organisations interested in building stronger healthcare relationships.",
       },
     ],
   },
@@ -213,11 +217,15 @@ const eventStories: UpdateStory[] = [
     title: "Business of Health Conference 2026",
     image: "real/event-3.webp",
     imageAlt: "Conference proceedings at Business of Health Conference 2026",
-    summary: "Participation in the Business of Health Conference 2026.",
+    summary: "Zendale participated in the Business of Health Conference 2026, engaging with the wider conversation about sustainable healthcare institutions. The event connects with our focus on the leadership, operations and collaboration that support dependable care.",
     sections: [
       {
         heading: "The business of healthcare",
-        text: "Zendale participated in the Business of Health Conference 2026, bringing institutional healthcare into the wider discussion of the sector.",
+        text: "Zendale participated in the Business of Health Conference 2026, bringing our perspective as a connected healthcare group into the wider sector conversation. Healthcare delivery depends on both clinical capability and institutions that can sustain their services over time.",
+      },
+      {
+        heading: "Building for continuity",
+        text: "Our work brings together clinical services, business strategy and operational support. This gives the business of healthcare a practical meaning: strengthening the organisations behind care so they can serve patients consistently. Contact us to discuss institutional support or a potential partnership.",
       },
     ],
   },

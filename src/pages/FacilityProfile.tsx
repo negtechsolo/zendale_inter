@@ -44,8 +44,19 @@ export default function FacilityProfile() {
         </div>
         <div className="relative mx-auto grid max-w-7xl items-center gap-12 px-5 lg:grid-cols-12 lg:px-8">
           <Reveal className="lg:col-span-6">
+              {facility.logo && !facility.logoOnly && (
+                <div className="mb-7 flex h-20 w-44 items-center justify-center border border-ink/10 bg-white p-3 ">
+                  <FacilityLogo
+                    src={facility.logo}
+                    alt={facility.logoAlt ?? `${facility.name} logo`}
+                    sizes="320px"
+                    eager
+                    className="max-h-14 max-w-full object-contain"
+                  />
+                </div>
+              )}
             <Link to="/network" className="eyebrow text-brass transition-colors hover:text-porcelain">
-              Healthcare Network / {facility.code}
+              Healthcare Network
             </Link>
             <h1 className="mt-5 font-display text-4xl font-medium leading-[1.04] sm:text-5xl lg:text-6xl">
               {facility.name}
@@ -73,17 +84,7 @@ export default function FacilityProfile() {
                 eager
                 className="diag-mask aspect-[16/10] w-full"
               />
-              {facility.logo && !facility.logoOnly && (
-                <div className="absolute bottom-4 right-4 flex h-20 w-44 items-center justify-center border border-ink/10 bg-white/95 p-3 shadow-[0_20px_45px_rgba(11,27,51,0.18)]">
-                  <FacilityLogo
-                    src={facility.logo}
-                    alt={facility.logoAlt ?? `${facility.name} logo`}
-                    sizes="320px"
-                    eager
-                    className="max-h-14 max-w-full object-contain"
-                  />
-                </div>
-              )}
+
             </div>
           </Reveal>
         </div>
@@ -103,9 +104,8 @@ export default function FacilityProfile() {
 
           <Reveal className="lg:col-span-7" delay={0.08}>
             <div className="grid gap-px bg-ink/10 sm:grid-cols-2">
-              {facility.services.map((service, index) => (
+              {facility.services.map((service) => (
                 <div key={service} className="relative min-h-36 bg-white p-7">
-                  <span className="font-mono text-[0.625rem] uppercase tracking-eyebrow text-brass">0{index + 1}</span>
                   <p className="mt-4 font-display text-xl leading-snug text-ink">{service}</p>
                 </div>
               ))}
@@ -129,7 +129,6 @@ export default function FacilityProfile() {
             {related.map((item, index) => (
               <Reveal key={item.id} delay={index * 0.06}>
                 <Link to={facilityProfilePath(item.id)} className="group block h-full bg-porcelain p-7 transition-colors hover:bg-white">
-                  <p className="font-mono text-[0.625rem] uppercase tracking-eyebrow text-brass">{item.code}</p>
                   <h3 className="mt-3 font-display text-2xl leading-tight text-ink">{item.name}</h3>
                   <p className="mt-3 text-sm leading-relaxed text-carbon/70">{item.focus}</p>
                   <span className="mt-6 inline-block text-sm font-medium text-steel transition-transform group-hover:translate-x-1">Learn More →</span>

@@ -1,8 +1,7 @@
 import { Seo } from "../lib/seo";
 import { PageHero } from "../components/PageHero";
-import { LeadershipCard } from "../components/LeadershipCard";
+import { LeadershipGroup } from "../components/LeadershipGroup";
 import { Button } from "../components/Button";
-import { leadership } from "../data/leadership";
 
 export default function Leadership() {
   return (
@@ -18,10 +17,8 @@ export default function Leadership() {
         lede="Meet the team leading Zendale Limited across healthcare, business strategy, finance and people."
       />
       <section className="bg-porcelain py-20">
-        <div className="mx-auto grid max-w-7xl gap-6 px-5 sm:grid-cols-2 lg:grid-cols-4 lg:px-8">
-          {leadership.map((person) => (
-            <LeadershipCard key={person.name} person={person} detailed />
-          ))}
+        <div className="mx-auto max-w-7xl px-5 lg:px-8">
+          <LeadershipGroup />
         </div>
       </section>
       <section className="bg-ink px-5 py-16 text-center text-porcelain">

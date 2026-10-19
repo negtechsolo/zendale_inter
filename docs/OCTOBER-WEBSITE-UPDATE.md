@@ -47,3 +47,11 @@ GitHub write access was confirmed after the account owner updated the app access
 - Added shared leadership cards with consistent portrait frames and reserved name/title areas. Bukola’s name is “Bukola Oladipupo”; “SPHRi Certified” appears separately beneath her role.
 - Ordered news exactly as supplied: Business of Health, HFN Town Hall, Patient Safety Day, Eko Health Convention, Blood Transfusion Partnership. The homepage uses the first three in this order. No dates are invented.
 - The generated Central Store image and its prompt are documented in IMAGE-SOURCES.md.
+
+
+### Leadership, network and news refinement
+- CEO featured separately above three colleagues on the homepage and leadership page. Removed repeated employer labels and the HR expertise list; SPHRi remains a separate qualification. Titles retain the supplied wording.
+- New CEO introduction draws on her publicly indexed LinkedIn profile and her own posts about institutional strengthening and referral pathways. No additional credentials or career history have been inferred. Sources: https://www.linkedin.com/in/rita-irurhe/ ; https://www.linkedin.com/posts/rita-irurhe_sometimes-being-our-brothers-keeper-in-healthcare-activity-7502785000312848384-JyPM ; https://www.linkedin.com/posts/rita-irurhe_a-healthcare-facility-can-still-be-seeing-activity-7511744741831589888-MbdY
+- Replaced cramped homepage network columns with five spacious pairs of horizontal cards. Logos now occupy a separate identity area alongside text across network cards, listing and profiles. Facility codes and decorative service numbering removed from visible facility pages. Endoscopy now leads with its team photograph.
+- All five news items now appear on the homepage in the supplied order, with expanded summaries and story text. HFN and patient safety context also draws on Zendale’s public company posts: https://www.linkedin.com/company/zendale-limited/ . No undocumented dates, speaking roles, commitments or event outcomes have been added.
+- Copy changes are limited to the newly introduced leadership and news sections, the news introduction, and removal of requested codes; approved existing corporate and facility descriptions remain intact.

@@ -281,7 +281,7 @@ function NetworkPreview() {
             The institutions below make up the current Zendale network. The structure is designed to connect today's specialist capabilities while making room for new facilities and partnerships as the ecosystem grows.
           </p>
         </Reveal>
-        <div className="mt-12 grid items-stretch gap-5 sm:grid-cols-2 lg:grid-cols-5">
+        <div className="mt-12 grid items-stretch gap-8 lg:grid-cols-2">
           {facilities.map((facility) => <NetworkCard key={facility.id} facility={facility} />)}
         </div>
         <Reveal className="mt-10">
@@ -454,8 +454,7 @@ function PillarsStrip() {
             <Reveal key={p.id} delay={i * 0.07}>
               <Link to={p.route} className="z-sweep block h-full bg-porcelain p-7 text-ink transition-colors hover:bg-mist/60">
                 <NodeEmblem motif={p.motif} className="h-10 w-10 text-steel" />
-                <p className="mt-5 font-mono text-[0.625rem] uppercase tracking-eyebrow text-brass">{p.code}</p>
-                <h3 className="mt-2 font-display text-lg leading-snug">{p.name}</h3>
+                <h3 className="mt-5 font-display text-lg leading-snug">{p.name}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-carbon/70">{p.summary}</p>
               </Link>
             </Reveal>
@@ -580,7 +579,7 @@ export default function Home() {
       <WhyZendale />
       <WeSupport />
       <LeadershipPreview />
-      <section className="bg-mist/40 px-5 py-20 lg:px-8"><div className="mx-auto max-w-7xl"><div className="mb-10 flex flex-wrap items-end justify-between gap-6"><div><p className="eyebrow text-steel">News &amp; Sector Engagement</p><h2 className="mt-4 font-display text-4xl text-ink">Across the healthcare sector.</h2></div><Button to="/news" variant="outline">All Updates</Button></div><StoryCards stories={news.slice(0,3)} /></div></section>
+      <section className="bg-mist/40 px-5 py-20 lg:px-8"><div className="mx-auto max-w-7xl"><div className="mb-10 flex flex-wrap items-end justify-between gap-6"><div><p className="eyebrow text-steel">News &amp; Sector Engagement</p><h2 className="mt-4 font-display text-4xl text-ink">Across the healthcare sector.</h2><p className="mt-5 max-w-2xl text-base leading-relaxed text-carbon/75">From patient safety and institutional partnerships to conversations about the future of care, these updates share our participation in the wider healthcare community.</p></div><Button to="/news" variant="outline">All Updates</Button></div><StoryCards stories={news} /></div></section>
       <PartnershipGateway />
       <ResourceTeaser />
       <ConsultationBand />

@@ -335,8 +335,8 @@ const visualUpdates: Record<string, Partial<Facility>> = {
     ]
   },
   "zendale-endoscopy": {
-    "image": "real/endoscopy-2.webp",
-    "imageAlt": "Procedure room at Zendale Endoscopy Centre",
+    "image": "real/endoscopy-1.webp",
+    "imageAlt": "The Zendale Endoscopy Centre team at LASUTH",
     "logo": "/images/real/logo-zendale-endoscopy-lasuth.webp",
     "gallery": [
       {

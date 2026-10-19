@@ -55,8 +55,13 @@ export default function Network() {
                         facility={facility}
                         className={`${index % 2 === 1 ? "diag-mask-reverse" : "diag-mask"} aspect-[16/10] w-full`}
                       />
+
+                    </div>
+                  </div>
+
+                  <div className={`lg:col-span-6 ${index % 2 === 1 ? "lg:order-1" : ""}`}>
                       {facility.logo && !facility.logoOnly && (
-                        <div className="absolute bottom-4 right-4 flex h-16 w-36 items-center justify-center bg-white/95 px-3 py-2 shadow-[0_12px_30px_rgba(11,27,51,0.16)]">
+                        <div className="mb-5 flex h-16 w-36 items-center justify-center bg-white px-3 py-2 ">
                           <FacilityLogo
                             src={facility.logo}
                             alt={facility.logoAlt ?? `${facility.name} logo`}
@@ -65,12 +70,8 @@ export default function Network() {
                           />
                         </div>
                       )}
-                    </div>
-                  </div>
-
-                  <div className={`lg:col-span-6 ${index % 2 === 1 ? "lg:order-1" : ""}`}>
                     <p className="font-mono text-[0.6875rem] uppercase tracking-eyebrow text-brass">
-                      {facility.code} · {facility.focus}
+                      {facility.focus}
                     </p>
                     <h2
                       id={`facility-${facility.id}`}

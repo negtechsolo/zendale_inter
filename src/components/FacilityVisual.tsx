@@ -34,6 +34,7 @@ export function FacilityVisual({
       className={className}
       eager={eager}
       fill={fill}
+      imgClassName={facility.id === "zendale-endoscopy" ? "!object-contain bg-ink" : undefined}
     />
   );
 }
