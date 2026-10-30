@@ -245,3 +245,34 @@ body {
 .img-frame.story-photo {
   background: #e8edf1;
 }
+
+/* Relationship logos: two matching groups provide a continuous, gentle scroll. */
+.relationship-marquee {
+  overflow: hidden;
+  mask-image: linear-gradient(to right, transparent, #000 2%, #000 98%, transparent);
+}
+.relationship-track {
+  display: flex;
+  width: max-content;
+  animation: relationship-scroll linear infinite;
+}
+.relationship-logo-group {
+  display: flex;
+  flex-shrink: 0;
+  gap: 1rem;
+  padding-right: 1rem;
+}
+.relationship-marquee:hover .relationship-track,
+.relationship-marquee[data-paused="true"] .relationship-track {
+  animation-play-state: paused;
+}
+@keyframes relationship-scroll {
+  to { transform: translateX(-50%); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .relationship-marquee { overflow: visible; mask-image: none; }
+  .relationship-track { width: 100%; animation: none; }
+  .relationship-logo-group { display: grid; width: 100%; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); padding-right: 0; }
+  .relationship-logo-group > li { width: auto; }
+  .relationship-logo-group[aria-hidden="true"] { display: none; }
+}

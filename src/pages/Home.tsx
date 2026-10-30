@@ -5,6 +5,8 @@ import { Reveal } from "../components/Reveal";
 import { Button } from "../components/Button";
 import { SmartImage } from "../components/SmartImage";
 import { EcosystemHero } from "../components/EcosystemHero";
+import { NetworkIdentityStrip } from "../components/NetworkIdentityStrip";
+import { NetworkRelationships } from "../components/NetworkRelationships";
 import { NetworkCard } from "../components/NetworkCard";
 import { ImpactSlider } from "../components/ImpactSlider";
 import { LeadershipPreview } from "../components/LeadershipPreview";
@@ -132,9 +134,10 @@ function WhoWeAre() {
           </Reveal>
           <Reveal className="lg:col-span-6" variant="sweep" delay={0.15}>
             <SmartImage
-              src="home-who-we-are.webp"
-              alt="A Zendale clinical team coordinating patient care across the network"
-              className="diag-mask aspect-[4/3] w-full"
+              fill
+              src="real/office-zendale-oct2026.webp"
+              alt="The Zendale Limited office, with a member of staff working at the desk"
+              className="aspect-[4/3] w-full"
             />
           </Reveal>
         </div>
@@ -570,7 +573,9 @@ export default function Home() {
         description="An integrated healthcare group in Lagos connecting specialist care, consulting, medical technology and corporate health through one coordinated network."
       />
       <Hero />
+      <NetworkIdentityStrip />
       <WhoWeAre />
+      <NetworkRelationships />
       <ImpactSlider />
       <PillarsStrip />
       <PurposeSnapshot />

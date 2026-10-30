@@ -439,6 +439,16 @@ export const imageMeta: Record<string, ImageMeta> = {
       1200
     ]
   },
+  "real/endoscopy-suite-oct2026.webp": {
+    "w": 1600,
+    "h": 1200,
+    "v": [
+      96,
+      400,
+      800,
+      1200
+    ]
+  },
   "real/event-1.webp": {
     "w": 758,
     "h": 1080,
@@ -811,6 +821,16 @@ export const imageMeta: Record<string, ImageMeta> = {
       800
     ]
   },
+  "real/office-zendale-oct2026.webp": {
+    "w": 1600,
+    "h": 1200,
+    "v": [
+      96,
+      400,
+      800,
+      1200
+    ]
+  },
   "real/project-1.webp": {
     "w": 960,
     "h": 1280,
@@ -1047,12 +1067,224 @@ export const imageMeta: Record<string, ImageMeta> = {
       1200
     ]
   },
+  "real/team-endoscopy-oct2026.webp": {
+    "w": 1600,
+    "h": 1000,
+    "v": [
+      96,
+      400,
+      800,
+      1200
+    ]
+  },
+  "real/team-finnih-oct2026.webp": {
+    "w": 1600,
+    "h": 1000,
+    "v": [
+      96,
+      400,
+      800,
+      1200
+    ]
+  },
+  "real/team-skyhigh-oct2026.webp": {
+    "w": 1600,
+    "h": 1000,
+    "v": [
+      96,
+      400,
+      800,
+      1200
+    ]
+  },
   "real/tunde-adribigbe.webp": {
     "w": 800,
     "h": 1000,
     "v": [
       96,
       400
+    ]
+  },
+  "relationships/airtel.webp": {
+    "w": 384,
+    "h": 113,
+    "v": [
+      96
+    ]
+  },
+  "relationships/atpi-bon-voyage-travel.webp": {
+    "w": 384,
+    "h": 88,
+    "v": [
+      96
+    ]
+  },
+  "relationships/avon-hmo.webp": {
+    "w": 384,
+    "h": 102,
+    "v": [
+      96
+    ]
+  },
+  "relationships/axa-mansard.webp": {
+    "w": 384,
+    "h": 103,
+    "v": [
+      96
+    ]
+  },
+  "relationships/bastion-health.webp": {
+    "w": 384,
+    "h": 121,
+    "v": [
+      96
+    ]
+  },
+  "relationships/bua-group.webp": {
+    "w": 176,
+    "h": 168,
+    "v": [
+      96
+    ]
+  },
+  "relationships/ci-leasing-plc.webp": {
+    "w": 226,
+    "h": 168,
+    "v": [
+      96
+    ]
+  },
+  "relationships/clearline-hmo.webp": {
+    "w": 384,
+    "h": 102,
+    "v": [
+      96
+    ]
+  },
+  "relationships/ebonylife-tv.webp": {
+    "w": 384,
+    "h": 124,
+    "v": [
+      96
+    ]
+  },
+  "relationships/first-cardiology-consultants.webp": {
+    "w": 384,
+    "h": 143,
+    "v": [
+      96
+    ]
+  },
+  "relationships/huawei.webp": {
+    "w": 384,
+    "h": 101,
+    "v": [
+      96
+    ]
+  },
+  "relationships/hygeia-hmo.webp": {
+    "w": 384,
+    "h": 115,
+    "v": [
+      96
+    ]
+  },
+  "relationships/international-sos.webp": {
+    "w": 329,
+    "h": 168,
+    "v": [
+      96
+    ]
+  },
+  "relationships/jomivic-travels.webp": {
+    "w": 384,
+    "h": 135,
+    "v": [
+      96
+    ]
+  },
+  "relationships/knight-frank.webp": {
+    "w": 384,
+    "h": 155,
+    "v": [
+      96
+    ]
+  },
+  "relationships/leadway-health.webp": {
+    "w": 384,
+    "h": 140,
+    "v": [
+      96
+    ]
+  },
+  "relationships/lsbtc.webp": {
+    "w": 176,
+    "h": 168,
+    "v": [
+      96
+    ]
+  },
+  "relationships/radisson-blu.webp": {
+    "w": 384,
+    "h": 129,
+    "v": [
+      96
+    ]
+  },
+  "relationships/reliance-hmo.webp": {
+    "w": 384,
+    "h": 95,
+    "v": [
+      96
+    ]
+  },
+  "relationships/sterling.webp": {
+    "w": 384,
+    "h": 133,
+    "v": [
+      96
+    ]
+  },
+  "relationships/the-consultants-practice.webp": {
+    "w": 384,
+    "h": 163,
+    "v": [
+      96
+    ]
+  },
+  "relationships/total-health-trust.webp": {
+    "w": 287,
+    "h": 168,
+    "v": [
+      96
+    ]
+  },
+  "relationships/ultra-care-hospital-and-clinics.webp": {
+    "w": 384,
+    "h": 79,
+    "v": [
+      96
+    ]
+  },
+  "relationships/wakanow.webp": {
+    "w": 384,
+    "h": 117,
+    "v": [
+      96
+    ]
+  },
+  "relationships/waltersmith.webp": {
+    "w": 193,
+    "h": 168,
+    "v": [
+      96
+    ]
+  },
+  "relationships/wellright.webp": {
+    "w": 384,
+    "h": 167,
+    "v": [
+      96
     ]
   },
   "service-central-store.webp": {

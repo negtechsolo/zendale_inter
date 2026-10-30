@@ -6,12 +6,12 @@ import { FacilityBadge } from "./FacilityBadge";
 
 export function NetworkCard({ facility }: { facility: Facility }) {
   return (
-    <article className="grid min-w-0 overflow-hidden border border-porcelain/15 bg-[#10233e] text-porcelain sm:grid-cols-[0.8fr_1.2fr]">
-      <Link to={facilityProfilePath(facility.id)} aria-label={`Explore ${facility.name}`} className="relative block min-h-52">
-        <FacilityVisual facility={facility} fill className="h-full min-h-52 w-full" />
+    <article className="flex min-w-0 flex-col overflow-hidden border border-porcelain/15 bg-[#10233e] text-porcelain">
+      <Link to={facilityProfilePath(facility.id)} aria-label={`Explore ${facility.name}`} className="relative block">
+        <FacilityVisual facility={facility} fill className="aspect-[16/10] w-full" />
         <FacilityBadge facility={facility} compact />
       </Link>
-      <div className="flex flex-col items-start p-6">
+      <div className="flex flex-1 flex-col items-start p-6">
 
         <h3 className="font-display text-xl leading-snug"><Link to={facilityProfilePath(facility.id)}>{facility.name}</Link></h3>
         <p className="mt-3 text-sm leading-relaxed text-porcelain/75">{facility.focus}</p>
