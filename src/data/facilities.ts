@@ -98,7 +98,7 @@ const existingFacilities: Facility[] = [
       "Occupational health services",
       "Radiology and home sample collection",
     ],
-    url: "https://lifecentremedicals.com/",
+    url: "https://www.lifecentermedicals.com/",
     image: "network-lifecentre.webp",
     imageAlt: "Clinical assessment at LifeCentre Medical Services",
     logo: "/images/facility-logos/lifecentre-medical-services.webp",
@@ -191,8 +191,8 @@ export function facilityProfilePath(id: string): string {
 // Approved real photography and official transparent logos supplied for the October update.
 const visualUpdates: Record<string, Partial<Facility>> = {
   "sky-high": {
-    "image": "real/skyhigh-medical-centre-1.webp",
-    "imageAlt": "Exterior of Sky High Medical Centre",
+    "image": "real/team-skyhigh-oct2026.webp",
+    "imageAlt": "SkyHigh Medical Centre team outside the facility",
     "logo": "/images/real/logo-skyhigh-medical-centre.webp",
     "gallery": [
       {
@@ -335,10 +335,14 @@ const visualUpdates: Record<string, Partial<Facility>> = {
     ]
   },
   "zendale-endoscopy": {
-    "image": "real/endoscopy-2.webp",
-    "imageAlt": "Procedure room at Zendale Endoscopy Centre",
+    "image": "real/team-endoscopy-oct2026.webp",
+    "imageAlt": "The Zendale Endoscopy Centre team at LASUTH",
     "logo": "/images/real/logo-zendale-endoscopy-lasuth.webp",
     "gallery": [
+      {
+        "src": "real/endoscopy-suite-oct2026.webp",
+        "alt": "The endoscopy suite photograph supplied for the October update"
+      },
       {
         "src": "real/endoscopy-3.webp",
         "alt": "endoscopy \u2014 facility view 3"
@@ -366,8 +370,8 @@ const visualUpdates: Record<string, Partial<Facility>> = {
     ]
   },
   "finnih": {
-    "image": "real/finnih-medical-centre-exterior-1.webp",
-    "imageAlt": "Exterior of Finnih Medical Centre",
+    "image": "real/team-finnih-oct2026.webp",
+    "imageAlt": "Finnih Medical Centre team outside the facility",
     "logo": "/images/real/logo-finnih-medical-centre-true-transparent.webp",
     "gallery": [
       {

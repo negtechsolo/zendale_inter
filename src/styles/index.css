@@ -245,3 +245,47 @@ body {
 .img-frame.story-photo {
   background: #e8edf1;
 }
+
+/* Relationship logos: two matching groups provide a continuous, gentle scroll. */
+.relationship-marquee {
+  overflow: hidden;
+  background: white;
+}
+.relationship-track {
+  display: flex;
+  width: max-content;
+  animation: relationship-scroll linear infinite;
+}
+.relationship-logo-group {
+  display: flex;
+  min-width: 100vw;
+  justify-content: space-around;
+  flex-shrink: 0;
+  gap: 1rem;
+  padding-right: 1rem;
+}
+.relationship-marquee:hover .relationship-track,
+.relationship-marquee:focus-within .relationship-track {
+  animation-play-state: paused;
+}
+@keyframes relationship-scroll {
+  to { transform: translateX(-50%); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .relationship-marquee { overflow: visible; mask-image: none; }
+  .relationship-track { width: 100%; animation: none; }
+  .relationship-logo-group { min-width: 0; display: grid; width: 100%; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); padding-right: 0; }
+  .relationship-logo-group > li { width: auto; }
+  .relationship-logo-group[aria-hidden="true"] { display: none; }
+}
+
+.relationship-track[data-direction="right"] { animation-direction: reverse; }
+.relationship-marquee:focus-visible { outline: 2px solid #526FAA; outline-offset: -2px; }
+.home-hero-slide { animation: hero-appear 600ms ease-out both; }
+@keyframes hero-appear { from { opacity: 0; } to { opacity: 1; } }
+@media (prefers-reduced-motion: reduce) { .home-hero-slide { animation: none; } }
+
+/* Shared slide slots retain the tallest content at every viewport width. */
+.hero-slot { grid-area: 1 / 1; min-width: 0; }
+.hero-slot-hidden { visibility: hidden; opacity: 0; pointer-events: none; }
+.hero-slot-active { visibility: visible; opacity: 1; }
