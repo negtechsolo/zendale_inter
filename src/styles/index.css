@@ -284,3 +284,8 @@ body {
 .home-hero-slide { animation: hero-appear 600ms ease-out both; }
 @keyframes hero-appear { from { opacity: 0; } to { opacity: 1; } }
 @media (prefers-reduced-motion: reduce) { .home-hero-slide { animation: none; } }
+
+/* Shared slide slots retain the tallest content at every viewport width. */
+.hero-slot { grid-area: 1 / 1; min-width: 0; }
+.hero-slot-hidden { visibility: hidden; opacity: 0; pointer-events: none; }
+.hero-slot-active { visibility: visible; opacity: 1; }

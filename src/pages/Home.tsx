@@ -219,7 +219,7 @@ function NetworkPreview() {
             The institutions below make up the current Zendale network. The structure is designed to connect today's specialist capabilities while making room for new facilities and partnerships as the ecosystem grows.
           </p>
         </Reveal>
-        <div className="mt-10 grid items-stretch gap-4 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-5">
+        <div className="mt-10 grid items-stretch gap-6 xl:grid-cols-2">
           {facilities.map((facility) => <NetworkCard key={facility.id} facility={facility} />)}
         </div>
         <Reveal className="mt-10">

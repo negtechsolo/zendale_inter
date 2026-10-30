@@ -4,7 +4,7 @@ Preview branch: `homepage-real-office-network-preview`. Based on main commit `ca
 
 ## Images
 
-The supplied office photograph replaces the AI photograph in the Who We Are section. The main headline, corporate introduction and existing business wording are retained. The opening hero is now a three-slide photographic introduction: Zendale office, clearly identified Finnih team and BUA corporate health programme. Existing approved wording is reused. The images remain fully visible within their frames, with arrows, slide indicators, swipe support and reduced-motion handling.
+The supplied office photograph replaces the AI photograph in the Who We Are section. The main headline, corporate introduction and existing business wording are retained. The opening hero is now a three-slide introduction: original Zendale ecosystem graphic, clearly identified Finnih team and BUA corporate health programme. The office photograph appears only in Who We Are. Existing approved wording is reused. Each visual uses the same 16:10 frame. Finnih fits without cropping; the BUA portrait is framed around the presenter and audience using a vertical focal point. Arrows, slide indicators, swipe support and reduced-motion handling are retained. Shared layout slots measure all slide content, preserving heading, paragraph and button positions across changes. The homepage header is solid and the hero has an explicit header-height offset.
 
 Supplied processed photographs from `final_processed_web_images(1).zip`:
 
@@ -21,10 +21,10 @@ Files were recompressed as WebP, retaining their dimensions. Smaller responsive 
 
 ## New sections
 
-- The duplicate subsidiary logo strip has been removed. The healthcare network is shown once in compact cards: five per row on large desktop screens, three on medium screens and two on small tablets. Supplied cover photographs and bottom-left logos are retained.
+- The duplicate subsidiary logo strip has been removed. The healthcare network is shown once in compact cards: two horizontal cards per desktop row, with photographs on the left and details on the right, following the supplied screenshot. Smaller screens use a single column. Supplied cover photographs and bottom-left logos are retained.
 - Separate edge-to-edge white moving rows show 17 organisations served and eight HMO relationships. The two rows move in opposite directions. Visible pause controls and subsidiary attribution subtitles have been removed as requested. Hovering or keyboard focus pauses the rows. Reduced motion shows a static grid.
 - The duplicate Lagos State Blood Transfusion Committee block has been removed from the relationships section. Its existing news story and other institutional content remain.
-- The relationships heading keeps “across organisations” together, with the introduction beside it on desktop and below it on mobile.
+- The relationships heading occupies one full line on desktop, with the introduction underneath on its own full line. Type scales within the available width; phones wrap naturally.
 - The Who We Are image and relationships section precede the existing Impact in Action section. Existing news and leadership wording are retained.
 
 ## Logo provenance and relationship wording

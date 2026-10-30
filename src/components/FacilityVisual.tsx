@@ -7,11 +7,13 @@ export function FacilityVisual({
   className = "",
   eager = false,
   fill = false,
+  imgClassName,
 }: {
   facility: Facility;
   className?: string;
   eager?: boolean;
   fill?: boolean;
+  imgClassName?: string;
 }) {
   if (facility.logoOnly && facility.logo) {
     return (
@@ -34,6 +36,7 @@ export function FacilityVisual({
       className={className}
       eager={eager}
       fill={fill}
+      imgClassName={imgClassName}
     />
   );
 }

@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { Button } from "./Button";
 import { SmartImage } from "./SmartImage";
 import { usePrefersReducedMotion } from "../lib/hooks";
+import { EcosystemHero } from "./EcosystemHero";
 import { projects } from "../data/updates";
 
 const slides = [
@@ -9,9 +10,9 @@ const slides = [
     label: "Zendale Limited",
     title: "One Partner. Complete Healthcare Solutions.",
     copy: "Zendale brings together hospitals, diagnostics, specialist care, fertility services and healthcare support within one integrated healthcare ecosystem. One trusted partner for every healthcare need.",
-    image: "real/office-zendale-oct2026.webp",
-    alt: "The Zendale Limited office, with a member of staff working at the desk",
-    caption: "Zendale Limited · Our office",
+    image: "",
+    alt: "The Zendale healthcare ecosystem",
+    caption: "Zendale Limited · One integrated healthcare ecosystem",
     link: "/partnerships", action: "Partner With Zendale", secondary: "/network", secondaryAction: "Explore Our Healthcare Network",
   },
   {
@@ -40,7 +41,6 @@ export function HomeHero() {
   const [manual, setManual] = useState(false);
   const reduced = usePrefersReducedMotion();
   const touchX = useRef<number | null>(null);
-  const slide = slides[index];
   const select = (next: number) => {
     setIndex((next + slides.length) % slides.length);
     setManual(true);
@@ -52,7 +52,7 @@ export function HomeHero() {
   }, [reduced, interacting, manual]);
 
   return (
-    <section className="bg-ink text-porcelain" aria-roledescription="carousel" aria-label="Discover Zendale"
+    <section className="bg-ink pt-16 text-porcelain lg:pt-20" aria-roledescription="carousel" aria-label="Discover Zendale"
       onMouseEnter={() => setInteracting(true)} onMouseLeave={() => setInteracting(false)}
       onFocusCapture={() => setInteracting(true)}
       onBlurCapture={event => { if (!event.currentTarget.contains(event.relatedTarget)) setInteracting(false); }}
@@ -64,19 +64,35 @@ export function HomeHero() {
         }
         touchX.current = null;
       }}>
-      <div key={index} className="home-hero-slide mx-auto grid max-w-[1600px] lg:grid-cols-[0.95fr_1.05fr]" role="group" aria-roledescription="slide" aria-label={`${index + 1} of ${slides.length}`} aria-live={manual || interacting || reduced ? "polite" : "off"}>
-        <div className="flex min-w-0 flex-col justify-center px-5 pb-9 pt-12 sm:px-8 lg:min-h-[540px] lg:py-14 lg:pl-12 lg:pr-10 xl:pl-20">
-          <p className="eyebrow text-brass">{slide.label}</p>
-          <h1 className="mt-5 max-w-xl font-display text-[2.65rem] font-medium leading-[1.08] sm:text-5xl xl:text-[3.5rem]">{slide.title}</h1>
-          <p className="mt-6 max-w-xl text-base leading-relaxed text-porcelain/80 sm:text-lg">{slide.copy}</p>
-          <div className="mt-8 flex flex-wrap gap-3">
-            <Button to={slide.link} variant="brass">{slide.action}</Button>
-            <Button to={slide.secondary} variant="light">{slide.secondaryAction}</Button>
+      <div className="mx-auto grid max-w-7xl items-center gap-9 px-5 py-10 sm:px-8 lg:grid-cols-[1fr_1.05fr] lg:gap-12 lg:py-14" role="group" aria-roledescription="slide" aria-label={`${index + 1} of ${slides.length}`}>
+        {/* Each slot measures every slide. Hidden alternatives keep their space,
+            so changing slides cannot shift headings, buttons or the image. */}
+        <div className="min-w-0">
+          <div className="grid">
+            {slides.map((item, i) => <p key={item.label} aria-hidden={i !== index} className={`hero-slot eyebrow text-brass ${i === index ? "hero-slot-active" : "hero-slot-hidden"}`}>{item.label}</p>)}
+          </div>
+          <h1 className="mt-5 grid font-display text-[2.5rem] font-medium leading-[1.08] sm:text-5xl lg:text-[clamp(2.5rem,3.5vw,3.25rem)]" aria-live={manual || interacting || reduced ? "polite" : "off"}>
+            {slides.map((item, i) => <span key={item.label} aria-hidden={i !== index} className={`hero-slot ${i === index ? "hero-slot-active" : "hero-slot-hidden"}`}>{item.title}</span>)}
+          </h1>
+          <div className="mt-6 grid text-base leading-relaxed text-porcelain/80">
+            {slides.map((item, i) => <p key={item.label} aria-hidden={i !== index} className={`hero-slot ${i === index ? "hero-slot-active" : "hero-slot-hidden"}`}>{item.copy}</p>)}
+          </div>
+          <div className="mt-8 grid">
+            {slides.map((item, i) => <div key={item.label} aria-hidden={i !== index} className={`hero-slot flex flex-col items-start gap-3 ${i === index ? "hero-slot-active" : "hero-slot-hidden"}`}>
+              <Button to={item.link} variant="brass">{item.action}</Button>
+              <Button to={item.secondary} variant="light">{item.secondaryAction}</Button>
+            </div>)}
           </div>
         </div>
-        <figure className="relative min-w-0 self-center bg-[#e8edf1]">
-          <SmartImage src={slide.image} alt={slide.alt} eager fill className="aspect-[4/3] w-full" imgClassName="!object-contain" sizes="(min-width: 1600px) 820px, (min-width: 1024px) 53vw, 100vw" />
-          <figcaption className="absolute inset-x-0 bottom-0 bg-ink/85 px-5 py-3 text-xs leading-relaxed text-white sm:px-7">{slide.caption}</figcaption>
+        <figure className="min-w-0 overflow-hidden border border-white/15 bg-[#10233e]">
+          <div className="relative aspect-[16/10] w-full overflow-hidden">
+            {slides.map((item, i) => <div key={item.label} aria-hidden={i !== index} className={`absolute inset-0 transition-opacity duration-500 motion-reduce:transition-none ${i === index ? "visible opacity-100" : "invisible opacity-0"}`}>
+              {item.image ? <SmartImage src={item.image} alt={item.alt} eager fill className="h-full w-full" imgClassName={i === 2 ? "object-[center_52%]" : undefined} sizes="(min-width: 1280px) 620px, (min-width: 1024px) 50vw, 100vw" /> : <EcosystemHero />}
+            </div>)}
+          </div>
+          <figcaption className="grid bg-[#10233e] px-5 py-4 text-xs leading-relaxed text-porcelain/80">
+            {slides.map((item, i) => <span key={item.label} aria-hidden={i !== index} className={`hero-slot ${i === index ? "hero-slot-active" : "hero-slot-hidden"}`}>{item.caption}</span>)}
+          </figcaption>
         </figure>
       </div>
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-5 border-t border-porcelain/15 px-5 py-4 lg:px-8">

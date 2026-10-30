@@ -42,7 +42,7 @@ export function Nav() {
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
 
-  const solidHeader = scrolled || open;
+  const solidHeader = location.pathname === "/" || scrolled || open;
 
   useEffect(() => {
     setOpen(false);
