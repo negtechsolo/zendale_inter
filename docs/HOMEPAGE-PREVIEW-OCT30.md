@@ -4,7 +4,7 @@ Preview branch: `homepage-real-office-network-preview`. Based on main commit `ca
 
 ## Images
 
-The supplied office photograph replaces the AI photograph in the Who We Are section. The main headline, corporate introduction and existing business wording are retained. The ecosystem graphic remains in the opening hero.
+The supplied office photograph replaces the AI photograph in the Who We Are section. The main headline, corporate introduction and existing business wording are retained. The opening hero is now a three-slide photographic introduction: Zendale office, clearly identified Finnih team and BUA corporate health programme. Existing approved wording is reused. The images remain fully visible within their frames, with arrows, slide indicators, swipe support and reduced-motion handling.
 
 Supplied processed photographs from `final_processed_web_images(1).zip`:
 
@@ -21,10 +21,11 @@ Files were recompressed as WebP, retaining their dimensions. Smaller responsive 
 
 ## New sections
 
-- A compact subsidiary logo section follows the hero. Every logo/name links to its own existing network profile. It uses two rows on desktop and a static, manually scrollable strip on mobile.
-- Separate moving rows show 17 organisations served through Life Centre Medicals and eight HMO relationships through SkyHigh Medical Centre. Each row has its own pause/resume button; hovering also pauses it. Reduced-motion preference displays a static grid and removes the duplicated visual-only set.
-- The Lagos State Blood Transfusion Committee is presented separately as an institutional blood-screening partnership through Life Centre Medicals, with a link to the existing partnership story.
-- The Who We Are image and new relationships section precede the existing Impact in Action section. Other existing sections and approved news/leadership copy are retained.
+- The duplicate subsidiary logo strip has been removed. The healthcare network is shown once in compact cards: five per row on large desktop screens, three on medium screens and two on small tablets. Supplied cover photographs and bottom-left logos are retained.
+- Separate edge-to-edge white moving rows show 17 organisations served and eight HMO relationships. The two rows move in opposite directions. Visible pause controls and subsidiary attribution subtitles have been removed as requested. Hovering or keyboard focus pauses the rows. Reduced motion shows a static grid.
+- The duplicate Lagos State Blood Transfusion Committee block has been removed from the relationships section. Its existing news story and other institutional content remain.
+- The relationships heading keeps “across organisations” together, with the introduction beside it on desktop and below it on mobile.
+- The Who We Are image and relationships section precede the existing Impact in Action section. Existing news and leadership wording are retained.
 
 ## Logo provenance and relationship wording
 
@@ -35,6 +36,6 @@ Relationship mapping follows the sections reviewed with the user on 30 October:
 - Life Centre Medicals: https://www.lifecentermedicals.com/ — organisational logos and institutional partnership.
 - SkyHigh Medical Centre: https://www.skyhighmedicalcentre.com/hmo — HMO relationships.
 
-These are not presented as direct parent-company contracts or universal HMO coverage across every subsidiary. The HMO row explains that availability and cover depend on facility, service and plan. No new HMO arrangements, client results or contractual claims have been added.
+These are not presented as direct parent-company contracts or universal HMO coverage across every subsidiary. The user requested the concise heading “HMO relationships” without the facility attribution subtitle. No new HMO arrangements, client results or contractual claims have been added.
 
 The Life Centre facility website link is updated from `lifecentremedicals.com` to the current site the user referenced, `https://www.lifecentermedicals.com/`.

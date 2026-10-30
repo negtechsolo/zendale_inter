@@ -4,8 +4,7 @@ import { Seo } from "../lib/seo";
 import { Reveal } from "../components/Reveal";
 import { Button } from "../components/Button";
 import { SmartImage } from "../components/SmartImage";
-import { EcosystemHero } from "../components/EcosystemHero";
-import { NetworkIdentityStrip } from "../components/NetworkIdentityStrip";
+import { HomeHero } from "../components/HomeHero";
 import { NetworkRelationships } from "../components/NetworkRelationships";
 import { NetworkCard } from "../components/NetworkCard";
 import { ImpactSlider } from "../components/ImpactSlider";
@@ -23,70 +22,6 @@ import { SITE, whatsappLink } from "../config";
 /* ------------------------------------------------------------------ */
 /*  01 · Hero, The Zendale Ecosystem                                  */
 /* ------------------------------------------------------------------ */
-
-function Hero() {
-  return (
-    <section className="relative overflow-hidden bg-ink text-porcelain">
-      <img
-        src="/images/home-hero-texture.webp"
-        srcSet="/images/home-hero-texture-400.webp 400w, /images/home-hero-texture-800.webp 800w, /images/home-hero-texture-1200.webp 1200w, /images/home-hero-texture.webp 1536w"
-        sizes="100vw"
-        width="1536"
-        height="1024"
-        alt=""
-        aria-hidden="true"
-        loading="eager"
-        {...{ fetchpriority: "high" }}
-        decoding="async"
-        className="pointer-events-none absolute inset-0 h-full w-full object-cover object-center opacity-[0.1]"
-      />
-      <div
-        className="absolute inset-0 bg-gradient-to-b from-ink/75 via-ink/55 to-ink"
-        aria-hidden="true"
-      />
-      <div
-        className="absolute inset-0 hidden bg-gradient-to-r from-ink via-ink/80 to-ink/20 md:block"
-        aria-hidden="true"
-      />
-
-      <div className="relative z-10 mx-auto grid max-w-7xl gap-8 px-5 pb-14 pt-20 md:grid-cols-12 md:items-start md:gap-8 md:pb-16 md:pt-24 lg:gap-12 lg:px-8 lg:pb-20 lg:pt-24">
-        <div className="relative z-20 order-1 md:col-span-6 lg:col-span-6">
-          <Reveal>
-            <p className="eyebrow text-brass">The Zendale Ecosystem</p>
-          </Reveal>
-          <Reveal delay={0.08}>
-            <h1 className="mt-4 max-w-[42rem] font-display text-[2.65rem] font-medium leading-[1.02] sm:text-6xl lg:text-[3.7rem] xl:text-[4rem]">
-              <span className="block">One Partner.</span>
-              <span className="block lg:whitespace-nowrap">Complete Healthcare</span>
-              <span className="block">Solutions.</span>
-            </h1>
-          </Reveal>
-          <Reveal delay={0.16}>
-            <p className="mt-5 max-w-xl text-base leading-relaxed text-porcelain/80 sm:text-lg">
-              Zendale brings together hospitals, diagnostics, specialist care, fertility services and
-              healthcare support within one integrated healthcare ecosystem. One trusted partner for every healthcare need.
-            </p>
-          </Reveal>
-          <Reveal delay={0.24}>
-            <div className="mt-7 flex flex-wrap gap-3 sm:gap-4">
-              <Button to="/partnerships" variant="brass">Partner With Zendale</Button>
-              <Button to="/network" variant="light">Explore Our Healthcare Network</Button>
-            </div>
-          </Reveal>
-          <Reveal delay={0.32}>
-            <p className="mt-8 font-mono text-[0.58rem] uppercase tracking-[0.16em] text-porcelain/60 md:mt-10 lg:whitespace-nowrap">
-              {`Current network: ${facilities.length} institutions · 6 capability pillars · one coordinated system`}
-            </p>
-          </Reveal>
-        </div>
-
-        <div className="relative order-2 h-[250px] w-full md:col-span-6 md:h-[340px] md:pt-2 lg:col-span-6 lg:h-[360px] lg:pt-0">
-          <EcosystemHero />
-        </div>
-      </div>
-    </section>
-  );
-}
 
 /* ------------------------------------------------------------------ */
 /*  02 · Who We Are                                                    */
@@ -284,7 +219,7 @@ function NetworkPreview() {
             The institutions below make up the current Zendale network. The structure is designed to connect today's specialist capabilities while making room for new facilities and partnerships as the ecosystem grows.
           </p>
         </Reveal>
-        <div className="mt-12 grid items-stretch gap-8 lg:grid-cols-2">
+        <div className="mt-10 grid items-stretch gap-4 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-5">
           {facilities.map((facility) => <NetworkCard key={facility.id} facility={facility} />)}
         </div>
         <Reveal className="mt-10">
@@ -572,8 +507,7 @@ export default function Home() {
         title={SITE.tagline}
         description="An integrated healthcare group in Lagos connecting specialist care, consulting, medical technology and corporate health through one coordinated network."
       />
-      <Hero />
-      <NetworkIdentityStrip />
+      <HomeHero />
       <WhoWeAre />
       <NetworkRelationships />
       <ImpactSlider />

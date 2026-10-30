@@ -1,38 +1,46 @@
 import React, { act } from "react";
 import { createRoot } from "react-dom/client";
 import { MemoryRouter } from "react-router-dom";
-import { beforeAll, expect, it } from "vitest";
+import { beforeAll, expect, it, vi } from "vitest";
 import { NetworkRelationships } from "../src/components/NetworkRelationships";
-import { NetworkIdentityStrip } from "../src/components/NetworkIdentityStrip";
-import { facilities, facilityProfilePath } from "../src/data/facilities";
+import { HomeHero } from "../src/components/HomeHero";
 
-beforeAll(() => { (globalThis as any).IS_REACT_ACT_ENVIRONMENT = true; });
+beforeAll(() => {
+  (globalThis as any).IS_REACT_ACT_ENVIRONMENT = true;
+  window.matchMedia = vi.fn().mockImplementation(() => ({ matches: false, addEventListener: vi.fn(), removeEventListener: vi.fn() }));
+});
 
-it("keeps organisations, HMOs and the institutional partnership distinct and lets visitors pause each row", () => {
+it("keeps the two logo lists separate without duplicate partnership or pause buttons", () => {
   const host = document.createElement("div");
   const root = createRoot(host);
   act(() => root.render(<MemoryRouter><NetworkRelationships /></MemoryRouter>));
   expect(host.querySelector('ul[aria-label="Organisations we have served"]')?.querySelectorAll("li")).toHaveLength(17);
   expect(host.querySelector('ul[aria-label="HMO relationships"]')?.querySelectorAll("li")).toHaveLength(8);
-  expect(host.querySelectorAll('a[href="/news/lagos-state-blood-transfusion-partnership"]')).toHaveLength(1);
+  expect(host.querySelectorAll('a[href="/news/lagos-state-blood-transfusion-partnership"]')).toHaveLength(0);
+  expect(host.querySelectorAll('button')).toHaveLength(0);
+  expect(host.querySelectorAll('.relationship-marquee[tabindex="0"]')).toHaveLength(2);
+  expect(host.querySelectorAll('.relationship-track[data-direction="left"]')).toHaveLength(1);
+  expect(host.querySelectorAll('.relationship-track[data-direction="right"]')).toHaveLength(1);
   host.querySelectorAll('ul[aria-hidden="true"] img').forEach(image => expect(image.getAttribute("alt")).toBe(""));
-  const buttons = host.querySelectorAll("button");
-  act(() => buttons[0].click());
-  expect(buttons[0].getAttribute("aria-pressed")).toBe("true");
-  expect(buttons[1].getAttribute("aria-pressed")).toBe("false");
-  act(() => buttons[0].click());
-  expect(buttons[0].getAttribute("aria-pressed")).toBe("false");
   act(() => root.unmount());
 });
 
-it("links each early subsidiary logo to its own network profile", () => {
+it("rotates the introduction and lets visitors select and follow each real story", () => {
+  vi.useFakeTimers();
   const host = document.createElement("div");
   const root = createRoot(host);
-  act(() => root.render(<MemoryRouter><NetworkIdentityStrip /></MemoryRouter>));
-  facilities.forEach(facility => {
-    const link = host.querySelector(`a[href="${facilityProfilePath(facility.id)}"]`);
-    expect(link?.textContent).toContain(facility.name);
-    expect(link?.querySelector("img")).not.toBeNull();
-  });
+  act(() => root.render(<MemoryRouter><HomeHero /></MemoryRouter>));
+  expect(host.querySelector('h1')?.textContent).toContain("One Partner.");
+  act(() => vi.advanceTimersByTime(9000));
+  expect(host.querySelector('figcaption')?.textContent).toContain("Finnih Medical Centre");
+  expect(host.querySelector('a[href="/network/finnih"]')).not.toBeNull();
+  act(() => host.querySelector<HTMLButtonElement>('button[aria-label="Next introduction"]')!.click());
+  expect(host.querySelector('h1')?.textContent).toBe("BUA Corporate Health Programme");
+  expect(host.querySelector('a[href="/impact/bua-corporate-health"]')).not.toBeNull();
+  act(() => vi.advanceTimersByTime(18000));
+  expect(host.querySelector('h1')?.textContent).toBe("BUA Corporate Health Programme");
+  act(() => host.querySelector<HTMLButtonElement>('button[aria-label="Show Zendale Limited"]')!.click());
+  expect(host.querySelector('h1')?.textContent).toContain("One Partner.");
   act(() => root.unmount());
+  vi.useRealTimers();
 });
