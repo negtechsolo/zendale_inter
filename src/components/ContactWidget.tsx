@@ -38,6 +38,7 @@ function openerFor(pathname: string): string {
 const subjects = [
   "General enquiry",
   "Partnership",
+  "HMO enquiry",
   "Corporate health programme",
   "Healthcare consulting",
   "Medical technology",
@@ -156,7 +157,7 @@ export function ContactWidget() {
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...data, page: pathname }),
+        body: JSON.stringify({ ...data, kind: "general", page: pathname }),
       });
       if (!res.ok) throw new Error(String(res.status));
       setPanel("sent");

@@ -1,4 +1,5 @@
 import { useState, type FormEvent } from "react";
+import { submitEnquiry } from "../lib/submitEnquiry";
 import { Seo } from "../lib/seo";
 import { PageHero } from "../components/PageHero";
 import { Reveal } from "../components/Reveal";
@@ -38,8 +39,11 @@ export default function Careers() {
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [done, setDone] = useState(false);
 
-  function submit(e: FormEvent) {
+  const [sending, setSending] = useState(false);
+
+  async function submit(e: FormEvent) {
     e.preventDefault();
+    if (sending) return;
     const next: Record<string, string> = {};
     if (name.trim().length < 2) next.name = "Enter your full name as it appears on your CV.";
     if (!isEmail(email)) next.email = "Enter a valid email address so we can reach you about roles.";
@@ -47,7 +51,12 @@ export default function Careers() {
     if (about.trim().length < 30) next.about = "Give us a few sentences about your role, experience and the work you are looking for.";
     setErrors(next);
     if (Object.keys(next).length) return;
-    setDone(true);
+    setSending(true);
+    try {
+      await submitEnquiry({ kind: "careers", name, email, subject: discipline, message: about, page: "/careers" });
+      setDone(true);
+    } catch { setErrors({ delivery: "We couldn’t send your enquiry. Please try again or contact info@zendalelimited.com." }); }
+    finally { setSending(false); }
   }
 
   return (
@@ -110,7 +119,7 @@ export default function Careers() {
                 </p>
               </div>
             ) : (
-              <form onSubmit={submit} noValidate className="grid gap-5 bg-white p-8 shadow-[0_1px_0_rgba(11,27,51,0.08)] lg:p-10">
+              <form onSubmit={submit} aria-busy={sending} noValidate className="grid gap-5 bg-white p-8 shadow-[0_1px_0_rgba(11,27,51,0.08)] lg:p-10">
                 <TextField id="c-name" label="Full name" value={name} onChange={setName} error={errors.name} autoComplete="name" placeholder="Yewande Balogun" />
                 <TextField id="c-email" label="Email" value={email} onChange={setEmail} type="email" error={errors.email} autoComplete="email" placeholder="you@email.com" />
                 <SelectField id="c-disc" label="Your discipline" value={discipline} onChange={setDiscipline} options={disciplines} error={errors.discipline} />
@@ -126,6 +135,7 @@ export default function Careers() {
                 <div>
                   <Button type="submit">Join the Talent Network</Button>
                 </div>
+              {errors.delivery && <p role="alert" className="text-sm text-carbon">{errors.delivery}</p>}
               </form>
             )}
           </Reveal>

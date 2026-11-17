@@ -1,4 +1,5 @@
 import { useState, type FormEvent } from "react";
+import { submitEnquiry } from "../lib/submitEnquiry";
 import { Seo } from "../lib/seo";
 import { PageHero } from "../components/PageHero";
 import { Reveal } from "../components/Reveal";
@@ -40,14 +41,18 @@ function ConsultationForm() {
   const [time, setTime] = useState("");
   const [name, setName] = useState("");
   const [contact, setContact] = useState("");
+  const [phone, setPhone] = useState("");
   const [brief, setBrief] = useState("");
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [done, setDone] = useState(false);
 
   const totalSteps = 4;
 
-  function next(e: FormEvent) {
+  const [sending, setSending] = useState(false);
+
+  async function next(e: FormEvent) {
     e.preventDefault();
+    if (sending) return;
     const errs: Record<string, string> = {};
     if (step === 1 && !iAm) errs.iAm = "Pick the description closest to you, it decides who calls you back.";
     if (step === 2 && !need) errs.need = "Pick an area, 'Something else' is a perfectly good answer.";
@@ -58,7 +63,8 @@ function ConsultationForm() {
     if (step === 4) {
       if (name.trim().length < 2) errs.name = "Enter your full name so we know who we're speaking with.";
       const c = contact.trim();
-      if (!isEmail(c) && !isPhone(c)) errs.contact = "Enter a working email address or phone number so we can reach you.";
+      if (!isEmail(c)) errs.contact = "Enter an email address so we can send your confirmation.";
+      if ((channel === "Phone call" || channel === "WhatsApp") && !isPhone(phone)) errs.phone = "Enter a working phone number with the country code.";
       if (brief.trim().length < 15) errs.brief = "One or two sentences are enough. Briefly tell us what is happening.";
     }
     setErrors(errs);
@@ -66,17 +72,23 @@ function ConsultationForm() {
     if (step < totalSteps) {
       setStep(step + 1);
     } else {
-      setDone(true);
+      setSending(true);
+      try {
+        await submitEnquiry({ kind: "consultation", name, email: contact, phone, subject: need, message: brief, page: "/contact#consultation",
+          details: [["I represent", iAm], ["Preferred contact", channel], ["Preferred time", time]] });
+        setDone(true);
+      } catch { setErrors({ delivery: "We couldn’t send your request. Please try again or contact info@zendalelimited.com." }); }
+      finally { setSending(false); }
     }
   }
 
   if (done) {
     const wa = whatsappLink(
-      `Hello Zendale, this is ${name.trim()}. I've just booked a consultation via your website (${iAm.toLowerCase()}; ${need.toLowerCase()}; preferred: ${channel.toLowerCase()}, ${time.toLowerCase()}). Brief: ${brief.trim()}`
+      `Hello Zendale, this is ${name.trim()}. I've just requested a consultation via your website (${iAm.toLowerCase()}; ${need.toLowerCase()}; preferred: ${channel.toLowerCase()}, ${time.toLowerCase()}). Brief: ${brief.trim()}`
     );
     return (
       <div className="bg-ink p-8 text-porcelain lg:p-10" role="status">
-        <p className="eyebrow text-brass">Consultation booked</p>
+        <p className="eyebrow text-brass">Consultation request received</p>
         <h3 className="mt-3 font-display text-2xl">
           Thank you, {name.trim().split(" ")[0]}. Your consultation request has been recorded.
         </h3>
@@ -172,18 +184,20 @@ function ConsultationForm() {
         <div className="mt-4 grid gap-5">
           <h3 className="font-display text-2xl text-ink">Your details and a short brief</h3>
           <TextField id="b-name" label="Full name" value={name} onChange={setName} error={errors.name} autoComplete="name" placeholder="Ngozi Adeyemi" />
-          <TextField id="b-contact" label="Email or phone" value={contact} onChange={setContact} error={errors.contact} placeholder="you@email.com or +234 …" />
+          <TextField id="b-contact" label="Email address" type="email" value={contact} onChange={setContact} error={errors.contact} placeholder="you@email.com" />
+          {(channel === "Phone call" || channel === "WhatsApp") && <TextField id="b-phone" label="Phone number" type="tel" value={phone} onChange={setPhone} error={errors.phone} placeholder="+234 …" />}
           <TextAreaField id="b-brief" label="Briefly, what's going on?" value={brief} onChange={setBrief} error={errors.brief} rows={4} placeholder="One or two sentences is enough." />
         </div>
       )}
 
+      {errors.delivery && <p role="alert" className="mt-4 text-sm text-carbon">{errors.delivery}</p>}
       <div className="mt-8 flex items-center justify-between">
         {step > 1 ? (
           <button type="button" onClick={() => { setErrors({}); setStep(step - 1); }} className="text-sm font-medium text-carbon/70 hover:text-steel">
             ← Back
           </button>
         ) : <span />}
-        <Button type="submit">{step === totalSteps ? "Book the Consultation" : "Continue"}</Button>
+        <Button type="submit">{sending ? "Sending…" : step === totalSteps ? "Request a Consultation" : "Continue"}</Button>
       </div>
     </form>
   );
@@ -195,18 +209,27 @@ function ConsultationForm() {
 
 function CallbackForm() {
   const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [sending, setSending] = useState(false);
   const [phone, setPhone] = useState("");
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [done, setDone] = useState(false);
 
-  function submit(e: FormEvent) {
+  async function submit(e: FormEvent) {
     e.preventDefault();
+    if (sending) return;
     const next: Record<string, string> = {};
     if (name.trim().length < 2) next.name = "Enter your name so we know who's answering.";
+    if (!isEmail(email)) next.email = "Enter an email address for your confirmation.";
     if (!isPhone(phone)) next.phone = "Enter a working phone number with country code, e.g. +234…";
     setErrors(next);
     if (Object.keys(next).length) return;
-    setDone(true);
+    setSending(true);
+    try {
+      await submitEnquiry({ kind: "callback", name, email, phone, subject: "Please call me back", message: "The visitor requested a phone call.", page: "/contact#callback" });
+      setDone(true);
+    } catch { setErrors({ delivery: "We couldn’t send your request. Please try again or contact info@zendalelimited.com." }); }
+    finally { setSending(false); }
   }
 
   if (done) {
@@ -226,8 +249,10 @@ function CallbackForm() {
     <form onSubmit={submit} noValidate className="grid gap-4">
       <TextField id="cb-name" label="Your name" value={name} onChange={setName} error={errors.name} dark autoComplete="name" placeholder="Tunde Bakare" />
       <TextField id="cb-phone" label="Phone number" value={phone} onChange={setPhone} type="tel" error={errors.phone} dark autoComplete="tel" placeholder="+234 …" />
+      <TextField id="cb-email" label="Email address" type="email" value={email} onChange={setEmail} error={errors.email} dark autoComplete="email" />
+      {errors.delivery && <p role="alert" className="text-sm text-porcelain">{errors.delivery}</p>}
       <div>
-        <Button type="submit" variant="brass">Request a Callback</Button>
+        <Button type="submit" variant="brass">{sending ? "Sending…" : "Request a Callback"}</Button>
       </div>
     </form>
   );

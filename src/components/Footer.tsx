@@ -55,7 +55,7 @@ export function Footer() {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          name: "Insights request",
+          kind: "insights", name: "Insights request",
           email,
           subject: "Healthcare insights signup",
           message: `${email} asked to receive Zendale's healthcare insights.`,

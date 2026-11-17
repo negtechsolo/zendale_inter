@@ -170,7 +170,7 @@ export function LeadGateForm({ itemLabel, submitLabel, onComplete, dark, idPrefi
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          name: lead.name, email: lead.email, subject: "Resource request",
+          kind: "resource", name: lead.name, email: lead.email, subject: "Resource request",
           message: `Requested resource: ${itemLabel}\nOrganisation: ${lead.organisation}`,
           page: window.location.pathname,
         }),

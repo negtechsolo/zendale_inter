@@ -1,3 +1,4 @@
+import { brandedEmail } from "../server/branded-email.js";
 import { mailRecipients } from "../server/mail-recipients.js";
 
 interface RequestLike {
@@ -161,12 +162,26 @@ export default async function handler(req: RequestLike, res: ResponseLike) {
         to: mailRecipients(RECIPIENT, process.env.CONTACT_TO),
         reply_to: email,
         subject: "[Central Store] Supply quote request",
-        text: message,
+        ...brandedEmail({ title: "New supply quote request", category: "Central Store",
+          intro: "A new purchasing request has arrived from the Zendale website.",
+          fields: [["Name",name],["Organisation",organisation],["Email",email],["Phone",phone],["Source","/supply-quote"],["Quote details",message]] }),
         ...(attachments.length ? { attachments } : {}),
       }),
-      signal: AbortSignal.timeout(15000),
+      signal: AbortSignal.timeout(9500),
     });
     if (!response.ok) throw new Error("Delivery failed");
+    if (process.env.CONTACT_AUTOREPLY !== "off") {
+      try {
+        const receipt = await fetch("https://api.resend.com/emails", {
+          method: "POST", headers: { Authorization: `Bearer ${key}`, "Content-Type": "application/json" },
+          body: JSON.stringify({ from, to: [email], reply_to: RECIPIENT, subject: "Zendale Central Store | Quote request received",
+            ...brandedEmail({ title: "We’ve received your quote request", category: "Central Store",
+              intro: `Thank you, ${name}. Our Central Store team will review the request and contact you about availability, pricing and delivery.`,
+              fields: [["Organisation",organisation]] }) }), signal: AbortSignal.timeout(8500),
+        });
+        if (!receipt.ok) console.warn("Supply quote acknowledgement was rejected.");
+      } catch { console.warn("Supply quote acknowledgement could not be sent."); }
+    }
     return res.status(200).json({ ok: true });
   } catch {
     return res

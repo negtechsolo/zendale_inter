@@ -1,4 +1,5 @@
 import { useState, type FormEvent } from "react";
+import { submitEnquiry } from "../lib/submitEnquiry";
 import { Seo } from "../lib/seo";
 import { PageHero } from "../components/PageHero";
 import { Reveal } from "../components/Reveal";
@@ -366,8 +367,11 @@ function PartnerForm({ type }: { type: PartnerType }) {
     setDetails((current) => ({ ...current, [id]: value }));
   }
 
-  function submit(e: FormEvent) {
+  const [sending, setSending] = useState(false);
+
+  async function submit(e: FormEvent) {
     e.preventDefault();
+    if (sending) return;
     const next: Record<string, string> = {};
 
     if (name.trim().length < 2) next.name = "Enter your full name so we know who to address.";
@@ -391,7 +395,16 @@ function PartnerForm({ type }: { type: PartnerType }) {
     setErrors(next);
     if (Object.keys(next).length) return;
 
-    setSubmitted({ wa: whatsappLink(cfg.waMessage(org.trim(), name.trim())) });
+    setSending(true);
+    try {
+      await submitEnquiry({
+        kind: "partnership", pathway: type, name, email, phone, page: "/partnerships",
+        subject: "New partnership request", message: brief,
+        details: [["Organisation", org], ["Preferred contact", contactMethod], ...cfg.fields.map(field => [field.label, details[field.id]] as [string,string])],
+      });
+      setSubmitted({ wa: whatsappLink(cfg.waMessage(org.trim(), name.trim())) });
+    } catch { setErrors({ delivery: "We couldn’t send your request. Please try again or contact info@zendalelimited.com." }); }
+    finally { setSending(false); }
   }
 
   if (submitted) {
@@ -479,7 +492,8 @@ function PartnerForm({ type }: { type: PartnerType }) {
         <p className="max-w-lg text-xs leading-relaxed text-carbon/70">
           By submitting this enquiry, you confirm that Zendale may contact you about this partnership request.
         </p>
-        <Button type="submit">Send Partnership Enquiry</Button>
+        {errors.delivery && <p role="alert" className="text-sm text-carbon">{errors.delivery}</p>}
+        <Button type="submit">{sending ? "Sending…" : "Send Partnership Enquiry"}</Button>
       </div>
     </form>
   );

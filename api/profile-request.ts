@@ -1,3 +1,4 @@
+import { brandedEmail } from "../server/branded-email.js";
 import { mailRecipients } from "../server/mail-recipients.js";
 
 import { createHash } from "node:crypto";
@@ -109,7 +110,10 @@ export default async function handler(req: RequestLike, res: ResponseLike) {
     await send({
       to: [email],
       subject: "Your Zendale Limited company profile",
-      text: `Hello ${name},\n\nThank you for your interest in Zendale Limited. Our company profile is attached. It introduces our healthcare network, capabilities and partnership opportunities.\n\nTo discuss a partnership, visit https://www.zendalelimited.com/partnerships or contact info@zendalelimited.com.\n\nZendale Limited\nOne Partner. Complete Healthcare Solutions.`,
+      ...brandedEmail({ title: "Your company profile is attached", category: "Company profile",
+        intro: `Thank you, ${name}. The attached profile introduces Zendale’s healthcare network, capabilities and partnership opportunities.`,
+        note: "Reply to this email if you’d like to discuss working with us." }),
+      ...(leadsTo.length ? { reply_to: leadsTo[0] } : {}),
       attachments: [{ filename: "Zendale-Limited-Company-Profile.pdf", path: pdfUrl.href }],
     }, "delivery");
   } catch {
@@ -122,7 +126,8 @@ export default async function handler(req: RequestLike, res: ResponseLike) {
         to: leadsTo,
         reply_to: email,
         subject: "[Zendale] Company profile request",
-        text: `A visitor requested the company profile.\n\nFull name: ${name}\nWork email: ${email}\nPhone: ${phone}\nOrganisation: ${organisation || "Not supplied"}`,
+        ...brandedEmail({ title: "Company profile request", category: "Company profile",
+          intro: "A visitor requested the Zendale company profile.", fields: [["Full name", name], ["Work email", email], ["Phone", phone], ["Organisation", organisation], ["Source", "/profile"]] }),
       }, "notification");
     } catch {
       console.warn("Profile sent, but internal request notification failed.");

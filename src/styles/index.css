@@ -294,7 +294,8 @@ body {
   background: linear-gradient(90deg, rgb(8 24 43 / .95), rgb(8 24 43 / .70) 39%, rgb(8 24 43 / .08) 70%, transparent 100%),
     linear-gradient(0deg, rgb(8 24 43 / .88), transparent 26%);
 }
-.zendale-hero-enter { animation: hero-appear 650ms ease-out both; }
+.zendale-hero-enter { animation: zendale-team-slide 590ms ease-out both; }
+@keyframes zendale-team-slide { from { opacity: 0; transform: translateX(1.25%); } to { opacity: 1; transform: translateX(0); } }
 @media (max-width: 1023px) {
   .zendale-hero-shade { display: none; }
 }

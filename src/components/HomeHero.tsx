@@ -31,7 +31,6 @@ export function HomeHero() {
   const [index, setIndex] = useState(0);
   const [previous, setPrevious] = useState<number | null>(null);
   const [pending, setPending] = useState<number | null>(null);
-  const [hovered, setHovered] = useState(false);
   const [focused, setFocused] = useState(false);
   const reduced = usePrefersReducedMotion();
   const touchX = useRef<number | null>(null);
@@ -43,14 +42,14 @@ export function HomeHero() {
     setPending(request.current);
   };
   useEffect(() => {
-    if (reduced || hovered || focused || pending !== null) return;
+    if (reduced || focused || pending !== null) return;
     const timeout = window.setTimeout(() => {
       const next = (index + 1) % photographs.length;
       request.current = next;
       setPending(next);
     }, 4000);
     return () => window.clearTimeout(timeout);
-  }, [index, reduced, hovered, focused, pending]);
+  }, [index, reduced, focused, pending]);
   useEffect(() => {
     if (previous === null) return;
     const timeout = window.setTimeout(() => setPrevious(null), 720);
@@ -61,7 +60,6 @@ export function HomeHero() {
   return (
     <section className="bg-ink pt-16 text-porcelain lg:pt-20" aria-roledescription="carousel" aria-label="Zendale healthcare network photographs">
       <div className="zendale-hero relative isolate flex flex-col overflow-hidden bg-ink"
-        onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)}
         onFocusCapture={() => setFocused(true)}
         onBlurCapture={event => { if (!event.currentTarget.contains(event.relatedTarget)) setFocused(false); }}
         onTouchStart={event => { touchX.current = event.touches[0].clientX; }}
@@ -103,7 +101,6 @@ export function HomeHero() {
           </div>
           <div className="flex flex-wrap items-center gap-1 sm:gap-2" role="group" aria-label="Slideshow controls">
             <button type="button" onClick={() => select(index - 1)} aria-label="Previous introduction" className="h-11 w-9 text-xl hover:bg-white/10">←</button>
-            {photographs.map((item, i) => <button key={item.image} type="button" onClick={() => select(i)} aria-label={`Show ${item.name}`} aria-current={i === index ? "true" : undefined} className="group flex h-11 w-6 items-center justify-center"><span className={`h-1 w-4 rounded-full ${i === index ? "bg-brass" : "bg-white/55 group-hover:bg-white"}`} /></button>)}
             <button type="button" onClick={() => select(index + 1)} aria-label="Next introduction" className="h-11 w-9 text-xl hover:bg-white/10">→</button>
           </div>
         </div>
