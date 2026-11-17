@@ -32,6 +32,7 @@ const mobileItems = [
   { to: "/consulting", label: "Healthcare Consulting" },
   { to: "/medical-technology", label: "Medical Technology" },
   { to: "/procurement-supply-chain", label: "Procurement & Supply Chain" },
+  { to: "/profile", label: "Company Profile" },
   { to: "/downloads", label: "Download Centre" },
   { to: "/careers", label: "Careers" },
   { to: "/contact", label: "Contact" },
@@ -42,7 +43,7 @@ export function Nav() {
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
 
-  const solidHeader = location.pathname === "/" || scrolled || open;
+  const solidHeader = location.pathname === "/" || location.pathname === "/profile" || scrolled || open;
 
   useEffect(() => {
     setOpen(false);

@@ -203,6 +203,66 @@ export const imageMeta: Record<string, ImageMeta> = {
       1200
     ]
   },
+  "home-hero/endoscopy.webp": {
+    "w": 1600,
+    "h": 1000,
+    "v": [
+      96,
+      400,
+      800,
+      1200
+    ]
+  },
+  "home-hero/finnih.webp": {
+    "w": 1600,
+    "h": 1000,
+    "v": [
+      96,
+      400,
+      800,
+      1200
+    ]
+  },
+  "home-hero/kindred.webp": {
+    "w": 1600,
+    "h": 1280,
+    "v": [
+      96,
+      400,
+      800,
+      1200
+    ]
+  },
+  "home-hero/lifecentre.webp": {
+    "w": 1600,
+    "h": 1067,
+    "v": [
+      96,
+      400,
+      800,
+      1200
+    ]
+  },
+  "home-hero/mainland.webp": {
+    "w": 1600,
+    "h": 1067,
+    "v": [
+      96,
+      400,
+      800,
+      1200
+    ]
+  },
+  "home-hero/skyhigh.webp": {
+    "w": 1600,
+    "h": 1000,
+    "v": [
+      96,
+      400,
+      800,
+      1200
+    ]
+  },
   "home-who-we-are.webp": {
     "w": 1448,
     "h": 1086,
@@ -251,6 +311,81 @@ export const imageMeta: Record<string, ImageMeta> = {
       400,
       800,
       1200
+    ]
+  },
+  "network-brand/finnih.webp": {
+    "w": 261,
+    "h": 230,
+    "v": [
+      96
+    ]
+  },
+  "network-brand/kindred-path.webp": {
+    "w": 450,
+    "h": 207,
+    "v": [
+      96,
+      400
+    ]
+  },
+  "network-brand/lifecentre-support.webp": {
+    "w": 303,
+    "h": 230,
+    "v": [
+      96
+    ]
+  },
+  "network-brand/lifecentre.webp": {
+    "w": 450,
+    "h": 132,
+    "v": [
+      96,
+      400
+    ]
+  },
+  "network-brand/mainland-icu.webp": {
+    "w": 318,
+    "h": 230,
+    "v": [
+      96
+    ]
+  },
+  "network-brand/sky-high.webp": {
+    "w": 450,
+    "h": 111,
+    "v": [
+      96,
+      400
+    ]
+  },
+  "network-brand/vhelar.webp": {
+    "w": 196,
+    "h": 230,
+    "v": [
+      96
+    ]
+  },
+  "network-brand/zendale-central-store.webp": {
+    "w": 450,
+    "h": 142,
+    "v": [
+      96,
+      400
+    ]
+  },
+  "network-brand/zendale-consulting.webp": {
+    "w": 450,
+    "h": 110,
+    "v": [
+      96,
+      400
+    ]
+  },
+  "network-brand/zendale-endoscopy.webp": {
+    "w": 320,
+    "h": 230,
+    "v": [
+      96
     ]
   },
   "network-endoscopy.webp": {
@@ -1103,6 +1238,16 @@ export const imageMeta: Record<string, ImageMeta> = {
     "v": [
       96,
       400
+    ]
+  },
+  "real/zendale-office-meeting.webp": {
+    "w": 1400,
+    "h": 1050,
+    "v": [
+      96,
+      400,
+      800,
+      1200
     ]
   },
   "relationships/airtel.webp": {

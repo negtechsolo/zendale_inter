@@ -1,9 +1,9 @@
 import { lazy, useEffect, type ComponentType } from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import { Layout } from "./components/Layout";
 
 /**
- * Every route is code-split; the three.js stack loads only with the home hero.
+ * Every route is code-split to keep the first page load small.
  * lazyRetry handles the classic SPA failure after a redeploy: the open tab's
  * index.html references old chunk hashes that no longer exist, the dynamic
  * import throws, and the page appears not to load until a manual refresh.
@@ -40,6 +40,7 @@ const Partnerships = lazyRetry(() => import("./pages/Partnerships"));
 const HowWeWork = lazyRetry(() => import("./pages/HowWeWork"));
 const Resources = lazyRetry(() => import("./pages/Resources"));
 const ArticlePage = lazyRetry(() => import("./pages/ArticlePage"));
+const Profile = lazyRetry(() => import("./pages/Profile"));
 const Downloads = lazyRetry(() => import("./pages/Downloads"));
 const CaseStudies = lazyRetry(() => import("./pages/CaseStudies"));
 const KetuPhcCaseStudy = lazyRetry(() => import("./pages/KetuPhcCaseStudy"));
@@ -68,6 +69,7 @@ const routeLoaders: Record<string, () => Promise<unknown>> = {
   "/partnerships": () => import("./pages/Partnerships"),
   "/how-we-work": () => import("./pages/HowWeWork"),
   "/resources": () => import("./pages/Resources"),
+  "/profile": () => import("./pages/Profile"),
   "/downloads": () => import("./pages/Downloads"),
   "/case-studies": () => import("./pages/CaseStudies"),
   "/case-studies/ketu-phc-primary-healthcare-partnership": () => import("./pages/KetuPhcCaseStudy"),
@@ -206,6 +208,8 @@ export default function App() {
         <Route path="/how-we-work" element={<HowWeWork />} />
         <Route path="/resources" element={<Resources />} />
         <Route path="/resources/:articleSlug" element={<ArticlePage />} />
+        <Route path="/profile" element={<Profile />} />
+        <Route path="/network/sky-high-icu" element={<Navigate to="/network/mainland-icu" replace />} />
         <Route path="/downloads" element={<Downloads />} />
         <Route path="/case-studies" element={<CaseStudies />} />
         <Route path="/case-studies/ketu-phc-primary-healthcare-partnership" element={<KetuPhcCaseStudy />} />

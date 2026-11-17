@@ -83,7 +83,7 @@ export const resources: Resource[] = [
     type: "Professional Guide",
     title: "ICU admission and transfer coordination",
     summary:
-      "For hospitals and clinicians coordinating critical-care transfers: admission criteria, escalation pathways and how transfer into the Sky High ICU / Dialysis Centre is coordinated between teams. Available as a downloadable PDF in the Professional Download Centre.",
+      "For hospitals and clinicians coordinating critical-care transfers: admission criteria, escalation pathways and how transfer into the Mainland ICU and Dialysis Centre is coordinated between teams. Available as a downloadable PDF in the Professional Download Centre.",
     route: "/downloads",
     routeLabel: "Download the ICU Guide",
   },

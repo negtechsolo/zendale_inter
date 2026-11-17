@@ -289,3 +289,18 @@ body {
 .hero-slot { grid-area: 1 / 1; min-width: 0; }
 .hero-slot-hidden { visibility: hidden; opacity: 0; pointer-events: none; }
 .hero-slot-active { visibility: visible; opacity: 1; }
+
+.zendale-hero-shade {
+  background: linear-gradient(90deg, rgb(8 24 43 / .95), rgb(8 24 43 / .76) 40%, rgb(8 24 43 / .12) 100%),
+    linear-gradient(0deg, rgb(8 24 43 / .96), transparent 45%);
+}
+.zendale-hero-enter { animation: hero-appear 650ms ease-out both; }
+@media (max-width: 639px) {
+  .zendale-hero-shade { background: linear-gradient(90deg, rgb(8 24 43 / .87), rgb(8 24 43 / .45)), linear-gradient(0deg, rgb(8 24 43 / .96), transparent 70%); }
+}
+@media (prefers-reduced-motion: reduce) { .zendale-hero-enter { animation: none; } }
+
+@media (min-width: 1024px) {
+  .profile-hero-photo { clip-path: polygon(17% 0, 100% 0, 100% 100%, 0 100%); padding-left: 4px; }
+  .profile-hero-photo > .img-frame { clip-path: polygon(17% 0, 100% 0, 100% 100%, 0 100%); }
+}

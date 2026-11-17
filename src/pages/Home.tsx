@@ -70,8 +70,8 @@ function WhoWeAre() {
           <Reveal className="lg:col-span-6" variant="sweep" delay={0.15}>
             <SmartImage
               fill
-              src="real/office-zendale-oct2026.webp"
-              alt="The Zendale Limited office, with a member of staff working at the desk"
+              src="real/zendale-office-meeting.webp"
+              alt="The Zendale Limited team meeting in its Lagos office"
               className="aspect-[4/3] w-full"
             />
           </Reveal>

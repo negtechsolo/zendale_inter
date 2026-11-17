@@ -25,22 +25,30 @@ it("keeps the two logo lists separate without duplicate partnership or pause but
   act(() => root.unmount());
 });
 
-it("rotates the introduction and lets visitors select and follow each real story", () => {
+it("loads the next facility image before switching and keeps the main message still", async () => {
   vi.useFakeTimers();
   const host = document.createElement("div");
   const root = createRoot(host);
-  act(() => root.render(<MemoryRouter><HomeHero /></MemoryRouter>));
-  expect(host.querySelector('h1 [aria-hidden="false"]')?.textContent).toContain("One Partner.");
-  act(() => vi.advanceTimersByTime(9000));
-  expect(host.querySelector('figcaption [aria-hidden="false"]')?.textContent).toContain("Finnih Medical Centre");
-  expect(host.querySelector('a[href="/network/finnih"]')).not.toBeNull();
-  act(() => host.querySelector<HTMLButtonElement>('button[aria-label="Next introduction"]')!.click());
-  expect(host.querySelector('h1 [aria-hidden="false"]')?.textContent).toBe("BUA Corporate Health Programme");
-  expect(host.querySelector('a[href="/impact/bua-corporate-health"]')).not.toBeNull();
-  act(() => vi.advanceTimersByTime(18000));
-  expect(host.querySelector('h1 [aria-hidden="false"]')?.textContent).toBe("BUA Corporate Health Programme");
-  act(() => host.querySelector<HTMLButtonElement>('button[aria-label="Show Zendale Limited"]')!.click());
-  expect(host.querySelector('h1 [aria-hidden="false"]')?.textContent).toContain("One Partner.");
-  act(() => root.unmount());
-  vi.useRealTimers();
+  try {
+    act(() => root.render(<MemoryRouter><HomeHero /></MemoryRouter>));
+    const title = host.querySelector("h1");
+    expect(title?.textContent).toBe("One Partner. Complete Healthcare Solutions.");
+    expect(host.querySelectorAll("img")).toHaveLength(1);
+    expect(host.querySelector('a[href="/network/finnih"]')).not.toBeNull();
+    act(() => vi.advanceTimersByTime(6500));
+    expect(host.querySelector('a[href="/network/finnih"]')).not.toBeNull();
+    await act(async () => {
+      host.querySelector('img[src="/images/home-hero/skyhigh.webp"]')!.dispatchEvent(new Event("load"));
+    });
+    expect(host.querySelector('a[href="/network/sky-high"]')).not.toBeNull();
+    expect(host.querySelector("h1")).toBe(title);
+    act(() => host.querySelector<HTMLButtonElement>('button[aria-label="Next introduction"]')!.click());
+    await act(async () => {
+      host.querySelector('img[src="/images/home-hero/mainland.webp"]')!.dispatchEvent(new Event("load"));
+    });
+    expect(host.querySelector('a[href="/network/mainland-icu"]')?.textContent).toBe("Mainland ICU and Dialysis Centre");
+  } finally {
+    act(() => root.unmount());
+    vi.useRealTimers();
+  }
 });

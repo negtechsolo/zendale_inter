@@ -33,7 +33,7 @@ export const serviceGroups: ServiceGroup[] = [
       "Direct patient care delivered through the current institutions in the growing Zendale Healthcare Network, with coordinated access to specialist capabilities across the ecosystem.",
     services: [
       { name: "Multi-specialist hospital care", detail: "Consultant-led clinical care through Sky High Medical Centre and Finnih Medical Centre." },
-      { name: "Critical care and dialysis", detail: "Intensive care and dialysis services through the Sky High ICU / Dialysis Centre." },
+      { name: "Critical care and dialysis", detail: "Intensive care and dialysis services through the Mainland ICU and Dialysis Centre." },
       { name: "Fertility and reproductive care", detail: "Assessment, assisted reproduction and patient support through Kindred Path Fertility Centre." },
       { name: "Endoscopy and gastroenterology", detail: "Diagnostic and therapeutic endoscopy through Zendale Endoscopy Centre." },
       { name: "Diagnostics and occupational health", detail: "Pathology, wellness, radiology and occupational health through LifeCentre Medical Services." },

@@ -30,7 +30,7 @@ export const downloadItems: DownloadItem[] = [
     id: "icu-guide",
     title: "ICU & Critical Care Guide",
     description:
-      "Admission criteria, escalation pathways and transfer coordination for the Sky High ICU / Dialysis Centre.",
+      "Admission criteria, escalation pathways and transfer coordination for the Mainland ICU and Dialysis Centre.",
     file: "zendale-icu-guide.pdf",
     fileType: "PDF",
     audiences: ["Healthcare Professionals", "Hospitals", "HMOs"],
@@ -66,7 +66,7 @@ export const downloadItems: DownloadItem[] = [
     id: "company-profile",
     title: "Zendale Company Profile",
     description:
-      "The full picture of the group: the healthcare network, the five capability pillars and how to work with us.",
+      "The full picture of the group: the healthcare network, the six capability pillars and how to work with us.",
     file: "zendale-company-profile.pdf",
     fileType: "PDF",
     audiences: ["Healthcare Professionals", "HMOs", "Hospitals", "Corporate Partners"],

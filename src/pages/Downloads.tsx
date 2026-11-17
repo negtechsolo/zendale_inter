@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { Seo } from "../lib/seo";
 import { PageHero } from "../components/PageHero";
 import { Reveal } from "../components/Reveal";
@@ -71,7 +72,9 @@ export default function Downloads() {
                     <p className="mt-3 text-sm leading-relaxed text-carbon/80">{d.description}</p>
                   </div>
                   <div className="mt-6">
-                    {unlocked ? (
+                    {d.id === "company-profile" ? (
+                      <Link to="/profile#request-profile" className="inline-flex bg-steel px-5 py-2.5 text-sm font-medium text-white">Request the Company Profile</Link>
+                    ) : unlocked ? (
                       <DownloadButton file={d.file} title={d.title} />
                     ) : (
                       <button

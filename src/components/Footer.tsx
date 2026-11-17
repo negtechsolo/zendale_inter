@@ -15,6 +15,7 @@ const explore = [
   { to: "/how-we-work", label: "How We Work" },
   { to: "/case-studies", label: "Success Stories" },
   { to: "/resources", label: "Resource Centre" },
+  { to: "/profile", label: "Company Profile" },
   { to: "/downloads", label: "Download Centre" },
 ];
 

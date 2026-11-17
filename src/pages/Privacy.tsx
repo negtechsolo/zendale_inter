@@ -17,7 +17,7 @@ const sections = [
   },
   {
     h: "Third-party services",
-    p: "If you choose to contact us via WhatsApp, that conversation is carried by WhatsApp and covered by its own terms. External facility websites linked from this site have their own privacy practices.",
+    p: "We use an email delivery provider to send requested documents and deliver website enquiries to our team. If you choose to contact us via WhatsApp, that conversation is carried by WhatsApp and covered by its own terms. External facility websites linked from this site have their own privacy practices.",
   },
   {
     h: "Your choices",

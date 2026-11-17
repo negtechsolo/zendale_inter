@@ -1,107 +1,115 @@
 import { useEffect, useRef, useState } from "react";
 import { Button } from "./Button";
-import { SmartImage } from "./SmartImage";
 import { usePrefersReducedMotion } from "../lib/hooks";
-import { EcosystemHero } from "./EcosystemHero";
-import { projects } from "../data/updates";
+import { imageMeta, srcSetFor } from "../lib/imageMeta";
+import { facilities, facilityProfilePath } from "../data/facilities";
 
-const slides = [
-  {
-    label: "Zendale Limited",
-    title: "One Partner. Complete Healthcare Solutions.",
-    copy: "Zendale brings together hospitals, diagnostics, specialist care, fertility services and healthcare support within one integrated healthcare ecosystem. One trusted partner for every healthcare need.",
-    image: "",
-    alt: "The Zendale healthcare ecosystem",
-    caption: "Zendale Limited · One integrated healthcare ecosystem",
-    link: "/partnerships", action: "Partner With Zendale", secondary: "/network", secondaryAction: "Explore Our Healthcare Network",
-  },
-  {
-    label: "Our Healthcare Network",
-    title: "A growing network. One coordinated system.",
-    copy: "Behind one name is a coordinated network of hospitals, diagnostics, specialist care, fertility services and healthcare support.",
-    image: "real/team-finnih-oct2026.webp",
-    alt: "The Finnih Medical Centre team outside their facility",
-    caption: "Finnih Medical Centre · Part of the Zendale network",
-    link: "/network", action: "Explore Our Healthcare Network", secondary: "/network/finnih", secondaryAction: "Meet Finnih Medical Centre",
-  },
-  {
-    label: "Impact in Action",
-    title: projects[0].title,
-    copy: projects[0].summary,
-    image: projects[0].image,
-    alt: projects[0].imageAlt,
-    caption: "Corporate health · Life Centre Medicals and SkyHigh Medical Centre",
-    link: projects[0].path, action: "Explore the Programme", secondary: "/corporate-health", secondaryAction: "Plan a Corporate Health Programme",
-  },
-];
+const photographs = [
+  ["finnih", "finnih", "50% 48%"],
+  ["sky-high", "skyhigh", "50% 66%"],
+  ["mainland-icu", "mainland", "62% 48%"],
+  ["lifecentre", "lifecentre", "60% 47%"],
+  ["kindred-path", "kindred", "58% 43%"],
+  ["zendale-endoscopy", "endoscopy", "50% 39%"],
+].map(([id, file, focalPoint]) => {
+  const facility = facilities.find(item => item.id === id)!;
+  return { name: facility.name, path: facilityProfilePath(id), image: `home-hero/${file}.webp`, focalPoint };
+});
+
+function HeroPhoto({ index, className = "", onLoad, onError }: {
+  index: number; className?: string; onLoad?: () => void; onError?: () => void;
+}) {
+  const { image, focalPoint } = photographs[index];
+  const meta = imageMeta[image];
+  return <img src={`/images/${image}`} srcSet={srcSetFor(image) || undefined} sizes="100vw"
+    width={meta?.w} height={meta?.h} alt="" draggable={false} decoding="async"
+    {...(!onLoad ? { fetchpriority: "high" } : {})}
+    className={`absolute inset-0 h-full w-full object-cover ${className}`} style={{ objectPosition: focalPoint }}
+    onLoad={event => { const img = event.currentTarget; if (onLoad) void (img.decode?.() ?? Promise.resolve()).catch(() => {}).then(onLoad); }}
+    onError={onError} />;
+}
 
 export function HomeHero() {
   const [index, setIndex] = useState(0);
-  const [interacting, setInteracting] = useState(false);
-  const [manual, setManual] = useState(false);
+  const [previous, setPrevious] = useState<number | null>(null);
+  const [pending, setPending] = useState<number | null>(null);
+  const [hovered, setHovered] = useState(false);
+  const [focused, setFocused] = useState(false);
+  const [paused, setPaused] = useState(false);
   const reduced = usePrefersReducedMotion();
   const touchX = useRef<number | null>(null);
+  const request = useRef<number | null>(null);
+
   const select = (next: number) => {
-    setIndex((next + slides.length) % slides.length);
-    setManual(true);
+    const target = (next + photographs.length) % photographs.length;
+    request.current = target === index ? null : target;
+    setPending(request.current);
   };
   useEffect(() => {
-    if (reduced || interacting || manual) return;
-    const timer = window.setInterval(() => setIndex(i => (i + 1) % slides.length), 9000);
-    return () => window.clearInterval(timer);
-  }, [reduced, interacting, manual]);
+    if (paused || reduced || hovered || focused || pending !== null) return;
+    const timeout = window.setTimeout(() => {
+      const next = (index + 1) % photographs.length;
+      request.current = next;
+      setPending(next);
+    }, 6500);
+    return () => window.clearTimeout(timeout);
+  }, [index, paused, reduced, hovered, focused, pending]);
+  useEffect(() => {
+    if (previous === null) return;
+    const timeout = window.setTimeout(() => setPrevious(null), 720);
+    return () => window.clearTimeout(timeout);
+  }, [previous, index]);
+  const place = photographs[index];
 
   return (
-    <section className="bg-ink pt-16 text-porcelain lg:pt-20" aria-roledescription="carousel" aria-label="Discover Zendale"
-      onMouseEnter={() => setInteracting(true)} onMouseLeave={() => setInteracting(false)}
-      onFocusCapture={() => setInteracting(true)}
-      onBlurCapture={event => { if (!event.currentTarget.contains(event.relatedTarget)) setInteracting(false); }}
-      onTouchStart={event => { touchX.current = event.touches[0].clientX; }}
-      onTouchEnd={event => {
-        if (touchX.current !== null) {
-          const delta = event.changedTouches[0].clientX - touchX.current;
-          if (Math.abs(delta) > 50) select(index + (delta < 0 ? 1 : -1));
-        }
-        touchX.current = null;
-      }}>
-      <div className="mx-auto grid max-w-7xl items-center gap-9 px-5 py-10 sm:px-8 lg:grid-cols-[1fr_1.05fr] lg:gap-12 lg:py-14" role="group" aria-roledescription="slide" aria-label={`${index + 1} of ${slides.length}`}>
-        {/* Each slot measures every slide. Hidden alternatives keep their space,
-            so changing slides cannot shift headings, buttons or the image. */}
-        <div className="min-w-0">
-          <div className="grid">
-            {slides.map((item, i) => <p key={item.label} aria-hidden={i !== index} className={`hero-slot eyebrow text-brass ${i === index ? "hero-slot-active" : "hero-slot-hidden"}`}>{item.label}</p>)}
-          </div>
-          <h1 className="mt-5 grid font-display text-[2.5rem] font-medium leading-[1.08] sm:text-5xl lg:text-[clamp(2.5rem,3.5vw,3.25rem)]" aria-live={manual || interacting || reduced ? "polite" : "off"}>
-            {slides.map((item, i) => <span key={item.label} aria-hidden={i !== index} className={`hero-slot ${i === index ? "hero-slot-active" : "hero-slot-hidden"}`}>{item.title}</span>)}
-          </h1>
-          <div className="mt-6 grid text-base leading-relaxed text-porcelain/80">
-            {slides.map((item, i) => <p key={item.label} aria-hidden={i !== index} className={`hero-slot ${i === index ? "hero-slot-active" : "hero-slot-hidden"}`}>{item.copy}</p>)}
-          </div>
-          <div className="mt-8 grid">
-            {slides.map((item, i) => <div key={item.label} aria-hidden={i !== index} className={`hero-slot flex flex-col items-start gap-3 ${i === index ? "hero-slot-active" : "hero-slot-hidden"}`}>
-              <Button to={item.link} variant="brass">{item.action}</Button>
-              <Button to={item.secondary} variant="light">{item.secondaryAction}</Button>
-            </div>)}
+    <section className="bg-ink pt-16 text-porcelain lg:pt-20" aria-roledescription="carousel" aria-label="Zendale healthcare network photographs">
+      <div className="relative isolate flex min-h-[min(42rem,86svh)] flex-col justify-end overflow-hidden bg-ink lg:min-h-[min(46rem,calc(100svh-5rem))]"
+        onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)}
+        onFocusCapture={() => setFocused(true)}
+        onBlurCapture={event => { if (!event.currentTarget.contains(event.relatedTarget)) setFocused(false); }}
+        onTouchStart={event => { touchX.current = event.touches[0].clientX; }}
+        onTouchEnd={event => {
+          if (touchX.current !== null) {
+            const delta = event.changedTouches[0].clientX - touchX.current;
+            if (Math.abs(delta) > 50) select(index + (delta < 0 ? 1 : -1));
+          }
+          touchX.current = null;
+        }}>
+        <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-20">
+          {previous !== null && previous !== pending && <HeroPhoto key={previous} index={previous} />}
+          <HeroPhoto key={index} index={index} className={previous !== null ? "zendale-hero-enter" : ""} />
+          {pending !== null && <HeroPhoto key={pending} index={pending} className="invisible"
+            onLoad={() => {
+              if (request.current !== pending) return;
+              request.current = null;
+              setPrevious(index);
+              setIndex(pending);
+              setPending(null);
+            }}
+            onError={() => { if (request.current === pending) { request.current = null; setPending(null); setPaused(true); } }} />}
+        </div>
+        <div aria-hidden="true" className="zendale-hero-shade pointer-events-none absolute inset-0 -z-10" />
+        <div className="mx-auto flex w-full max-w-7xl flex-1 items-center px-5 py-12 sm:px-8 lg:py-16">
+          <div className="max-w-[41rem]">
+            <p className="eyebrow text-brass">Zendale Limited</p>
+            <h1 className="mt-5 max-w-[14ch] font-display text-[clamp(2.75rem,6vw,5.25rem)] font-medium leading-[1.04] text-white">One Partner. Complete Healthcare Solutions.</h1>
+            <p className="mt-5 max-w-lg text-base leading-relaxed text-white/90 sm:text-lg">Zendale brings together hospitals, diagnostics, specialist care, fertility services and healthcare support within one integrated healthcare ecosystem. One trusted partner for every healthcare need.</p>
+            <div className="mt-8 flex flex-wrap gap-3">
+              <Button to="/partnerships" variant="brass">Partner With Zendale</Button>
+              <Button to="/network" variant="light">Explore Our Healthcare Network</Button>
+            </div>
           </div>
         </div>
-        <figure className="min-w-0 overflow-hidden border border-white/15 bg-[#10233e]">
-          <div className="relative aspect-[16/10] w-full overflow-hidden">
-            {slides.map((item, i) => <div key={item.label} aria-hidden={i !== index} className={`absolute inset-0 transition-opacity duration-500 motion-reduce:transition-none ${i === index ? "visible opacity-100" : "invisible opacity-0"}`}>
-              {item.image ? <SmartImage src={item.image} alt={item.alt} eager fill className="h-full w-full" imgClassName={i === 2 ? "object-[center_52%]" : undefined} sizes="(min-width: 1280px) 620px, (min-width: 1024px) 50vw, 100vw" /> : <EcosystemHero />}
-            </div>)}
+        <div className="mx-auto flex w-full max-w-7xl flex-wrap items-center justify-between gap-x-6 gap-y-1 border-t border-white/30 px-5 py-3 sm:px-8">
+          <div className="min-h-10 content-center text-sm" aria-live={paused || focused ? "polite" : "off"}>
+            <span className="mr-2 text-white/75">Featured:</span><a href={place.path} className="font-medium text-white underline decoration-white/45 underline-offset-4">{place.name}</a>
           </div>
-          <figcaption className="grid bg-[#10233e] px-5 py-4 text-xs leading-relaxed text-porcelain/80">
-            {slides.map((item, i) => <span key={item.label} aria-hidden={i !== index} className={`hero-slot ${i === index ? "hero-slot-active" : "hero-slot-hidden"}`}>{item.caption}</span>)}
-          </figcaption>
-        </figure>
-      </div>
-      <div className="mx-auto flex max-w-7xl items-center justify-between gap-5 border-t border-porcelain/15 px-5 py-4 lg:px-8">
-        <div className="flex items-center gap-2" aria-label="Choose an introduction slide">
-          {slides.map((item, i) => <button key={item.label} type="button" onClick={() => select(i)} aria-label={`Show ${item.label}`} aria-current={i === index ? "true" : undefined} className="group flex h-11 w-10 items-center justify-center"><span className={`h-1 transition-all ${i === index ? "w-8 bg-brass" : "w-4 bg-white/35 group-hover:bg-white"}`} /></button>)}
-        </div>
-        <div className="flex gap-2">
-          <button type="button" onClick={() => select(index - 1)} aria-label="Previous introduction" className="h-11 w-11 border border-white/30 transition-colors hover:bg-white/10">←</button>
-          <button type="button" onClick={() => select(index + 1)} aria-label="Next introduction" className="h-11 w-11 border border-white/30 transition-colors hover:bg-white/10">→</button>
+          <div className="flex flex-wrap items-center gap-1 sm:gap-2" role="group" aria-label="Slideshow controls">
+            <button type="button" onClick={() => select(index - 1)} aria-label="Previous introduction" className="h-11 w-9 text-xl hover:bg-white/10">←</button>
+            {photographs.map((item, i) => <button key={item.image} type="button" onClick={() => select(i)} aria-label={`Show ${item.name}`} aria-current={i === index ? "true" : undefined} className="group flex h-11 w-6 items-center justify-center"><span className={`h-1 w-4 rounded-full ${i === index ? "bg-brass" : "bg-white/55 group-hover:bg-white"}`} /></button>)}
+            <button type="button" onClick={() => select(index + 1)} aria-label="Next introduction" className="h-11 w-9 text-xl hover:bg-white/10">→</button>
+            <button type="button" onClick={() => setPaused(value => !value)} aria-label={paused ? "Play slideshow" : "Pause slideshow"} className="h-11 w-9 hover:bg-white/10 motion-reduce:hidden">{paused ? "▶" : "Ⅱ"}</button>
+          </div>
         </div>
       </div>
     </section>

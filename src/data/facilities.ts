@@ -39,28 +39,26 @@ const existingFacilities: Facility[] = [
     url: "https://skyhighmedicalcentre.com/",
     image: "network-skyhigh.webp",
     imageAlt: "Clinical team at work inside Sky High Medical Centre",
-    logo: "/images/facility-logos/sky-high-medical-centre.webp",
-    logoAlt: "Sky High Medical Centre logo",
+
     location: "Magodo, Lagos",
   },
   {
-    id: "sky-high-icu",
+    id: "mainland-icu",
     code: "ZN-02",
-    name: "Sky High ICU / Dialysis Centre",
+    name: "Mainland ICU and Dialysis Centre",
     focus: "Critical care and dialysis",
     description:
-      "An extension of Sky High Medical Centre located within Mainland Hospital, Yaba, providing dialysis and intensive care for patients who require specialist monitoring and support.",
+      "Located within Mainland Hospital, Yaba, the centre provides dialysis and intensive care for patients who require specialist monitoring and support.",
     services: [
       "Dialysis services",
       "Intensive care",
       "Specialist monitoring and clinical support",
       "24-hour service availability",
     ],
-    url: "https://skyhighmedicalcentre.com/sky-high-dialysis/",
+    url: "https://www.mainlandhospitalicu.com/",
     image: "network-skyhigh-icu.webp",
-    imageAlt: "ICU monitoring equipment at the Sky High ICU and Dialysis Centre",
-    logo: "/images/facility-logos/sky-high-medical-centre.webp",
-    logoAlt: "Sky High Medical Centre logo",
+    imageAlt: "ICU monitoring equipment at the Mainland ICU and Dialysis Centre",
+
     location: "Mainland Hospital, Yaba, Lagos",
   },
   {
@@ -79,8 +77,7 @@ const existingFacilities: Facility[] = [
     url: "https://finnihmedicalcentre.com/",
     image: "network-finnih.webp",
     imageAlt: "Consultation room at Finnih Medical Centre",
-    logo: "/images/facility-logos/finnih-medical-centre.webp",
-    logoAlt: "Finnih Medical Centre logo",
+
     location: "Ikeja GRA, Lagos",
     profileNote:
       "This profile intentionally uses conservative service language pending a complete, approved facility information schedule.",
@@ -101,8 +98,7 @@ const existingFacilities: Facility[] = [
     url: "https://www.lifecentermedicals.com/",
     image: "network-lifecentre.webp",
     imageAlt: "Clinical assessment at LifeCentre Medical Services",
-    logo: "/images/facility-logos/lifecentre-medical-services.webp",
-    logoAlt: "LifeCentre Medical Services logo",
+
     location: "Multiple locations across Lagos",
   },
   {
@@ -121,8 +117,7 @@ const existingFacilities: Facility[] = [
     url: "https://www.ifmkindredpathfertilitycentre.com/",
     image: "network-kindredpath.webp",
     imageAlt: "Embryology laboratory at Kindred Path Fertility Centre",
-    logo: "/images/facility-logos/kindred-path-fertility-centre.webp",
-    logoAlt: "Kindred Path Fertility Centre symbol",
+
   },
   {
     id: "zendale-endoscopy",
@@ -140,8 +135,7 @@ const existingFacilities: Facility[] = [
     url: "https://zendaleendoscopy.com/",
     image: "network-endoscopy.webp",
     imageAlt: "Endoscopy suite at the Zendale Endoscopy Centre",
-    logo: "/images/facility-logos/zendale-endoscopy-centre.webp",
-    logoAlt: "Zendale Endoscopy LASUTH logo",
+
     location: "Ayinke House, LASUTH, Lagos",
   },
   {
@@ -160,8 +154,7 @@ const existingFacilities: Facility[] = [
     url: "https://www.lifecentermedsupport.com/",
     image: "network-medsupport.webp",
     imageAlt: "Biomedical equipment support operations at LifeCentre Med Support",
-    logo: "/images/facility-logos/lifecentre-med-support.webp",
-    logoAlt: "LifeCentre Med Support logo",
+
     location: "Opebi, Ikeja, Lagos",
   },
   {
@@ -193,7 +186,7 @@ const visualUpdates: Record<string, Partial<Facility>> = {
   "sky-high": {
     "image": "real/team-skyhigh-oct2026.webp",
     "imageAlt": "SkyHigh Medical Centre team outside the facility",
-    "logo": "/images/real/logo-skyhigh-medical-centre.webp",
+
     "gallery": [
       {
         "src": "real/skyhigh-medical-centre-10.webp",
@@ -237,53 +230,53 @@ const visualUpdates: Record<string, Partial<Facility>> = {
       }
     ]
   },
-  "sky-high-icu": {
+  "mainland-icu": {
     "image": "real/skyhigh-icu-and-dialysis-centre-5.webp",
-    "imageAlt": "Dialysis machines and treatment chairs at Sky High ICU and Dialysis Centre",
-    "logo": "/images/real/logo-dialysis-and-icu-centre-original-colour.webp",
+    "imageAlt": "Dialysis machines and treatment chairs at Mainland ICU and Dialysis Centre",
+
     "gallery": [
       {
         "src": "real/skyhigh-icu-and-dialysis-centre-9.webp",
-        "alt": "SkyHigh ICU and Dialysis Centre \u2014 facility view 9"
+        "alt": "Mainland ICU and Dialysis Centre \u2014 facility view 9"
       },
       {
         "src": "real/skyhigh-icu-and-dialysis-centre-8.webp",
-        "alt": "SkyHigh ICU and Dialysis Centre \u2014 facility view 8"
+        "alt": "Mainland ICU and Dialysis Centre \u2014 facility view 8"
       },
       {
         "src": "real/skyhigh-icu-and-dialysis-centre-7.webp",
-        "alt": "SkyHigh ICU and Dialysis Centre \u2014 facility view 7"
+        "alt": "Mainland ICU and Dialysis Centre \u2014 facility view 7"
       },
       {
         "src": "real/skyhigh-icu-and-dialysis-centre-5.webp",
-        "alt": "SkyHigh ICU and Dialysis Centre \u2014 facility view 5"
+        "alt": "Mainland ICU and Dialysis Centre \u2014 facility view 5"
       },
       {
         "src": "real/skyhigh-icu-and-dialysis-centre-6.webp",
-        "alt": "SkyHigh ICU and Dialysis Centre \u2014 facility view 6"
+        "alt": "Mainland ICU and Dialysis Centre \u2014 facility view 6"
       },
       {
         "src": "real/skyhigh-icu-and-dialysis-centre-4.webp",
-        "alt": "SkyHigh ICU and Dialysis Centre \u2014 facility view 4"
+        "alt": "Mainland ICU and Dialysis Centre \u2014 facility view 4"
       },
       {
         "src": "real/skyhigh-icu-and-dialysis-centre-3.webp",
-        "alt": "SkyHigh ICU and Dialysis Centre \u2014 facility view 3"
+        "alt": "Mainland ICU and Dialysis Centre \u2014 facility view 3"
       },
       {
         "src": "real/skyhigh-icu-and-dialysis-centre-2.webp",
-        "alt": "SkyHigh ICU and Dialysis Centre \u2014 facility view 2"
+        "alt": "Mainland ICU and Dialysis Centre \u2014 facility view 2"
       },
       {
         "src": "real/skyhigh-icu-and-dialysis-centre-1.webp",
-        "alt": "SkyHigh ICU and Dialysis Centre \u2014 facility view 1"
+        "alt": "Mainland ICU and Dialysis Centre \u2014 facility view 1"
       }
     ]
   },
   "lifecentre": {
     "image": "real/life-centre-medicals-1.webp",
     "imageAlt": "Exterior of Life Centre Medicals",
-    "logo": "/images/real/logo-life-centre-medicals.webp",
+
     "gallery": [
       {
         "src": "real/life-centre-medicals-6.webp",
@@ -314,7 +307,7 @@ const visualUpdates: Record<string, Partial<Facility>> = {
   "kindred-path": {
     "image": "real/kindred-path-1.webp",
     "imageAlt": "Kindred Path Fertility Centre team",
-    "logo": "/images/real/logo-kindredpath-logo.webp",
+
     "gallery": [
       {
         "src": "real/kindred-path-1.webp",
@@ -337,7 +330,7 @@ const visualUpdates: Record<string, Partial<Facility>> = {
   "zendale-endoscopy": {
     "image": "real/team-endoscopy-oct2026.webp",
     "imageAlt": "The Zendale Endoscopy Centre team at LASUTH",
-    "logo": "/images/real/logo-zendale-endoscopy-lasuth.webp",
+
     "gallery": [
       {
         "src": "real/endoscopy-suite-oct2026.webp",
@@ -372,7 +365,7 @@ const visualUpdates: Record<string, Partial<Facility>> = {
   "finnih": {
     "image": "real/team-finnih-oct2026.webp",
     "imageAlt": "Finnih Medical Centre team outside the facility",
-    "logo": "/images/real/logo-finnih-medical-centre-true-transparent.webp",
+
     "gallery": [
       {
         "src": "real/finnnih-medical-centre-staff-portrait-1.webp",
@@ -383,13 +376,13 @@ const visualUpdates: Record<string, Partial<Facility>> = {
   "lifecentre-support": {
     "image": "medtech-hero.webp",
     "imageAlt": "Representative biomedical equipment maintenance",
-    "logo": "/images/real/logo-life-centre-medical-logo.webp",
+
     "logoOnly": false
   },
   "vhelar": {
     "image": "network-vhelar.webp",
     "imageAlt": "Representative healthcare advisory discussion",
-    "logo": "/images/real/logo-vhelar-consulting-corporate-logo.webp",
+
     "logoOnly": false
   }
 };
@@ -412,7 +405,7 @@ export const facilities: Facility[] = [
     "url": "https://www.zendaleconsulting.com/",
     "image": "consulting-hero.webp",
     "imageAlt": "Representative healthcare consulting presentation",
-    "logo": "/images/real/logo-zendale-consulting.webp",
+
     "logoOnly": false
   },
   {
@@ -431,8 +424,8 @@ export const facilities: Facility[] = [
     "internal": "/supply-quote",
     "image": "service-central-store.webp",
     "imageAlt": "Representative bulk pharmaceutical supply illustration",
-    "logo": "/images/real/logo-zendale-central-store.webp",
+
     "logoOnly": false
   }
 ]
-];
+].map(facility => ({ ...facility, logo: `/images/network-brand/${facility.id}.webp`, logoAlt: `${facility.name} logo` }));
