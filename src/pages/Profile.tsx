@@ -7,6 +7,26 @@ import { FacilityLogo } from "../components/FacilityLogo";
 import { facilities, facilityProfilePath } from "../data/facilities";
 import { pillars } from "../data/pillars";
 
+const profileFacilityOrder = [
+  "finnih",
+  "sky-high",
+  "lifecentre",
+  "mainland-icu",
+  "kindred-path",
+  "zendale-endoscopy",
+  "lifecentre-support",
+  "vhelar",
+  "zendale-consulting",
+  "zendale-central-store",
+];
+const profileFacilities = [...facilities].sort((a, b) => {
+  const rank = (id: string) => {
+    const index = profileFacilityOrder.indexOf(id);
+    return index < 0 ? profileFacilityOrder.length : index;
+  };
+  return rank(a.id) - rank(b.id);
+});
+
 const symbols: Record<string, string> = {
   lattice: "M3 21h18M6 21V8h12v13M9 8V3h6v5m-3-4v3m-1.5-1.5h3M9 12h1m4 0h1m-6 4h1m4 0h1m-4 5v-3h2v3",
   briefcase: "M12 12a3 3 0 1 0 0-6 3 3 0 0 0 0 6ZM5 20v-2a4 4 0 0 1 4-4h6a4 4 0 0 1 4 4v2H5Zm-1-8a2 2 0 1 0 0-4m16 4a2 2 0 0 0 0-4M1 18v-2a3 3 0 0 1 3-3m19 5v-2a3 3 0 0 0-3-3",
@@ -141,7 +161,7 @@ export default function Profile() {
         <h2 id="profile-network" className="font-display text-3xl text-ink sm:text-4xl">A Growing Healthcare Network</h2>
         <p className="mt-2 text-carbon/85">A coordinated network of healthcare institutions and specialist centres.</p>
         <ul className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5">
-          {facilities.map(facility => <li key={facility.id}><Link to={facilityProfilePath(facility.id)} aria-label={facility.name} className="flex h-28 items-center justify-center rounded-xl border border-ink/15 bg-white/60 p-4 hover:border-steel hover:bg-white">
+          {profileFacilities.map(facility => <li key={facility.id}><Link to={facilityProfilePath(facility.id)} aria-label={facility.name} className="flex h-28 items-center justify-center rounded-xl border border-ink/15 bg-white/60 p-4 hover:border-steel hover:bg-white">
             <FacilityLogo src={facility.logo!} alt={facility.name} sizes="170px" className="max-h-full max-w-full object-contain" />
           </Link></li>)}
         </ul>

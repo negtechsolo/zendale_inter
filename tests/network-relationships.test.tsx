@@ -44,9 +44,9 @@ it("loads the next facility image before switching and keeps the main message st
     expect(host.querySelector("h1")).toBe(title);
     act(() => host.querySelector<HTMLButtonElement>('button[aria-label="Next introduction"]')!.click());
     await act(async () => {
-      host.querySelector('img[src="/images/home-hero/mainland.webp"]')!.dispatchEvent(new Event("load"));
+      host.querySelector('img[src="/images/home-hero/kindred.webp"]')!.dispatchEvent(new Event("load"));
     });
-    expect(host.querySelector('a[href="/network/mainland-icu"]')?.textContent).toBe("Mainland ICU and Dialysis Centre");
+    expect(host.querySelector('a[href="/network/kindred-path"]')?.textContent).toBe("Kindred Path Fertility Centre");
   } finally {
     act(() => root.unmount());
     vi.useRealTimers();

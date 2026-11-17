@@ -5,12 +5,10 @@ import { imageMeta, srcSetFor } from "../lib/imageMeta";
 import { facilities, facilityProfilePath } from "../data/facilities";
 
 const photographs = [
-  ["finnih", "finnih", "50% 48%"],
+  ["finnih", "finnih", "50% 70%"],
   ["sky-high", "skyhigh", "50% 66%"],
-  ["mainland-icu", "mainland", "62% 48%"],
-  ["lifecentre", "lifecentre", "60% 47%"],
-  ["kindred-path", "kindred", "58% 43%"],
-  ["zendale-endoscopy", "endoscopy", "50% 39%"],
+  ["kindred-path", "kindred", "50% 43%"],
+  ["zendale-endoscopy", "endoscopy", "50% 46%"],
 ].map(([id, file, focalPoint]) => {
   const facility = facilities.find(item => item.id === id)!;
   return { name: facility.name, path: facilityProfilePath(id), image: `home-hero/${file}.webp`, focalPoint };
@@ -24,7 +22,7 @@ function HeroPhoto({ index, className = "", onLoad, onError }: {
   return <img src={`/images/${image}`} srcSet={srcSetFor(image) || undefined} sizes="100vw"
     width={meta?.w} height={meta?.h} alt="" draggable={false} decoding="async"
     {...(!onLoad ? { fetchpriority: "high" } : {})}
-    className={`absolute inset-0 h-full w-full object-cover ${className}`} style={{ objectPosition: focalPoint }}
+    className={`absolute inset-0 h-full w-full object-contain lg:object-cover ${className}`} style={{ objectPosition: focalPoint }}
     onLoad={event => { const img = event.currentTarget; if (onLoad) void (img.decode?.() ?? Promise.resolve()).catch(() => {}).then(onLoad); }}
     onError={onError} />;
 }
@@ -63,7 +61,7 @@ export function HomeHero() {
 
   return (
     <section className="bg-ink pt-16 text-porcelain lg:pt-20" aria-roledescription="carousel" aria-label="Zendale healthcare network photographs">
-      <div className="relative isolate flex min-h-[min(42rem,86svh)] flex-col justify-end overflow-hidden bg-ink lg:min-h-[min(46rem,calc(100svh-5rem))]"
+      <div className="zendale-hero relative isolate flex flex-col overflow-hidden bg-ink"
         onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)}
         onFocusCapture={() => setFocused(true)}
         onBlurCapture={event => { if (!event.currentTarget.contains(event.relatedTarget)) setFocused(false); }}
@@ -75,7 +73,7 @@ export function HomeHero() {
           }
           touchX.current = null;
         }}>
-        <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-20">
+        <div aria-hidden="true" className="pointer-events-none relative aspect-[8/5] shrink-0 lg:absolute lg:inset-0 lg:-z-20">
           {previous !== null && previous !== pending && <HeroPhoto key={previous} index={previous} />}
           <HeroPhoto key={index} index={index} className={previous !== null ? "zendale-hero-enter" : ""} />
           {pending !== null && <HeroPhoto key={pending} index={pending} className="invisible"
@@ -89,18 +87,18 @@ export function HomeHero() {
             onError={() => { if (request.current === pending) { request.current = null; setPending(null); setPaused(true); } }} />}
         </div>
         <div aria-hidden="true" className="zendale-hero-shade pointer-events-none absolute inset-0 -z-10" />
-        <div className="mx-auto flex w-full max-w-7xl flex-1 items-center px-5 py-12 sm:px-8 lg:py-16">
-          <div className="max-w-[41rem]">
+        <div className="zendale-hero-copy mx-auto flex w-full max-w-7xl flex-1 items-center px-5 py-6 sm:px-8 sm:py-8">
+          <div className="max-w-[44rem]">
             <p className="eyebrow text-brass">Zendale Limited</p>
-            <h1 className="mt-5 max-w-[14ch] font-display text-[clamp(2.75rem,6vw,5.25rem)] font-medium leading-[1.04] text-white">One Partner. Complete Healthcare Solutions.</h1>
-            <p className="mt-5 max-w-lg text-base leading-relaxed text-white/90 sm:text-lg">Zendale brings together hospitals, diagnostics, specialist care, fertility services and healthcare support within one integrated healthcare ecosystem. One trusted partner for every healthcare need.</p>
-            <div className="mt-8 flex flex-wrap gap-3">
+            <h1 className="zendale-hero-title mt-3 font-display font-medium leading-[1.07] text-white">One Partner. Complete Healthcare Solutions.</h1>
+            <p className="mt-4 max-w-[38rem] text-base leading-relaxed text-white/90">Zendale brings together hospitals, diagnostics, specialist care, fertility services and healthcare support within one integrated healthcare ecosystem. One trusted partner for every healthcare need.</p>
+            <div className="mt-5 flex flex-wrap gap-3">
               <Button to="/partnerships" variant="brass">Partner With Zendale</Button>
               <Button to="/network" variant="light">Explore Our Healthcare Network</Button>
             </div>
           </div>
         </div>
-        <div className="mx-auto flex w-full max-w-7xl flex-wrap items-center justify-between gap-x-6 gap-y-1 border-t border-white/30 px-5 py-3 sm:px-8">
+        <div className="mx-auto flex w-full max-w-7xl flex-wrap items-center justify-between gap-x-6 gap-y-1 border-t border-white/30 px-5 py-1 sm:px-8">
           <div className="min-h-10 content-center text-sm" aria-live={paused || focused ? "polite" : "off"}>
             <span className="mr-2 text-white/75">Featured:</span><a href={place.path} className="font-medium text-white underline decoration-white/45 underline-offset-4">{place.name}</a>
           </div>

@@ -295,12 +295,21 @@ body {
     linear-gradient(0deg, rgb(8 24 43 / .96), transparent 45%);
 }
 .zendale-hero-enter { animation: hero-appear 650ms ease-out both; }
-@media (max-width: 639px) {
-  .zendale-hero-shade { background: linear-gradient(90deg, rgb(8 24 43 / .87), rgb(8 24 43 / .45)), linear-gradient(0deg, rgb(8 24 43 / .96), transparent 70%); }
+@media (max-width: 1023px) {
+  .zendale-hero-shade { display: none; }
 }
 @media (prefers-reduced-motion: reduce) { .zendale-hero-enter { animation: none; } }
 
 @media (min-width: 1024px) {
   .profile-hero-photo { clip-path: polygon(17% 0, 100% 0, 100% 100%, 0 100%); padding-left: 4px; }
   .profile-hero-photo > .img-frame { clip-path: polygon(17% 0, 100% 0, 100% 100%, 0 100%); }
+}
+
+.zendale-hero-title { font-size: clamp(2.25rem, 4.1vw, 4rem); }
+@media (min-width: 1024px) {
+  .zendale-hero { min-height: min(40rem, calc(100svh - 5rem)); }
+}
+@media (min-width: 1024px) and (max-height: 730px) {
+  .zendale-hero-title { font-size: clamp(2rem, 6.6svh, 3.25rem); }
+  .zendale-hero-copy { padding-block: 1.25rem; }
 }
