@@ -35,7 +35,7 @@ it("loads the next facility image before switching and keeps the main message st
     expect(title?.textContent).toBe("One Partner. Complete Healthcare Solutions.");
     expect(host.querySelectorAll("img")).toHaveLength(1);
     expect(host.querySelector('a[href="/network/finnih"]')).not.toBeNull();
-    act(() => vi.advanceTimersByTime(6500));
+    act(() => vi.advanceTimersByTime(4000));
     expect(host.querySelector('a[href="/network/finnih"]')).not.toBeNull();
     await act(async () => {
       host.querySelector('img[src="/images/home-hero/skyhigh.webp"]')!.dispatchEvent(new Event("load"));

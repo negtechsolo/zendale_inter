@@ -150,15 +150,40 @@ export function LeadGateForm({ itemLabel, submitLabel, onComplete, dark, idPrefi
   const [org, setOrg] = useState("");
   const [errors, setErrors] = useState<{ name?: string; email?: string; org?: string }>({});
 
-  function submit(e: FormEvent) {
+  const [sending, setSending] = useState(false);
+  const [deliveryError, setDeliveryError] = useState("");
+
+  async function submit(e: FormEvent) {
     e.preventDefault();
+    if (sending) return;
     const next: typeof errors = {};
-    if (name.trim().length < 2) next.name = "Enter your full name so we know who we're sending this to.";
+    if (name.trim().length < 2) next.name = "Enter your full name.";
     if (!isEmail(email)) next.email = `Enter a valid email address because that is where ${itemLabel} will be sent.`;
     if (org.trim().length < 2) next.org = "Tell us your organisation (or 'Individual' if this is personal).";
     setErrors(next);
     if (Object.keys(next).length) return;
-    onComplete({ name: name.trim(), email: email.trim(), organisation: org.trim() });
+    const lead = { name: name.trim(), email: email.trim(), organisation: org.trim() };
+    setSending(true);
+    setDeliveryError("");
+    try {
+      const result = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: lead.name, email: lead.email, subject: "Resource request",
+          message: `Requested resource: ${itemLabel}\nOrganisation: ${lead.organisation}`,
+          page: window.location.pathname,
+        }),
+        signal: AbortSignal.timeout(15000),
+      });
+      if (!result.ok || !(await result.json()).ok) throw new Error("Request failed");
+    } catch {
+      setDeliveryError("We couldn’t submit your request. Please try again or email info@zendalelimited.com.");
+      return;
+    } finally {
+      setSending(false);
+    }
+    onComplete(lead);
   }
 
   return (
@@ -166,13 +191,15 @@ export function LeadGateForm({ itemLabel, submitLabel, onComplete, dark, idPrefi
       <TextField id={`${idPrefix}-name`} label="Full name" value={name} onChange={setName} error={errors.name} dark={dark} autoComplete="name" placeholder="Adaeze Okonkwo" />
       <TextField id={`${idPrefix}-email`} label="Work email" value={email} onChange={setEmail} type="email" error={errors.email} dark={dark} autoComplete="email" placeholder="you@organisation.com" />
       <TextField id={`${idPrefix}-org`} label="Organisation" value={org} onChange={setOrg} error={errors.org} dark={dark} autoComplete="organization" placeholder="Your hospital, HMO or company" />
+      {deliveryError && <p role="alert" className="text-sm">{deliveryError}</p>}
       <button
         type="submit"
+        disabled={sending}
         className={`mt-1 inline-flex items-center justify-center px-6 py-3 text-sm font-medium transition-colors ${
           dark ? "bg-brass text-ink hover:bg-[#b98a49]" : "bg-steel text-porcelain hover:bg-[#3d5d8c]"
         }`}
       >
-        {submitLabel}
+        {sending ? "Submitting…" : submitLabel}
       </button>
     </form>
   );

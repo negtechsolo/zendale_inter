@@ -1,3 +1,5 @@
+import { mailRecipients } from "../server/mail-recipients.js";
+
 interface RequestLike {
   method?: string;
   body?: unknown;
@@ -156,7 +158,7 @@ export default async function handler(req: RequestLike, res: ResponseLike) {
       },
       body: JSON.stringify({
         from,
-        to: [RECIPIENT],
+        to: mailRecipients(RECIPIENT, process.env.CONTACT_TO),
         reply_to: email,
         subject: "[Central Store] Supply quote request",
         text: message,

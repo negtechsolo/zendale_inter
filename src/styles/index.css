@@ -291,8 +291,8 @@ body {
 .hero-slot-active { visibility: visible; opacity: 1; }
 
 .zendale-hero-shade {
-  background: linear-gradient(90deg, rgb(8 24 43 / .95), rgb(8 24 43 / .76) 40%, rgb(8 24 43 / .12) 100%),
-    linear-gradient(0deg, rgb(8 24 43 / .96), transparent 45%);
+  background: linear-gradient(90deg, rgb(8 24 43 / .95), rgb(8 24 43 / .70) 39%, rgb(8 24 43 / .08) 70%, transparent 100%),
+    linear-gradient(0deg, rgb(8 24 43 / .88), transparent 26%);
 }
 .zendale-hero-enter { animation: hero-appear 650ms ease-out both; }
 @media (max-width: 1023px) {

@@ -1,3 +1,5 @@
+import { mailRecipients } from "../server/mail-recipients.js";
+
 import { createHash } from "node:crypto";
 
 interface RequestLike {
@@ -66,7 +68,7 @@ export default async function handler(req: RequestLike, res: ResponseLike) {
 
   const key = process.env.RESEND_API_KEY?.trim();
   const from = process.env.CONTACT_FROM?.trim();
-  const leadsTo = process.env.PROFILE_LEADS_TO?.trim();
+  const leadsTo = mailRecipients(process.env.CONTACT_TO, process.env.PROFILE_LEADS_TO);
   let pdfUrl: URL;
   try {
     pdfUrl = new URL(process.env.PROFILE_PDF_URL ?? "");
@@ -74,7 +76,7 @@ export default async function handler(req: RequestLike, res: ResponseLike) {
   } catch {
     return res.status(503).json({ error: unavailable });
   }
-  if (!key || !from || (leadsTo && !isEmail(leadsTo))) return res.status(503).json({ error: unavailable });
+  if (!key || !from) return res.status(503).json({ error: unavailable });
 
   // Local burst protection complements the provider's idempotency and limits.
   // Vercel supplies x-vercel-forwarded-for on the server, never via form data.
@@ -114,10 +116,10 @@ export default async function handler(req: RequestLike, res: ResponseLike) {
     return res.status(502).json({ error: "We couldn’t send the company profile. Please try again in a moment." });
   }
 
-  if (leadsTo) {
+  if (leadsTo.length) {
     try {
       await send({
-        to: [leadsTo],
+        to: leadsTo,
         reply_to: email,
         subject: "[Zendale] Company profile request",
         text: `A visitor requested the company profile.\n\nFull name: ${name}\nWork email: ${email}\nPhone: ${phone}\nOrganisation: ${organisation || "Not supplied"}`,

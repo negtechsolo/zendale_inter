@@ -5,10 +5,10 @@ import { imageMeta, srcSetFor } from "../lib/imageMeta";
 import { facilities, facilityProfilePath } from "../data/facilities";
 
 const photographs = [
-  ["finnih", "finnih", "50% 70%"],
-  ["sky-high", "skyhigh", "50% 66%"],
+  ["finnih", "finnih", "50% 100%"],
+  ["sky-high", "skyhigh", "50% 83%"],
   ["kindred-path", "kindred", "50% 43%"],
-  ["zendale-endoscopy", "endoscopy", "50% 46%"],
+  ["zendale-endoscopy", "endoscopy", "50% 65%"],
 ].map(([id, file, focalPoint]) => {
   const facility = facilities.find(item => item.id === id)!;
   return { name: facility.name, path: facilityProfilePath(id), image: `home-hero/${file}.webp`, focalPoint };
@@ -33,7 +33,6 @@ export function HomeHero() {
   const [pending, setPending] = useState<number | null>(null);
   const [hovered, setHovered] = useState(false);
   const [focused, setFocused] = useState(false);
-  const [paused, setPaused] = useState(false);
   const reduced = usePrefersReducedMotion();
   const touchX = useRef<number | null>(null);
   const request = useRef<number | null>(null);
@@ -44,14 +43,14 @@ export function HomeHero() {
     setPending(request.current);
   };
   useEffect(() => {
-    if (paused || reduced || hovered || focused || pending !== null) return;
+    if (reduced || hovered || focused || pending !== null) return;
     const timeout = window.setTimeout(() => {
       const next = (index + 1) % photographs.length;
       request.current = next;
       setPending(next);
-    }, 6500);
+    }, 4000);
     return () => window.clearTimeout(timeout);
-  }, [index, paused, reduced, hovered, focused, pending]);
+  }, [index, reduced, hovered, focused, pending]);
   useEffect(() => {
     if (previous === null) return;
     const timeout = window.setTimeout(() => setPrevious(null), 720);
@@ -84,7 +83,7 @@ export function HomeHero() {
               setIndex(pending);
               setPending(null);
             }}
-            onError={() => { if (request.current === pending) { request.current = null; setPending(null); setPaused(true); } }} />}
+            onError={() => { if (request.current === pending) { request.current = null; setPending(null); } }} />}
         </div>
         <div aria-hidden="true" className="zendale-hero-shade pointer-events-none absolute inset-0 -z-10" />
         <div className="zendale-hero-copy mx-auto flex w-full max-w-7xl flex-1 items-center px-5 py-6 sm:px-8 sm:py-8">
@@ -99,14 +98,13 @@ export function HomeHero() {
           </div>
         </div>
         <div className="mx-auto flex w-full max-w-7xl flex-wrap items-center justify-between gap-x-6 gap-y-1 border-t border-white/30 px-5 py-1 sm:px-8">
-          <div className="min-h-10 content-center text-sm" aria-live={paused || focused ? "polite" : "off"}>
+          <div className="min-h-10 content-center text-sm" aria-live={focused ? "polite" : "off"}>
             <span className="mr-2 text-white/75">Featured:</span><a href={place.path} className="font-medium text-white underline decoration-white/45 underline-offset-4">{place.name}</a>
           </div>
           <div className="flex flex-wrap items-center gap-1 sm:gap-2" role="group" aria-label="Slideshow controls">
             <button type="button" onClick={() => select(index - 1)} aria-label="Previous introduction" className="h-11 w-9 text-xl hover:bg-white/10">←</button>
             {photographs.map((item, i) => <button key={item.image} type="button" onClick={() => select(i)} aria-label={`Show ${item.name}`} aria-current={i === index ? "true" : undefined} className="group flex h-11 w-6 items-center justify-center"><span className={`h-1 w-4 rounded-full ${i === index ? "bg-brass" : "bg-white/55 group-hover:bg-white"}`} /></button>)}
             <button type="button" onClick={() => select(index + 1)} aria-label="Next introduction" className="h-11 w-9 text-xl hover:bg-white/10">→</button>
-            <button type="button" onClick={() => setPaused(value => !value)} aria-label={paused ? "Play slideshow" : "Pause slideshow"} className="h-11 w-9 hover:bg-white/10 motion-reduce:hidden">{paused ? "▶" : "Ⅱ"}</button>
           </div>
         </div>
       </div>

@@ -1,3 +1,5 @@
+import { mailRecipients } from "../server/mail-recipients.js";
+
 /**
  * Contact endpoint for the site's message widget.
  *
@@ -43,10 +45,10 @@ export default async function handler(req: RequestLike, res: ResponseLike) {
   }
 
   const apiKey = process.env.RESEND_API_KEY;
-  const to = process.env.CONTACT_TO;
+  const to = mailRecipients(process.env.CONTACT_TO);
   const from = process.env.CONTACT_FROM;
 
-  if (!apiKey || !to || !from) {
+  if (!apiKey || !to.length || !from) {
     // Not an error: the widget handles this by using the visitor's mail client.
     res.status(501).json({ error: "Mail delivery is not configured" });
     return;
@@ -91,7 +93,7 @@ export default async function handler(req: RequestLike, res: ResponseLike) {
     // 1. The notification. This one matters — if it fails, the enquiry is lost.
     const notification = await send({
       from,
-      to: [to],
+      to,
       reply_to: email,
       subject: `[Website] ${subject} — ${name}`,
       html,
@@ -108,7 +110,7 @@ export default async function handler(req: RequestLike, res: ResponseLike) {
         await send({
           from,
           to: [email],
-          reply_to: to,
+          reply_to: to[0],
           subject: "We have your message — Zendale Limited",
           html: confirmationHtml({ name, subject, message }),
         });
